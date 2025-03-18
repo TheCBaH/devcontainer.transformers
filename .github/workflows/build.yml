@@ -19,21 +19,9 @@ jobs:
     - name: setup
       run: |
         echo 'EXEC=${{ steps.devcontainer.outputs.exec }}' >> $GITHUB_ENV
-    - name: Cache Models
-      id: cache-models
-      uses: actions/cache@v4
-      with:
-        path: .cache
-        key: ${{ hashFiles('Makefile') }}-models
-    - name: cache
+    - name: cpu
       run: |
-        mkdir -p .cache
-        ${{ env.EXEC }} sh -ceux 'mkdir -p ~/.cache'
-        ${{ env.EXEC }} sh -ceux 'mv .cache ~/.cache/huggingface'
-    - name: chat
+        ${{ env.EXEC }} make cpu
+    - name: cuda
       run: |
-        ${{ env.EXEC }} make chat
-    - name: cache-save
-      run: |
-        rm -rf .cache
-        ${{ env.EXEC }} sh -ceux 'mv -v ~/.cache/huggingface .cache'
+        ${{ env.EXEC }} make cuda
