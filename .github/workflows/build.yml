@@ -27,7 +27,6 @@ jobs:
         key: ${{ hashFiles('Makefile') }}-models
     - name: cache
       run: |
-        set -eux
         mkdir -p .cache
         ${{ env.EXEC }} sh -ceux 'mkdir -p ~/.cache'
         ${{ env.EXEC }} sh -ceux 'mv .cache ~/.cache/huggingface'
@@ -37,4 +36,4 @@ jobs:
     - name: cache-save
       run: |
         rm -rf .cache
-        ${{ env.EXEC }} sh -ceux 'mv ~/.cache/huggingface .cache'
+        ${{ env.EXEC }} sh -ceux 'mv -v ~/.cache/huggingface .cache'
