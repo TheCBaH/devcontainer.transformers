@@ -27,13 +27,14 @@ jobs:
         key: ${{ hashFiles('Makefile') }}-models
     - name: cache
       run: |
+        set -eux
         mkdir -p .cache
-        ${{ env.EXEC }} mkdir -p ~/.cache
-        ${{ env.EXEC }} mv .cache ~/.cache/huggingface
+        ${{ env.EXEC }} sh -ceux 'mkdir -p ~/.cache'
+        ${{ env.EXEC }} sh -ceux 'mv .cache ~/.cache/huggingface'
     - name: chat
       run: |
         ${{ env.EXEC }} make chat
     - name: cache-save
       run: |
         rm -rf .cache
-        ${{ env.EXEC }} mv ~/.cache/huggingface .cache
+        ${{ env.EXEC }} sh -ceux 'mv ~/.cache/huggingface .cache'
