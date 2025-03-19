@@ -6,6 +6,7 @@ RUN set -eux;\
   ca-certificates\
   curl\
   git\
+  make\
   python3-pip\
   wget\
   xz-utils\
