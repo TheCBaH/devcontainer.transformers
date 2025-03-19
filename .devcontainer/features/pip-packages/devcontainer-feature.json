@@ -1,8 +1,8 @@
 {
-    "name": "APT Packages",
-    "id": "apt-packages",
+    "name": "PIP Packages",
+    "id": "pip-packages",
     "version": "0.0.1",
-    "description": "Install apt packages",
+    "description": "Install python pip packages",
     "options": {
         "packages": {
             "type": "string",
