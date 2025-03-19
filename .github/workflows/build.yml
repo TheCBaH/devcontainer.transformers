@@ -23,11 +23,8 @@ jobs:
       id: cache-models
       uses: actions/cache@v4
       with:
-        path: ~/.cache/llama.cpp
+        path: ~/.cache/huggingface/
         key: ${{ hashFiles('Makefile') }}-models
-    - name: cpu
+    - name: chat
       run: |
-        ${{ env.EXEC }} make cpu
-    - name: cuda
-      run: |
-        ${{ env.EXEC }} make cuda
+        ${{ env.EXEC }} make chat

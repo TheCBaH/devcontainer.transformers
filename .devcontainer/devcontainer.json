@@ -12,19 +12,12 @@
             "userGid": "1000",
             "upgradePackages": "false"
         },
-        "ghcr.io/devcontainers/features/nvidia-cuda:1": {
-            "installToolkit": "true"
-        },
-        "./features/apt-packages": {
-            "packages": "libcurl4-openssl-dev"
+        "./features/pip-packages": {
+            "packages": "transformers torch rich accelerate"
         },
     },
     "hostRequirements": {
         "gpu": "optional"
     },
-    "remoteUser": "vscode",
-    "postCreateCommand": {
-        "submodules": "git submodule update --recursive --init --depth=1"
-    },
-    "waitFor": "postCreateCommand"
+    "remoteUser": "vscode"
 }
