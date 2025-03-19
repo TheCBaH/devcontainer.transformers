@@ -34,5 +34,6 @@ jobs:
       run: |
         ${{ env.EXEC }} make chat
     - name: cache-save
+      run: |
         rm -rf .cache
         ${{ env.EXEC }} mv ~/.cache/huggingface .cache
