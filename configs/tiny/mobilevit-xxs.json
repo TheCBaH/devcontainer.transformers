@@ -1,0 +1,20 @@
+{
+  "hidden_sizes": [
+    64,
+    80,
+    96
+  ],
+  "neck_hidden_sizes": [
+    16,
+    16,
+    24,
+    48,
+    64,
+    80,
+    320
+  ],
+  "num_attention_heads": 4,
+  "expand_ratio": 2.0,
+  "patch_size": 2,
+  "num_labels": 1000
+}

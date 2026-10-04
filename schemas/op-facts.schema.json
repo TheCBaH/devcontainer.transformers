@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thecbah.github.io/devcontainer.transformers/schemas/op-facts.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "graph_sha256",
+    "dialect",
+    "counts",
+    "ops"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "graph_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "dialect": {
+      "const": "functional"
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "ops": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object"
+          },
+          {
+            "type": "integer",
+            "minimum": 1
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,21 +1,15 @@
 name: images
-
 on:
   push:
-    branches:
-      - '**'
-
+    branches: ['**']
+permissions:
+  contents: read
+  packages: write
 jobs:
   devcontainer:
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
+    runs-on: ubuntu-24.04-arm
     steps:
-    - name: checkout
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: image
-      uses: TheCBaH/devcontainer-action/devcontainer@v1
-      with:
-        password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v7.0.1
+      - uses: TheCBaH/devcontainer-action/devcontainer@v1
+        with:
+          password: ${{ secrets.GITHUB_TOKEN }}

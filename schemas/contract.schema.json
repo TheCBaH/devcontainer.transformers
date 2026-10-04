@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thecbah.github.io/devcontainer.transformers/schemas/contract.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "model_id",
+    "population",
+    "model_class",
+    "config_sha256",
+    "recipe_sha256",
+    "producer",
+    "exporter",
+    "dialect",
+    "graph_sha256",
+    "inputs",
+    "outputs",
+    "call",
+    "dynamic_constraints",
+    "mutations",
+    "load_dependencies",
+    "verified_cases",
+    "tolerances",
+    "files"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+/[a-z0-9-]+/(tiny|reference)/forward/(fp32|fp16|bf16)/(dynamo|direct|autocast)/(static|dynamic)$"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "population": {
+      "enum": [
+        "tiny",
+        "reference"
+      ]
+    },
+    "model_class": {
+      "type": "string"
+    },
+    "config_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "recipe_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "graph_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "producer": {
+      "type": "object",
+      "required": [
+        "versions",
+        "architecture",
+        "python",
+        "device",
+        "core_revision",
+        "lock_sha256",
+        "tools_sha256"
+      ],
+      "properties": {
+        "device": {
+          "const": "cpu"
+        },
+        "lock_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "tools_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "exporter": {
+      "type": "object",
+      "required": [
+        "name",
+        "strict",
+        "attention",
+        "cache",
+        "shape_policy"
+      ],
+      "properties": {
+        "name": {
+          "const": "DynamoExporter"
+        },
+        "strict": {
+          "const": false
+        },
+        "attention": {
+          "const": "eager"
+        },
+        "cache": {
+          "const": false
+        },
+        "shape_policy": {
+          "enum": [
+            "static",
+            "dynamic"
+          ]
+        }
+      }
+    },
+    "dialect": {
+      "const": "functional"
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "dtype",
+          "shape"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dtype": {
+            "enum": [
+              "float32",
+              "float16",
+              "bfloat16",
+              "int64",
+              "int32",
+              "bool"
+            ]
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "dtype",
+          "shape"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dtype": {
+            "enum": [
+              "float32",
+              "float16",
+              "bfloat16",
+              "int64",
+              "int32",
+              "bool"
+            ]
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "call": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "args",
+        "kwargs",
+        "outputs"
+      ],
+      "properties": {
+        "args": {
+          "const": []
+        },
+        "kwargs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "outputs": {
+          "const": "tensor_tuple"
+        }
+      }
+    },
+    "dynamic_constraints": {
+      "type": "object"
+    },
+    "mutations": {
+      "const": []
+    },
+    "load_dependencies": {
+      "const": [
+        "torch"
+      ]
+    },
+    "verified_cases": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "tolerances": {
+      "type": "object",
+      "required": [
+        "atol",
+        "rtol"
+      ],
+      "properties": {
+        "atol": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rtol": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "models/model.json",
+        "data/weights/model_weights_config.json"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  }
+}

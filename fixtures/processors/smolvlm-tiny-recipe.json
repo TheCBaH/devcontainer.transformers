@@ -1,0 +1,104 @@
+{
+  "attention_mask": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "checkpoint_revision": "7e3e67edbbed1bf9888184d9df282b700a323964",
+  "inputs": {
+    "attention_mask": {
+      "dtype": "int64",
+      "shape": [
+        1,
+        11
+      ]
+    },
+    "input_ids": {
+      "dtype": "int64",
+      "shape": [
+        1,
+        11
+      ]
+    },
+    "pixel_attention_mask": {
+      "dtype": "int64",
+      "shape": [
+        1,
+        1,
+        32,
+        32
+      ]
+    },
+    "pixel_values": {
+      "dtype": "float32",
+      "shape": [
+        1,
+        1,
+        3,
+        32,
+        32
+      ]
+    }
+  },
+  "original_input_ids": [
+    49189,
+    49152,
+    49190,
+    49190,
+    49190,
+    49190,
+    49189,
+    20263,
+    451,
+    2443,
+    30
+  ],
+  "pixel_recipe": {
+    "mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "rescale": 0.00392156862745098,
+    "std": [
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "processor_overrides": {
+    "do_image_splitting": false,
+    "image_seq_len": 4,
+    "longest_edge": 32
+  },
+  "schema_version": 1,
+  "source_sha256": {
+    "preprocessor_config.json": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+    "processor_config.json": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+    "special_tokens_map.json": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09",
+    "tokenizer.json": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+    "tokenizer_config.json": "36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777"
+  },
+  "tiny_input_ids": [
+    67,
+    30,
+    128,
+    128,
+    128,
+    128,
+    67,
+    16,
+    79,
+    71,
+    33
+  ],
+  "token_mapping": "image token 49190 -> 128; other tokenizer IDs -> (id % 125) + 3; tiny random probe only"
+}

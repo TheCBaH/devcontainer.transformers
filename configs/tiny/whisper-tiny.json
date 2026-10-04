@@ -1,0 +1,19 @@
+{
+  "vocab_size": 256,
+  "d_model": 32,
+  "encoder_layers": 1,
+  "decoder_layers": 1,
+  "encoder_attention_heads": 2,
+  "decoder_attention_heads": 2,
+  "encoder_ffn_dim": 64,
+  "decoder_ffn_dim": 64,
+  "max_source_positions": 32,
+  "max_target_positions": 32,
+  "num_mel_bins": 80,
+  "pad_token_id": 0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "decoder_start_token_id": 1,
+  "suppress_tokens": [],
+  "begin_suppress_tokens": []
+}
