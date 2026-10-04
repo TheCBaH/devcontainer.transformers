@@ -1,23 +1,12 @@
-// For format details, see https://aka.ms/devcontainer.json.
 {
-    "name": "Transformers devcontainer",
-    "build":  {
-        "dockerfile": "Dockerfile",
+    "name": "Transformers PT2 research",
+    "build": {
+        "dockerfile": "Dockerfile"
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": "true",
-            "username": "vscode",
-            "userUid": "1000",
-            "userGid": "1000",
-            "upgradePackages": "false"
-        },
-        "./features/pip-packages": {
-            "packages": "transformers torch rich accelerate"
-        },
+        "ghcr.io/devcontainers/features/sshd:1": {}
     },
-    "hostRequirements": {
-        "gpu": "optional"
-    },
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+    "postCreateCommand": "uv python install 3.13.12",
+    "waitFor": "postCreateCommand"
 }
