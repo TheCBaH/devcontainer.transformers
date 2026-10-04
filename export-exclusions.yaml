@@ -1,2 +1,14 @@
 schema_version: 1
-exclusions: []
+exclusions:
+  - artifact_id: smollm2-135m/text-decoder/reference/forward/fp32/dynamo/static
+    stage: decomposition
+    policy: dynamo
+    versions:
+      torch: 2.12.0+cpu
+      transformers: 5.18.0
+      core_revision: 93c765333c2e637211a819d1714f09678af307b1
+    reason: >-
+      Default decomposition differs from eager FP32 logits in 2 of 786432
+      elements, with maximum absolute error 1.1704164e-5 exceeding the fixed
+      1e-5 absolute tolerance. Functional and fresh-loaded outputs pass;
+      core CPU execution is not verified for this reference artifact.

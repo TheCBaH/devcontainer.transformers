@@ -78,6 +78,10 @@ reference explicitly allows 1536 MiB. Its original-resolution fixture uses 512px
 images and 64 image tokens; the tiny fixture uses 32px and four image tokens.
 Both derive from hashed, pinned processor/tokenizer files and disable image
 splitting for this one-image probe.
+Dense-vision reference results use the reviewed 224px structural inputs listed
+in the manifest. SmolLM2-135M's functional reference graph is verified; its
+default decomposition has a version-scoped numeric exclusion at the fixed FP32
+tolerance. The tiny SmolLM2 probe passes all stages.
 
 `checkpoint-maps/` records exact source-file and loaded-value hashes, key
 renaming, shard indices, tied aliases and explicit FP32 conversion. Ten source
