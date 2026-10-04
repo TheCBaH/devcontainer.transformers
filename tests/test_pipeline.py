@@ -113,3 +113,13 @@ def test_dynamic_shared_inputs_and_second_shape(tmp_path):
     assert row['dynamic_rejection_verified']
     contract = verify_artifact(ROOT, tmp_path / 'models' / row['artifact_id'])
     assert contract['dynamic_constraints']['shared_inputs'] == ['input_ids', 'attention_mask', 'token_type_ids']
+
+
+def test_processor_derived_vlm_tensor_boundary(tmp_path):
+    row = run_worker(ROOT / 'scripts/worker.py',
+                    ['worker', '--root', ROOT, '--output', tmp_path, '--subset', 'smolvlm-256m'],
+                    'vlm', 300)
+    assert row['status'] == 'ok', row
+    contract = verify_artifact(ROOT, tmp_path / 'models' / row['artifact_id'])
+    assert contract['fresh_load'] if 'fresh_load' in contract else row['fresh_load']['cases'] == 2
+    assert contract['call']['kwargs'] == ['input_ids', 'attention_mask', 'pixel_values', 'pixel_attention_mask']

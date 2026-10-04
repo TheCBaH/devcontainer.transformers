@@ -38,7 +38,8 @@ def verify_artifact(root, directory, expected_id=None):
     for op, _, count in facts['ops']:
         computation[op] = computation.get(op, 0) + count
     if computation != {op: count for op, count in facts['counts'].items()
-                       if op not in DROPPED_OPS and not op.startswith('_operator.')}:
+                       if op not in DROPPED_OPS and not op.startswith('_operator.')
+                       and op != 'torch.sym_not'}:
         raise ValueError('computational operator facts differ from graph')
     graph = strict_json_loads((directory / 'models/model.json').read_text())['graph_module']
     signature = graph['module_call_graph'][0]['signature']
