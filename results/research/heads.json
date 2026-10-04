@@ -1,0 +1,4839 @@
+{
+  "attempted": 4,
+  "models": {
+    "bert-tiny-masked-lm": {
+      "artifact_id": "bert-tiny-masked-lm/text-masked-lm/tiny/forward/fp32/dynamo/static",
+      "category": "text-masked-lm",
+      "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+      "dtype": "fp32",
+      "flops": {
+        "status": "not_measured"
+      },
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "4e60f55075bf400c5a99dfacba429d44d724f626d881aab3b7f4dab44b2ffd74",
+      "name": "bert-tiny-masked-lm",
+      "ops": {
+        "aten": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.contiguous.default",
+            {
+              "memory_format": 0,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.detach_.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "p": 0.1,
+              "train": false
+            },
+            5
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "p": 0.0,
+              "train": false
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            3
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.lift_fresh_copy.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            14
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.reshape.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "shape": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.to.device",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.to.dtype_layout",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            3
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            3
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "core-cpu": [
+          [
+            "aten._softmax.default",
+            {
+              "dim": -1,
+              "half_to_float": false,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.addmm.default",
+            {
+              "alpha": 1,
+              "beta": 1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            14
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            2
+          ],
+          [
+            "aten.bitwise_and.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.bmm.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            4
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            8
+          ],
+          [
+            "aten.full.default",
+            {
+              "dtype": "torch.bool",
+              "fill_value": true,
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            3
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.native_layer_norm.default",
+            {
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                1,
+                0
+              ],
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            14
+          ],
+          [
+            "aten.scalar_tensor.default",
+            {
+              "dtype": "torch.float32",
+              "out_dtype": "f32",
+              "out_rank": 0,
+              "s": -3.4028234663852886e+38
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2,
+              "size": "[*2]"
+            },
+            14
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            24
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            10
+          ],
+          [
+            "aten.where.self",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "func": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            3
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            14
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ]
+      },
+      "parameter_count": 331648,
+      "policy": "dynamo",
+      "population": "tiny",
+      "producer": {
+        "architecture": "aarch64",
+        "core_override": false,
+        "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+        "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+        "device": "cpu",
+        "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+        "python": "3.13.12",
+        "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+        "versions": {
+          "numpy": "2.5.3",
+          "pt2-export-core": "0.1.0",
+          "safetensors": "0.8.0",
+          "torch": "2.12.0+cpu",
+          "torchvision": "0.27.0+cpu",
+          "transformers": "5.18.0"
+        }
+      },
+      "recipe_sha256": "a9d3db25b4bc0639ad35987500d8fb7ba1cfe53430c7979c5683d866d39a9b52",
+      "resume_key": "43350acf695dd645ca91fa462748941f7c55d1567ec6b1cdd1cefa4373a75aaa",
+      "schemas": {
+        "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
+        "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.add.Tensor": "add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor",
+        "aten.addmm.default": "addmm(Tensor self, Tensor mat1, Tensor mat2, *, Scalar beta=1, Scalar alpha=1) -> Tensor",
+        "aten.arange.default": "arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.arange.start_step": "arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.bitwise_and.Tensor": "bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.bmm.default": "bmm(Tensor self, Tensor mat2) -> Tensor",
+        "aten.clone.default": "clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.contiguous.default": "contiguous(Tensor(a) self, *, MemoryFormat memory_format=0) -> Tensor(a)",
+        "aten.detach_.default": "detach_(Tensor(a!) self) -> Tensor(a!)",
+        "aten.dropout.default": "dropout(Tensor input, float p, bool train) -> Tensor",
+        "aten.embedding.default": "embedding(Tensor weight, Tensor indices, SymInt padding_idx=-1, bool scale_grad_by_freq=False, bool sparse=False) -> Tensor",
+        "aten.expand.default": "expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)",
+        "aten.full.default": "full(SymInt[] size, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.ge.Scalar": "ge.Scalar(Tensor self, Scalar other) -> Tensor",
+        "aten.gelu.default": "gelu(Tensor self, *, str approximate=\"none\") -> Tensor",
+        "aten.index.Tensor": "index.Tensor(Tensor self, Tensor?[] indices) -> Tensor",
+        "aten.layer_norm.default": "layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, Tensor? bias=None, float eps=1.0000000000000001e-05, bool cudnn_enable=True) -> Tensor",
+        "aten.lift_fresh_copy.default": "lift_fresh_copy(Tensor self) -> Tensor",
+        "aten.linear.default": "linear(Tensor input, Tensor weight, Tensor? bias=None) -> Tensor",
+        "aten.matmul.default": "matmul(Tensor self, Tensor other) -> Tensor",
+        "aten.mul.Tensor": "mul.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.native_layer_norm.default": "native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)",
+        "aten.new_ones.default": "new_ones(Tensor self, SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.permute.default": "permute(Tensor(a) self, int[] dims) -> Tensor(a)",
+        "aten.reshape.default": "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)",
+        "aten.scalar_tensor.default": "scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.slice.Tensor": "slice.Tensor(Tensor(a) self, int dim=0, SymInt? start=None, SymInt? end=None, SymInt step=1) -> Tensor(a)",
+        "aten.softmax.int": "softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor",
+        "aten.to.device": "to.device(Tensor(a) self, Device device, ScalarType dtype, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.to.dtype_layout": "to.dtype_layout(Tensor(a) self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.transpose.int": "transpose.int(Tensor(a) self, int dim0, int dim1) -> Tensor(a)",
+        "aten.unsqueeze.default": "unsqueeze(Tensor(a) self, int dim) -> Tensor(a)",
+        "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)",
+        "aten.where.ScalarOther": "where.ScalarOther(Tensor condition, Tensor self, Scalar other) -> Tensor",
+        "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
+      },
+      "shape_policy": "static",
+      "source_key": "774333a0e15501d8447a95a04e1044cd0b6edeb59694fc97ad16eb242c458ea7",
+      "stages": {
+        "aten_facts": {
+          "status": "ok"
+        },
+        "construction": {
+          "status": "ok"
+        },
+        "contract": {
+          "status": "ok"
+        },
+        "core_facts": {
+          "status": "ok"
+        },
+        "decomposition": {
+          "status": "ok"
+        },
+        "eager": {
+          "status": "ok"
+        },
+        "export": {
+          "status": "ok"
+        },
+        "extract": {
+          "status": "ok"
+        },
+        "fresh_load_run": {
+          "status": "ok"
+        },
+        "functional_facts": {
+          "status": "ok"
+        },
+        "functionalization": {
+          "status": "ok"
+        },
+        "portability": {
+          "status": "ok"
+        },
+        "save": {
+          "status": "ok"
+        }
+      },
+      "status": "ok",
+      "weight_bytes": 1326592
+    },
+    "bert-tiny-qa": {
+      "artifact_id": "bert-tiny-qa/text-qa/tiny/forward/fp32/dynamo/static",
+      "category": "text-qa",
+      "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+      "dtype": "fp32",
+      "flops": {
+        "status": "not_measured"
+      },
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "6d774eafb9120425def455182b2b533cba694205582d36b98b1f04e8782cf11e",
+      "name": "bert-tiny-qa",
+      "ops": {
+        "aten": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.contiguous.default",
+            {
+              "memory_format": 0,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.contiguous.default",
+            {
+              "memory_format": 0,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.detach_.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "p": 0.1,
+              "train": false
+            },
+            5
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "p": 0.0,
+              "train": false
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.lift_fresh_copy.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            13
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.reshape.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "shape": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.split.Tensor",
+            {
+              "dim": -1,
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "split_size": "*"
+            },
+            1
+          ],
+          [
+            "aten.squeeze.dim",
+            {
+              "dim": -1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.to.device",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.to.dtype_layout",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            3
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            3
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "core-cpu": [
+          [
+            "aten._softmax.default",
+            {
+              "dim": -1,
+              "half_to_float": false,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.addmm.default",
+            {
+              "alpha": 1,
+              "beta": 1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            13
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            2
+          ],
+          [
+            "aten.bitwise_and.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.bmm.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            4
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            8
+          ],
+          [
+            "aten.full.default",
+            {
+              "dtype": "torch.bool",
+              "fill_value": true,
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.native_layer_norm.default",
+            {
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                1,
+                0
+              ],
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            13
+          ],
+          [
+            "aten.scalar_tensor.default",
+            {
+              "dtype": "torch.float32",
+              "out_dtype": "f32",
+              "out_rank": 0,
+              "s": -3.4028234663852886e+38
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.split_with_sizes.default",
+            {
+              "dim": -1,
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "split_sizes": "[*2]"
+            },
+            1
+          ],
+          [
+            "aten.squeeze.dims",
+            {
+              "dim": [
+                -1
+              ],
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2,
+              "size": "[*2]"
+            },
+            13
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            23
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            10
+          ],
+          [
+            "aten.where.self",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "func": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            13
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.split.Tensor",
+            {
+              "dim": -1,
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "split_size": "*"
+            },
+            1
+          ],
+          [
+            "aten.squeeze.dim",
+            {
+              "dim": -1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ]
+      },
+      "parameter_count": 314882,
+      "policy": "dynamo",
+      "population": "tiny",
+      "producer": {
+        "architecture": "aarch64",
+        "core_override": false,
+        "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+        "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+        "device": "cpu",
+        "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+        "python": "3.13.12",
+        "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+        "versions": {
+          "numpy": "2.5.3",
+          "pt2-export-core": "0.1.0",
+          "safetensors": "0.8.0",
+          "torch": "2.12.0+cpu",
+          "torchvision": "0.27.0+cpu",
+          "transformers": "5.18.0"
+        }
+      },
+      "recipe_sha256": "71964916d9ee45584139e072909e7d7635e78548a56798d5d6352caa031cf092",
+      "resume_key": "35cb7810d753f1e1bc4607e8f41576159cf1857b13ccd2612b6f84acb43896f8",
+      "schemas": {
+        "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
+        "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.add.Tensor": "add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor",
+        "aten.addmm.default": "addmm(Tensor self, Tensor mat1, Tensor mat2, *, Scalar beta=1, Scalar alpha=1) -> Tensor",
+        "aten.arange.default": "arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.arange.start_step": "arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.bitwise_and.Tensor": "bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.bmm.default": "bmm(Tensor self, Tensor mat2) -> Tensor",
+        "aten.clone.default": "clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.contiguous.default": "contiguous(Tensor(a) self, *, MemoryFormat memory_format=0) -> Tensor(a)",
+        "aten.detach_.default": "detach_(Tensor(a!) self) -> Tensor(a!)",
+        "aten.dropout.default": "dropout(Tensor input, float p, bool train) -> Tensor",
+        "aten.embedding.default": "embedding(Tensor weight, Tensor indices, SymInt padding_idx=-1, bool scale_grad_by_freq=False, bool sparse=False) -> Tensor",
+        "aten.expand.default": "expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)",
+        "aten.full.default": "full(SymInt[] size, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.ge.Scalar": "ge.Scalar(Tensor self, Scalar other) -> Tensor",
+        "aten.gelu.default": "gelu(Tensor self, *, str approximate=\"none\") -> Tensor",
+        "aten.index.Tensor": "index.Tensor(Tensor self, Tensor?[] indices) -> Tensor",
+        "aten.layer_norm.default": "layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, Tensor? bias=None, float eps=1.0000000000000001e-05, bool cudnn_enable=True) -> Tensor",
+        "aten.lift_fresh_copy.default": "lift_fresh_copy(Tensor self) -> Tensor",
+        "aten.linear.default": "linear(Tensor input, Tensor weight, Tensor? bias=None) -> Tensor",
+        "aten.matmul.default": "matmul(Tensor self, Tensor other) -> Tensor",
+        "aten.mul.Tensor": "mul.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.native_layer_norm.default": "native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)",
+        "aten.new_ones.default": "new_ones(Tensor self, SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.permute.default": "permute(Tensor(a) self, int[] dims) -> Tensor(a)",
+        "aten.reshape.default": "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)",
+        "aten.scalar_tensor.default": "scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.slice.Tensor": "slice.Tensor(Tensor(a) self, int dim=0, SymInt? start=None, SymInt? end=None, SymInt step=1) -> Tensor(a)",
+        "aten.softmax.int": "softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor",
+        "aten.split.Tensor": "split.Tensor(Tensor(a -> *) self, SymInt split_size, int dim=0) -> Tensor(a)[]",
+        "aten.split_with_sizes.default": "split_with_sizes(Tensor(a -> *) self, SymInt[] split_sizes, int dim=0) -> Tensor(a)[]",
+        "aten.squeeze.dim": "squeeze.dim(Tensor(a) self, int dim) -> Tensor(a)",
+        "aten.squeeze.dims": "squeeze.dims(Tensor(a) self, int[] dim) -> Tensor(a)",
+        "aten.to.device": "to.device(Tensor(a) self, Device device, ScalarType dtype, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.to.dtype_layout": "to.dtype_layout(Tensor(a) self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.transpose.int": "transpose.int(Tensor(a) self, int dim0, int dim1) -> Tensor(a)",
+        "aten.unsqueeze.default": "unsqueeze(Tensor(a) self, int dim) -> Tensor(a)",
+        "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)",
+        "aten.where.ScalarOther": "where.ScalarOther(Tensor condition, Tensor self, Scalar other) -> Tensor",
+        "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
+      },
+      "shape_policy": "static",
+      "source_key": "d5f1d6ab72fe9d3ae5e54601977d2852ad50f14ffd0be91dcb9f6c3566c675d9",
+      "stages": {
+        "aten_facts": {
+          "status": "ok"
+        },
+        "construction": {
+          "status": "ok"
+        },
+        "contract": {
+          "status": "ok"
+        },
+        "core_facts": {
+          "status": "ok"
+        },
+        "decomposition": {
+          "status": "ok"
+        },
+        "eager": {
+          "status": "ok"
+        },
+        "export": {
+          "status": "ok"
+        },
+        "extract": {
+          "status": "ok"
+        },
+        "fresh_load_run": {
+          "status": "ok"
+        },
+        "functional_facts": {
+          "status": "ok"
+        },
+        "functionalization": {
+          "status": "ok"
+        },
+        "portability": {
+          "status": "ok"
+        },
+        "save": {
+          "status": "ok"
+        }
+      },
+      "status": "ok",
+      "weight_bytes": 1259528
+    },
+    "bert-tiny-sequence-classification": {
+      "artifact_id": "bert-tiny-sequence-classification/text-sequence-classification/tiny/forward/fp32/dynamo/static",
+      "category": "text-sequence-classification",
+      "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+      "dtype": "fp32",
+      "flops": {
+        "status": "not_measured"
+      },
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "1846484d56bff8189cc487eea0ae90cd15659623ee9152b600758537f8718baf",
+      "name": "bert-tiny-sequence-classification",
+      "ops": {
+        "aten": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.contiguous.default",
+            {
+              "memory_format": 0,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.detach_.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2,
+              "p": 0.1,
+              "train": false
+            },
+            1
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "p": 0.1,
+              "train": false
+            },
+            5
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "p": 0.0,
+              "train": false
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.lift_fresh_copy.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            12
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.reshape.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "shape": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.select.int",
+            {
+              "dim": 1,
+              "index": "*",
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.tanh.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.to.device",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.to.dtype_layout",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            3
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            3
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "core-cpu": [
+          [
+            "aten._softmax.default",
+            {
+              "dim": -1,
+              "half_to_float": false,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.addmm.default",
+            {
+              "alpha": 1,
+              "beta": 1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            14
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            2
+          ],
+          [
+            "aten.bitwise_and.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.bmm.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            4
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            8
+          ],
+          [
+            "aten.full.default",
+            {
+              "dtype": "torch.bool",
+              "fill_value": true,
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.native_layer_norm.default",
+            {
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                1,
+                0
+              ],
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            14
+          ],
+          [
+            "aten.scalar_tensor.default",
+            {
+              "dtype": "torch.float32",
+              "out_dtype": "f32",
+              "out_rank": 0,
+              "s": -3.4028234663852886e+38
+            },
+            1
+          ],
+          [
+            "aten.select.int",
+            {
+              "dim": 1,
+              "index": "*",
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.tanh.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2,
+              "size": "[*2]"
+            },
+            12
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            22
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            10
+          ],
+          [
+            "aten.where.self",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "func": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            12
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.select.int",
+            {
+              "dim": 1,
+              "index": "*",
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.tanh.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ]
+      },
+      "parameter_count": 331394,
+      "policy": "dynamo",
+      "population": "tiny",
+      "producer": {
+        "architecture": "aarch64",
+        "core_override": false,
+        "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+        "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+        "device": "cpu",
+        "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+        "python": "3.13.12",
+        "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+        "versions": {
+          "numpy": "2.5.3",
+          "pt2-export-core": "0.1.0",
+          "safetensors": "0.8.0",
+          "torch": "2.12.0+cpu",
+          "torchvision": "0.27.0+cpu",
+          "transformers": "5.18.0"
+        }
+      },
+      "recipe_sha256": "a9d3db25b4bc0639ad35987500d8fb7ba1cfe53430c7979c5683d866d39a9b52",
+      "resume_key": "4d9c824ee4678201c7b5f98f8c53ae050c437213d72596ee57e210c100081382",
+      "schemas": {
+        "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
+        "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.add.Tensor": "add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor",
+        "aten.addmm.default": "addmm(Tensor self, Tensor mat1, Tensor mat2, *, Scalar beta=1, Scalar alpha=1) -> Tensor",
+        "aten.arange.default": "arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.arange.start_step": "arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.bitwise_and.Tensor": "bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.bmm.default": "bmm(Tensor self, Tensor mat2) -> Tensor",
+        "aten.clone.default": "clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.contiguous.default": "contiguous(Tensor(a) self, *, MemoryFormat memory_format=0) -> Tensor(a)",
+        "aten.detach_.default": "detach_(Tensor(a!) self) -> Tensor(a!)",
+        "aten.dropout.default": "dropout(Tensor input, float p, bool train) -> Tensor",
+        "aten.embedding.default": "embedding(Tensor weight, Tensor indices, SymInt padding_idx=-1, bool scale_grad_by_freq=False, bool sparse=False) -> Tensor",
+        "aten.expand.default": "expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)",
+        "aten.full.default": "full(SymInt[] size, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.ge.Scalar": "ge.Scalar(Tensor self, Scalar other) -> Tensor",
+        "aten.gelu.default": "gelu(Tensor self, *, str approximate=\"none\") -> Tensor",
+        "aten.index.Tensor": "index.Tensor(Tensor self, Tensor?[] indices) -> Tensor",
+        "aten.layer_norm.default": "layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, Tensor? bias=None, float eps=1.0000000000000001e-05, bool cudnn_enable=True) -> Tensor",
+        "aten.lift_fresh_copy.default": "lift_fresh_copy(Tensor self) -> Tensor",
+        "aten.linear.default": "linear(Tensor input, Tensor weight, Tensor? bias=None) -> Tensor",
+        "aten.matmul.default": "matmul(Tensor self, Tensor other) -> Tensor",
+        "aten.mul.Tensor": "mul.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.native_layer_norm.default": "native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)",
+        "aten.new_ones.default": "new_ones(Tensor self, SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.permute.default": "permute(Tensor(a) self, int[] dims) -> Tensor(a)",
+        "aten.reshape.default": "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)",
+        "aten.scalar_tensor.default": "scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.select.int": "select.int(Tensor(a) self, int dim, SymInt index) -> Tensor(a)",
+        "aten.slice.Tensor": "slice.Tensor(Tensor(a) self, int dim=0, SymInt? start=None, SymInt? end=None, SymInt step=1) -> Tensor(a)",
+        "aten.softmax.int": "softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor",
+        "aten.tanh.default": "tanh(Tensor self) -> Tensor",
+        "aten.to.device": "to.device(Tensor(a) self, Device device, ScalarType dtype, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.to.dtype_layout": "to.dtype_layout(Tensor(a) self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.transpose.int": "transpose.int(Tensor(a) self, int dim0, int dim1) -> Tensor(a)",
+        "aten.unsqueeze.default": "unsqueeze(Tensor(a) self, int dim) -> Tensor(a)",
+        "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)",
+        "aten.where.ScalarOther": "where.ScalarOther(Tensor condition, Tensor self, Scalar other) -> Tensor",
+        "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
+      },
+      "shape_policy": "static",
+      "source_key": "a1268d4e990e1fb40f71cbe58e8d56e261173b842e958e4de7dbadf5769a43dd",
+      "stages": {
+        "aten_facts": {
+          "status": "ok"
+        },
+        "construction": {
+          "status": "ok"
+        },
+        "contract": {
+          "status": "ok"
+        },
+        "core_facts": {
+          "status": "ok"
+        },
+        "decomposition": {
+          "status": "ok"
+        },
+        "eager": {
+          "status": "ok"
+        },
+        "export": {
+          "status": "ok"
+        },
+        "extract": {
+          "status": "ok"
+        },
+        "fresh_load_run": {
+          "status": "ok"
+        },
+        "functional_facts": {
+          "status": "ok"
+        },
+        "functionalization": {
+          "status": "ok"
+        },
+        "portability": {
+          "status": "ok"
+        },
+        "save": {
+          "status": "ok"
+        }
+      },
+      "status": "ok",
+      "weight_bytes": 1325576
+    },
+    "bert-tiny-token-classification": {
+      "artifact_id": "bert-tiny-token-classification/text-token-classification/tiny/forward/fp32/dynamo/static",
+      "category": "text-token-classification",
+      "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+      "dtype": "fp32",
+      "flops": {
+        "status": "not_measured"
+      },
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "a0ddb6f47eabd606af56a7b6cbef75df31343176a5c2f8b71f5b7878b123dfdb",
+      "name": "bert-tiny-token-classification",
+      "ops": {
+        "aten": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.contiguous.default",
+            {
+              "memory_format": 0,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.detach_.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "p": 0.1,
+              "train": false
+            },
+            6
+          ],
+          [
+            "aten.dropout.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "p": 0.0,
+              "train": false
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.lift_fresh_copy.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            13
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.reshape.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "shape": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.to.device",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.to.dtype_layout",
+            {
+              "copy": false,
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            3
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            3
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "core-cpu": [
+          [
+            "aten._softmax.default",
+            {
+              "dim": -1,
+              "half_to_float": false,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.addmm.default",
+            {
+              "alpha": 1,
+              "beta": 1,
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            13
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.start_step",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1,
+              "start": 0,
+              "step": 1
+            },
+            2
+          ],
+          [
+            "aten.bitwise_and.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.bmm.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            4
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            8
+          ],
+          [
+            "aten.full.default",
+            {
+              "dtype": "torch.bool",
+              "fill_value": true,
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.native_layer_norm.default",
+            {
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.permute.default",
+            {
+              "dims": [
+                1,
+                0
+              ],
+              "out_dtype": "f32",
+              "out_rank": 2
+            },
+            13
+          ],
+          [
+            "aten.scalar_tensor.default",
+            {
+              "dtype": "torch.float32",
+              "out_dtype": "f32",
+              "out_rank": 0,
+              "s": -3.4028234663852886e+38
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 2,
+              "size": "[*2]"
+            },
+            13
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            23
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            10
+          ],
+          [
+            "aten.where.self",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ],
+        "func": [
+          [
+            "aten.__and__.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten._to_copy.default",
+            {
+              "dtype": "torch.bool",
+              "memory_format": null,
+              "non_blocking": false,
+              "out_dtype": "bool",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.add.Tensor",
+            {
+              "alpha": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 1,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            1
+          ],
+          [
+            "aten.arange.default",
+            {
+              "dtype": null,
+              "end": 16,
+              "out_dtype": "i64",
+              "out_rank": 1
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": "torch.contiguous_format",
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 0
+            },
+            1
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            6
+          ],
+          [
+            "aten.clone.default",
+            {
+              "memory_format": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.embedding.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "padding_idx": "*",
+              "scale_grad_by_freq": false,
+              "sparse": false
+            },
+            3
+          ],
+          [
+            "aten.expand.default",
+            {
+              "implicit": false,
+              "out_dtype": "bool",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            1
+          ],
+          [
+            "aten.ge.Scalar",
+            {
+              "other": 0,
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.gelu.default",
+            {
+              "approximate": "none",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.index.Tensor",
+            {
+              "out_dtype": "bool",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.layer_norm.default",
+            {
+              "cudnn_enable": false,
+              "eps": 1e-12,
+              "normalized_shape": "[*1]",
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            5
+          ],
+          [
+            "aten.linear.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3
+            },
+            13
+          ],
+          [
+            "aten.matmul.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            4
+          ],
+          [
+            "aten.mul.Tensor",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.new_ones.default",
+            {
+              "dtype": "torch.bool",
+              "out_dtype": "bool",
+              "out_rank": 0,
+              "size": "[*0]"
+            },
+            1
+          ],
+          [
+            "aten.slice.Tensor",
+            {
+              "dim": 1,
+              "end": "*",
+              "out_dtype": "i64",
+              "out_rank": 2,
+              "start": "*",
+              "step": "*"
+            },
+            1
+          ],
+          [
+            "aten.softmax.int",
+            {
+              "dim": -1,
+              "dtype": null,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 1,
+              "dim1": 2,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            8
+          ],
+          [
+            "aten.transpose.int",
+            {
+              "dim0": 2,
+              "dim1": 3,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 0,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 2
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 1,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            2
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 3
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 2,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            1
+          ],
+          [
+            "aten.unsqueeze.default",
+            {
+              "dim": 3,
+              "out_dtype": "i64",
+              "out_rank": 4
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 3,
+              "size": "[*3]"
+            },
+            2
+          ],
+          [
+            "aten.view.default",
+            {
+              "out_dtype": "f32",
+              "out_rank": 4,
+              "size": "[*4]"
+            },
+            6
+          ],
+          [
+            "aten.where.ScalarOther",
+            {
+              "other": -3.4028234663852886e+38,
+              "out_dtype": "f32",
+              "out_rank": 4
+            },
+            1
+          ]
+        ]
+      },
+      "parameter_count": 314882,
+      "policy": "dynamo",
+      "population": "tiny",
+      "producer": {
+        "architecture": "aarch64",
+        "core_override": false,
+        "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+        "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+        "device": "cpu",
+        "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+        "python": "3.13.12",
+        "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+        "versions": {
+          "numpy": "2.5.3",
+          "pt2-export-core": "0.1.0",
+          "safetensors": "0.8.0",
+          "torch": "2.12.0+cpu",
+          "torchvision": "0.27.0+cpu",
+          "transformers": "5.18.0"
+        }
+      },
+      "recipe_sha256": "a9d3db25b4bc0639ad35987500d8fb7ba1cfe53430c7979c5683d866d39a9b52",
+      "resume_key": "60cc0c5386ede05a1cdae4d699e16b43058b84fb2e1272aa89821e4e263debaa",
+      "schemas": {
+        "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
+        "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.add.Tensor": "add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor",
+        "aten.addmm.default": "addmm(Tensor self, Tensor mat1, Tensor mat2, *, Scalar beta=1, Scalar alpha=1) -> Tensor",
+        "aten.arange.default": "arange(Scalar end, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.arange.start_step": "arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.bitwise_and.Tensor": "bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.bmm.default": "bmm(Tensor self, Tensor mat2) -> Tensor",
+        "aten.clone.default": "clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor",
+        "aten.contiguous.default": "contiguous(Tensor(a) self, *, MemoryFormat memory_format=0) -> Tensor(a)",
+        "aten.detach_.default": "detach_(Tensor(a!) self) -> Tensor(a!)",
+        "aten.dropout.default": "dropout(Tensor input, float p, bool train) -> Tensor",
+        "aten.embedding.default": "embedding(Tensor weight, Tensor indices, SymInt padding_idx=-1, bool scale_grad_by_freq=False, bool sparse=False) -> Tensor",
+        "aten.expand.default": "expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)",
+        "aten.full.default": "full(SymInt[] size, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.ge.Scalar": "ge.Scalar(Tensor self, Scalar other) -> Tensor",
+        "aten.gelu.default": "gelu(Tensor self, *, str approximate=\"none\") -> Tensor",
+        "aten.index.Tensor": "index.Tensor(Tensor self, Tensor?[] indices) -> Tensor",
+        "aten.layer_norm.default": "layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight=None, Tensor? bias=None, float eps=1.0000000000000001e-05, bool cudnn_enable=True) -> Tensor",
+        "aten.lift_fresh_copy.default": "lift_fresh_copy(Tensor self) -> Tensor",
+        "aten.linear.default": "linear(Tensor input, Tensor weight, Tensor? bias=None) -> Tensor",
+        "aten.matmul.default": "matmul(Tensor self, Tensor other) -> Tensor",
+        "aten.mul.Tensor": "mul.Tensor(Tensor self, Tensor other) -> Tensor",
+        "aten.native_layer_norm.default": "native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)",
+        "aten.new_ones.default": "new_ones(Tensor self, SymInt[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.permute.default": "permute(Tensor(a) self, int[] dims) -> Tensor(a)",
+        "aten.reshape.default": "reshape(Tensor(a) self, SymInt[] shape) -> Tensor(a)",
+        "aten.scalar_tensor.default": "scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor",
+        "aten.slice.Tensor": "slice.Tensor(Tensor(a) self, int dim=0, SymInt? start=None, SymInt? end=None, SymInt step=1) -> Tensor(a)",
+        "aten.softmax.int": "softmax.int(Tensor self, int dim, ScalarType? dtype=None) -> Tensor",
+        "aten.to.device": "to.device(Tensor(a) self, Device device, ScalarType dtype, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.to.dtype_layout": "to.dtype_layout(Tensor(a) self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, bool copy=False, MemoryFormat? memory_format=None) -> Tensor(a)",
+        "aten.transpose.int": "transpose.int(Tensor(a) self, int dim0, int dim1) -> Tensor(a)",
+        "aten.unsqueeze.default": "unsqueeze(Tensor(a) self, int dim) -> Tensor(a)",
+        "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)",
+        "aten.where.ScalarOther": "where.ScalarOther(Tensor condition, Tensor self, Scalar other) -> Tensor",
+        "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
+      },
+      "shape_policy": "static",
+      "source_key": "7bad5f36fc21a0f533332f4e8d705aa512a2d956e26637d94cd4963f333aded9",
+      "stages": {
+        "aten_facts": {
+          "status": "ok"
+        },
+        "construction": {
+          "status": "ok"
+        },
+        "contract": {
+          "status": "ok"
+        },
+        "core_facts": {
+          "status": "ok"
+        },
+        "decomposition": {
+          "status": "ok"
+        },
+        "eager": {
+          "status": "ok"
+        },
+        "export": {
+          "status": "ok"
+        },
+        "extract": {
+          "status": "ok"
+        },
+        "fresh_load_run": {
+          "status": "ok"
+        },
+        "functional_facts": {
+          "status": "ok"
+        },
+        "functionalization": {
+          "status": "ok"
+        },
+        "portability": {
+          "status": "ok"
+        },
+        "save": {
+          "status": "ok"
+        }
+      },
+      "status": "ok",
+      "weight_bytes": 1259528
+    }
+  },
+  "outcomes": {
+    "matched_exclusions": [],
+    "stale_exclusions": [],
+    "unexpected_failures": []
+  },
+  "population": "tiny",
+  "schema_version": 1,
+  "verified": 4
+}

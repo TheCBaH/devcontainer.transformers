@@ -21454,7 +21454,12 @@
     }
   },
   "outcomes": {
-    "matched_exclusions": [],
+    "matched_exclusions": [
+      {
+        "artifact_id": "smollm2-135m/text-decoder/reference/forward/fp32/dynamo/static",
+        "stage": "decomposition"
+      }
+    ],
     "stale_exclusions": [],
     "unexpected_failures": []
   },
