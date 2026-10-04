@@ -1,0 +1,106 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "decoder_input_ids",
+      "decoder_attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "0d2b162cf55d82c3a4e6f146869172adb14d701c8276bcfadd953ca0d12aeee3",
+    "data/weights/model_weights_config.json": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
+    "models/model.json": "0bd4aeb209ef8e1828fd55de9e2c7fd20d0efd1fa97267fd87f346da9bb73e62"
+  },
+  "graph_sha256": "0bd4aeb209ef8e1828fd55de9e2c7fd20d0efd1fa97267fd87f346da9bb73e62",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_attention_mask",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "T5ForConditionalGeneration",
+  "model_id": "t5-small",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        4,
+        256
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+    "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+    "device": "cpu",
+    "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+    "python": "3.13.12",
+    "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "59c652d7ac5a6e45392efd800c3f4b7ef7cd89f5ef2e7d9b2a4b4fd8c935ba05",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2
+}

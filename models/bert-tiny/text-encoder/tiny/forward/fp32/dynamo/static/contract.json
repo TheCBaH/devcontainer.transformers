@@ -1,0 +1,105 @@
+{
+  "artifact_id": "bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "token_type_ids"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "fe88b14c21395fffce5c0d62d0c0b7717ab5636db3156a694bba953202d9a241",
+    "data/weights/model_weights_config.json": "e8e73c65c500c90ac3b6c0f7c69e7be133a1efb7a662e1d66bf3fdcc098da525",
+    "models/model.json": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e"
+  },
+  "graph_sha256": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "token_type_ids",
+      "shape": [
+        1,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "BertModel",
+  "model_id": "bert-tiny",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "last_hidden_state",
+      "shape": [
+        1,
+        16,
+        128
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "pooler_output",
+      "shape": [
+        1,
+        128
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+    "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+    "device": "cpu",
+    "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+    "python": "3.13.12",
+    "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "bc9b8b4c18c149d4db72437ff52c9f02d642f482e0f1a8092bb903e92f0af03d",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2
+}

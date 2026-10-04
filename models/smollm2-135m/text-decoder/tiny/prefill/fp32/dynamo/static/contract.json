@@ -1,0 +1,140 @@
+{
+  "artifact_id": "smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": true,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "cc875abbc4896a9060d0da1e51f8433951435562fa1f88279796c9ca1107842d",
+    "data/weights/model_weights_config.json": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
+    "models/model.json": "afd25fefa7970db9f3528b700f5eb6ade868babaa65c178531ff43f584e28891"
+  },
+  "graph_sha256": "afd25fefa7970db9f3528b700f5eb6ade868babaa65c178531ff43f584e28891",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "LlamaForCausalLM",
+  "model_id": "smollm2-135m",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        4,
+        256
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_key",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_value",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_1_key",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_1_value",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "93c765333c2e637211a819d1714f09678af307b1",
+    "core_source_sha256": "75944d971609eff1fd733b39c908e4467a435ae5ea1af0f53cab60f1fcc1a04f",
+    "device": "cpu",
+    "lock_sha256": "b87fb47c4d36d3e02243138795ec09de5eedd33d54eea30c8808fdeb53cf137b",
+    "python": "3.13.12",
+    "tools_sha256": "07a1eb1c4eacf8ac82f26ddb7d05154ce8d0fe974172b09a0a8bb49d49a8eb82",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "6198b2b8d6eb4932a02047cff8b4cc14e8a9518a9c762ae9e8096f5b427df631",
+  "schema_version": 1,
+  "state": {
+    "host": "feed returned tensors into the next step; host owns sampling and stopping",
+    "input": [],
+    "maximum_input_history": null,
+    "output": [
+      "present_0_key",
+      "present_0_value",
+      "present_1_key",
+      "present_1_value"
+    ],
+    "semantics": "named self/cross-attention K/V tensors; batch x heads x history x head dimension"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2
+}
