@@ -6,15 +6,17 @@ import platform
 import shutil
 import subprocess
 import sys
+import tomllib
 import traceback
 
 import torch
+import pt2_export_core
 from transformers.exporters.exporter_dynamo import DynamoConfig, DynamoExporter
 from pt2_export_core.archive import assert_portable, extract, graph_op_counts, make_portable, selected_pt2_profile
 from pt2_export_core.opgraph import collect_ops, time_budget
 
 from .artifacts import file_hash, publish, verify_artifact, write_json
-from .recipes import TensorOutputs, compare, make_inputs, tensor_metadata
+from .recipes import AutocastTensorOutputs, TensorOutputs, compare, make_inputs, tensor_metadata
 from .registry import artifact_id, build_model, digest, read_manifest
 
 
@@ -26,9 +28,14 @@ STAGES = ('construction', 'eager', 'export', 'aten_facts', 'functionalization',
 def producer(root):
     packages = ('torch', 'torchvision', 'transformers', 'pt2-export-core', 'numpy', 'safetensors')
     sources = {path.name: file_hash(path) for path in sorted(Path(__file__).parent.glob('*.py'))}
+    core_dir = Path(pt2_export_core.__file__).parent
+    core_sources = {path.name: file_hash(path) for path in sorted(core_dir.glob('*.py'))}
+    installed_core = Path(importlib.metadata.distribution('pt2-export-core').locate_file('pt2_export_core'))
+    project = tomllib.loads((Path(root) / 'pyproject.toml').read_text())
     return {'versions': {name: importlib.metadata.version(name) for name in packages},
             'python': platform.python_version(), 'architecture': platform.machine(),
-            'device': 'cpu', 'core_revision': 'ad250479db4e42f77bad1c84c459c9a2731654a8',
+            'device': 'cpu', 'core_revision': project['tool']['uv']['sources']['pt2-export-core']['rev'],
+            'core_source_sha256': digest(core_sources), 'core_override': core_dir.resolve() != installed_core.resolve(),
             'lock_sha256': file_hash(Path(root) / 'uv.lock'), 'tools_sha256': digest(sources)}
 
 
@@ -65,6 +72,8 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
     try:
         with torch.no_grad():
             model, config = build_model(root, entry, population, dtype if policy != 'autocast' else 'fp32')
+            if policy == 'autocast' and dtype == 'fp32':
+                raise ValueError('CPU autocast requires fp16 or bf16')
             batch = 2 if shape == 'dynamic' else 1
             cases = [make_inputs(entry, config, population, seed=seed, batch=batch, root=root) for seed in (17, 29)]
             tensor_dtype = next(model.parameters()).dtype
@@ -73,11 +82,15 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
                     if value.is_floating_point():
                         case[key] = value.to(tensor_dtype)
             wrapper = TensorOutputs(model, entry['output_fields']).eval()
+            if policy == 'autocast':
+                wrapper = AutocastTensorOutputs(model, entry['output_fields'],
+                    {'fp16': torch.float16, 'bf16': torch.bfloat16}[dtype]).eval()
             row['config_sha256'] = digest(config.to_dict())
             recipe = {'inputs': tensor_metadata(cases[0]), 'outputs': entry['output_fields'],
                       'seed': [17, 29], 'attention': 'eager', 'cache': False}
-            if entry.get('processor_fixture'):
-                recipe['processor_fixture_sha256'] = file_hash(Path(root) / entry['processor_fixture'])
+            fixture_key = 'processor_fixture' if population == 'tiny' else 'reference_processor_fixture'
+            if entry.get(fixture_key):
+                recipe['processor_fixture_sha256'] = file_hash(Path(root) / entry[fixture_key])
             row['recipe_sha256'] = digest(recipe)
             row['parameter_count'] = sum(p.numel() for p in model.parameters())
             row['weight_bytes'] = sum(p.numel() * p.element_size() for p in model.parameters())
@@ -90,8 +103,6 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             success(stage)
             stage = 'export'
             prepared = copy.deepcopy(cases[0])
-            if policy != 'dynamo':
-                raise ValueError('alternate policy requires its explicit adapter')
             dynamic_shapes = None
             if shape == 'dynamic':
                 if name not in ('bert-tiny', 'smollm2-135m'):
@@ -100,8 +111,12 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
                 sequence_dim = torch.export.Dim('sequence', min=4, max=64)
                 dynamic_shapes = {key: {0: batch_dim, 1: sequence_dim} for key in prepared}
             with time_budget(120):
-                raw = DynamoExporter().export(wrapper, prepared,
-                    DynamoConfig(strict=False, dynamic=False, dynamic_shapes=dynamic_shapes))
+                if policy == 'direct':
+                    raw = torch.export.export(wrapper, args=(), kwargs=prepared,
+                                              strict=False, dynamic_shapes=dynamic_shapes)
+                else:
+                    raw = DynamoExporter().export(wrapper, prepared,
+                        DynamoConfig(strict=False, dynamic=False, dynamic_shapes=dynamic_shapes))
             if shape == 'dynamic':
                 row['dynamic_ranges'] = {'raw': {str(k): str(v) for k, v in raw.range_constraints.items()}}
             for case, output in zip(cases, expected, strict=True):
@@ -145,7 +160,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             stage = 'save'
             archive = work / 'model.pt2'
             torch.export.save(functional, archive)
-            cap_mb = 64 if population == 'tiny' else manifest['selection']['max_weight_mb']
+            cap_mb = 64 if population == 'tiny' else entry.get('reference_max_weight_mb', manifest['selection']['max_weight_mb'])
             if row['weight_bytes'] > cap_mb * 2**20:
                 raise ValueError('artifact exceeds the declared weight cap')
             caps = work / 'caps.yaml'
@@ -184,7 +199,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             contract = {'schema_version': 1, 'artifact_id': identity, 'model_id': name,
                         'population': population, 'model_class': entry['model_class'],
                         'config_sha256': row['config_sha256'], 'recipe_sha256': row['recipe_sha256'],
-                        'producer': row['producer'], 'exporter': {'name': 'DynamoExporter', 'strict': False,
+                        'producer': row['producer'], 'exporter': {'name': 'torch.export' if policy == 'direct' else 'DynamoExporter', 'strict': False,
                         'attention': 'eager', 'cache': False, 'shape_policy': shape},
                         'dialect': 'functional', 'graph_sha256': graph_hash,
                         'inputs': tensor_metadata(prepared),

@@ -18,7 +18,7 @@ jobs:
           version: '0.12.23'
           python-version: '3.13.12'
           enable-cache: true
-      - run: make test report.ci models.select models models.verify check-tree-clean
+      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.verify check-tree-clean
       - uses: actions/upload-artifact@v7.0.0
         if: failure()
         with:
@@ -36,7 +36,7 @@ jobs:
         id: devcontainer
         with:
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.verify check-tree-clean
+      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.verify check-tree-clean
       - uses: actions/upload-artifact@v7.0.0
         if: failure()
         with:
@@ -53,3 +53,21 @@ jobs:
           python-version: '3.13.12'
           enable-cache: true
       - run: make smoke
+  research-probes:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make research.extended models.heads models.precision.fp16 models.precision.bf16
+      - uses: actions/upload-artifact@v7.0.0
+        if: always()
+        with:
+          name: extended-precision-results
+          path: |
+            .build/**/results/
+            .build/**/*.log
+          include-hidden-files: true

@@ -10,11 +10,13 @@ from .artifacts import write_json
 def render(root, document):
     root = Path(root)
     rows = document['models']
+    policies = ', '.join(sorted({row['policy'] for row in rows.values()}))
+    dtypes = ', '.join(sorted({row['dtype'] for row in rows.values()}))
     lines = ['# Transformers architecture probes', '',
              f"Population: **{document['population']}**, deterministic random weights. "
              f"{document['verified']}/{document['attempted']} attempted artifacts verified. "
              'Coverage describes this curated population, not the full Transformers library.', '',
-             'CPU eager attention, DynamoExporter strict=False, no caches, functional tensor-tuple boundary. '
+             f'CPU eager attention; policies: {policies}; dtypes: {dtypes}; strict=False, no caches, functional tensor-tuple boundary. '
              'FLOPs are not measured. These probes do not establish pretrained accuracy.', '',
              '| Model | Category | Parameters | Weight MiB | ATen / functional / core nodes | Result |',
              '| --- | --- | ---: | ---: | --- | --- |']

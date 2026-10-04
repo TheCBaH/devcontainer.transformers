@@ -7,6 +7,7 @@ import shutil
 from pt2_export_core.archive import graph_op_counts
 from pt2_export_core.opgraph import DROPPED_OPS, strict_json_loads
 from pt2_export_core.schema_validate import validate_document
+from torch._export.serde.schema import ScalarType
 
 
 def write_json(path, document):
@@ -39,7 +40,7 @@ def verify_artifact(root, directory, expected_id=None):
         computation[op] = computation.get(op, 0) + count
     if computation != {op: count for op, count in facts['counts'].items()
                        if op not in DROPPED_OPS and not op.startswith('_operator.')
-                       and op != 'torch.sym_not'}:
+                       and not op.startswith('torch.sym_')}:
         raise ValueError('computational operator facts differ from graph')
     graph = strict_json_loads((directory / 'models/model.json').read_text())['graph_module']
     signature = graph['module_call_graph'][0]['signature']
@@ -54,6 +55,22 @@ def verify_artifact(root, directory, expected_id=None):
         raise ValueError('contract output structure differs from graph')
     if any(child['type'] is not None for child in out_spec['children_spec']):
         raise ValueError('custom output dependency at published boundary')
+    dtypes = {'float32': ScalarType.FLOAT, 'float16': ScalarType.HALF,
+              'bfloat16': ScalarType.BFLOAT16, 'int64': ScalarType.LONG,
+              'int32': ScalarType.INT, 'bool': ScalarType.BOOL}
+    specs = graph['signature']
+    saved_inputs = [spec['user_input']['arg']['as_tensor']['name'] for spec in specs['input_specs'] if 'user_input' in spec]
+    saved_outputs = [spec['user_output']['arg']['as_tensor']['name'] for spec in specs['output_specs'] if 'user_output' in spec]
+    for names, metadata in ((saved_inputs, contract['inputs']), (saved_outputs, contract['outputs'])):
+        if len(names) != len(metadata):
+            raise ValueError('tensor metadata length differs from graph')
+        for name, tensor in zip(names, metadata, strict=True):
+            saved = graph['graph']['tensor_values'][name]
+            if saved['dtype'] != int(dtypes[tensor['dtype']]) or len(saved['sizes']) != len(tensor['shape']):
+                raise ValueError('tensor dtype/rank metadata differs from graph')
+            if any('as_int' in size and size['as_int'] != extent
+                   for size, extent in zip(saved['sizes'], tensor['shape'], strict=True)):
+                raise ValueError('static tensor shape metadata differs from graph')
     for relative, expected in contract['files'].items():
         if relative not in ('models/model.json', 'data/weights/model_weights_config.json',
                             'data/constants/model_constants_config.json'):

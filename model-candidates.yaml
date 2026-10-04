@@ -515,7 +515,186 @@
         "logits"
       ],
       "notes": "Use pinned AutoProcessor to derive images, crops, masks and image-token IDs. Tiny nested config first; pretrained model is opt-in.",
-      "processor_fixture": "fixtures/processors/smolvlm-tiny-recipe.json"
+      "processor_fixture": "fixtures/processors/smolvlm-tiny-recipe.json",
+      "reference_processor_fixture": "fixtures/processors/smolvlm-reference-recipe.json",
+      "reference_max_weight_mb": 1536
+    },
+    {
+      "id": "bert-tiny-sequence-classification",
+      "category": "text-sequence-classification",
+      "tier": "head",
+      "model_class": "BertForSequenceClassification",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-qa",
+      "category": "text-qa",
+      "tier": "head",
+      "model_class": "BertForQuestionAnswering",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "start_logits",
+        "end_logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-token-classification",
+      "category": "text-token-classification",
+      "tier": "head",
+      "model_class": "BertForTokenClassification",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-masked-lm",
+      "category": "text-masked-lm",
+      "tier": "head",
+      "model_class": "BertForMaskedLM",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
     }
   ]
 }

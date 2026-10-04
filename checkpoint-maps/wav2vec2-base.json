@@ -1,0 +1,3096 @@
+{
+  "bindings": [
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.0.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.0.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.0.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d106a2f45c13bb916482465fd33f37739acd96ba5751be227112d24d55133093",
+      "shape": [
+        512,
+        1,
+        10
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.0.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.0.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.0.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bed20eac42f4eedbb52cef2292ffbceba6dc0da77a4ee8cd4119ca62a79c815b",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.0.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.0.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.0.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2a87adbcf46cf915539b9936ff85c3453d0016c6dfa6baf297866d68b4a2f66c",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.1.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.1.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.1.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "68ec5532c99c9bc2655cda94913e2db79f22474440092ee5f9223e7dbfafc46a",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.2.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.2.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.2.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cf89aa9fe50e11c45e02ac776f76e4fa69db6d299bc74896506ab9dd45bc7e05",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.3.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.3.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.3.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "98e21c56c559d9000f16870772d4e5bafc3c10ed213994eabd9b2f35d167d987",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.4.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.4.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.4.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8051b1b0983b530411be72dc8936281adcf76b9c9179bf1068d717649ef2dacf",
+      "shape": [
+        512,
+        512,
+        3
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.5.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.5.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.5.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "07accbf55939848c17f5d325b671a333f496798dfeec1a38a637489abee4bc11",
+      "shape": [
+        512,
+        512,
+        2
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_extractor.conv_layers.6.conv.weight",
+      "graph_parameter": "model.wav2vec2.feature_extractor.conv_layers.6.conv.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_extractor.conv_layers.6.conv.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "22a4c9fc8b61a3b23bc8bc51db1ce3ad7032ac7560343ed1507ad29396379849",
+      "shape": [
+        512,
+        512,
+        2
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_projection.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.feature_projection.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_projection.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "17b174715a2eb4f4cc5efb98324e2f403579d8bb21446f322fc7bbd6e6c02911",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_projection.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.feature_projection.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_projection.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e5a782926afc4345706d3a404b5e9b97229f951ba7570163a52ab58d58497473",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_projection.projection.weight",
+      "graph_parameter": "model.wav2vec2.feature_projection.projection.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_projection.projection.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5a243aaefe68eb2baad1c3cc775dd72175f637e026ee90f6d6c4163dab3189f8",
+      "shape": [
+        768,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.feature_projection.projection.bias",
+      "graph_parameter": "model.wav2vec2.feature_projection.projection.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.feature_projection.projection.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e7dd26892a7063a301756f64e836343109f8c6cd3a587b8061d01e43f80c9849",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.pos_conv_embed.conv.bias",
+      "graph_parameter": "model.wav2vec2.encoder.pos_conv_embed.conv.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.pos_conv_embed.conv.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "32153ad99ed7af588d0ca5ef6e9fab674a083da9c53ced0cc76cafcf48c9a8a5",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.pos_conv_embed.conv.weight_g",
+      "graph_parameter": "model.wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0",
+      "key_renamed": true,
+      "library_parameter": "wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cf2fc15a383b55b5580194aad752b7f2454f736fca42ecd7b3555953bbfa02bc",
+      "shape": [
+        1,
+        1,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.pos_conv_embed.conv.weight_v",
+      "graph_parameter": "model.wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1",
+      "key_renamed": true,
+      "library_parameter": "wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a7191f1943b9ea79de7f976a9a1961e825e443116b622b0237e7393e2583f675",
+      "shape": [
+        768,
+        48,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8ffc035b5da5ff0f3d310f2465c66c63b8a80e354a5a2742c00fc1c1978fbc03",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "52e1515311f18f3de3afb0b9f67484ed6141e7393a3d4281bdc21dcd29ffa5d9",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "79527a7e77ec6201b6599e43d0d3e114af12948801af28f4f79bf403694f20e7",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dfa6bc9ede464eec93870cf33d64885340a67777618dec723a25953aa07287b2",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "961894873e68a8ae1125f1c2e51e7254806faa71da3cb9ef3ea780adbccd971f",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f7daa58af01581f6c229f659c493e06676564be8c5dbd515fe94d638eae717f0",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "22598bf3c6120d1c722d79e1375a65cc02632bf9c9a911278f344bb2fdd95ad5",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2a9cc4fcf44c395a58c5295486c22a0351d7a9f1295ebeb5c564ebd51998ab62",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4196bdbf9340a73512cc9290e893974fa7b20448f57446a1cc85fdf34e19d9a0",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "56388006bceb795202411fbdbd09b0c3cccf6e1de6eae8dfe829bdd028398b84",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8a4467e2c45eba51a0d4142f80fedc4f756010c603c32796a6d9c7463a008c99",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6fc823c2cef611790a9f11b94f09b2a0b81e88cb71a1f3c8f6fa3f10cf19ba33",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "34ee9d087d287545b2b598d602de1be0af7d2572c93088bee7bd821d11b8d4f5",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d2d493e82e13b976c05a51a876beb035e5b188fbde22f98733621da93b56c234",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4093ba19d4be38b992e65030adc70b1a1306d4fec0dea9fd0f7fa68181669aea",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8fc1fbda83c3a0899355e47b88e78533b0f9b3cf50420f396c908bdf99c3408f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e4fc9edbfa6e202d0d89675b80bd8eba9d448bee421b509fa8b1deda5b335800",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.0.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.0.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.0.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "fbafd19e1efc2c4a8fe5774f0ad0afec6bf48a5f5ce43285daea4056c5b5962a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "07d3e334d587160a0b99ab052cf41156a260b7e878ff3dc4b731f75369cfc9e5",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3aef93d40dfdd0a287f6b525ca54dfa8e153fcf0e4b0fb3b0606c6317ad9f7fc",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6707da11411227d6e1659eda51662627a0e74bf341190fa986413daf595cd5a3",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "98df5f3c0548367fbcc348c75feb4e732fcc6057e6b54e420a9749a449c88b1b",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "572d0ea5f2272b5a6f99e9ec3d13771f847c99554aed21431861057943743b3e",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4aa046477b3ddac4bf93132d43244b7a8f4d0900b91a0a3346f5bb3f1537e38b",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e0fcfd4323577adf72f4c9c96ce0cbab4443105273dcea15cc95fa6e0d173abc",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "fef00c853522b0edfcb07a97f963c114295a30d815c3bc5a8d2f5d7799689ea1",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6b17f8c934e97998ef037d26073dceb7267e88a843b63119d29d06f9bb879387",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5b0416f0d37ef1e0f294eedb7c555f64ecca29f23bfa1233ceb0014d168bef58",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2af9e116e5544decb3516db4f03eeb9b54272a19b54eec4b2be7529f690ce34f",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9a915935dd18c67b37ec24b1857caa77dc06787fccfaba8711dbc1950b321efc",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "19ee3200109a0b9ab6a2e28fa63001f68d87e007c16af0dc30b1ed58495b206a",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0854181c06eeaa05292a01f4e90fe0d110acec71015f9526eec4b5d6d2d72816",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "09ae570e20dd75daa3670477f218772b92bd5671058bb42c64433cad5475cdc2",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.1.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.1.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.1.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "da24cdcaaa49b454fa0784c60190504ff6f334b3ef7160f8dad787aadec60e5f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5d75340a27b2343a8e6286e8806805e1da5fd662950042800340fe3d4d2a37c7",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "041d53e0d71f6055ac952c7f152986a473e8b40e68427c5cf8b839a9bdd60981",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6eaa340409177cdd93e8a6e8da91b677525b43d036003b4274d0f32a95ab115f",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "58b94a0d3725bab8addcd76cf656ba73362457dadcbc76ce4a0e30c259b93aae",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "54fb9126a09167316cbde6df9cd3c2cfb529a0488a74760a8d5824aac2aa021a",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a13372828c5dc1dfe69b8374206a7a16dc69b584704618b67cfed073f93a4d24",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ae0d7146fe95402526bc21f19ddf9b07e299cf9a9ccb864450b0316d11a04960",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ca040507a403ee95e3a51d19d333cfce1841e61d6afbfd221821a9b0cded1380",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "99f600aa9b0979c4bc909a2238df536f1af145775bd8b9d4c22fd24f4d30a240",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "87b24bab335dda49df6ca94c3e7c904ede7c4e463c95e431da57285e1c5f7e6b",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "212a0489cb0ad9b01f8d4ceeedc15d73ee4959cf8fff427555eb07e082afa42b",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f1ed4ce2365914a3e59fb3537859334acafab79348ada1a6c50f4b0c7ee0f93b",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e989fd2849fef0f2a566f7363ebcd917e26f4acc5087e02fff223bdd4d7795d2",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "22d8403f351f672264d4d1e752868208515e5bda5d8a2dbe7d2a769c0bf51f21",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "48409b9966402ae033e576df861cb5757d518c65eb1b312039f68e5a6bc17861",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.2.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.2.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.2.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "62330d954d9e304df1cda9ef5a339322d930b32f34123ff3a76780d7e9dffd82",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d58dfc5975d1f902791a2be629b8f386881823dac1384650e5d649e67435a37c",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6672c35ca5b60e620f5f3ef4e9f17559cff3751131943511339a75e20ceea636",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "208e3ea6ea6cffa977a181fb4878408f55ea6cb52a0a2ee56a39810d575a2ff5",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1dd27dae2cfa6af054636d169e183cd1b7b1b391a40af3a0f34ee7ff0694f944",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "979fdd7c0b837db3cf491cb84d54f3b26beb024fc2ceae03aaac6fcef2a4bc3a",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5670f90ac1514b508489013527c6fe1427dfbeb1b4d37336eea6401a3cf2b1b8",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "31efdc0fa2ff5124f80a2548d7389270bcd2faf461ebf1a34a384a92b300358e",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c16a406544a6124c011ed5b00c8597ee155166773ceb4ea2fdd2076ae393d4ed",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4b2605cd985c29dc59ffac73bc7435663711f23a5202b42585b1e0bf019fdf0d",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3041369d0122a5a6776d8c361f5f052c6edc99cc6d8d44a5822d0590516c2245",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5c20e7c5ef02b83b8e04fcd2b42b2061e517c841b91a702bc4fafebc493c2ed2",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5b41b457e0aff50b911ee38de305b0ffb38b08d906a9eb653c75ff54b470b501",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "99a7c51d8d3e38b32c46bf0c271e0047efede372af3d35d7aa5d3f1fad2b3644",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "15c6aea6280e66815c8875fda9a6c86935a0a584e965f344859e11c762f0b832",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "038888cae931860aeee0db1991a2c536e378181d5159b07bdd8d4797c950fa2e",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.3.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.3.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.3.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "745e9157ee5d72f03641371f4b7a76ada27c1a07c41fcaac9832780cf78d7c8f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "13eb178f2d4bf561d77f7f442132da1c60f910a1e7001bb80fc1bfe752b2202b",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d21562bf94d243d6f68e19dda6e6731f07d765b338481103e5ba83afdd6b453f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ac7c1a5f8f640ae842589a40b5f7d135bd8d794095b90e720bfa4afc375fb666",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a88f5b62f2460e4339de4dbe8d969dcc13daa3a6848be6a3b34175f1db99e9e6",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "592e61be545b244cf206cd51aea6a205f02a2d68f0d0479da7162277f0ac7574",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "68e7c18b85a184b05fe07d196cb94ca8cf74a343e76f85a8574a878e77b6b460",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ba4b796eccfd7ee180b8e9a366a41dc0df6da84b3fd6b5ff5b40bbacee872d9e",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b04a57f3a3c4bae37eca35c50300854e9e1f2c43a51e2629931905535b533447",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d6fbdf3ccb1af8870a98c8e4054becc065345236748c98c5ea21d3ebf2c46fee",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "059e03bb217e1b11d6355cbf304c8b578518be7d40aaff1d0c74979c7d26e920",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7399a4988c4fe3a83b61f811f3491c54581152b50ad32ae5e9b82bf005a771e5",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "86d0bed13f26ea39de87028767177ffa65b860078ece68aca0bc39ab084fee2f",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "490f35aeeb08f92d73b723f17f956aec6d5c76da521551b83a48a3f7f942a61a",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "eb29a502009476f036a55cacae1f36dd5dc119d0706ce4b7b7361f5a283c4d30",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "802c03de321c788a494347f2372bd6e6988d3a44acd5fc491f24c10b68a4390b",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.4.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.4.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.4.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b5709eab79e67a7e174e15844f164e755d6c67b2cd56911706984bf64bef615e",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b882405304752907bbd7c4d21c27303ce3d42f20b372cb4adb3613ffd35b86f9",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a15a08ae16238a38d3afed1f828d9ea011cc9ae8e359470d0ab026b6432f60b9",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f5ce72072d156c50315d92143a2678bd7124629caed3f861a9a12634377ffe7d",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a521d0d3981ccaf0b694db83dbdb0936883fae3f1fc8310d4fbe1e29bc108679",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e4f005c8756ca48667e5e3767fae3db4bd7b60062558af495dbda1e6ea3e2cc2",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c4751b4c5bfdfde868c561ba675eb1fc7972e1c16891daf2bf466dcf8144d5d7",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "251be302879965c78e61566fcb380a35cfa96191126d6dd634dff0be9033ea8f",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cb5dc252cc5937d70bcd412ff30d69a4ec0b82d0751c80ac6f398b3d4ed4b023",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "fcb5408dadb70e97cc72206e9c1e829cd87d331f0efcf1faba65fca41807e4c1",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0bf20df199fc2c44d3891226545e9aba6dde50aabecf9eb0d7d7511efb38994f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f2690e251b354fe39d351e383340b524b0b659d6d43e2a6b74bcc307fceef525",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d8b950cc5ea8c88112d44b19c322d999fad922421fb6859b62bd26d9b5639c67",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7a030d3c5de7af1b9dbab17e4f68fe05d3dc49fe2952e2c28ea3f4aa4b0837a2",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "efd1838a3079c4e214e3ed87603a9f7a59f6c9bd08212629b2ea8c0db7a03046",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "97f7f7db9f3e86b3c447270791ef9a80e1ef63d319376354251a631217609bdd",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.5.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.5.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.5.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1df8b3e75227e24f5d0b68fdb740fbb140bb84ab840ae02a7f8656899d29a4f8",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b1d50ba2ecc42a1324944be3fa58124b39b0ebd9247380e3b0ebafbb5af24e03",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b4108b63ad59bea02972b8a8a2a867f499fa416082d3709c95d49afae4e56bd7",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d51fe4904fae99371169d41fe37d938a8d9edfa792b1294278a4cabdf8b57ff4",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0852a45655f100c28742f4be5e8a4cc2ff4b074f2d210498161a0d989c63917d",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d86558a8b88575b124e09a56607c6b72b528640427cbdbc4a3a170bafae423a2",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "92f3cf2308a74006c06722d36ec0e9a98eff7e4b75f3c0a92d8351bc9e22db39",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "729da0a289de22b6d1250748267d76c1f8468c9fb5ac4f3e9413860036fb1b4c",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a3a5e78a73d9780236ab62e5491dddcfdb66ba7caff7440d913be41389b3ef46",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "492c3174d263d412464aa36f72b6738fb587c49c289901f79eeafb03928b091e",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c7e87a70e675e923f844510fe137fafce24863f30ba23838f335bafd3003c80a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dc697830c8656c3efbe891da9f56066e3bf9dd14b67cbbb5d345b87641608b6d",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a5383d684765bd5edffd2b4664836b659bed3bdbadd19e81f4023ea08977d11f",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "689ab8d9868a39fad61d493114b551257046ca2f91bdb1bd1509ba1cf8e04563",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2a229cd518338ee6a83cc09ba40e755fed47718ab82c66b6a626f9704a975c47",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3c6d55d0117e70d1377388e1694f410106632aa52b6982bacce644a835a3e0eb",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.6.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.6.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.6.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1d93be4689598234f203fee0ebad2cc6e63a23be96bc2dc631685814b8cf66e0",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "47392b46fc050d7ec15221f5a874908b4256adc2d757fd5bb5e42a8c85559ff1",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "104423a8df24ceee1dfbc5657c7063ae3b32567bdb747ad05ca486df0f91b597",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "af11a951c787eebf2832ebc3fdabb66b9e951acada5be5b3a7ae7fe9d9b99e8c",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9e4ece4fe6779ef2baa72f13906084d51d5f3adeaa3201ea70e347f38beba6eb",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0b1dfcab93b25f97330d564c53cb075fe5a6c7a7aa6b153ed74ff74d0d07b369",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "97de2a529a85e366d720fafc668c5b82ec71544cddfa88c69708d894d7da3ffa",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6ca4f17e1e2061ef8f18ce735993718a1ae27369c484ec4d763ab4ff2b54038d",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "78f43b86abf13e44818ef66bc8c51ac0258521edbf5751fae14c815f9d1a3fcb",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8604a6dda087e59e4669637a02b1a73f6e912038a313f906e157de1a3b7cb2d7",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "815b601f555b83f9cbca9d6cc5357a6703cbf4ce00ce2f1321552dd56d0b8742",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0535b843fab13c62dcd497ae0fb4278f93fd1e93c23b331c706039e530e8539b",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "21d6d79f75750d7777e3dc1e35a90646cae80b0531b41eb75e2ef47c5219b113",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b6fdaea8fa1e04af41ba694af2c6a78bd42f3ce3db4e78dc28d096a9af581bc6",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4051014ef826f0e9272efc2bea595936ebe7e001f0f536767c29f00b493baf17",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dcc37e7ffdd9910ce5da4523dabc0fb388e8539d9fe14561ee9954630cc1ffa4",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.7.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.7.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.7.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "749ae43880a30b8e5824cd3bf80f6ab41562742e8530f149b062825b0a35f6ae",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f5a38f973b577463ab478e388e2265df74b0167e2dc0502491f5af0c3df69722",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4f9864536532b6b54b45e708706eee5eabf84f856af1099bc3189abbb54cb51c",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c2dc91ad9759ed5d8cdac713fa6b5994a48e080567200e698902b0d720c4381b",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9bfcf9214334d0f125cb60d4cf8ea11f68a7869de6482b36f3849f61816a2a4d",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1a3341ddc5a85a51b278b0a199be3c9e306c417f6b00ccd7b3a74788f6b9fb7f",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "20a038bb46f41f6a336e4a946e5b7d5e1b2f2af85f3656bacdc2dd4d93072696",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "62ff24db4e120921905a7fcdf9715801564fddea1907119004e19a43d4130e5c",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1739118d6683d50f6b6c4a5c34fce9830c357ba54e30971dab3052190086bc51",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a4f084249a231b5da3f398f345b7eeb0296288cfab9bdc901b6442b8b61cf6af",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "13db437537d1cac0f2c12a8e52b97757b56f09b7940615f8cdd72b064409b963",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "29719afe35d1dc5e9ad1edab7aa9f89824e6e5fabd2552a7af1e73e901390a59",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9d85a839067bb0ac602e18110518bcc24dc712dc4dfabc3384b0771c7e50bda1",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a038c139e15d3f375956770baeec3d92b86eb3b638020c16b9eb62646c78e0c5",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3fd6b62d0ed1721d954f9ab019d90f0436760e05cbda5959a12a2899408e731a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "373a30bffffc8f2f8aa14255b9824b52a8cf87bb1e52351e354971d035fc5399",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.8.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.8.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.8.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9f61fa9ba01066f6855de4351737c1814e87528c2b88ec1c2eecd35648d19f61",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d5cc2b6ded74356c79089bad211525203a549674dd5dbdf32617168879dba2e5",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "26286ef1caa5be93f646b8ea5ff48189c683d3c2c2cb462f3ed81d5252311ba2",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4e8a39526068eeb56650565060c3dcff3a3221c3ab5445219a0b71290a9cb8d8",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "125d9e3f500019f6f57caadbfc786748d2f3a956e6196ddf43cc6d01a4ce70ba",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "464f2cced4e32fed3b36f0735ad302435e5fc1998c63fa33c0fde610cc99d43a",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "53473f9e7a7daf6a403b01a1d44e4dad9765c8ee4826fb08cf6428de210e68b2",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d86fcd1c6c732ed5cca6507d06bc7b0bdf48e9b629759df11155b2bdef4fa299",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b65f236c677d165e052ef6df51a6d99c76fa10400a64d47b56a5b82bc37254af",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "043f01933b74f67a7ddbe822de892665581103be9a44fedaf9929e189511caeb",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4a9916be7a1b4cb78a981149545cc3e0f4931b8b69501a7cd31a712743744c3f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2595bd90906bb3c456a0f84ab6b1c5515d6366ab0f79b2de773fa894e9c4e1f4",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4e041e4575b0f9e9c9a8042b0569c44f2d6787d9499484ed87f3bc389fe270b7",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "60036e3155f8dc2af1aa8c998a53dc8c5789ab138b2fcc2f809cb4e4e9a492ba",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d65fd9f5d674077587cf376b3de836de54cfcc69726ac0b32119f404ab470d91",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "064ae0ad52abbeabeedcdc7c6de96be5683ac879b3ca595abb976e392941f102",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.9.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.9.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.9.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e0b7648327e775f74ae1ff27f238f0869288caf59df6f0fc0d09fa81f9a0f945",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9eb7e916dc12f3e2d31c75fba64f7904856cefa245ba52431aee331f3e110cd9",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "37854c1e5f5b96fa85ebbc0846fbd3127f730c87eb63cb431289b73b836e15c2",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4215b586a0caf3b5aeb298522325e1f86c99f7eeccb84ef7c7a697f9cbaea935",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1c04f52e5301cd1bd000cec201195aee44213a209ac9da9e20406ff9efb5484a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "25f761e2ba5e0415f0091cc28e13b3a8ea56aa8f72058d68e2f3db2fe27f4b2f",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0d1dae4ae58e15feb564892ceeccf68d1106ec81581aa34ad6c8bbb75d57011a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ff347ab22b4c736d4589b0f578453d0cc7114e1a2e2542103391c159d8e20867",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1aa92dc8947fd89292b007c3340bf50ec20b50e5f6a9ba03cd78c7ab34224f7b",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3c9ea27cd9f392bcf4663fcb8494d44a4a2126f387ec7a219295da9bc687630a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "41fe9b10af20a1b76ca0578398369aaba30c144311f7d38f9fced4cab493d3fe",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "57c5c888d80cc50d41be6706d352ca38d8ccec9c41a30516bd46af51338ee90a",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0febf8370d15efdbbb4bc2b7647a3b1fe7a8d70983e3ae4135b8aec76c937555",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cc5b73e337548ece663d5c57f6c49706bbd24750d8db78be40a19141526fe2a5",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "45bc96946f7c079bdc5a80ff2b9b02611920e8d197aa6c138d82d6e6cbd7223c",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c709b5c6e41f7963ebd51cc30cb870b61da13284be2a3ecf208fa3db44793af1",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.10.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.10.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.10.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cbe341133dfc4fe0d0bf698524cbc84111544ae0a4383be54c57276b0e5bdbde",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.k_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.k_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.k_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "87a6f0db9ed2e83c9df690305e8cb3f53005cc76493ec920c84a6c831bbc8762",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.k_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.k_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.k_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bfe5b901422f3677f84a7fb70cefb03659720354d0b5a7cfe829f006d4f8a2e9",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.v_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.v_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.v_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7453137279b8b33d640b28284dc16a09e2494ca30d3be7a542c55ee1c8b7afe6",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.v_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.v_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.v_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b5c3f30027c9a11340556fa9e458afbf6e3003e41b4acfa9fb1554b27842b7ff",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.q_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.q_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.q_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9b49772a997f74bb09c558af549794ddc03768eaf3037e1856b385ec2ab4f21a",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.q_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.q_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.q_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "72a8d1723033d8fd74b3f90d5b529619af6d7b8b91989c58f09dd51cc8731f83",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.out_proj.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.out_proj.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.out_proj.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "45e71807b4dbbbcb5181cbc3321ddef04f19026939af8a53a7aee997f6d40a42",
+      "shape": [
+        768,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.attention.out_proj.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.attention.out_proj.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.attention.out_proj.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f74ece5f488ede8ae40579481eeddde08bb4109397d1ec6de2c0be2e18309827",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2b0a672740787872a6f0a6c5c8a42db5829a6d4cb316047c0f8b0a6b936c5103",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b26d207a6214080029268c520d228a3fb3e8e69c093dffb1d45657ff9af75225",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "80dd02ff34ec3b6df83f9cc0b54ddb4346800be890cf6acb9ed6977e139805bf",
+      "shape": [
+        3072,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.feed_forward.intermediate_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d03467627ca173af9e3763bdd2552ff235140630aeccb6e82948b6b007a5a0af",
+      "shape": [
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.feed_forward.output_dense.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.feed_forward.output_dense.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.feed_forward.output_dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d3c949a591db6409e8424e0bcbeb0951f869ee3e653198488ac1f268ff321a42",
+      "shape": [
+        768,
+        3072
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.feed_forward.output_dense.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.feed_forward.output_dense.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.feed_forward.output_dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4a1f133949f8fe7a24b567bdd2062ca37ad591ea9a6ff36279b3a097f959c59f",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.final_layer_norm.weight",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.final_layer_norm.weight",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.final_layer_norm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "41e3950411c1ec80d935f915b1f11ba7913acef12babacba915f1d5ab9fa4578",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "wav2vec2.encoder.layers.11.final_layer_norm.bias",
+      "graph_parameter": "model.wav2vec2.encoder.layers.11.final_layer_norm.bias",
+      "key_renamed": false,
+      "library_parameter": "wav2vec2.encoder.layers.11.final_layer_norm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a3aeb7e1c0f529e36ab56c24a3fc2a7627f7d076cdb8448b71edce5ec4f1c022",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "lm_head.weight",
+      "graph_parameter": "model.lm_head.weight",
+      "key_renamed": false,
+      "library_parameter": "lm_head.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "096f56f9a4f315337f060d1238d9f47714f1ace23a5f71cf0371026d834e0e31",
+      "shape": [
+        32,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "lm_head.bias",
+      "graph_parameter": "model.lm_head.bias",
+      "key_renamed": false,
+      "library_parameter": "lm_head.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "650a0b239fa2a6d797e23cb5e677e6b83dfc33d6219f88a4107f5765c4f6d0c1",
+      "shape": [
+        32
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    }
+  ],
+  "checkpoint_sha256": {
+    "model.safetensors": "8aa76ab2243c81747a1f832954586bc566090c83a0ac167df6f31f0fa917d74a"
+  },
+  "conversion": "library load and checkpoint values compared after explicit float32 conversion",
+  "graph_sha256": "6a2c41cfc19b4e736cbf39c907ac28defc05d0288cb8103e981eb28b07550092",
+  "model_id": "wav2vec2-base",
+  "reference": {
+    "config_file": "facebook--wav2vec2-base-960h.config.json",
+    "config_sha256": "d3ec255c063d9f95057b553b19c20135b259875834a4fe9deb218a6be25b4cf3",
+    "model_type": "wav2vec2",
+    "reference_size_million": 94.395552,
+    "repo": "facebook/wav2vec2-base-960h",
+    "revision": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+    "safetensors_files": [
+      "model.safetensors"
+    ],
+    "size_basis": "Hub safetensors stored tensor count"
+  },
+  "schema_version": 1,
+  "scope": "parameter bindings for an original-config architecture graph; no pretrained accuracy claim",
+  "status": "verified",
+  "unbound_unused_parameters": [
+    {
+      "graph_parameter": "model.wav2vec2.masked_spec_embed",
+      "reason": "absent from checkpoint; graph input is unused"
+    }
+  ],
+  "versions": {
+    "safetensors": "0.8.0",
+    "torch": "2.12.0+cpu",
+    "transformers": "5.18.0"
+  }
+}

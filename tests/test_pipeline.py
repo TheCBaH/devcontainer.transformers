@@ -8,7 +8,7 @@ import pytest
 from pt2_export_core.harness import run_worker
 
 from hf_pt2_tools.artifacts import publish, verify_artifact, write_json
-from hf_pt2_tools.cli import source_key
+from hf_pt2_tools.cli import check_outcomes, source_key
 from hf_pt2_tools.registry import read_manifest
 
 
@@ -50,6 +50,11 @@ def test_tampered_graph_and_wrong_call_contract_rejected(bert_artifacts, tmp_pat
     contract['inputs'][0]['name'] = 'wrong_name'
     write_json(directory / 'contract.json', contract)
     with pytest.raises(ValueError, match='saved call signature'):
+        verify_artifact(ROOT, directory)
+    contract = json.loads((original / 'contract.json').read_text())
+    contract['inputs'][0]['dtype'] = 'float32'
+    write_json(directory / 'contract.json', contract)
+    with pytest.raises(ValueError, match='dtype/rank'):
         verify_artifact(ROOT, directory)
     shutil.rmtree(directory)
     shutil.copytree(original, directory)
@@ -104,6 +109,19 @@ def test_resume_key_changes_with_recipe_policy(bert_artifacts):
     assert source_key(ROOT, entry, args) != baseline
 
 
+def test_stage_failure_and_stale_version_scoped_exclusion():
+    row = {'artifact_id': 'example', 'status': 'ok', 'policy': 'dynamo',
+           'producer': {'versions': {'torch': '2.12.0+cpu'}, 'core_revision': 'revision'},
+           'stages': {'decomposition': {'status': 'failed'}}}
+    exclusion = {'artifact_id': 'example', 'stage': 'decomposition', 'policy': 'dynamo',
+                 'versions': {'torch': '2.12.0+cpu'}, 'reason': 'reviewed decomposition failure'}
+    assert check_outcomes({'example': row}, [])['unexpected_failures']
+    assert not check_outcomes({'example': row}, [exclusion])['unexpected_failures']
+    assert check_outcomes({'example': row}, [{**exclusion, 'versions': {'torch': 'old'}}])['stale_exclusions']
+    row['stages']['decomposition']['status'] = 'ok'
+    assert check_outcomes({'example': row}, [exclusion])['stale_exclusions']
+
+
 def test_dynamic_shared_inputs_and_second_shape(tmp_path):
     row = run_worker(ROOT / 'scripts/worker.py',
                     ['worker', '--root', ROOT, '--output', tmp_path, '--subset', 'bert-tiny', '--shape', 'dynamic'],
@@ -121,5 +139,24 @@ def test_processor_derived_vlm_tensor_boundary(tmp_path):
                     'vlm', 300)
     assert row['status'] == 'ok', row
     contract = verify_artifact(ROOT, tmp_path / 'models' / row['artifact_id'])
-    assert contract['fresh_load'] if 'fresh_load' in contract else row['fresh_load']['cases'] == 2
+    assert row['fresh_load']['cases'] == 2
     assert contract['call']['kwargs'] == ['input_ids', 'attention_mask', 'pixel_values', 'pixel_attention_mask']
+
+
+@pytest.mark.parametrize('name,steps,components', [
+    ('smollm2-135m', 5, {'prefill', 'decode'}),
+    ('t5-small', 5, {'encoder', 'prefill', 'decode'}),
+    ('whisper-tiny', 5, {'encoder', 'prefill', 'decode'}),
+    ('smolvlm-256m', 6, {'vision', 'connector', 'prefill', 'decode'}),
+])
+def test_generation_successive_state_reset_capacity_and_fresh_load(tmp_path, name, steps, components):
+    result = run_worker(ROOT / 'scripts/worker.py',
+                        ['generation-worker', '--root', ROOT, '--output', tmp_path, '--subset', name], name, 300)
+    assert result['status'] == 'verified', result
+    assert result['successive_steps'] == steps
+    assert set(result['components']) == components
+    assert result['cache_reset_verified'] and result['capacity_rejection_verified']
+    assert result['upstream_export_for_generation']['status'] == 'exported'
+    for component in result['components'].values():
+        assert not component['fresh_load']['transformers_imported']
+        verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])

@@ -8,7 +8,7 @@ def specs(entry, config, population='tiny', batch=1, length=16):
     name = entry['id']
     tokens = {'input_ids': ('int64', [batch, length]),
               'attention_mask': ('int64', [batch, length])}
-    if name == 'bert-tiny':
+    if entry['model_class'].startswith('Bert'):
         return {**tokens, 'token_type_ids': ('int64', [batch, length])}
     if name == 'smollm2-135m':
         return tokens
@@ -43,17 +43,17 @@ def specs(entry, config, population='tiny', batch=1, length=16):
 def make_inputs(entry, config, population='tiny', seed=17, batch=1, length=16, root=None):
     generator = torch.Generator().manual_seed(seed)
     if entry['id'] == 'smolvlm-256m':
-        if population != 'tiny':
-            raise ValueError('reference VLM requires original-resolution processor fixtures')
-        fixture = json.loads((Path(root) / entry['processor_fixture']).read_text())
-        pixels = torch.randint(0, 256, (batch, 1, 3, 32, 32), generator=generator).float()
+        key = 'processor_fixture' if population == 'tiny' else 'reference_processor_fixture'
+        fixture = json.loads((Path(root) / entry[key]).read_text())
+        size = fixture['processor_overrides']['longest_edge']
+        pixels = torch.randint(0, 256, (batch, 1, 3, size, size), generator=generator).float()
         pixels = pixels * fixture['pixel_recipe']['rescale']
         mean = torch.tensor(fixture['pixel_recipe']['mean']).view(1, 1, 3, 1, 1)
         std = torch.tensor(fixture['pixel_recipe']['std']).view(1, 1, 3, 1, 1)
-        return {'input_ids': torch.tensor(fixture['tiny_input_ids']).expand(batch, -1).clone(),
+        return {'input_ids': torch.tensor(fixture[population + '_input_ids']).expand(batch, -1).clone(),
                 'attention_mask': torch.tensor(fixture['attention_mask']).expand(batch, -1).clone(),
                 'pixel_values': (pixels - mean) / std,
-                'pixel_attention_mask': torch.ones(batch, 1, 32, 32, dtype=torch.int64)}
+                'pixel_attention_mask': torch.ones(batch, 1, size, size, dtype=torch.int64)}
     inputs = {}
     for name, (dtype, shape) in specs(entry, config, population, batch, length).items():
         if dtype == 'float32':
@@ -89,6 +89,16 @@ class TensorOutputs(torch.nn.Module):
     def forward(self, **kwargs):
         output = self.model(**kwargs)
         return tuple(getattr(output, field) for field in self.fields)
+
+
+class AutocastTensorOutputs(TensorOutputs):
+    def __init__(self, model, fields, dtype):
+        super().__init__(model, fields)
+        self.autocast_dtype = dtype
+
+    def forward(self, **kwargs):
+        with torch.autocast('cpu', dtype=self.autocast_dtype):
+            return super().forward(**kwargs)
 
 
 def tensor_metadata(inputs):

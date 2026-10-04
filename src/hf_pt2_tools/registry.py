@@ -7,6 +7,10 @@ import yaml
 
 CONFIG_CLASSES = {
     'BertModel': 'BertConfig',
+    'BertForSequenceClassification': 'BertConfig',
+    'BertForQuestionAnswering': 'BertConfig',
+    'BertForTokenClassification': 'BertConfig',
+    'BertForMaskedLM': 'BertConfig',
     'LlamaForCausalLM': 'LlamaConfig',
     'T5ForConditionalGeneration': 'T5Config',
     'MobileViTForImageClassification': 'MobileViTConfig',
@@ -40,11 +44,16 @@ def read_manifest(root):
             raise ValueError('invalid model ID')
         if entry['model_class'] not in CONFIG_CLASSES:
             raise ValueError('unknown model/config pair')
-        reference = Path(root) / 'configs/reference' / (entry['id'] + '.json')
+        config_id = entry.get('config_model_id', entry['id'])
+        if not config_id.replace('-', '').isalnum():
+            raise ValueError('invalid configuration ID')
+        reference = Path(root) / 'configs/reference' / (config_id + '.json')
         if hashlib.sha256(reference.read_bytes()).hexdigest() != entry['reference']['config_sha256']:
             raise ValueError(f"changed pinned config: {entry['id']}")
-        if entry.get('processor_fixture'):
-            fixture_path = Path(root) / entry['processor_fixture']
+        for key in ('processor_fixture', 'reference_processor_fixture'):
+            if not entry.get(key):
+                continue
+            fixture_path = Path(root) / entry[key]
             fixture = json.loads(fixture_path.read_text())
             source = fixture_path.parent / entry['id']
             for name, expected in fixture['source_sha256'].items():
@@ -65,7 +74,7 @@ def build_model(root, entry, population='tiny', dtype='fp32'):
     import torch
     import transformers
 
-    config_path = Path(root) / 'configs' / population / (entry['id'] + '.json')
+    config_path = Path(root) / 'configs' / population / (entry.get('config_model_id', entry['id']) + '.json')
     document = json.loads(config_path.read_text())
     config = getattr(transformers, CONFIG_CLASSES[entry['model_class']]).from_dict(document)
     config.use_cache = False
