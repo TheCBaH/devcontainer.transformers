@@ -32,7 +32,7 @@ jobs:
           enable-cache: true
       - run: make setup
       - run: uv run --frozen hf-pt2 research --population "$PROBE_POPULATION" --subset "$PROBE_SUBSET" --workers 1 --timeout 900 --output .build/research
-      - uses: actions/upload-artifact@v7.0.0
+      - uses: actions/upload-artifact@v7.0.1
         if: always()
         with:
           name: research-results
