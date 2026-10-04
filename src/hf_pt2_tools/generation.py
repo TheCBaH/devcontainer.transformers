@@ -193,6 +193,7 @@ def run(root, output_root, name='smollm2-135m'):
         with torch.no_grad():
             constants = {}
             if seq2seq:
+                stage = 'encoder'
                 encoder = EncoderStep(model.get_encoder(), config).eval()
                 encoder_inputs = {key: value for key, value in source.items() if not key.startswith('decoder_')}
                 encoded = encoder(**copy.deepcopy(encoder_inputs))
@@ -215,6 +216,7 @@ def run(root, output_root, name='smollm2-135m'):
                 decode = Seq2SeqStep(model, layers, decode=True).eval()
                 result['component_edges'] = {'encoder_hidden_states': 'encoder -> prefill/decode',
                                              'self/cross K/V': 'prefill -> decode -> decode'}
+                stage = 'prefill'
             else:
                 prefill = LlamaStep(model).eval()
                 decode = LlamaStep(model, decode=True).eval()
