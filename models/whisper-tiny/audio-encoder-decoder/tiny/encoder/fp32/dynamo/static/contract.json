@@ -1,0 +1,80 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_features"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+    "data/weights/model_weights_config.json": "e3b3218930b1b6829890a5f8a3b523c5e403e506353c32d9e675017da67cdb19",
+    "models/model.json": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c"
+  },
+  "graph_sha256": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "input_features",
+      "shape": [
+        1,
+        80,
+        64
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "WhisperForConditionalGeneration",
+  "model_id": "whisper-tiny",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "encoder_hidden_states",
+      "shape": [
+        1,
+        32,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "python": "3.13.12",
+    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "e652320751042bf2131236f51267ce65450e9b8eb5cd73ac64e32fa8389dbf4b",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2
+}

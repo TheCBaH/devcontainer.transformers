@@ -1,0 +1,68 @@
+schema_version: 1
+population: tiny
+selection:
+  max_weight_mb: 64
+  release_max_weight_mb: 64
+  candidate_count: 8
+  selected_count: 8
+  covered_units: 476
+  total_units: 476
+  uncovered_units: []
+  mandatory_categories:
+  - audio-encoder-decoder
+  - image-classification
+  - image-text-embeddings
+  - text-decoder
+  - text-encoder
+  - text-encoder-decoder
+  - time-series
+  - video-classification
+models:
+  whisper-tiny:
+    artifact_id: whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static
+    category: audio-encoder-decoder
+    nodes: 142
+    weight_bytes: 169856
+    phase: include
+  mobilevit-xxs:
+    artifact_id: mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static
+    category: image-classification
+    nodes: 394
+    weight_bytes: 5088096
+    phase: include
+  tinyclip:
+    artifact_id: tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static
+    category: image-text-embeddings
+    nodes: 115
+    weight_bytes: 573956
+    phase: include
+  smollm2-135m:
+    artifact_id: smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static
+    category: text-decoder
+    nodes: 173
+    weight_bytes: 361728
+    phase: include
+  bert-tiny:
+    artifact_id: bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder
+    nodes: 92
+    weight_bytes: 1324544
+    phase: include
+  t5-small:
+    artifact_id: t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder-decoder
+    nodes: 251
+    weight_bytes: 395520
+    phase: include
+  time-series-small:
+    artifact_id: time-series-small/time-series/tiny/forward/fp32/dynamo/static
+    category: time-series
+    nodes: 259
+    weight_bytes: 121824
+    phase: include
+  videomae-small:
+    artifact_id: videomae-small/video-classification/tiny/forward/fp32/dynamo/static
+    category: video-classification
+    nodes: 39
+    weight_bytes: 530216
+    phase: include

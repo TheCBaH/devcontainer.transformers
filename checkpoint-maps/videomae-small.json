@@ -1,0 +1,16 @@
+{
+  "model_id": "videomae-small",
+  "reason": "no upstream safetensors at the pinned revision",
+  "reference": {
+    "config_file": "MCG-NJU--videomae-small-finetuned-kinetics.config.json",
+    "config_sha256": "20b05a5026313946ec026dc0c7be4f1f641c47ab66ec7125d406403ce251165c",
+    "model_type": "videomae",
+    "reference_size_million": 22,
+    "repo": "MCG-NJU/videomae-small-finetuned-kinetics",
+    "revision": "1bf2b82c809609f5df1ea7648aee577e2e486b63",
+    "safetensors_files": [],
+    "size_basis": "approximate from 88.2 MB PyTorch checkpoint"
+  },
+  "schema_version": 1,
+  "status": "unavailable"
+}

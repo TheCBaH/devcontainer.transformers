@@ -30,7 +30,7 @@ build-backend = "hatchling.build"
 packages = ["src/hf_pt2_tools"]
 
 [tool.uv.sources]
-pt2-export-core = { git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git", rev = "ad250479db4e42f77bad1c84c459c9a2731654a8", subdirectory = "modules/pt2-export-core" }
+pt2-export-core = { git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git", rev = "ec594858e9ac79619a2a3e4ba2536945e6975c30", subdirectory = "modules/pt2-export-core" }
 torch = { index = "pytorch-cpu" }
 torchvision = { index = "pytorch-cpu" }
 

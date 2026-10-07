@@ -1,0 +1,43 @@
+name: research
+on:
+  workflow_dispatch:
+    inputs:
+      subset:
+        description: 'Comma-separated reviewed model IDs; empty selects eight core references'
+        default: ''
+        type: string
+      population:
+        description: 'Random-weight config population'
+        type: choice
+        options: [reference, tiny]
+        default: reference
+permissions:
+  contents: read
+concurrency:
+  group: research-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 90
+    env:
+      PROBE_SUBSET: ${{ inputs.subset }}
+      PROBE_POPULATION: ${{ inputs.population }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - run: uv run --frozen hf-pt2 research --population "$PROBE_POPULATION" --subset "$PROBE_SUBSET" --workers 1 --timeout 900 --output .build/research
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: research-results
+          path: |
+            .build/research/results/
+            .build/research/models/
+            .build/research/.build/**/*.log
+          include-hidden-files: true

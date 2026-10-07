@@ -1,0 +1,16 @@
+{
+  "model_id": "bert-tiny",
+  "reason": "no upstream safetensors at the pinned revision",
+  "reference": {
+    "config_file": "prajjwal1--bert-tiny.config.json",
+    "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+    "model_type": "bert",
+    "reference_size_million": 4.4,
+    "repo": "prajjwal1/bert-tiny",
+    "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+    "safetensors_files": [],
+    "size_basis": "approximate; 2-layer/128-wide BERT config"
+  },
+  "schema_version": 1,
+  "status": "unavailable"
+}

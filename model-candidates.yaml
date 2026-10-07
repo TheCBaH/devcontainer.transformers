@@ -1,0 +1,700 @@
+{
+  "schema_version": 1,
+  "selection": {
+    "max_weight_mb": 768,
+    "release_max_weight_mb": 768
+  },
+  "models": [
+    {
+      "id": "bert-tiny",
+      "category": "text-encoder",
+      "tier": "core",
+      "model_class": "BertModel",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "notes": "Explicit BertConfig: checkpoint config lacks model_type; no upstream safetensors file."
+    },
+    {
+      "id": "smollm2-135m",
+      "category": "text-decoder",
+      "tier": "core",
+      "model_class": "LlamaForCausalLM",
+      "reference": {
+        "repo": "HuggingFaceTB/SmolLM2-135M-Instruct",
+        "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+        "config_sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+        "config_file": "HuggingFaceTB--SmolLM2-135M-Instruct.config.json",
+        "model_type": "llama",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 134.515008,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Initial forward uses use_cache=false. Prefill/decode are separate later contracts."
+    },
+    {
+      "id": "t5-small",
+      "category": "text-encoder-decoder",
+      "tier": "core",
+      "model_class": "T5ForConditionalGeneration",
+      "reference": {
+        "repo": "google-t5/t5-small",
+        "revision": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+        "config_sha256": "530e25060e3a8d5f7b0fcf53bfea9f3601165161f3b1914676e98d97cf07bcf1",
+        "config_file": "google-t5--t5-small.config.json",
+        "model_type": "t5",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 60.50688,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "decoder_input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            4
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Teacher-forced, no-cache forward; generation remains host orchestration."
+    },
+    {
+      "id": "mobilevit-xxs",
+      "category": "image-classification",
+      "tier": "core",
+      "model_class": "MobileViTForImageClassification",
+      "reference": {
+        "repo": "apple/mobilevit-xx-small",
+        "revision": "6703997f9e940e312a04b8b7c26463d631c0d1f8",
+        "config_sha256": "6f1b7c93da05058a62efcd10266079bbf1e6b430babd9367c8e20fdb21726f22",
+        "config_file": "apple--mobilevit-xx-small.config.json",
+        "model_type": "mobilevit",
+        "safetensors_files": [],
+        "reference_size_million": 1.3,
+        "size_basis": "publisher model card"
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            256,
+            256
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Default image size is 256; no upstream safetensors file."
+    },
+    {
+      "id": "whisper-tiny",
+      "category": "audio-encoder-decoder",
+      "tier": "core",
+      "model_class": "WhisperForConditionalGeneration",
+      "reference": {
+        "repo": "openai/whisper-tiny",
+        "revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+        "config_sha256": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+        "config_file": "openai--whisper-tiny.config.json",
+        "model_type": "whisper",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 37.76064,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "input_features": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            80,
+            3000
+          ]
+        },
+        "decoder_input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            4
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Default mel shape is fixed; shorter smoke inputs require an explicit smaller config."
+    },
+    {
+      "id": "tinyclip",
+      "category": "image-text-embeddings",
+      "tier": "core",
+      "model_class": "CLIPModel",
+      "reference": {
+        "repo": "wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M",
+        "revision": "a2a8c6eaa2549ad66eb7c31b85022bf58273a26c",
+        "config_sha256": "c586d856dbd5589b67525db9e791ee0917402405672c7773aead373efb7d7bca",
+        "config_file": "wkcn--TinyCLIP-ViT-8M-16-Text-3M-YFCC15M.config.json",
+        "model_type": "clip",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 23.44629,
+        "size_basis": "Hub safetensors stored tensor count, including integer buffers"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "text_embeds",
+        "image_embeds",
+        "logits_per_image",
+        "logits_per_text"
+      ],
+      "notes": "Name advertises 8M+3M towers; actual stored tensor total is 23.45M."
+    },
+    {
+      "id": "videomae-small",
+      "category": "video-classification",
+      "tier": "core",
+      "model_class": "VideoMAEForVideoClassification",
+      "reference": {
+        "repo": "MCG-NJU/videomae-small-finetuned-kinetics",
+        "revision": "1bf2b82c809609f5df1ea7648aee577e2e486b63",
+        "config_sha256": "20b05a5026313946ec026dc0c7be4f1f641c47ab66ec7125d406403ce251165c",
+        "config_file": "MCG-NJU--videomae-small-finetuned-kinetics.config.json",
+        "model_type": "videomae",
+        "safetensors_files": [],
+        "reference_size_million": 22,
+        "size_basis": "approximate from 88.2 MB PyTorch checkpoint"
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            16,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Use classification head; upstream pretraining exporter is skipped. No safetensors file."
+    },
+    {
+      "id": "time-series-small",
+      "category": "time-series",
+      "tier": "core",
+      "model_class": "TimeSeriesTransformerModel",
+      "reference": {
+        "repo": "huggingface/time-series-transformer-tourism-monthly",
+        "revision": "2a40ad41f6ffe61e7bef6099b08c6c2fce36ac35",
+        "config_sha256": "39d19e705b63258265d07723b83ce9ca3e08ca8feec87afae144686f149e11d8",
+        "config_file": "huggingface--time-series-transformer-tourism-monthly.config.json",
+        "model_type": "time_series_transformer",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 0.030537,
+        "size_basis": "Hub safetensors stored tensor count of ForPrediction checkpoint"
+      },
+      "reference_inputs": {
+        "past_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            61
+          ]
+        },
+        "past_time_features": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            61,
+            2
+          ]
+        },
+        "past_observed_mask": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            61
+          ]
+        },
+        "future_time_features": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            24,
+            2
+          ]
+        },
+        "static_categorical_features": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            1
+          ]
+        },
+        "static_real_features": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            1
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state",
+        "encoder_last_hidden_state",
+        "loc",
+        "scale"
+      ],
+      "notes": "Start with deterministic Model outputs. Full forecasting requires parameter head plus sampling loop; past length is context 24 + maximum lag 37."
+    },
+    {
+      "id": "yolos-tiny",
+      "category": "object-detection",
+      "tier": "extended",
+      "model_class": "YolosForObjectDetection",
+      "reference": {
+        "repo": "hustvl/yolos-tiny",
+        "revision": "95a90f3c189fbfca3bcfc6d7315b9e84d95dc2de",
+        "config_sha256": "a171607bf33c3c85c2cda36e63f681e8b7fd101396b3f0f7a4aa40214020b86e",
+        "config_file": "hustvl--yolos-tiny.config.json",
+        "model_type": "yolos",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 6.488736,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits",
+        "pred_boxes"
+      ],
+      "notes": "224px is proposed structural probe size; processor-derived pretrained size must be recorded separately."
+    },
+    {
+      "id": "segformer-b0",
+      "category": "semantic-segmentation",
+      "tier": "extended",
+      "model_class": "SegformerForSemanticSegmentation",
+      "reference": {
+        "repo": "nvidia/segformer-b0-finetuned-ade-512-512",
+        "revision": "489d5cd81a0b59fab9b7ea758d3548ebe99677da",
+        "config_sha256": "209caa9091e4632f7c8883c11170cd08ad29af68b23c09590aa4a5befb1a2a7f",
+        "config_file": "nvidia--segformer-b0-finetuned-ade-512-512.config.json",
+        "model_type": "segformer",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 3.753206,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "224px is proposed structural probe size; pretrained processor normally targets 512."
+    },
+    {
+      "id": "depth-anything-small",
+      "category": "depth-estimation",
+      "tier": "extended",
+      "model_class": "DepthAnythingForDepthEstimation",
+      "reference": {
+        "repo": "depth-anything/Depth-Anything-V2-Small-hf",
+        "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99",
+        "config_sha256": "c56698d3643dde1f83ea2212759e6b31a22b8f827246a36dd007ee8a22b3ff75",
+        "config_file": "depth-anything--Depth-Anything-V2-Small-hf.config.json",
+        "model_type": "depth_anything",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 24.785089,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "predicted_depth"
+      ],
+      "notes": "224 is divisible by 14; default backbone image size is 518. Smaller probe resolution needs export and numerical verification."
+    },
+    {
+      "id": "wav2vec2-base",
+      "category": "audio-ctc",
+      "tier": "extended",
+      "model_class": "Wav2Vec2ForCTC",
+      "reference": {
+        "repo": "facebook/wav2vec2-base-960h",
+        "revision": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156",
+        "config_sha256": "d3ec255c063d9f95057b553b19c20135b259875834a4fe9deb218a6be25b4cf3",
+        "config_file": "facebook--wav2vec2-base-960h.config.json",
+        "model_type": "wav2vec2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 94.395552,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": {
+        "input_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            16000
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16000
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Base is the size compromise here; tiny config for CI. CTC decoding is outside graph."
+    },
+    {
+      "id": "smolvlm-256m",
+      "category": "image-text-generation",
+      "tier": "extended",
+      "model_class": "Idefics3ForConditionalGeneration",
+      "reference": {
+        "repo": "HuggingFaceTB/SmolVLM-256M-Instruct",
+        "revision": "7e3e67edbbed1bf9888184d9df282b700a323964",
+        "config_sha256": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+        "config_file": "HuggingFaceTB--SmolVLM-256M-Instruct.config.json",
+        "model_type": "idefics3",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 256.484928,
+        "size_basis": "Hub safetensors stored tensor count"
+      },
+      "reference_inputs": null,
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Use pinned AutoProcessor to derive images, crops, masks and image-token IDs. Tiny nested config first; pretrained model is opt-in.",
+      "processor_fixture": "fixtures/processors/smolvlm-tiny-recipe.json",
+      "reference_processor_fixture": "fixtures/processors/smolvlm-reference-recipe.json",
+      "reference_max_weight_mb": 1536
+    },
+    {
+      "id": "bert-tiny-sequence-classification",
+      "category": "text-sequence-classification",
+      "tier": "head",
+      "model_class": "BertForSequenceClassification",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-qa",
+      "category": "text-qa",
+      "tier": "head",
+      "model_class": "BertForQuestionAnswering",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "start_logits",
+        "end_logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-token-classification",
+      "category": "text-token-classification",
+      "tier": "head",
+      "model_class": "BertForTokenClassification",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "bert-tiny-masked-lm",
+      "category": "text-masked-lm",
+      "tier": "head",
+      "model_class": "BertForMaskedLM",
+      "reference": {
+        "repo": "prajjwal1/bert-tiny",
+        "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+        "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+        "config_file": "prajjwal1--bert-tiny.config.json",
+        "model_type": "bert",
+        "safetensors_files": [],
+        "reference_size_million": 4.4,
+        "size_basis": "approximate; 2-layer/128-wide BERT config"
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
+      "config_model_id": "bert-tiny"
+    }
+  ]
+}

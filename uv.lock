@@ -122,7 +122,7 @@ requires-dist = [
     { name = "jsonschema" },
     { name = "numpy" },
     { name = "pillow" },
-    { name = "pt2-export-core", git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git?subdirectory=modules%2Fpt2-export-core&rev=ad250479db4e42f77bad1c84c459c9a2731654a8" },
+    { name = "pt2-export-core", git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git?subdirectory=modules%2Fpt2-export-core&rev=ec594858e9ac79619a2a3e4ba2536945e6975c30" },
     { name = "pyyaml" },
     { name = "safetensors" },
     { name = "torch", specifier = "==2.12.0", index = "https://download.pytorch.org/whl/cpu" },
@@ -384,7 +384,7 @@ wheels = [
 [[package]]
 name = "pt2-export-core"
 version = "0.1.0"
-source = { git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git?subdirectory=modules%2Fpt2-export-core&rev=ad250479db4e42f77bad1c84c459c9a2731654a8#ad250479db4e42f77bad1c84c459c9a2731654a8" }
+source = { git = "https://github.com/TheCBaH/devcontainer.pytorch-image-models.git?subdirectory=modules%2Fpt2-export-core&rev=ec594858e9ac79619a2a3e4ba2536945e6975c30#ec594858e9ac79619a2a3e4ba2536945e6975c30" }
 dependencies = [
     { name = "huggingface-hub" },
     { name = "jsonschema" },

@@ -1,0 +1,195 @@
+{
+  "artifact_id": "smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "past_0_key",
+      "past_0_value",
+      "past_1_key",
+      "past_1_value"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
+  "dialect": "functional",
+  "dynamic_constraints": {
+    "attention_length": "history+1",
+    "history": [
+      1,
+      8
+    ]
+  },
+  "exporter": {
+    "attention": "eager",
+    "cache": true,
+    "name": "DynamoExporter",
+    "shape_policy": "dynamic",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "3cc2da90f11b11f7eed8ab63460773e78eccc22e8b20b065d9ad63e73b2b3dee",
+    "data/weights/model_weights_config.json": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
+    "models/model.json": "ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba"
+  },
+  "graph_sha256": "ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        5
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_key",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_value",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_1_key",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_1_value",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "LlamaForCausalLM",
+  "model_id": "smollm2-135m",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        1,
+        256
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_key",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_value",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_1_key",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_1_value",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "python": "3.13.12",
+    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "bf2ed770244c003a61fa005f11a0967f13981975b2c3febb4e30dfa632130174",
+  "schema_version": 1,
+  "state": {
+    "host": "feed returned tensors into the next step; host owns sampling and stopping",
+    "input": [
+      "past_0_key",
+      "past_0_value",
+      "past_1_key",
+      "past_1_value"
+    ],
+    "maximum_input_history": 8,
+    "output": [
+      "present_0_key",
+      "present_0_value",
+      "present_1_key",
+      "present_1_value"
+    ],
+    "semantics": "named self/cross-attention K/V tensors; batch x heads x history x head dimension"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 6
+}

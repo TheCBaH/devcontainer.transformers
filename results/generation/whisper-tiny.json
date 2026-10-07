@@ -1,0 +1,73 @@
+{
+  "cache_reset_verified": true,
+  "capacity_rejection_verified": true,
+  "component_edges": {
+    "encoder_hidden_states": "encoder -> prefill/decode",
+    "self/cross K/V": "prefill -> decode -> decode"
+  },
+  "components": {
+    "decode": {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "cases": 6,
+      "fresh_load": {
+        "cases": 6,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "ccdccd7ab23829b838d81e8a1b9ac70a98f9e24cdf68c830dafdc1b9894088bc",
+      "status": "verified"
+    },
+    "encoder": {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c",
+      "status": "verified"
+    },
+    "prefill": {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "fd4e928917e91abbce8f2d81bc322c8fdf1223838c92f693b5dc6952006e55bd",
+      "status": "verified"
+    }
+  },
+  "model_id": "whisper-tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "python": "3.13.12",
+    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "schema_version": 1,
+  "status": "verified",
+  "successive_steps": 5,
+  "upstream_export_for_generation": {
+    "components": [
+      "decode",
+      "prefill"
+    ],
+    "scope": "capability evaluation; tensor-state adapters verified separately",
+    "status": "exported"
+  }
+}

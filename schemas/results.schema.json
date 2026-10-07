@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thecbah.github.io/devcontainer.transformers/schemas/results.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "population",
+    "attempted",
+    "verified",
+    "models"
+  ],
+  "properties": {
+    "outcomes": {
+      "type": "object",
+      "required": ["unexpected_failures", "matched_exclusions", "stale_exclusions"]
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "population": {
+      "enum": [
+        "tiny",
+        "reference"
+      ]
+    },
+    "attempted": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "verified": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "status",
+          "stages",
+          "producer"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "ok",
+              "failed",
+              "timeout",
+              "crashed"
+            ]
+          },
+          "stages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "status"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "ok",
+                    "failed",
+                    "not_run"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

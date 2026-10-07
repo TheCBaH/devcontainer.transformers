@@ -1,0 +1,1 @@
+{"config": {"connector.modality_projection.proj.weight": {"path_name": "weight_0", "is_param": true, "use_pickle": false, "tensor_meta": {"dtype": 7, "sizes": [{"as_int": 64}, {"as_int": 128}], "requires_grad": true, "device": {"type": "cpu", "index": null}, "strides": [{"as_int": 128}, {"as_int": 1}], "storage_offset": {"as_int": 0}, "layout": 7}}}}

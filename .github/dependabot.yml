@@ -1,12 +1,25 @@
-# Please see the documentation for more information:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 version: 2
 updates:
- - package-ecosystem: "devcontainers"
-   directory: "/"
-   schedule:
-     interval: weekly
- - package-ecosystem: "github-actions"
-   directory: "/"
-   schedule:
-     interval: weekly
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /.devcontainer
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: uv
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # The uv updater resolves these coupled exact pins individually.
+      - dependency-name: torch
+      - dependency-name: torchvision
+      - dependency-name: huggingface-hub
+        update-types:
+          - version-update:semver-major

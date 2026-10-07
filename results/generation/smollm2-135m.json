@@ -1,0 +1,58 @@
+{
+  "cache_reset_verified": true,
+  "capacity_rejection_verified": true,
+  "components": {
+    "decode": {
+      "artifact_id": "smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "cases": 6,
+      "fresh_load": {
+        "cases": 6,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba",
+      "status": "verified"
+    },
+    "prefill": {
+      "artifact_id": "smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static",
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "afd25fefa7970db9f3528b700f5eb6ade868babaa65c178531ff43f584e28891",
+      "status": "verified"
+    }
+  },
+  "model_id": "smollm2-135m",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "python": "3.13.12",
+    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "schema_version": 1,
+  "status": "verified",
+  "successive_steps": 5,
+  "upstream_export_for_generation": {
+    "components": [
+      "decode",
+      "prefill"
+    ],
+    "scope": "capability evaluation; tensor-state adapters verified separately",
+    "status": "exported"
+  }
+}

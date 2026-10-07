@@ -1,0 +1,3072 @@
+{
+  "bindings": [
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.embeddings.cls_token",
+      "graph_parameter": "model.vit.embeddings.cls_token",
+      "key_renamed": false,
+      "library_parameter": "vit.embeddings.cls_token",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "02d22d93e7ab51be3f03ab126a942d452d2e9fc914a9d1b445f430a90eeb4d77",
+      "shape": [
+        1,
+        1,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.embeddings.detection_tokens",
+      "graph_parameter": "model.vit.embeddings.detection_tokens",
+      "key_renamed": false,
+      "library_parameter": "vit.embeddings.detection_tokens",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4b62466f26459a33e3f59c9fafc0dcdbd9812de5e336edc8d0c4bbb9a17e9691",
+      "shape": [
+        1,
+        100,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.embeddings.position_embeddings",
+      "graph_parameter": "model.vit.embeddings.position_embeddings",
+      "key_renamed": false,
+      "library_parameter": "vit.embeddings.position_embeddings",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "644fa2df19b46260d8321f9851fbd2becaf3bee19503f7ae03a9e7637ee8d379",
+      "shape": [
+        1,
+        4251,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.embeddings.patch_embeddings.projection.weight",
+      "graph_parameter": "model.vit.embeddings.patch_embeddings.projection.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.embeddings.patch_embeddings.projection.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d35de4bc4b83129936b23527d01dbf83196c6bf8af2b2c6de3ea1346bba7f4b8",
+      "shape": [
+        192,
+        3,
+        16,
+        16
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.embeddings.patch_embeddings.projection.bias",
+      "graph_parameter": "model.vit.embeddings.patch_embeddings.projection.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.embeddings.patch_embeddings.projection.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3b059cb6d967bf38fb5c0ae293794a306216fd88efac3be44de9c0d03da2ba82",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "710c48b8824545ec51ce223ca2e8479cdb38e170ca2a5d3e25d0399d5fb290af",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bdec849ccfa1cfe1eb8a6e07659c68e90951ee81621e4532ee6771a51c90b460",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ae3b482e95a8c31a706e9ee8cb152c9a2578a74db40f82b04075fec80b405e35",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e45e525dac2ae4625741cd7e1b4b1279a5933851edc0c91a2d18784bf876d645",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d114ad18927c2cdaf35601a8039c006fe91469694cbb4b9920d0cd489741ab10",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "15765d9f2bfa7a152adcc0434a4f9cf19875f73e39af658d13eecfaae178d875",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ef640b1bb563b1de4b23c0b94ed603d0ba393f9209f623098542cde87af44989",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2ad505f6ff43bf91ce68bea8a8dd9cf9d2828331e5feb2df169687e17feb5420",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f8632f4ffa9b7a5b7fb59a02ad121cb5ed1c67d80158ebdac24633c899333d30",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "12a78d16163371ef9366cbcf26ca0c444f63d8c0df5c15bd44b22f52861658fe",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6dd7736f05ff61f154225a033707d6c3c0f9a3f8b2a3996e865b77732ab54d2c",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "97c15066fd24248bf45b0d816f0740ad5c244b77579e2d131210f8f57a3f8256",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c2b3286d1cb8d46ec3c5d0c83a69259a97f33c05bf81bbef8af378534f618e07",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cb975450158965ee16b60889514ddf55bdee3f3eeaf8512b331e112a4cd195a2",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.0.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "195dfe544b9b1205fae1c20602a38994efb758c2e1c1265f76173f597b434efa",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.0.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.0.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.0.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "41bf89042f97c4bbd0ab551e3d4ea00af51181bf49a77c3e6c383d6f2e367b0a",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3ac68b88ff3deaa96ed854470d394a3fce0016f90a80c3290367d8a39f938c8a",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7cb23c4d794a9def37f94953a319b3e014e16099302e4e42aab76ed9d56b15ae",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6741588b2a2f063b9db9a48c5bac4c7b841198f054d4e06f26a4c0e3c4d8e2b6",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "41f3501293f51eecd653b5b06956e94f04efad498c1a61811a38d88207b00727",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f791bcb4fdeafbca36ec1b8d5f168f863c0ef533e1570b711f50e771e9e827d9",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3ba915ac9ae7bdc192815ec9a23e746a4166909b5f05b6d4cbaae4118fae26de",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "071d6b293554968140bfeaacef96adba10f8a078d719f81e69d10051235f68b9",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "15a8723bba698c7a329d9697b22f42e0b2660ee0ca0baaeaef8c9d49befeb8dd",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5d8bc1b1c6ba3cda424d42f1180f562fd936d4c845eb79402c7664982a4a2667",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "12b4fb6cff49b91cac5d5275cfca2c0131939846be6ef811ba52b22f6294d19a",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "729b41381214ceca94bb37f2eeb114446710dc3a78060872ba5f7acd0b3d3b5b",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "45f3d90d9bad7d9044412c0ad966bc314c070d8bf8cf483fd8236cddc5cac16d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "26953b864aac3bc98db378b456f38e03baf661178b067b2e15ea2c2d187ce9c6",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "142df40cc5edcbf14eb4846e274e94464424fadeb38f00381e17a5d2e02384e5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.1.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e28feaab85d489cc8e4af76b48869dc6d7324322c52981f48faa2db16f2318be",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.1.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.1.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.1.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f605d9176c0c7cf3773fd328bc374e1d295c91098dbe4f797ab8ac6a100a9a3e",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6f90b9e609e23f6876b968f58e1a4b3b16c8ff28ccc48a6aa5bbec7c7c8b92e1",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6f0a7191c931f4b0e7d79372c5fa29c71ab8baa94d69f03c27b956f2cd6bbf6f",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "59249100a410c4952386661d8094ad1a8dba946c48499994be237e7f52236733",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c544202ba801d82f5a0a273c436cdf507a44c30557d49abf3c06a051a3bde2e7",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dce918d8ee68f7e00bdeb0ee3c8d5849df5b74c5131128cf8100d398f169f1e5",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d66ad6f0ffcfad80c942b084e12029ab15b8c9186beb1b8d5961c413e110a826",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d1fb22e989584a200df47b763b42c5dcdfa41439f779b593482f7b66198bd923",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ba492d7250bb961d6c85bae223b1ee73579b318df4dc8573cd844556b7502744",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b3e0cf0148cd248a4f7b1de8882c018280138df517bd9d09cd92a0f7bf4b0ae7",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a683c7da5dac8032258df0aaf5775d184be5fde49ddc9b62b42d031562a046b1",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bf1b6c0f76b03182f0b3d791a6e09936f9378bc8383d30bc3c8b8926fb4a397b",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1c42418c6e97df610616a5ba8744f9a1e3cf4a6cfe06f991c8da13209b05fb3c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ae387b48c752980292cd28a9f7f309c284e93fdf9e6b398b0cb97daecbcc1f43",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d0b260f1654f89505b10e413c3db217b50674dda42000de96dd2ddb7f6b461fb",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.2.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "33d57ab7aecb3be23eecb97f2239d9fc9c0eb3f3a8fe0fd337358d29f55fee3c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.2.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.2.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.2.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "609251f0ed1693f8a37267c7ab68c737e9336749d8e63f18ad5219089ec9f264",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4db249e55e49409418505ba22ecc85a8cee20864f8bbf9b9a7b0b91dc3b3bd26",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e3cad75a0e3a1bda9e61c242fb8f00bed31930d69577743ce717add001f1c921",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "82f19d5022f0cee55c2ed611b9bbaa50605e9c9661918abdb895fc43fe49aef3",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4222afe2f441593d0e5d36a2d4ccfbc4ac92d5228a7567fb09c1484ece7bc986",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5c74a5aa6d1873ddf89765b287f8d952a32440c8bae742fc2533a522968609d9",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4231ae057f21d11013256bbdbe290bbb539220062da28f535fe3bb2c492b27d8",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3a07389a9efcd06545d87e3ea56251e4c4455c399258e72e56a5d1a70cc57024",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5c007d06d08005441984512d8ca2dae022ef230b52567a309d0d7826f256340e",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0f5784dfdf013845105fc45234c5468e25102619ebd6ecff3def83367ca1e707",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "72a7db31280e00ae7147c3c398d67978459326e3e1763ab16c4f3163d0188c65",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c0bdbc90caed9af2c23a0373de6af4773a53158d9e03f456b1b0f24c84605934",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1bdd23f017f75fedb4f959e9dbbcae13514e4b29cbeb17ca41fd5681ff4e30a5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "da6acbbe4b29fdd5e9b49e62db473c3db326eb0343a8226e37814996c5bbd7c4",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dc2514aedcbf69e90b0999de459bb4e2326498736ead551c9ff49a06bc0b8bc8",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.3.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8ee3c14e387626f273ca08be29a8f4d0fa1b99796b5fbff97ea1071341a75af3",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.3.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.3.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.3.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3150e2559d8b876f473bb0bfa4c56abbc0fe5e0578758ddf2bac59d8141a4aa5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f02f1fb7693ba35bf3eb685eaae9b89100a578b97062e6d37731fb2c45978f28",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dd6018fca3da7c8c189fdbf3c1a939e09dabbf829a640d0c39752f86595bc65d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7cfe4012b3f64dd305a41a4734787f728424e0c86e26bc36cec39cee03f7a5d3",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "08fef6a01f7454786a7adf53bc883d36626b80b2f853991c7b8fb2e1adb781c9",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ee183a079b1886f7ff696daa38853af3d7c1f2603a9fc27810582515096502f9",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e87c2f566d6d93e70b0259ca4cece57864663672f67b73ebb78ac18625e3650d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9d14a2c95f7883f389edcb469e3e12686d022b531cae967e929dbe91948545fe",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3f5d465365d06d9ca4d2bb710e962201437ae06349b023260ee6b3437f7cd463",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7fe9d5817f4f5df392187db1fb47cc97202c44be114001f635ba2391bf0907ab",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d793ac478f27ce718c78aa91e94365cca0e5dd4cc1c9439a14e1893e9aa03af3",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9a9c137aa699743b7235f7d6383383a6c1368fffe620d27f03d9efceb486f443",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "27581e94194c924893f58dc8df35064083c6b49705ffbe13a3324be893061a3c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4f3784a42110929d8c3715aeba3851c5c449f39f99a6bbb9847787124fe4db8d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a8fd708ddbc4b7320a870630a3a07ddbdbec5878b49f9c07942f617d4bed5778",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.4.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f850907e702c652f94340b646852dbc3ad89d4539b38d491de100eac546e2430",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.4.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.4.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.4.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "82cf66e0d48a824e81254d0ff39a3b3c83708e463ec1210819984f5bc75a113c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "56f0b2c0134277f5cd67ba52da12b2ece99fbfae0437ccb8aa42872423cdf938",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f4abe622b3372b436a0ead6a6a65139ab7884433ddf72bfbb27fe564d99c6f3a",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bf9389614a2e379a47bca2fc63f3b9c879db20c2fb9ccdd95885a863df779c6f",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "60da035194fd7e4bbe530c35f129289f0e78287a79537ca832021d6cc5180a44",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d7dba5f56bdbcf2581cac01724e636524227ac8e2d100ee3cb1df2e3cb1ab84d",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "38b38d41bd00c0d50c15381ef87c619d20ea95cdbe4ee2257252ae289b3805c2",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "061f16ef8d953023608dbf74e2c04854e16db16390a888c6074b32edd2e8ce7c",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d73a0985a023d26f6e4fd477308729462b933647fe77f3c6354f3c99637ebed3",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "65d2dacb0dd68cafe25d7722ba759fc494d328af297255debd873262d65f997e",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c6dce5d4db9313ae972404b1379459baf7c5b574004feccc614274478b7104a6",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6a6fdade61886df9da97a108cf278903b760ac1cd6677084eacee59b99c36b1d",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "54a276722636878b0451ffde1b70651ef74e098e57dc92af952cf069208b83ec",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "eac6c756ce39eb7479ec2788e7318bb0ef583d35f42ca1e4025be280f1acf976",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6668d03f68b18e82472d37d25b1305fca92419f7bcb45217ce6a1682aca7f4f3",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.5.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6c1b2447b9f23cb0aa87a426f3e54fc337fa3396e16fcf2a5731f6986768a3aa",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.5.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.5.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.5.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5c905e4f7494159bcc9d8b5942ab5d4b1b3752cd88e392f8693038c4dc64c7c8",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2892882d3f2ebcb86bb469ddae07edffcd91f5fb2c1a43cb7669aac15a2ff359",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "206f8c07ed387c8708216a430458a8369e91d346836f450bbfef644706824c8c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "72db470de58938e68e5d3da3f5fb14ca7101ae63f207482eef9f22bf635ee3e3",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f9144adefa711381fe67bbd61950dd9de0ca68068c626b56d23872ada7bc5ba3",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6b210ec240d758f70b6b4582103fe4c283071f72d04a6be2f933fadde5720119",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "614c9ed3654dbe1765cacd81686060d5f912f1b488ff5cfce2db1b925a8788dc",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a217384e30850f594f8109ba0c3e1bed1de21e9497d9da6176dd261c0c6ac014",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b5ae96fa0f9fdcc991853b6290da5aa333dc7695a2cf0bf902cf6ee77da5b8e3",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "fa26fd4a98f31b33791305a9b3da5d8d867da5a765088113526f1934708ec4e5",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1c87858a99276c60fbdcd2134709bc73dc14d713cdc8372d25793866f4835d91",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4c8d6f6794d297f3067f882dd46feb3987e481b4da5ff7fdd83da17e53469f70",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "aa39b201145059dbf059e0cecc6712245b5d8ab2e244b67a48c385537d07f2bc",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9145914b51e47046ab1373faa367b00e843821a6719536c4f90f8452629c930b",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6fb188bb733809dec31923f2abb6c1711da213a44254bfec23688eac378c35e4",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.6.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e8ae3eabd5c913858f4a77e7b6c9dbc4f442c375bfbb358b19bd3a91fc15b7db",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.6.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.6.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.6.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "09f3a2f793a7f2e678554c587b6576d8c598772cbda7b33659428a2e59bbaf7e",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f3f169adeb80068536f4a248b54c2c60fd06891f192cfde2f5160feb457bdd6f",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3e2504d8be901be5038cd23459c932240dd6dab34396b979f0b0fc1b1d2ecdc5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "531634b77f742436545e91cd999a260dd672bf56610fb5b719d3348d4d19e6f0",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c80282888572b0e5dc66052601e9a4d01594a75031c49ee100d5f6467f5eccd9",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "56980fbca1844c6053fcf385204a13f4caeb3051d7333f10d83278f829f59eb1",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5eb67969ad24a2316dbdfe1f1ddcd1c60c77df7a703d503023219189b8fd392d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "95139c5862807f1720f1a00e55a8e11feca9c9084202c864e50a52f59a4ab430",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d8fb8f57f1f115ba2a36d577b6975c9f12a017fed1d3a4c6af36baed0ae84b05",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cb000913e8302fb694454a2ea6d9f7193bd2e012fed76a4f9950aaee082482b0",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8716fe4a189122c771d099c38ca64f5d593c64625cffa45b4d40489c1830c7ea",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2638d73880b574f5874ad58a862edc1ffb4e261e9619c992b6def2317176f460",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a0aa866532400456f790a7c9dd88be6f0250a6c3bcdf2edb46b3ba5aff719aed",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "816783461209fd78372c7661f3df9048dc685f69e5bf43adecbfeed0557b779a",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e1bda8a283995d21443df62211848244efd68d2b38686dfbc26721c04174a966",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.7.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "cc510f3b92474dcbf57f6a2fec6414451d196f8368269d9891d495dad58cfbfb",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.7.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.7.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.7.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e214081be439ecca631128dbeaba7971ce2d966ec2bf82912686b5cd7e9e78b5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "aa278d1e09dba75024b0005650fa313237100978982abe09565136b79b2e0748",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "19eafb68d32dee5b4beeea4b2d0f84afb59a1be02a0603c589eec30de9e61ac1",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a8bca40b6e9e50b2105d022f6a6e3466ba324911d52ed228ec8dbe96be6fa825",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "08e56c07b9c2ea8132c8442d504d03442bb56297f70512065caf4453658ab9e2",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7600995205fe1eac5c4b805249c299a2294bb6d7867a58dcd7a979c8dfc5a825",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9d0ce3beeb0b9eb8f17abe93c738bd8ba898d4b604a90ee22e993745a1534ab0",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ea35369a86ab49ba6180db4a1f6c8d5ac98eabf269a9a9e7e9a69e6af7564b4e",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d9f0d103bfc7709cb22e093a955f1f11b88ca67f73c384c046fb3b0efa1cfbb2",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c6cc138f104125b7b580081d4a319c63b13328655a4f03c2c0c72ff90994337e",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3dcda95184d095f6ff957e8e97d3c2245b8de961feb1e9d522a7dd2fb0fcf279",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9ebf0fd3d6bf66d477c8f90e271ab5b41067129a9c252bdca2d4a2f39cae96ef",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8ecdaace422a38c59616ccc57371db3211fc228f79f9faad10daea720c3a15df",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "698924a41e8e31bead82fea8b74f14912cf8c28be3eb9c4279c8fbc7cdb0de57",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "30b8220b85c02ef26ca3900de655202a59bd713f11ff0d49765a090731385101",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.8.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "77fda60afc4abcdef2e252e65fce2c18b78f9c1a7e44c40f73f7bff6ea4e9cce",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.8.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.8.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.8.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "93374e9f13687307c3ba9ecdf51745e1dfe1eb5c5f6861684afff4da9be7d4ea",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "282d104d072efac4dcf8e273d6cfe49652a5c1d94a8ebdadaccd651c50b5fd8d",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "09315f963e673b75c1e6bf2df283c1b0da69b99bbb5f6b9aa0711420cf9a64fa",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c50711790913c88c2659133238854d0acc47f344f3c8b03c25a579322d1a0739",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5b3204e8d76c3a7c5c48f7d66b6363c7f96d2007f31fd893e81208bf9e9c7a3c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ab98612729792300e02668596fc618b164dc8a6067850382f4a8383fdd9f456a",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4d8be87a6a5320d79d911690c6355d47357e910431a4751a94bc3b62e23e3372",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f99784e83e3be94907b27c5e5d210364f6f5d5a25b1f37d139f0a8de3148b7eb",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4259cb4e84a3a61047fe6a1e3ad44f4b19fe5ea9d1cd2108eb4e597ec7804e7d",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c10057f6a43aa6aea846337893a98b12d04413e7d3284f93a6f778ac7926888a",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ae2cff2ce8d708721ef8f4a3fcff552af3d7b9d0b76e2126d8ae669f2dbd6663",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "da448ed0b81dad455ab38f507e0f50f57a735764b104943bb43c5ba77e47e45e",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c3bd2f248197e09b04d5b12eb11f6196b0fcb6e45adddfff999364b4e4656d36",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5826527b5647392e8c4a06b2b2b33179b81400fcef62067ec9c2021d3e212f46",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3d27e942c02d15e27882b7322bbf7bd1e89c71fb1f624104d760b9a2fb95779c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.9.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a7a7cd5bbe90d50a2119321c4edab05b23d3626cb6d09b786c13e37fdf48cdcc",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.9.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.9.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.9.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1696f137958dfeec3f431a86bba531a5e88cba8f1e2eee34f75287735e5dace8",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6044bb6665752f5918d13e9653a87ac00118017d8d5d73579bc1a5fe1ffba9ea",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4483ca90ec0d980084e6d6184198045f2a04566fa93200c0f2bdca779c380dd1",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "04a339aff202eca789b632148c3058c4b06c10328251df97e90887fc2113dd78",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "03aa945a97a4e4b81e4f0cbc38372c0104b0630e5e2be5e4e44d85d8588b9d36",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a5784d6762fb5f20001c178fcdefbb24d7641a21104db3b1989f18b44b4948be",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0ea1d3682e309531c7a4b077ae4263231bfd17a64c37891c47cbb6d4c33cd7d6",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e0d43006e0724ee700f1b7a3e2c5c6c53d48169a4dff11b262516844b33b064e",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8f2ac071d2c02d4cac8148c8c0134cc069c1a25e0b3cb1c3b1ba3fd6aa515bd4",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7ef6d4d657b309e36e90e10dbbfd00a21fb0e084f81e3d51a0c918965aaa84b7",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "653c50df2c2f7a3d1bb09f14c3d1d95f065e1f8de222c79177a3e8dfc2e3c0de",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "60d85825e53a299e54404b8802838c35d36bc7a008588b0ab6121135333cb972",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "94eafc5292cdaaeea1451bb890a3b2eca5d42a0b8e5d7bf1f684055f51740b42",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6863044b5b53b3da2d6e47fb8e2db954cb93ba71316cacb663458f076c1b3890",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "43660e11d4655a4f9793c72f11ddb6b1a25006a46b23199a18afec9fa44de205",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.10.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "54b99b9486f138bb291dce544fc3d22156e53cc3a087911bac788411bc52f1e8",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.10.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.10.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.10.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "83eedf9abc459a100432be1625cfa9367c740533a169e3ce5024b2a45cf7f0a5",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.query.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.query.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e5aeeb39ab5c6a7c2043390f32f11c8eec6e88a71436d81d2468145003851980",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.query.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.query.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "dea6837004840a38f1b2227f040e066ed13a5de79f69397feea2f1680d77dd94",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.key.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.key.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "46c97139e2975c7db055c4230c28fdb98d990edfef133360e1fa7e2551a70145",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.key.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.key.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "83af0d125e5d4d980110229f019b19fb6cac22c466e626a8afee3b3070fc71e2",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.value.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.value.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "59e146aa9cbf38919272c4152ff639442953976556ef91f898ff9a92ed507a89",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.attention.value.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.attention.value.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.attention.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4f8af67c5bc2f2f6750499e85541ab256519b8b173f75b787dbab533d32ed240",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2cf9cb15a7b4c41294e880c8fc93ee93019880c594c9d8d1349fa0d3447fd732",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.attention.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.attention.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "36ca4ecc4aeb4fc24b9eb0c7e0590b8720e27fea9f213d89721a87cdb8c89f2b",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.intermediate.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.intermediate.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "501a8db4c3a641a1a63402ddc8fa9374fdbfe6b766fc5d707af11098edf59cde",
+      "shape": [
+        768,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.intermediate.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.intermediate.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8249dee608842de2e1c51a308a9094fd85c8688ef073d5267f294d689cc5ab38",
+      "shape": [
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.output.dense.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.output.dense.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0901c41678c73dd324d89f91b69b51ad908c0ddf2af373cd5905212a2aeb4fa2",
+      "shape": [
+        192,
+        768
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.output.dense.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.output.dense.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2f7d63ccb7f76c8ae91186388771f04b12fed326dbfcbdd1652f8984862a0fff",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.layernorm_before.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.layernorm_before.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.layernorm_before.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e4f81e12d1d7bbb387cef8d8ed429dd68011d7b7e45b7926e974fedd993a0f7f",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.layernorm_before.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.layernorm_before.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.layernorm_before.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6f4d0df2da6d37b6ec432d45a58fba6554db2e4c24a6090739d6870f6ea6f9dd",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.layernorm_after.weight",
+      "graph_parameter": "model.vit.encoder.layer.11.layernorm_after.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.layernorm_after.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b1c042a2ec6c1861f46409dfeb9dfe3ea984b7edcde1d69e6eea87ec058a3ddf",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.encoder.layer.11.layernorm_after.bias",
+      "graph_parameter": "model.vit.encoder.layer.11.layernorm_after.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.encoder.layer.11.layernorm_after.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ea16881a3418ab302410eb46697d23752aa3bc6e628a6bcb4527b729b883f400",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.layernorm.weight",
+      "graph_parameter": "model.vit.layernorm.weight",
+      "key_renamed": false,
+      "library_parameter": "vit.layernorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b8bc1c142de2032014558b589a0f7ae3aad0ebcf155efcd013baafb4ce17c00e",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "vit.layernorm.bias",
+      "graph_parameter": "model.vit.layernorm.bias",
+      "key_renamed": false,
+      "library_parameter": "vit.layernorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3b7df9048691c05492ffa605d0bda3976f7dcb57e15249afdd72a39eeafe10fd",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.0.weight",
+      "graph_parameter": "model.class_labels_classifier.layers.0.weight",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.0.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3fffbceb9c263a00734a0c1a84a9d0af842821480074ab27ba8ed3553a604818",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.0.bias",
+      "graph_parameter": "model.class_labels_classifier.layers.0.bias",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.0.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4992aa8263e387daf56d049be440c6d615c2e4031b9a71fb5f78826caf97d850",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.1.weight",
+      "graph_parameter": "model.class_labels_classifier.layers.1.weight",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.1.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "858956cd76a5ab69dac9115b83ede08b55e1d6b544ab528780bd3d87fb77136a",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.1.bias",
+      "graph_parameter": "model.class_labels_classifier.layers.1.bias",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.1.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1dc8dbd26e0a1240638c0eeabed13b2d597f32f7e2aa8d00720ffc3134a2b7d4",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.2.weight",
+      "graph_parameter": "model.class_labels_classifier.layers.2.weight",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.2.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "eda4e3e76b159e34d5f196265690d19011f77e03f950e9883b7ce45040f52d64",
+      "shape": [
+        92,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "class_labels_classifier.layers.2.bias",
+      "graph_parameter": "model.class_labels_classifier.layers.2.bias",
+      "key_renamed": false,
+      "library_parameter": "class_labels_classifier.layers.2.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "61ec9ad182b3c8350bbc73ce6ee5245ec29d24bb9b6292f53eedf0b703893078",
+      "shape": [
+        92
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.0.weight",
+      "graph_parameter": "model.bbox_predictor.layers.0.weight",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.0.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "127b5cc960452e95d81096e6a856c200ab71f42113fbac1f4c6dfb8bce6881a6",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.0.bias",
+      "graph_parameter": "model.bbox_predictor.layers.0.bias",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.0.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4825dd4d9dd24f5a02a0c7e0b647e33e319a44e08b533a9877d3937843d6442c",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.1.weight",
+      "graph_parameter": "model.bbox_predictor.layers.1.weight",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.1.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4fd1214b9463ea0a49c170b639773be099aff9902dd813e0e39eeec0eb3d1e8b",
+      "shape": [
+        192,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.1.bias",
+      "graph_parameter": "model.bbox_predictor.layers.1.bias",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.1.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "838d6284ed7a354842a363c883055388942083fb195329bcc1bc6364e2483d82",
+      "shape": [
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.2.weight",
+      "graph_parameter": "model.bbox_predictor.layers.2.weight",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.2.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "870c6bbf66e656f829bf3bb1dd9d3b9b8bda6a10965ba6bd4ccbe24539c137b0",
+      "shape": [
+        4,
+        192
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bbox_predictor.layers.2.bias",
+      "graph_parameter": "model.bbox_predictor.layers.2.bias",
+      "key_renamed": false,
+      "library_parameter": "bbox_predictor.layers.2.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1daef5ba255f6d9f48293c9c8033a63fede3492e1c745f6a589e82133f16d26a",
+      "shape": [
+        4
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    }
+  ],
+  "checkpoint_sha256": {
+    "model.safetensors": "5a6a017a20cb522dd347271fa5bd670467e456176aaccd940090e50985ac6e74"
+  },
+  "conversion": "library load and checkpoint values compared after explicit float32 conversion",
+  "graph_sha256": "4d518f07e0a9605fcdbe25663f082f8775f4bb840f639066b64dada70609f86d",
+  "model_id": "yolos-tiny",
+  "reference": {
+    "config_file": "hustvl--yolos-tiny.config.json",
+    "config_sha256": "a171607bf33c3c85c2cda36e63f681e8b7fd101396b3f0f7a4aa40214020b86e",
+    "model_type": "yolos",
+    "reference_size_million": 6.488736,
+    "repo": "hustvl/yolos-tiny",
+    "revision": "95a90f3c189fbfca3bcfc6d7315b9e84d95dc2de",
+    "safetensors_files": [
+      "model.safetensors"
+    ],
+    "size_basis": "Hub safetensors stored tensor count"
+  },
+  "schema_version": 1,
+  "scope": "parameter bindings for an original-config architecture graph; no pretrained accuracy claim",
+  "status": "verified",
+  "unbound_unused_parameters": [],
+  "versions": {
+    "safetensors": "0.8.0",
+    "torch": "2.12.0+cpu",
+    "transformers": "5.18.0"
+  }
+}

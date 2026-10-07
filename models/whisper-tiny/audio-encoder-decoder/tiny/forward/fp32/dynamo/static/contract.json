@@ -1,0 +1,89 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_features",
+      "decoder_input_ids"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "data/constants/model_constants_config.json": "46d9b4f449bdef910266ffef63db5c27bcaad1f84779493be2267492f51f409c",
+    "data/weights/model_weights_config.json": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
+    "models/model.json": "8c5b8e909228f6e20856215aaf71e299ad628b2b03c1812fa70aa86117bafd9f"
+  },
+  "graph_sha256": "8c5b8e909228f6e20856215aaf71e299ad628b2b03c1812fa70aa86117bafd9f",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "input_features",
+      "shape": [
+        1,
+        80,
+        64
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "WhisperForConditionalGeneration",
+  "model_id": "whisper-tiny",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        4,
+        256
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "python": "3.13.12",
+    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "7d10f7fb603898becbeed17427c54a0caede38e12fdd9914a279bc792f6f86c7",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2
+}
