@@ -1,0 +1,39 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+    - name: devcontainer
+      uses: TheCBaH/devcontainer-action/devcontainer@v1
+      id: devcontainer
+    - name: setup
+      run: |
+        echo 'EXEC=${{ steps.devcontainer.outputs.exec }}' >> $GITHUB_ENV
+    - name: Cache Models
+      id: cache-models
+      uses: actions/cache@v4
+      with:
+        path: .cache
+        key: ${{ hashFiles('Makefile') }}-models
+    - name: cache
+      run: |
+        mkdir -p .cache
+        ${{ env.EXEC }} sh -ceux 'mkdir -p ~/.cache'
+        ${{ env.EXEC }} sh -ceux 'mv .cache ~/.cache/huggingface'
+    - name: chat
+      run: |
+        ${{ env.EXEC }} make chat
+    - name: cache-save
+      run: |
+        rm -rf .cache
+        ${{ env.EXEC }} sh -ceux 'mv -v ~/.cache/huggingface .cache'

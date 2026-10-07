@@ -1,0 +1,8 @@
+.venv/
+.build/
+.hf-cache/
+.uv-cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
