@@ -117,7 +117,7 @@ def inventory(graph, weights_config, constants_config):
     return entries
 
 
-def captures_document(identity, graph_sha256, entries, values=None):
+def captures_document(identity, graph_sha256, entries, values=None, prefixes=None):
     """Attach per-entry sources: graph-owned payload (with value digest) for exported random/library weights."""
     rows = []
     for entry in entries:
@@ -126,6 +126,7 @@ def captures_document(identity, graph_sha256, entries, values=None):
             row['source']['value_sha256'] = value_hash(values[entry['target']])
         rows.append(row)
     return {'schema_version': 1, 'artifact_id': identity, 'graph_sha256': graph_sha256, 'captures': rows,
+            'module_prefixes': dict(prefixes or {}),
             'counts': {kind: sum(r['kind'] == kind for r in rows) for kind in ('PARAMETER', 'BUFFER', 'CONSTANT_TENSOR')}}
 
 

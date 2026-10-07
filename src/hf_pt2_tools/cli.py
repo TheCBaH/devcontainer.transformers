@@ -18,7 +18,8 @@ def source_key(root, entry, args):
     fixture = json.loads((root / entry[fixture_key]).read_text()) if entry.get(fixture_key) else None
     return digest({'entry': entry, 'config': config, 'producer': producer(root),
                    'population': args.population, 'dtype': args.dtype, 'shape': args.shape,
-                   'policy': getattr(args, 'policy', 'dynamo'), 'fixture': fixture})
+                   'policy': getattr(args, 'policy', 'dynamo'), 'fixture': fixture,
+                   **({'weights': 'checkpoint'} if getattr(args, 'weights', 'random') == 'checkpoint' else {})})
 
 
 def check_outcomes(rows, exclusions):
@@ -64,7 +65,15 @@ def sweep(args):
     if not entries:
         raise ValueError('no reviewed candidates')
     entries = {e['id']: e for e in entries}
-    result_path = output / 'results' / ('models.json' if args.population == 'tiny' else 'reference.json')
+    checkpoint = args.weights == 'checkpoint'
+    if checkpoint and args.population != 'reference':
+        raise ValueError('checkpoint weights apply to the original-config (reference) population')
+    snapshots = {}
+    if checkpoint:
+        from .checkpoints import fetch
+        snapshots = {name: fetch(root, name) for name in sorted(entries)}
+    result_path = output / 'results' / ('checkpoint.json' if checkpoint else
+                                        'models.json' if args.population == 'tiny' else 'reference.json')
     previous = json.loads(result_path.read_text())['models'] if args.resume and result_path.exists() else {}
     rows = {}
 
@@ -78,11 +87,14 @@ def sweep(args):
         script = root / 'scripts/worker.py'
         argv = ['worker', '--root', root, '--output', output, '--subset', name,
                 '--population', args.population, '--dtype', args.dtype, '--shape', args.shape, '--policy', args.policy]
+        if name in snapshots:
+            argv += ['--snapshot', snapshots[name]]
         row = run_worker(script, argv, name, args.timeout, hf_home=root / '.hf-cache')
         if row['status'] in ('timeout', 'crashed'):
             from .exporting import STAGES, producer
             row = {'name': name, 'status': row['status'], 'error_category': row['status'],
-                   'category': entry['category'], 'artifact_id': artifact_id(entry, args.population, args.dtype, args.policy, args.shape),
+                   'category': entry['category'], 'artifact_id': artifact_id(entry, args.population, args.dtype, args.policy, args.shape,
+                                            entry['reference']['revision'] if checkpoint else None),
                    'population': args.population, 'dtype': args.dtype, 'policy': args.policy, 'shape_policy': args.shape,
                    'stages': {stage: {'status': 'not_run'} for stage in STAGES},
                    'ops': {}, 'schemas': {}, 'producer': producer(root)}
@@ -93,7 +105,7 @@ def sweep(args):
     run_pool(sorted(entries), work, args.workers, lambda row: ' ' + row.get('failed_stage', ''))
     exclusions = yaml.safe_load((root / 'export-exclusions.yaml').read_text())['exclusions']
     outcomes = check_outcomes(rows, exclusions)
-    document = {'schema_version': 1, 'population': args.population, 'attempted': len(rows),
+    document = {'schema_version': 1, 'population': args.population, 'weights': args.weights, 'attempted': len(rows),
                 'verified': sum(r['status'] == 'ok' for r in rows.values()), 'models': dict(sorted(rows.items())),
                 'outcomes': outcomes}
     validate_document(document, 'results', str(root / 'schemas'))
@@ -120,7 +132,13 @@ def main():
     parser.add_argument('--timeout', type=int, default=900)
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--graph')
+    parser.add_argument('--weights', choices=['random', 'checkpoint'], default='random')
+    parser.add_argument('--snapshot')
+    parser.add_argument('--static-history')
+    parser.add_argument('--allow-unpinned-snapshot', action='store_true')
     parser.add_argument('--program')
+    parser.add_argument('--binding')
+    parser.add_argument('--source')
     parser.add_argument('--pack-repo')
     parser.add_argument('--pack-revision')
     parser.add_argument('--pack-url')
@@ -135,20 +153,27 @@ def main():
         sys.addaudithook(offline)
         if args.command == 'generation-worker':
             from .generation import run
-            print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'smollm2-135m')))
+            histories = tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ()
+            print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'smollm2-135m', args.population,
+                                 args.snapshot, args.allow_unpinned_snapshot, histories)))
             return
         from .exporting import run
         print(json.dumps(run(root, args.subset, Path(args.output).resolve(), args.population,
-                             args.dtype, args.policy, args.shape)))
+                             args.dtype, args.policy, args.shape, args.snapshot, args.allow_unpinned_snapshot)))
         return
     if args.command == 'generation':
         if args.subset and args.subset not in ('smollm2-135m', 't5-small', 'whisper-tiny', 'smolvlm-256m'):
             parser.error('generation requires a reviewed decoder or encoder-decoder recipe')
         output = Path(args.output or root / '.build/generation').resolve()
-        result = run_worker(root / 'scripts/worker.py',
-                            ['generation-worker', '--root', root, '--output', output,
-                             '--subset', args.subset or 'smollm2-135m'],
-                            'generation-llama', args.timeout)
+        name = args.subset or 'smollm2-135m'
+        argv = ['generation-worker', '--root', root, '--output', output, '--subset', name,
+                '--population', args.population]
+        if args.static_history:
+            argv += ['--static-history', args.static_history]
+        if args.weights == 'checkpoint':
+            from .checkpoints import fetch
+            argv += ['--snapshot', fetch(root, name)]
+        result = run_worker(root / 'scripts/worker.py', argv, 'generation-llama', args.timeout, hf_home=root / '.hf-cache')
         print(json.dumps(result))
         sys.exit(0 if result['status'] == 'verified' else 1)
     if args.command == 'catalogue':
@@ -160,7 +185,7 @@ def main():
         from .weights import build_pack, check_pack
         if not args.subset or not args.program:
             parser.error('pack requires --subset model ID and --program original-config model.pt2')
-        binding = json.loads((root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
+        binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
         output = Path(args.output or root / '.build/packs').resolve() / (args.subset + '.safetensors')
         document = build_pack(binding, fetch(root, args.subset), Path(args.program).resolve(), output,
                               {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url})
@@ -179,12 +204,13 @@ def main():
             return
         names = set(args.subset.split(',')) if args.subset else None
         count = 0
-        for contract in sorted((root / 'models').rglob('contract.json')):
+        source = Path(args.source).resolve() if args.source else root
+        for contract in sorted((source / 'models').rglob('contract.json')):
             directory = contract.parent
-            identity = str(directory.relative_to(root / 'models'))
+            identity = str(directory.relative_to(source / 'models'))
             if names and identity.split('/')[0] not in names:
                 continue
-            build_bundle(root, directory, root / '.build' / identity, output)
+            build_bundle(root, directory, source / '.build' / identity, output)
             count += 1
         print(f'bundled {count} artifacts into {output}')
         return

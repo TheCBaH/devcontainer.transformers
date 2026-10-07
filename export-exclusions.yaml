@@ -12,3 +12,27 @@ exclusions:
       elements, with maximum absolute error 1.1704164e-5 exceeding the fixed
       1e-5 absolute tolerance. Functional and fresh-loaded outputs pass;
       core CPU execution is not verified for this reference artifact.
+  - artifact_id: smollm2-135m/text-decoder/reference/forward/fp32/dynamo/static/ckpt-12fd25f77366
+    stage: decomposition
+    policy: dynamo
+    versions:
+      torch: 2.12.0+cpu
+      transformers: 5.18.0
+      core_revision: ec594858e9ac79619a2a3e4ba2536945e6975c30
+    reason: >-
+      With pinned checkpoint weights, default decomposition differs from eager
+      FP32 logits in 2 of 786432 elements, maximum absolute error 2.58e-5
+      against the fixed 1e-5 tolerance. Functional and fresh-loaded outputs
+      pass; core CPU execution is not verified for this artifact.
+  - artifact_id: smolvlm-256m/image-text-generation/reference/forward/fp32/dynamo/static/ckpt-7e3e67edbbed
+    stage: decomposition
+    policy: dynamo
+    versions:
+      torch: 2.12.0+cpu
+      transformers: 5.18.0
+      core_revision: ec594858e9ac79619a2a3e4ba2536945e6975c30
+    reason: >-
+      With pinned checkpoint weights, default decomposition differs from eager
+      FP32 logits in 15118 of 3498880 elements (0.4%), maximum absolute error
+      2.33e-4 against the fixed 1e-5 tolerance. Functional and fresh-loaded
+      outputs pass; core CPU execution is not verified for this artifact.

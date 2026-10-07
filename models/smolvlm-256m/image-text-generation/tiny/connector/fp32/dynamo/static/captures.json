@@ -26,5 +26,8 @@
     "PARAMETER": 1
   },
   "graph_sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+  "module_prefixes": {
+    "connector.": "model.connector."
+  },
   "schema_version": 1
 }

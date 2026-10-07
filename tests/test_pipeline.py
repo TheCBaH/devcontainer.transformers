@@ -181,6 +181,11 @@ def test_generation_successive_state_reset_capacity_and_fresh_load(tmp_path, nam
         verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])
 
 
+def diagnostics(row, output):
+    logs = {str(p.relative_to(output)): p.read_text()[-1500:] for p in sorted(Path(output).rglob('*.log'))}
+    return {'failed_stage': row.get('failed_stage'), 'error_category': row.get('error_category'), 'logs': logs}
+
+
 def _bundle(root, row, output):
     from hf_pt2_tools.fixtures import build_bundle
     identity = row['artifact_id']
@@ -304,3 +309,66 @@ def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts
         mutate(broken)
         with pytest.raises(ValueError, match=message):
             check_pack(broken, pack, binding['captures'])
+
+
+def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail(tmp_path):
+    import torch
+    from hf_pt2_tools.artifacts import file_hash
+    from hf_pt2_tools.fixtures import build_bundle, verify_bundle
+    from hf_pt2_tools.registry import build_model
+    entry = next(e for e in read_manifest(ROOT)['models'] if e['id'] == 'tinyclip')
+    model, _ = build_model(ROOT, entry)
+    with torch.no_grad():
+        for parameter in model.parameters():
+            parameter.add_(0.5)
+    snapshot = tmp_path / 'snapshot'
+    model.save_pretrained(snapshot, safe_serialization=True)
+    rows = {}
+    for label, extra in (('random', []), ('checkpoint', ['--snapshot', snapshot, '--allow-unpinned-snapshot'])):
+        output = tmp_path / label
+        rows[label] = run_worker(ROOT / 'scripts/worker.py',
+                                 ['worker', '--root', ROOT, '--output', output, '--subset', 'tinyclip', *extra],
+                                 label, 300)
+        if rows[label]['status'] != 'ok':
+            pytest.fail(json.dumps(diagnostics(rows[label], output)))
+    random_id, checkpoint_id = rows['random']['artifact_id'], rows['checkpoint']['artifact_id']
+    assert checkpoint_id == random_id + '/ckpt-' + entry['reference']['revision'][:12]
+    contracts = {label: verify_artifact(ROOT, tmp_path / label / 'models' / row['artifact_id']) for label, row in rows.items()}
+    assert contracts['random']['weights'] == {'kind': 'random', 'model_seed': 0}
+    weights = contracts['checkpoint']['weights']
+    assert weights['kind'] == 'checkpoint' and not weights['pinned_config_match']
+    assert weights['files']['model.safetensors']['sha256'] == file_hash(snapshot / 'model.safetensors')
+    assert contracts['random']['recipe_sha256'] != contracts['checkpoint']['recipe_sha256']
+    cases = {label: json.loads((tmp_path / label / 'models' / row['artifact_id'] / 'cases.json').read_text())
+             for label, row in rows.items()}
+    assert cases['checkpoint']['weight_source'] == weights
+    assert cases['random']['cases'][0]['outputs_sha256'] != cases['checkpoint']['cases'][0]['outputs_sha256']
+    good = build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, tmp_path / 'checkpoint/.build' / checkpoint_id,
+                        tmp_path / 'bundles')
+    from hf_pt2_tools.fixtures import verify_bundle
+    assert verify_bundle(ROOT, tmp_path / 'bundles' / good['archive']['name'])['status'] == 'ok'
+    swapped = tmp_path / 'swapped'
+    shutil.copytree(tmp_path / 'checkpoint/.build' / checkpoint_id, swapped)
+    shutil.copy(tmp_path / 'random/.build' / random_id / 'model.pt2', swapped / 'model.pt2')
+    build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, swapped, tmp_path / 'swapped-bundles')
+    with pytest.raises(RuntimeError, match='torch-only replay'):
+        verify_bundle(ROOT, tmp_path / 'swapped-bundles' / good['archive']['name'])
+
+
+def test_static_decode_variants_pin_history_and_reject_others(tmp_path):
+    result = run_worker(ROOT / 'scripts/worker.py',
+                        ['generation-worker', '--root', ROOT, '--output', tmp_path, '--subset', 'smollm2-135m',
+                         '--static-history', '5,7'], 'static', 300)
+    if result['status'] != 'verified':
+        pytest.fail(json.dumps(diagnostics(result, tmp_path)))
+    assert set(result['static_variants']) == {'5', '7'}
+    dynamic = verify_artifact(ROOT, tmp_path / 'models' / result['components']['decode']['artifact_id'])
+    assert dynamic['dynamic_constraints']['history'] == [1, 8] and 'variant' not in dynamic
+    for history, component in result['static_variants'].items():
+        assert component['artifact_id'].endswith(f'/decode/fp32/dynamo/static-h{history}')
+        assert component['rejected_other_histories'] == 4
+        contract = verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])
+        assert contract['variant'] == {'kind': 'static-history', 'history': int(history), 'attention_length': int(history) + 1}
+        assert contract['dynamic_constraints'] == {} and contract['exporter']['shape_policy'] == 'static'
+        shapes = {t['name']: t['shape'] for t in contract['inputs']}
+        assert shapes['past_0_key'][2] == int(history) and shapes['attention_mask'][1] == int(history) + 1

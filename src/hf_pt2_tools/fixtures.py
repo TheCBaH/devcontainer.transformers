@@ -13,9 +13,9 @@ import tempfile
 import torch
 
 from .artifacts import file_hash, verify_artifact, write_json
+from .registry import RANDOM_WEIGHTS
 
 CASE_FILES = ('inputs.pt', 'outputs.pt')
-RANDOM_SOURCE = {'kind': 'random', 'model_seed': 0}
 
 
 def tensor_digest(named):
@@ -45,7 +45,7 @@ def write_cases(directory, output_names, cases):
 
 
 def cases_document(identity, entries, tolerances, weight_source=None):
-    return {'schema_version': 1, 'artifact_id': identity, 'weight_source': weight_source or RANDOM_SOURCE,
+    return {'schema_version': 1, 'artifact_id': identity, 'weight_source': weight_source or dict(RANDOM_WEIGHTS),
             'tolerances': {'atol': tolerances[0], 'rtol': tolerances[1]}, 'cases': entries}
 
 
@@ -58,6 +58,8 @@ def check_cases_document(document, contract):
         raise ValueError('cases manifest count differs from contract')
     inputs = [tensor['name'] for tensor in contract['inputs']]
     outputs = [tensor['name'] for tensor in contract['outputs']]
+    if document['weight_source'] != contract.get('weights'):
+        raise ValueError('cases manifest weight source differs from contract')
     if document['tolerances'] != contract['tolerances']:
         raise ValueError('cases manifest tolerances differ from contract')
     for index, case in enumerate(cases):
@@ -169,10 +171,11 @@ def catalogue(root):
         directory = path.parent
         identity = str(directory.relative_to(root / 'models'))
         contract = verify_artifact(root, directory, identity)
-        model, category, population, component, dtype, policy, shape = identity.split('/')
+        model, category, population, component, dtype, policy, shape, *revision = identity.split('/')
         document = json.loads((directory / 'cases.json').read_text())
         rows.append({'artifact_id': identity, 'model_id': model, 'category': category, 'population': population,
                      'component': component, 'dtype': dtype, 'policy': policy, 'shape_policy': shape,
+                     'weights_revision': revision[0].removeprefix('ckpt-') if revision else None,
                      'path': str(directory.relative_to(root)), 'graph_sha256': contract['graph_sha256'],
                      'contract_sha256': file_hash(path), 'config_sha256': contract['config_sha256'],
                      'weight_source': document['weight_source'],

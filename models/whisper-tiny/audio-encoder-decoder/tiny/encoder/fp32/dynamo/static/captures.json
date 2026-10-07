@@ -393,5 +393,8 @@
     "PARAMETER": 22
   },
   "graph_sha256": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c",
+  "module_prefixes": {
+    "encoder.": "model.encoder."
+  },
   "schema_version": 1
 }

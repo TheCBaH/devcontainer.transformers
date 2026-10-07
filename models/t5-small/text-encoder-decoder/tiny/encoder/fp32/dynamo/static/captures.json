@@ -218,5 +218,8 @@
     "PARAMETER": 11
   },
   "graph_sha256": "98e0e55010272339721ba6a7af1be58a3e94a4d3e5c5e20a2b7f55ad557b970c",
+  "module_prefixes": {
+    "encoder.": "encoder."
+  },
   "schema_version": 1
 }

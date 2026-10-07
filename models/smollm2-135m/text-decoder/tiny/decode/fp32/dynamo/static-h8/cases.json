@@ -1,0 +1,34 @@
+{
+  "artifact_id": "smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/static-h8",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "09d1b8850d4c19902d032f00668d423c8bb655c41b3a13bf8d3241dc08f41e81",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "4591bdc7279fd8b491ba7d897885f29353a58605e8f311bbfec463996da0d3c0"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

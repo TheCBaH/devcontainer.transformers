@@ -18,7 +18,7 @@
     "strict": false
   },
   "files": {
-    "captures.json": "d26d24d09a4d9bd3a5efb2725a5fa0b7a4d8267c5ffc78369f60a5ae9face1be",
+    "captures.json": "8480816263b77749354c264f9152383add4f38237acd364a98ea7501e06b08c0",
     "cases.json": "d5bd54b3b4983f762377b2a084f872df8c0898d1f05edde43b8dbcd6980fa24d",
     "data/constants/model_constants_config.json": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
     "data/weights/model_weights_config.json": "7ecdd9cf264a032364c671683eb215a275857749d9b7f449ee3f7dd35888fe5c",
@@ -62,7 +62,7 @@
     "device": "cpu",
     "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
     "python": "3.13.12",
-    "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+    "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
@@ -78,5 +78,9 @@
     "atol": 1e-05,
     "rtol": 0.0001
   },
-  "verified_cases": 2
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
 }

@@ -79,7 +79,9 @@ def bind_snapshot(root, entry, reference, snapshot, graph_root, output, populati
         files[index.name] = file_hash(index)
     artifact = Path(graph_root).parent.parent
     graph, weights_config, constants_config = load_graph(artifact)
-    payload = {row['target']: row['source'] for row in json.loads((artifact / 'captures.json').read_text())['captures']}
+    captured = json.loads((artifact / 'captures.json').read_text())
+    payload = {row['target']: row['source'] for row in captured['captures']}
+    prefixes = captured.get('module_prefixes', {})
     renamings = [conversion for conversion in get_model_conversion_mapping(model)
                  if isinstance(conversion, WeightRenaming)]
     converted_keys = {}
@@ -95,6 +97,11 @@ def bind_snapshot(root, entry, reference, snapshot, graph_root, output, populati
     bindings, captures, unused, unmapped = [], [], [], []
     for row in inventory(graph, weights_config, constants_config):
         target, local = row['target'], row['target'].removeprefix('model.')
+        for source_prefix, library_prefix in prefixes.items():
+            if target.startswith(source_prefix):
+                local = library_prefix + target[len(source_prefix):]
+                break
+        local = next((key for key in (local, 'model.' + local, target) if key in library), local)
         value = library.get(local)
         candidates = []
         if value is not None:

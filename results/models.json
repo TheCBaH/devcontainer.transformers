@@ -1356,7 +1356,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -1367,7 +1367,7 @@
         }
       },
       "recipe_sha256": "bc9b8b4c18c149d4db72437ff52c9f02d642f482e0f1a8092bb903e92f0af03d",
-      "resume_key": "dd99b6ad7a07fecf3471b01331a1bea40847c17b546565d3d35545062fb02823",
+      "resume_key": "9db49d6f18ca8a0977cdedd0de861f8194960e48e25d4d3edd85c279ca9fbd98",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -1411,7 +1411,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "dbd05fb9e7981837ac0e8404d4884cfb63ee9ca109f3967798d14e23e2e3ad2e",
+      "source_key": "520241ed037a4a6248fa5551d88d237381d5ecbc28ce2794c907c6892ada3c82",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -1454,7 +1454,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 1324544
+      "weight_bytes": 1324544,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "mobilevit-xxs": {
       "artifact_id": "mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static",
@@ -4284,7 +4288,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -4295,7 +4299,7 @@
         }
       },
       "recipe_sha256": "ae4d5ad167d2c4034a2b447d36f99ed35f7ac5fa36bb5fd555293aaba52837cc",
-      "resume_key": "4859e17720cece7e545ee83e1862290c3dfa244d92b34acdb366f05415990bb6",
+      "resume_key": "a627ac067e9b60163d209f39884f4ed98a01f686fc58d7f11ae7909a769b0274",
       "schemas": {
         "aten._native_batch_norm_legit_no_training.default": "_native_batch_norm_legit_no_training(Tensor input, Tensor? weight, Tensor? bias, Tensor running_mean, Tensor running_var, float momentum, float eps) -> (Tensor, Tensor, Tensor)",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -4328,7 +4332,7 @@
         "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)"
       },
       "shape_policy": "static",
-      "source_key": "c218205d62571196d169f1ab94bb858cf55d4dc470a9f26210cad15995d2780d",
+      "source_key": "a8b58d263f3731f2cca4b350eb33595ca51f728af10bc7fbf1a9303ecd62f44a",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -4371,7 +4375,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 5088096
+      "weight_bytes": 5088096,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "smollm2-135m": {
       "artifact_id": "smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static",
@@ -6225,7 +6233,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -6236,7 +6244,7 @@
         }
       },
       "recipe_sha256": "984f17128a9188df717221259b8555427bf60805bc5f563722a3cd41f90596e1",
-      "resume_key": "c856d57e3179936a69f197be1ab89899f05bb92efbdb07be9f4eef665655fb92",
+      "resume_key": "e51dd99bdba5833ce73af5c6c846ce12e280b8b5bf7dd2cac587236ac77679eb",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -6287,7 +6295,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "b7f905fba110e0365176df27003a689b480824a3c219b036afffd3013efbd9c9",
+      "source_key": "f9fa196080caec6a298fe9997ab92e1a66e29f011d4de0d97aa91304fc14a76e",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -6330,7 +6338,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 361728
+      "weight_bytes": 361728,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "t5-small": {
       "artifact_id": "t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
@@ -8752,7 +8764,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -8763,7 +8775,7 @@
         }
       },
       "recipe_sha256": "59c652d7ac5a6e45392efd800c3f4b7ef7cd89f5ef2e7d9b2a4b4fd8c935ba05",
-      "resume_key": "05391e571b35a1308eeace847e1e62cdd0a641708b7693f4484302daf3a5f576",
+      "resume_key": "e5602f4841ffa7e8fb9d2b72bfe0a14a36e6865dec52e762597e20dab5cac996",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -8820,7 +8832,7 @@
         "aten.zeros_like.default": "zeros_like(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "83cb8f79c13fff1084a13ad9570f899b088afe689c8b6b29423c3562c9839510",
+      "source_key": "17c2e81e6f461f290859f3d0b4bb2e2b1ae771d414e6ccf6c6d01980b06104e9",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -8863,7 +8875,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 395520
+      "weight_bytes": 395520,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "time-series-small": {
       "artifact_id": "time-series-small/time-series/tiny/forward/fp32/dynamo/static",
@@ -11788,7 +11804,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -11799,7 +11815,7 @@
         }
       },
       "recipe_sha256": "f7021159aa174a06d6b618cc7cffe71f9109c8cca4837951165b20bfc7f7071d",
-      "resume_key": "c8847fba98a2af6b4208a890800f600b4ab4f943f39ff7952a1724be5209ca68",
+      "resume_key": "0f5413fec1d23551bedd1278be5af36086a0538df121ff955990b4b0830dea26",
       "schemas": {
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
         "aten.abs.default": "abs(Tensor self) -> Tensor",
@@ -11854,7 +11870,7 @@
         "aten.zeros_like.default": "zeros_like(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "7a88fcfa854d96f58b4e610d4dc466ebeb72a01f92e62a08491c3542cacdb8e3",
+      "source_key": "c51664dfce2662cbbb89b84ac13dc171374769ef33c311b7de932325470ecb48",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -11897,7 +11913,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 121824
+      "weight_bytes": 121824,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "tinyclip": {
       "artifact_id": "tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static",
@@ -14054,7 +14074,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -14065,7 +14085,7 @@
         }
       },
       "recipe_sha256": "f3f7de23a9d5ecffcf1f58ab0c6cecec6eeecfd4a558d215946a1d6381d795dd",
-      "resume_key": "cc0d300a9139833125d2c14c986ccaf129e5ede53772183bb2e2afa1e6318436",
+      "resume_key": "7677fd8a5eedccf7234a5c8ece1b2bd448cf2fa808a0139b5919e795dcdd62c7",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -14120,7 +14140,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "11e006b6600b1df4f3cec117ff3919df62554d1abbc564ea222807b3303f7ef6",
+      "source_key": "e7bacb7856b6364aeb85e0361f6a5e9e8771ab7d74ed140c22b9dbbd33427c8f",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -14163,7 +14183,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 573956
+      "weight_bytes": 573956,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "videomae-small": {
       "artifact_id": "videomae-small/video-classification/tiny/forward/fp32/dynamo/static",
@@ -15173,7 +15197,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -15184,7 +15208,7 @@
         }
       },
       "recipe_sha256": "a8f529afd086cba239791c461be95e6f64a8d484a34cad1b508b01370547fe30",
-      "resume_key": "d256eb9129fe1d89044403b84675479dda93f17ec0ea9bc9f03950f5c4bcd3d6",
+      "resume_key": "86c24c922ac3b3621df11ae18f5bf7fdefda4cfcb92e6a0b2d581be18ae03683",
       "schemas": {
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
         "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
@@ -15217,7 +15241,7 @@
         "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)"
       },
       "shape_policy": "static",
-      "source_key": "50ad9a884eb34baafdf9c045fe84933112aeaf50411e68da1e4f1d221eb25b1a",
+      "source_key": "90eef97b716faa5688f4358ac725e4eff1b60883b8bf833448e8b84c30c1a511",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -15260,7 +15284,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 530216
+      "weight_bytes": 530216,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     },
     "whisper-tiny": {
       "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static",
@@ -17326,7 +17354,7 @@
         "device": "cpu",
         "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
         "python": "3.13.12",
-        "tools_sha256": "9b126cb89fc2c05a6e02aa5d46a2a604ffbf318edc55bb1897f3ec0927fe8e02",
+        "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
@@ -17337,7 +17365,7 @@
         }
       },
       "recipe_sha256": "7d10f7fb603898becbeed17427c54a0caede38e12fdd9914a279bc792f6f86c7",
-      "resume_key": "bbe51791c2585adaa529fef4fead722459e8a559a5c489c1b697a35211334239",
+      "resume_key": "ad3da7090c3bb49eb3a24310b2df45b2d43878903beb321c408b3d0b3c8a0439",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -17387,7 +17415,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "cc0094c2374055b68e700fd2e58d865d2d67b4430d288c0126304980ac09d6b6",
+      "source_key": "b10a0d356e57942d0abb0a210ad25f59418f1f962e8649193bafef71876e9b15",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -17430,7 +17458,11 @@
         }
       },
       "status": "ok",
-      "weight_bytes": 169856
+      "weight_bytes": 169856,
+      "weights": {
+        "kind": "random",
+        "model_seed": 0
+      }
     }
   },
   "outcomes": {
@@ -17440,5 +17472,6 @@
   },
   "population": "tiny",
   "schema_version": 1,
-  "verified": 8
+  "verified": 8,
+  "weights": "random"
 }

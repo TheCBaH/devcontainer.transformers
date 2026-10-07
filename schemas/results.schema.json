@@ -13,7 +13,11 @@
   "properties": {
     "outcomes": {
       "type": "object",
-      "required": ["unexpected_failures", "matched_exclusions", "stale_exclusions"]
+      "required": [
+        "unexpected_failures",
+        "matched_exclusions",
+        "stale_exclusions"
+      ]
     },
     "schema_version": {
       "const": 1
@@ -71,6 +75,12 @@
           }
         }
       }
+    },
+    "weights": {
+      "enum": [
+        "random",
+        "checkpoint"
+      ]
     }
   }
 }

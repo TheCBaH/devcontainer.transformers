@@ -390,5 +390,8 @@
     "PARAMETER": 21
   },
   "graph_sha256": "e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151",
+  "module_prefixes": {
+    "encoder.": "model.vision_model."
+  },
   "schema_version": 1
 }

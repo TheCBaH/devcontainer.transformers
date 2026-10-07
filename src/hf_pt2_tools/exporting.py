@@ -18,7 +18,7 @@ from .artifacts import file_hash, publish, verify_artifact, write_json
 from .fixtures import cases_document, write_cases
 from .inventory import captures_document, inventory, load_graph, program_values
 from .recipes import AutocastTensorOutputs, TensorOutputs, compare, make_inputs, tensor_metadata
-from .registry import artifact_id, build_model, digest, read_manifest
+from .registry import artifact_id, build_model, digest, read_manifest, weight_provenance
 
 
 STAGES = ('construction', 'eager', 'export', 'aten_facts', 'functionalization',
@@ -41,17 +41,20 @@ def producer(root):
             'lock_sha256': file_hash(Path(root) / 'uv.lock'), 'tools_sha256': digest(sources)}
 
 
-def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo', shape='static'):
+def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo', shape='static',
+        snapshot=None, allow_unpinned=False):
     torch.set_num_threads(1)
     manifest = read_manifest(root)
     entry = next(e for e in manifest['models'] if e['id'] == name)
-    identity = artifact_id(entry, population, dtype, policy, shape)
+    weights = weight_provenance(entry, snapshot, allow_unpinned)
+    identity = artifact_id(entry, population, dtype, policy, shape, weights.get('revision'))
     work = Path(output_root) / '.build' / identity
     work.mkdir(parents=True, exist_ok=True)
     row = {'name': name, 'artifact_id': identity, 'category': entry['category'],
            'population': population, 'dtype': dtype, 'policy': policy, 'shape_policy': shape,
            'status': 'failed', 'stages': {s: {'status': 'not_run'} for s in STAGES},
-           'ops': {}, 'schemas': {}, 'producer': producer(root), 'flops': {'status': 'not_measured'}}
+           'ops': {}, 'schemas': {}, 'producer': producer(root), 'flops': {'status': 'not_measured'},
+           'weights': weights}
     stage = 'construction'
 
     def success(s):
@@ -73,7 +76,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
 
     try:
         with torch.no_grad():
-            model, config = build_model(root, entry, population, dtype if policy != 'autocast' else 'fp32')
+            model, config = build_model(root, entry, population, dtype if policy != 'autocast' else 'fp32', snapshot)
             if policy == 'autocast' and dtype == 'fp32':
                 raise ValueError('CPU autocast requires fp16 or bf16')
             batch = 2 if shape == 'dynamic' else 1
@@ -93,11 +96,13 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             fixture_key = 'processor_fixture' if population == 'tiny' else 'reference_processor_fixture'
             if entry.get(fixture_key):
                 recipe['processor_fixture_sha256'] = file_hash(Path(root) / entry[fixture_key])
+            if snapshot is not None:
+                recipe['weights'] = weights
             row['recipe_sha256'] = digest(recipe)
             row['parameter_count'] = sum(p.numel() for p in model.parameters())
             row['weight_bytes'] = sum(p.numel() * p.element_size() for p in model.parameters())
             row['resume_key'] = digest({'config': row['config_sha256'], 'recipe': row['recipe_sha256'],
-                                       'producer': row['producer'], 'id': identity})
+                                       'producer': row['producer'], 'id': identity, 'weights': weights})
             success(stage)
             stage = 'eager'
             expected = [wrapper(**copy.deepcopy(case)) for case in cases]
@@ -201,7 +206,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             write_json(staging / 'models/op_facts.json', {'schema_version': 1,
                        'graph_sha256': graph_hash, 'dialect': 'functional', 'counts': counts, 'ops': ops})
             contract = {'schema_version': 1, 'artifact_id': identity, 'model_id': name,
-                        'population': population, 'model_class': entry['model_class'],
+                        'population': population, 'model_class': entry['model_class'], 'weights': weights,
                         'config_sha256': row['config_sha256'], 'recipe_sha256': row['recipe_sha256'],
                         'producer': row['producer'], 'exporter': {'name': 'torch.export' if policy == 'direct' else 'DynamoExporter', 'strict': False,
                         'attention': 'eager', 'cache': False, 'shape_policy': shape},
@@ -215,7 +220,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
                         'verified_cases': len(cases), 'tolerances': {'atol': tolerances[0], 'rtol': tolerances[1]},
                         'files': {str(path.relative_to(staging)): file_hash(path) for path in sorted(staging.rglob('*.json'))
                                   if path.name != 'op_facts.json'}}
-            write_json(staging / 'cases.json', cases_document(identity, case_entries, tolerances))
+            write_json(staging / 'cases.json', cases_document(identity, case_entries, tolerances, weights))
             contract['files']['cases.json'] = file_hash(staging / 'cases.json')
             write_json(staging / 'captures.json', captures_document(
                 identity, graph_hash, inventory(*load_graph(staging)), program_values(functional)))

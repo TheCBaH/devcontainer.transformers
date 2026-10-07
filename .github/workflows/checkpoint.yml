@@ -1,0 +1,100 @@
+name: checkpoint
+on:
+  push:
+    paths: [checkpoint-request.json]
+  workflow_dispatch:
+    inputs:
+      subset:
+        description: 'Comma-separated model IDs with upstream safetensors'
+        default: 't5-small,whisper-tiny'
+        type: string
+      generation:
+        description: 'Also export original-size generation components'
+        type: boolean
+        default: false
+      pack_tag:
+        description: 'Release tag the derived packs will be uploaded under'
+        default: 'checkpoint-packs'
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: checkpoint-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  checkpoint:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 180
+    env:
+      OUT: .build/checkpoint
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - name: Read request
+        run: |
+          # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
+          if [ -n "${{ inputs.subset }}" ]; then
+            echo "SUBSET=${{ inputs.subset }}" >> "$GITHUB_ENV"
+            echo "GENERATION=${{ inputs.generation }}" >> "$GITHUB_ENV"
+            echo "PACK_TAG=${{ inputs.pack_tag }}" >> "$GITHUB_ENV"
+          else
+            echo "SUBSET=$(jq -r .subset checkpoint-request.json)" >> "$GITHUB_ENV"
+            echo "GENERATION=$(jq -r .generation checkpoint-request.json)" >> "$GITHUB_ENV"
+            echo "PACK_TAG=$(jq -r '.pack_tag // "checkpoint-packs"' checkpoint-request.json)" >> "$GITHUB_ENV"
+          fi
+      - uses: actions/cache@v6
+        with:
+          path: .hf-cache
+          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
+          restore-keys: hf-${{ runner.arch }}-
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - name: Export, bind and verify checkpoint-backed graphs
+        run: |
+          set -euo pipefail
+          uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT"
+          mkdir -p "$OUT/maps" "$OUT/packs"
+          for model in ${SUBSET//,/ }; do
+            id=$(jq -r --arg m "$model" '.models[$m].artifact_id' "$OUT/results/checkpoint.json")
+            uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$model.json"
+            uv run --frozen hf-pt2 pack --subset "$model" --binding "$OUT/maps/$model.json" --program "$OUT/.build/$id/model.pt2" \
+              --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
+              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$model.safetensors" \
+              --output "$OUT/packs"
+          done
+          uv run --frozen hf-pt2 bundle --source "$OUT" --output "$OUT/bundles"
+          uv run --frozen hf-pt2 bundle-verify --output "$OUT/bundles"
+      - name: Original-size generation components
+        if: ${{ env.GENERATION == 'true' }}
+        run: |
+          set -euo pipefail
+          for model in ${SUBSET//,/ }; do
+            case "$model" in smollm2-135m|t5-small|whisper-tiny|smolvlm-256m) ;; *) continue ;; esac
+            uv run --frozen hf-pt2 generation --population reference --weights checkpoint --subset "$model" --output "$OUT-generation" --timeout 3600
+            for component in $(jq -r '.components[].artifact_id' "$OUT-generation/results/generation/$model-reference-checkpoint.json"); do
+              uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT-generation/models/$component/models/model.json" \
+                --output "$OUT/maps/$model.$(echo "$component" | cut -d/ -f4).json"
+            done
+          done
+      - name: Generation diagnostics
+        if: always()
+        run: |
+          for f in "$OUT"-generation/.build/generation/*.log; do [ -f "$f" ] && { echo "== $f"; tail -n 25 "$f"; }; done || true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: checkpoint-evidence
+          path: |
+            .build/checkpoint/results
+            .build/checkpoint/maps
+            .build/checkpoint/packs
+            .build/checkpoint/bundles
+            .build/checkpoint-generation/results
+            .build/checkpoint/**/*.log
+          include-hidden-files: true
+          if-no-files-found: ignore

@@ -39,6 +39,8 @@ including inside a dependency group.
 | `make models.weights.verify SUBSET=t5-small GRAPH=<reference-model.json>` | Verify checkpoint bindings against the library load |
 | `make models.generation SUBSET=smollm2-135m` | Verify prefill/decode, tensor cache state, reset and capacity |
 | `make models.precision.fp16` / `make models.precision.bf16` | Separate cast/autocast probes for BERT, MobileViT and Llama |
+| `make catalogue` | Rewrite `catalogue.json`: graph-only index of every artifact with weight source and case digests |
+| `make bundles` / `make bundles.verify` | Pack each artifact with `model.pt2` and flat case tensors; replay with torch only |
 | `make clean` | Remove declared temporary outputs; keep committed graphs/configs |
 
 Use `WORKERS=1` initially and `TIMEOUT=900` for per-artifact isolation. `SUBSET`
@@ -73,6 +75,25 @@ not determine actual sizes. Regenerate with `make report.symbolic`; it reads JSO
 and checks graph hashes without loading models or importing torch. The manual
 research workflow's `report_only` mode generates this report and runs its focused
 regressions without building the export environment.
+
+**Fixtures, captures and weights.** Every artifact carries `cases.json` (named
+input/output order and content digests of flat `cases/<id>/{inputs,outputs}.pt`
+`dict[str, Tensor]` files), `captures.json` (every `PARAMETER`, `BUFFER` and
+`CONSTANT_TENSOR` with payload-config name, dtype, shape, liveness and
+graph-owned value digest), and a `weights` record in its contract: `random`
+(seed 0) or a pinned `checkpoint` (repo, revision, file digests and sizes).
+Checkpoint-backed artifacts add `/ckpt-<revision[:12]>` to the ID, so they can
+never overwrite random-weight ones. `hf-pt2 bundle` packs graph, `model.pt2` and
+case tensors reproducibly; `bundle-verify` extracts, checks every hash and
+replays all cases with torch only. `bind` records, per capture, a checkpoint
+source (file, key, dtype, conversion, aliases) or a graph-owned payload digest,
+and `unmapped` means a live capture without a source. `hf-pt2 pack` emits the
+captured-value safetensors file plus the version-1 `safetensors.json` map for
+mltorch and checks it as the consumer would. Static-history decode variants
+(`decode/.../static-h<N>`) pin one history length beside the dynamic artifact.
+Original-size and checkpoint-backed runs are heavy: dispatch the `checkpoint`
+workflow by editing `checkpoint-request.json` (push to `devel`), which exports,
+binds, packs and bundles the requested models and uploads the evidence.
 
 Each `models/<model>/<task>/<population>/forward/<dtype>/<policy>/<shape>/`
 directory contains the unmodified serializer JSON, weight/constant metadata,

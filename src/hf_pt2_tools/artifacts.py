@@ -77,6 +77,8 @@ def verify_artifact(root, directory, expected_id=None):
             raise ValueError('unknown contract file')
         if file_hash(directory / relative) != expected:
             raise ValueError('contract file hash mismatch')
+    if contract['verified_cases'] < (1 if 'variant' in contract else 2):
+        raise ValueError('too few verified cases')
     if 'cases.json' not in contract['files']:
         raise ValueError('artifact lacks a cases manifest')
     from .fixtures import check_cases_document

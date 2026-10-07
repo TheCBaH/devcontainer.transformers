@@ -1,4 +1,5 @@
 import copy
+import functools
 import json
 from pathlib import Path
 import subprocess
@@ -17,7 +18,7 @@ from .exporting import producer
 from .fixtures import cases_document, write_cases
 from .inventory import captures_document, inventory, load_graph, program_values
 from .recipes import compare, make_inputs, tensor_metadata
-from .registry import build_model, digest, read_manifest
+from .registry import RANDOM_WEIGHTS, build_model, digest, read_manifest, weight_provenance
 
 
 class LlamaStep(torch.nn.Module):
@@ -99,16 +100,20 @@ def decode_inputs(token, state, fields, constants, seq2seq):
     return result
 
 
-def save_component(root, output_root, entry, config, component, program, cases, fields, capacity=8):
-    shape = 'dynamic' if component == 'decode' else 'static'
-    identity = f"{entry['id']}/{entry['category']}/tiny/{component}/fp32/dynamo/{shape}"
+def save_component(root, output_root, entry, config, component, program, cases, fields, capacity=8, weights=None,
+                   population='tiny', cap_mb=64, variant=None, prefixes=None):
+    weights = weights or dict(RANDOM_WEIGHTS)
+    shape = variant or ('dynamic' if component == 'decode' else 'static')
+    identity = f"{entry['id']}/{entry['category']}/{population}/{component}/fp32/dynamo/{shape}"
+    if weights['kind'] == 'checkpoint':
+        identity += f"/ckpt-{weights['revision'][:12]}"
     work = Path(output_root) / '.build' / identity
     work.mkdir(parents=True, exist_ok=True)
     make_portable(program)
     archive = work / 'model.pt2'
     torch.export.save(program, archive)
     caps = work / 'caps.yaml'
-    write_json(caps, {'selection': {'max_weight_mb': 64, 'release_max_weight_mb': 64}})
+    write_json(caps, {'selection': {'max_weight_mb': cap_mb, 'release_max_weight_mb': cap_mb}})
     profile = selected_pt2_profile(caps)
     assert_portable(archive, profile)
     case_entries = write_cases(work, fields, cases)
@@ -138,28 +143,33 @@ def save_component(root, output_root, entry, config, component, program, cases, 
              'host': 'feed returned tensors into the next step; host owns sampling and stopping',
              'maximum_input_history': capacity if component == 'decode' else None}
     recipe = {'component': component, 'state': state, 'inputs': tensor_metadata(cases[0]['inputs'])}
+    if weights['kind'] == 'checkpoint':
+        recipe['weights'] = weights
     if entry.get('processor_fixture'):
         recipe['processor_fixture_sha256'] = file_hash(Path(root) / entry['processor_fixture'])
     contract = {'schema_version': 1, 'artifact_id': identity, 'model_id': entry['id'],
-                'population': 'tiny', 'model_class': entry['model_class'], 'config_sha256': digest(config.to_dict()),
+                'population': population, 'model_class': entry['model_class'], 'weights': weights,
+                'config_sha256': digest(config.to_dict()),
                 'recipe_sha256': digest(recipe),
                 'producer': producer(root), 'exporter': {'name': 'DynamoExporter', 'strict': False,
-                'attention': 'eager', 'cache': component in ('prefill', 'decode'), 'shape_policy': shape},
+                'attention': 'eager', 'cache': component in ('prefill', 'decode'), 'shape_policy': 'static' if variant else shape},
                 'dialect': 'functional', 'graph_sha256': file_hash(graph),
                 'inputs': tensor_metadata(cases[0]['inputs']),
                 'outputs': tensor_metadata(dict(zip(fields, cases[0]['outputs'], strict=True))),
                 'call': {'args': [], 'kwargs': list(cases[0]['inputs']), 'outputs': 'tensor_tuple'},
-                'dynamic_constraints': {'history': [1, capacity], 'attention_length': 'history+1'} if component == 'decode' else {},
+                'dynamic_constraints': {'history': [1, capacity], 'attention_length': 'history+1'} if shape == 'dynamic' else {},
                 'mutations': [], 'load_dependencies': ['torch'], 'verified_cases': len(cases),
                 'tolerances': {'atol': 1e-5, 'rtol': 1e-4},
                 'files': {str(path.relative_to(staging)): file_hash(path) for path in sorted(staging.rglob('*.json'))
                           if path.name != 'op_facts.json'}}
+    if variant:
+        contract['variant'] = {'kind': 'static-history', 'history': capacity, 'attention_length': capacity + 1}
     if component in ('prefill', 'decode'):
         contract['state'] = state
-    write_json(staging / 'cases.json', cases_document(identity, case_entries, (1e-5, 1e-4)))
+    write_json(staging / 'cases.json', cases_document(identity, case_entries, (1e-5, 1e-4), weights))
     contract['files']['cases.json'] = file_hash(staging / 'cases.json')
     write_json(staging / 'captures.json', captures_document(
-        identity, contract['graph_sha256'], inventory(*load_graph(staging)), program_values(program)))
+        identity, contract['graph_sha256'], inventory(*load_graph(staging)), program_values(program), prefixes))
     contract['files']['captures.json'] = file_hash(staging / 'captures.json')
     write_json(staging / 'contract.json', contract)
     verify_artifact(root, staging, identity)
@@ -168,10 +178,15 @@ def save_component(root, output_root, entry, config, component, program, cases, 
             'cases': len(cases), 'fresh_load': json.loads(process.stdout.strip().splitlines()[-1])}
 
 
-def run(root, output_root, name='smollm2-135m'):
+def run(root, output_root, name='smollm2-135m', population='tiny', snapshot=None, allow_unpinned=False,
+        static_histories=()):
     torch.set_num_threads(1)
-    entry = next(e for e in read_manifest(root)['models'] if e['id'] == name)
-    model, config = build_model(root, entry)
+    manifest = read_manifest(root)
+    entry = next(e for e in manifest['models'] if e['id'] == name)
+    weights = weight_provenance(entry, snapshot, allow_unpinned)
+    cap_mb = 64 if population == 'tiny' else entry.get('reference_max_weight_mb', manifest['selection']['max_weight_mb'])
+    save = functools.partial(save_component, weights=weights, population=population, cap_mb=cap_mb)
+    model, config = build_model(root, entry, population, 'fp32', snapshot)
     seq2seq = name in ('t5-small', 'whisper-tiny')
     capacity = 16 if name == 'smolvlm-256m' else 8
     if seq2seq:
@@ -180,11 +195,12 @@ def run(root, output_root, name='smollm2-135m'):
     else:
         layers = config.get_text_config().num_hidden_layers
         fields = ['logits'] + [f'present_{i}_{kind}' for i in range(layers) for kind in ('key', 'value')]
-    source = make_inputs(entry, config, root=root) if name != 'smollm2-135m' else {
+    source = make_inputs(entry, config, population, root=root) if name != 'smollm2-135m' else {
         'input_ids': torch.tensor([[7, 11, 17, 23]]), 'attention_mask': torch.ones(1, 4, dtype=torch.int64)}
     work = Path(output_root) / '.build/generation'
     work.mkdir(parents=True, exist_ok=True)
-    result = {'schema_version': 1, 'model_id': entry['id'], 'status': 'failed', 'components': {}, 'producer': producer(root)}
+    result = {'schema_version': 1, 'model_id': entry['id'], 'status': 'failed', 'components': {}, 'producer': producer(root),
+              'population': population, 'weights': weights}
     try:
         generate_inputs = {key: value for key, value in source.items() if not key.startswith('decoder_')}
         generated = DynamoExporter().export_for_generation(model, copy.deepcopy(generate_inputs), DynamoConfig(strict=False),
@@ -205,15 +221,16 @@ def run(root, output_root, name='smollm2-135m'):
                 encoder = EncoderStep(model.get_encoder(), config).eval()
                 encoder_inputs = {key: value for key, value in source.items() if not key.startswith('decoder_')}
                 encoded = encoder(**copy.deepcopy(encoder_inputs))
-                second_encoder_inputs = make_inputs(entry, config, seed=29, root=root)
+                second_encoder_inputs = make_inputs(entry, config, population, seed=29, root=root)
                 second_encoder_inputs = {key: value for key, value in second_encoder_inputs.items() if not key.startswith('decoder_')}
                 second_encoded = encoder(**copy.deepcopy(second_encoder_inputs))
                 encoder_program = DynamoExporter().export(encoder, copy.deepcopy(encoder_inputs), DynamoConfig(strict=False))
                 encoder_program = encoder_program.run_decompositions(decomp_table={})
                 compare(encoder_program.module()(**copy.deepcopy(encoder_inputs)), encoded)
                 compare(encoder_program.module()(**copy.deepcopy(second_encoder_inputs)), second_encoded)
-                result['components']['encoder'] = save_component(root, output_root, entry, config, 'encoder', encoder_program,
-                    [{'inputs': encoder_inputs, 'outputs': encoded}, {'inputs': second_encoder_inputs, 'outputs': second_encoded}], ['encoder_hidden_states'])
+                result['components']['encoder'] = save(root, output_root, entry, config, 'encoder', encoder_program,
+                    [{'inputs': encoder_inputs, 'outputs': encoded}, {'inputs': second_encoder_inputs, 'outputs': second_encoded}], ['encoder_hidden_states'],
+                    prefixes={'encoder.': 'model.encoder.' if name == 'whisper-tiny' else 'encoder.'})
                 constants = {'encoder_hidden_states': encoded[0]}
                 if name == 't5-small':
                     constants['encoder_attention_mask'] = encoder_inputs['attention_mask']
@@ -229,7 +246,7 @@ def run(root, output_root, name='smollm2-135m'):
                 prefill = LlamaStep(model).eval()
                 decode = LlamaStep(model, decode=True).eval()
                 initial = source
-                reset = make_inputs(entry, config, seed=29, root=root) if name == 'smolvlm-256m' else {
+                reset = make_inputs(entry, config, population, seed=29, root=root) if name == 'smolvlm-256m' else {
                     'input_ids': torch.tensor([[31, 19, 13, 5]]), 'attention_mask': source['attention_mask'].clone()}
                 if name == 'smolvlm-256m':
                     stage = 'vision'
@@ -246,8 +263,8 @@ def run(root, output_root, name='smollm2-135m'):
                     program = program.run_decompositions(decomp_table={})
                     for case in vision_cases:
                         compare(program.module()(**copy.deepcopy(case['inputs'])), case['outputs'])
-                    result['components']['vision'] = save_component(root, output_root, entry, config, 'vision', program,
-                        vision_cases, ['vision_hidden_states'])
+                    result['components']['vision'] = save(root, output_root, entry, config, 'vision', program,
+                        vision_cases, ['vision_hidden_states'], prefixes={'encoder.': 'model.vision_model.'})
                     stage = 'connector'
                     connector = ConnectorStep(model.model.connector, config).eval()
                     connector_cases = [{'inputs': {'hidden_states': case['outputs'][0]},
@@ -256,8 +273,8 @@ def run(root, output_root, name='smollm2-135m'):
                     program = program.run_decompositions(decomp_table={})
                     for case in connector_cases:
                         compare(program.module()(**copy.deepcopy(case['inputs'])), case['outputs'])
-                    result['components']['connector'] = save_component(root, output_root, entry, config, 'connector', program,
-                        connector_cases, ['image_features'])
+                    result['components']['connector'] = save(root, output_root, entry, config, 'connector', program,
+                        connector_cases, ['image_features'], prefixes={'connector.': 'model.connector.'})
                     for inputs, case in zip((initial, reset), connector_cases, strict=True):
                         original = prefill(**copy.deepcopy(inputs))
                         inputs.pop('pixel_values')
@@ -275,10 +292,12 @@ def run(root, output_root, name='smollm2-135m'):
             compare(prefill_program.module()(**copy.deepcopy(initial)), first)
             compare(prefill_program.module()(**copy.deepcopy(reset)), reset_output)
             compare(prefill(**copy.deepcopy(initial)), first)
-            result['components']['prefill'] = save_component(root, output_root, entry, config, 'prefill', prefill_program,
+            result['components']['prefill'] = save(root, output_root, entry, config, 'prefill', prefill_program,
                 [{'inputs': initial, 'outputs': first}, {'inputs': reset, 'outputs': reset_output}], fields)
             stage = 'decode'
             sample = decode_inputs(first[0][:, -1:].argmax(-1), first[1:], fields, constants, seq2seq)
+            if population != 'tiny':
+                capacity = first[1].shape[2] + (5 if name == 'smolvlm-256m' else 4)
             history = torch.export.Dim('history', min=1, max=capacity)
             mask_name = 'decoder_attention_mask' if seq2seq else 'attention_mask'
             shapes = {key: ({1: history + 1} if key == mask_name else
@@ -310,12 +329,36 @@ def run(root, output_root, name='smollm2-135m'):
                 result['capacity_rejection_verified'] = True
             else:
                 raise ValueError('out-of-capacity generation state was accepted')
-            result['components']['decode'] = save_component(root, output_root, entry, config, 'decode', decode_program, cases, fields, capacity)
+            result['components']['decode'] = save(root, output_root, entry, config, 'decode', decode_program, cases, fields, capacity)
+            if static_histories:
+                result['static_variants'] = {}
+                history_key = next(key for key in cases[0]['inputs'] if key.startswith('past_') and '_cross_' not in key)
+                by_history = {case['inputs'][history_key].shape[2]: case for case in cases}
+                for history in static_histories:
+                    if history not in by_history:
+                        raise ValueError(f'no verified decode step with history {history}')
+                    case = by_history[history]
+                    static = DynamoExporter().export(decode, copy.deepcopy(case['inputs']), DynamoConfig(strict=False))
+                    static = static.run_decompositions(decomp_table={})
+                    compare(static.module()(**copy.deepcopy(case['inputs'])), case['outputs'])
+                    others = [other for key, other in by_history.items() if key != history]
+                    rejected = 0
+                    for other in others:
+                        try:
+                            static.module()(**copy.deepcopy(other['inputs']))
+                        except (RuntimeError, AssertionError):
+                            rejected += 1
+                    if not others or rejected != len(others):
+                        raise ValueError('static variant accepted a different history')
+                    component = save(root, output_root, entry, config, 'decode', static, [case], fields, history,
+                                     variant=f'static-h{history}')
+                    result['static_variants'][str(history)] = {**component, 'rejected_other_histories': rejected}
             result['cache_reset_verified'] = True
             result['status'] = 'verified'
     except Exception as error:
         result['failed_stage'] = stage
         result['error_category'] = type(error).__name__
         (work / (stage + '.log')).write_text(traceback.format_exc())
-    write_json(Path(output_root) / 'results/generation' / (name + '.json'), result)
+    suffix = '' if population == 'tiny' and snapshot is None else f"-{population}{'-checkpoint' if snapshot else ''}"
+    write_json(Path(output_root) / 'results/generation' / (name + suffix + '.json'), result)
     return result
