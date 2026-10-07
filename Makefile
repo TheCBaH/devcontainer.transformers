@@ -4,9 +4,10 @@ WORKERS ?= 1
 TIMEOUT ?= 900
 SUBSET ?=
 RUN = $(UV) run --frozen
+REPORT_PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 OPTIONS = --workers $(WORKERS) --timeout $(TIMEOUT) $(if $(SUBSET),--subset $(SUBSET),)
 
-.PHONY: setup smoke test report report.ci models.select models models.verify check-models check-tree-clean research.reference clean
+.PHONY: setup smoke test report report.ci report.symbolic models.select models models.verify check-models check-tree-clean research.reference clean
 setup:
 	$(UV) sync --frozen
 smoke: setup
@@ -15,7 +16,10 @@ test: setup
 	$(RUN) pytest -q
 report: setup
 	$(RUN) hf-pt2 report $(OPTIONS)
+	$(MAKE) report.symbolic
 report.ci: report
+report.symbolic:
+	$(REPORT_PYTHON) scripts/report_symbolic_shapes.py
 models.select: setup
 	$(RUN) hf-pt2 select
 models: setup

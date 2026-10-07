@@ -2,6 +2,10 @@ name: research
 on:
   workflow_dispatch:
     inputs:
+      report_only:
+        description: 'Regenerate symbolic-shapes.md from saved graphs without exporting models'
+        type: boolean
+        default: false
       subset:
         description: 'Comma-separated reviewed model IDs; empty selects eight core references'
         default: ''
@@ -17,7 +21,19 @@ concurrency:
   group: research-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  symbolic-report:
+    if: ${{ inputs.report_only }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 -m unittest discover -s tests -p test_symbolic_report.py
+      - run: make report.symbolic
+      - uses: actions/upload-artifact@v7
+        with:
+          name: symbolic-report
+          path: symbolic-shapes.md
   research:
+    if: ${{ !inputs.report_only }}
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 90
     env:

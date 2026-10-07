@@ -27,6 +27,7 @@ including inside a dependency group.
 | --- | --- |
 | `make test` | Semantic, dynamic-shape, isolation, corruption and publication regressions |
 | `make report` | Run the eight tiny probes; render structured results and three operator matrices |
+| `make report.symbolic` | Inspect saved graphs; report symbolic shapes/scalars and affected nodes across model artifacts |
 | `make models.select` | Select verified artifacts from existing results, with category representatives |
 | `make models` | Independently regenerate functional graph JSON, facts and contracts |
 | `make models.verify` | Check graph hashes, operator facts and saved call contracts |
@@ -58,6 +59,18 @@ whose schema type is `SymInt`. Only genuinely symbolic integers appear as
 their fixed entries, such as `[1,SymInt,64]`. Symbol expressions and range bounds
 remain in the exported graph and tensor contract. Coverage distinguishes fixed
 argument values across graphs; it groups symbolic arguments by this marker.
+
+[`symbolic-shapes.md`](symbolic-shapes.md) covers every saved functional artifact,
+including prefill and dynamic decode. It links operators to model artifacts and
+shows graph-local symbols, declared bounds and expandable per-node tensor shapes
+and named argument configurations, resolving symbolic scalars to expressions
+while preserving fixed settings and complete mixed lists such as
+`size=[1,4,(s15+1),16]`. Operations using symbolically shaped tensors
+are included even when they have no explicit SymInt argument. Export hints do
+not determine actual sizes. Regenerate with `make report.symbolic`; it reads JSON
+and checks graph hashes without loading models or importing torch. The manual
+research workflow's `report_only` mode generates this report and runs its focused
+regressions without building the export environment.
 
 Each `models/<model>/<task>/<population>/forward/<dtype>/<policy>/<shape>/`
 directory contains the unmodified serializer JSON, weight/constant metadata,

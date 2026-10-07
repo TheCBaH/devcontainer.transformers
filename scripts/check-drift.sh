@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-git diff --stat -- models results models.md models-selected.yaml 'ops-*'
-if ! git diff --quiet -- models results models.md models-selected.yaml 'ops-*'; then
-    git diff -- models results models.md models-selected.yaml 'ops-*' | head -c 16000 || true
+git diff --stat -- models results models.md models-selected.yaml symbolic-shapes.md 'ops-*'
+if ! git diff --quiet -- models results models.md models-selected.yaml symbolic-shapes.md 'ops-*'; then
+    git diff -- models results models.md models-selected.yaml symbolic-shapes.md 'ops-*' | head -c 16000 || true
     exit 1
 fi
 unexpected=$(git ls-files --others --exclude-standard -- models results)

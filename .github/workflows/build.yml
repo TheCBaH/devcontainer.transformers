@@ -18,7 +18,7 @@ jobs:
           version: '0.12.23'
           python-version: '3.13.12'
           enable-cache: true
-      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.verify check-tree-clean
+      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic models.verify check-tree-clean
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
@@ -36,7 +36,7 @@ jobs:
         id: devcontainer
         with:
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.verify check-tree-clean
+      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic models.verify check-tree-clean
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
