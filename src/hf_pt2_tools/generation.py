@@ -14,6 +14,7 @@ from pt2_export_core.opgraph import collect_ops
 
 from .artifacts import file_hash, publish, verify_artifact, write_json
 from .exporting import producer
+from .fixtures import cases_document, write_cases
 from .recipes import compare, make_inputs, tensor_metadata
 from .registry import build_model, digest, read_manifest
 
@@ -109,6 +110,7 @@ def save_component(root, output_root, entry, config, component, program, cases, 
     write_json(caps, {'selection': {'max_weight_mb': 64, 'release_max_weight_mb': 64}})
     profile = selected_pt2_profile(caps)
     assert_portable(archive, profile)
+    case_entries = write_cases(work, fields, cases)
     payload = work / 'examples.pt'
     torch.save({'cases': cases, 'tolerances': (1e-5, 1e-4)}, payload)
     process = subprocess.run([sys.executable, str(Path(__file__).with_name('fresh_load.py')), str(archive), str(payload)],
@@ -153,6 +155,8 @@ def save_component(root, output_root, entry, config, component, program, cases, 
                           if path.name != 'op_facts.json'}}
     if component in ('prefill', 'decode'):
         contract['state'] = state
+    write_json(staging / 'cases.json', cases_document(identity, case_entries, (1e-5, 1e-4)))
+    contract['files']['cases.json'] = file_hash(staging / 'cases.json')
     write_json(staging / 'contract.json', contract)
     verify_artifact(root, staging, identity)
     publish(staging, Path(output_root) / 'models' / identity)

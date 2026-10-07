@@ -73,10 +73,14 @@ def verify_artifact(root, directory, expected_id=None):
                 raise ValueError('static tensor shape metadata differs from graph')
     for relative, expected in contract['files'].items():
         if relative not in ('models/model.json', 'data/weights/model_weights_config.json',
-                            'data/constants/model_constants_config.json'):
+                            'data/constants/model_constants_config.json', 'cases.json'):
             raise ValueError('unknown contract file')
         if file_hash(directory / relative) != expected:
             raise ValueError('contract file hash mismatch')
+    if 'cases.json' not in contract['files']:
+        raise ValueError('artifact lacks a cases manifest')
+    from .fixtures import check_cases_document
+    check_cases_document(strict_json_loads((directory / 'cases.json').read_text()), contract)
     return contract
 
 

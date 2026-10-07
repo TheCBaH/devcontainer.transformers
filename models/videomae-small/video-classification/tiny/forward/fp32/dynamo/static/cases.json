@@ -1,0 +1,36 @@
+{
+  "artifact_id": "videomae-small/video-classification/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "b8d191a3507bd1d8447e1d2e0bb8e128c5ffee9b7e8ba7f644cf54257de826c5",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "25098f538bbd94fae08dc2ae951128bfe64973065e04a5ff0e1263b3b19cbff2"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "46766d41eac78c0f027527d1bc23b0d762765b9c79c8865716d09c9b9b757a20",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "f17f1fbe9d64cf348ec215893f7954e573691e3e0b1b4502c2b5137803699e69"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

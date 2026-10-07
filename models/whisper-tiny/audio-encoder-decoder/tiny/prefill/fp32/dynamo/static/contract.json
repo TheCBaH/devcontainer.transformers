@@ -20,6 +20,7 @@
     "strict": false
   },
   "files": {
+    "cases.json": "1f4038eedd1ec9dbdf5acc29dc3b7e58b2f808778abc3921896547ad0c1bbf0f",
     "data/constants/model_constants_config.json": "1c77547cc82ae497a9ea0667b61c3a7c2f92c17668d29f52bf1907e4957bc9c0",
     "data/weights/model_weights_config.json": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
     "models/model.json": "fd4e928917e91abbce8f2d81bc322c8fdf1223838c92f693b5dc6952006e55bd"
@@ -116,9 +117,9 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "d9bfbe0281304d57f301dfa24bfef2ae4eb1d57c93388fd1a424024688ab27eb",
+    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
     "python": "3.13.12",
-    "tools_sha256": "a919082f95c3aef5d220342f6d3c5d4d455f19ef6e5b7fffceb4f5c393fadae5",
+    "tools_sha256": "358522f7168575fcfd496261a260de95c3032f667abae8514b2f13cce5cf81c6",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",

@@ -1,0 +1,36 @@
+{
+  "artifact_id": "mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "71757e49ed4f42cb634b68adb4e6bfd242cce8891d2f4deeae28abee39bdb8ed",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "becbc4ec661572387e11c9bcd233740c854a07922c1135901e31daba32000362"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "1995509a1b01cea903db0dc1946f9b4cae1be58d73773fbc61e194a212d1dafa",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "1fa512c09c01d2647393b8bc7ce22f04d66f3ee4b1e47b4cda5f49be2dfcb83e"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

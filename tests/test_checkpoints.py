@@ -28,6 +28,7 @@ def test_sharded_tied_checkpoint_binding_and_value_mismatch(tmp_path, monkeypatc
     shutil.copy(snapshot / 'config.json', root / 'configs/reference/t5-small.json')
     shutil.copy(ROOT / 'uv.lock', root / 'uv.lock')
     shutil.copy(ROOT / 'pyproject.toml', root / 'pyproject.toml')
+    (root / 'modules').symlink_to(ROOT / 'modules')
     shutil.copytree(ROOT / 'schemas', root / 'schemas')
     entry['reference'].update(config_sha256=file_hash(snapshot / 'config.json'), safetensors_files=files)
     write_json(root / 'model-candidates.yaml', {'schema_version': 1, 'models': [entry],

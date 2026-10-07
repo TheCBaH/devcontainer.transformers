@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
       - run: python3 -m unittest discover -s tests -p test_symbolic_report.py
       - run: make report.symbolic
       - uses: actions/upload-artifact@v7
@@ -41,6 +43,13 @@ jobs:
       PROBE_POPULATION: ${{ inputs.population }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/cache@v6
+        with:
+          path: .hf-cache
+          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
+          restore-keys: hf-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'

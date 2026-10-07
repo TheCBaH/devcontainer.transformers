@@ -1,0 +1,4 @@
+[submodule "modules/devcontainer.pytorch-image-models"]
+	path = modules/devcontainer.pytorch-image-models
+	url = https://github.com/TheCBaH/devcontainer.pytorch-image-models.git
+	branch = main

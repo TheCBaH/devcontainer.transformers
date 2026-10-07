@@ -1,0 +1,38 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "cf70193a611434bb445e9cff91d237cb77a3e4b601c5d4d161fdf912700844f1",
+      "outputs": [
+        "encoder_hidden_states"
+      ],
+      "outputs_sha256": "c0a92c8d50361768ba804f60f9d1aa5687fd39f17ce8de969419cc3352fca66b"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "d53dc261da7de8203aa3173f1407e983fc759e1dc190f3b4f322b79684deede8",
+      "outputs": [
+        "encoder_hidden_states"
+      ],
+      "outputs_sha256": "df52b7df6483f4f8c59b101afebd761ffdbadb97ec985f7056bd54f06429baf9"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

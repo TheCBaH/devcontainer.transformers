@@ -1,0 +1,146 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "f4caeaffbdcab153a6374d48d495fe6107e8f3c5e01e7309cbf3c2dbdeeb41fb",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "cc984c93df56035be61ebeae2c19d276d8cd457e0a4f5ca9cb1058d5c65f6dd4"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "45d732397d59cba81b6e8fcc05c2709bc731817b039f0b6e642cc54fcd3df9de",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "ba3215a75c8409d8994f069f0fd2a516adf6297c6eb0af88944f8b1fe09e2cd4"
+    },
+    {
+      "id": "case-02",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "9fefbb6a9c1de18289210512f2e962ae0a803ed34d85af922a993230a135d1ba",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "ba3dc650f710214c82ae09ac9d9f6737912a6c5989b52b63fbeb835a7f231ea8"
+    },
+    {
+      "id": "case-03",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "741e44956387c4defb4537d822d3e843e3da6e521a70a63e4cf987f4c5f746dd",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "727b3e2032961699faeddba48f6847dd14590e264e2d31e58433152a547896f3"
+    },
+    {
+      "id": "case-04",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "2a5df51e4545ae30664c63208fc150e5ae6c7bbee9b3655fa6e5f696f64de96d",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "904fc699e76dd4edbb583bd4244334bf108bd24a69e923738c3bf628ac869b89"
+    },
+    {
+      "id": "case-05",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "78351e095d2398de972ccf5323f061baca192edccba8e7df56d9b06f63a7cc10",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "3470db21f8ad1ece5b3c940786174c83b099f8b829afd7d4450670c34a0452be"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

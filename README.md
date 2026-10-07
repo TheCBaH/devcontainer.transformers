@@ -17,8 +17,10 @@ The frozen baseline is Python 3.13.12, uv 0.12.23, Transformers 5.18.0,
 torch 2.12.0+cpu and torchvision 0.27.0+cpu. CPU wheels exist for ARM64 and
 x86-64. Committed graphs use ARM64 CPU; both uv and devcontainer CI regenerate
 them on `ubuntu-24.04-arm`. The x86 job verifies its own BERT execution.
-The shared `pt2-export-core` is installed from a pinned Git subdirectory;
-no sibling checkout is required. Its initial Git fetch/cache measured 524 MiB.
+The shared `pt2-export-core` is an editable path dependency on the
+`modules/devcontainer.pytorch-image-models` submodule (tracks `main`;
+Dependabot bumps the pointer). Initialize it non-recursively:
+`git submodule update --init --depth 1`.
 Update torch/torchvision together and rerun corpus validation. Their automatic
 updates are excluded because Dependabot's uv updater resolves one pin at a time,
 including inside a dependency group.

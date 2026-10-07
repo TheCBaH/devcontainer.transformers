@@ -1,0 +1,1242 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "59a4e9444358d841a64bf20cba4f196dd65f88a3efbcc9ff40b626339868ea92"
+      },
+      "category": "text-encoder",
+      "component": "forward",
+      "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
+      "contract_sha256": "8e5e73ddc477e5b1eb39ee5bad8a93c785fbc501e4693d524a27a33b0f597433",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "59a4e9444358d841a64bf20cba4f196dd65f88a3efbcc9ff40b626339868ea92",
+          "size": 1043
+        },
+        "contract.json": {
+          "sha256": "8e5e73ddc477e5b1eb39ee5bad8a93c785fbc501e4693d524a27a33b0f597433",
+          "size": 2669
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "fe88b14c21395fffce5c0d62d0c0b7717ab5636db3156a694bba953202d9a241",
+          "size": 933
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "e8e73c65c500c90ac3b6c0f7c69e7be133a1efb7a662e1d66bf3fdcc098da525",
+          "size": 12700
+        },
+        "models/model.json": {
+          "sha256": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e",
+          "size": 166754
+        },
+        "models/op_facts.json": {
+          "sha256": "9e0c88ee4e7bbdfe40b002e5b92b2e8126568f2280a906bccf0b4b0a3316fed0",
+          "size": 6752
+        }
+      },
+      "graph_sha256": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "model_id": "bert-tiny",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "path": "models/bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "bebf5d6c7249754a34b4848dbbf6c2eabd090c2b746dedfd45e20d79d3bfe0a9"
+      },
+      "category": "image-classification",
+      "component": "forward",
+      "config_sha256": "65a2af268c2898375d984636c9751398de9af8be5bce2210d1904c42d2ac5e5e",
+      "contract_sha256": "504764a0cbd74deba92adce99e5d1a21e83a9ddcd21b0851bdfc1c12efa2f626",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "bebf5d6c7249754a34b4848dbbf6c2eabd090c2b746dedfd45e20d79d3bfe0a9",
+          "size": 885
+        },
+        "contract.json": {
+          "sha256": "504764a0cbd74deba92adce99e5d1a21e83a9ddcd21b0851bdfc1c12efa2f626",
+          "size": 2320
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+          "size": 14
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "4ef4167301ff2ab65592db7bd305ff53e4027ed6e1cad624b87b895f4587e7b6",
+          "size": 122626
+        },
+        "models/model.json": {
+          "sha256": "7b46299a1d7d23b4d1837bfe3362020518735abeab56065002aa7ef8927fb8be",
+          "size": 1148952
+        },
+        "models/op_facts.json": {
+          "sha256": "c67a4988c4801856964a28d8e7e23f949a7e0e07c8111686b58322d6db1cb634",
+          "size": 11872
+        }
+      },
+      "graph_sha256": "7b46299a1d7d23b4d1837bfe3362020518735abeab56065002aa7ef8927fb8be",
+      "inputs": [
+        "pixel_values"
+      ],
+      "model_id": "mobilevit-xxs",
+      "outputs": [
+        "logits"
+      ],
+      "path": "models/mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01",
+          "case-02",
+          "case-03",
+          "case-04",
+          "case-05"
+        ],
+        "manifest_sha256": "d309d6a7948b3689f5d2c55919582c3759bd6e11b0574c8797948ca0256956b3"
+      },
+      "category": "text-decoder",
+      "component": "decode",
+      "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
+      "contract_sha256": "88de74f89de2f0ee1032c2666104ceca2efb560f3d9bbb7cf8245680fec1977c",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "d309d6a7948b3689f5d2c55919582c3759bd6e11b0574c8797948ca0256956b3",
+          "size": 3442
+        },
+        "contract.json": {
+          "sha256": "88de74f89de2f0ee1032c2666104ceca2efb560f3d9bbb7cf8245680fec1977c",
+          "size": 4144
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "3cc2da90f11b11f7eed8ab63460773e78eccc22e8b20b065d9ad63e73b2b3dee",
+          "size": 2006
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
+          "size": 6967
+        },
+        "models/model.json": {
+          "sha256": "ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba",
+          "size": 360024
+        },
+        "models/op_facts.json": {
+          "sha256": "579bc528be0e8ad4b86ed5c145961fe8c7cc6baa1469e501c480ff4e5b416109",
+          "size": 12335
+        }
+      },
+      "graph_sha256": "ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "model_id": "smollm2-135m",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "path": "models/smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "dynamic",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "33ccfa604e552236f1fa1c536b731392cba97a950046a99671fc12d484c37a47"
+      },
+      "category": "text-decoder",
+      "component": "forward",
+      "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
+      "contract_sha256": "b34532fb45681ceb3c83d863b12f6f93f556623127f0c74445674afb211f42b3",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "33ccfa604e552236f1fa1c536b731392cba97a950046a99671fc12d484c37a47",
+          "size": 922
+        },
+        "contract.json": {
+          "sha256": "b34532fb45681ceb3c83d863b12f6f93f556623127f0c74445674afb211f42b3",
+          "size": 2413
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "2ba1fb421cb35a9425f57dbf29537d221791fb2962c4ac692e5b35042007971a",
+          "size": 882
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
+          "size": 6967
+        },
+        "models/model.json": {
+          "sha256": "33fa23b49124ca4534969c90253505c144cdb68a1d7d79826fbadd4d5149ec62",
+          "size": 290714
+        },
+        "models/op_facts.json": {
+          "sha256": "0289c44b3d11e5614adfc39eafcce1bc60a1142ad3ef61c2be936210eaa9a652",
+          "size": 9284
+        }
+      },
+      "graph_sha256": "33fa23b49124ca4534969c90253505c144cdb68a1d7d79826fbadd4d5149ec62",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "model_id": "smollm2-135m",
+      "outputs": [
+        "logits"
+      ],
+      "path": "models/smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "18d14deca572dfe22d3a9882a3942e3d98b196ac057bd340341065373921f1e5"
+      },
+      "category": "text-decoder",
+      "component": "prefill",
+      "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
+      "contract_sha256": "5709b2f2f414d02bbad6514f97595e9a6cc642b3906572ca91fe9a8399940985",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "18d14deca572dfe22d3a9882a3942e3d98b196ac057bd340341065373921f1e5",
+          "size": 1130
+        },
+        "contract.json": {
+          "sha256": "5709b2f2f414d02bbad6514f97595e9a6cc642b3906572ca91fe9a8399940985",
+          "size": 3346
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "cc875abbc4896a9060d0da1e51f8433951435562fa1f88279796c9ca1107842d",
+          "size": 2130
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
+          "size": 6967
+        },
+        "models/model.json": {
+          "sha256": "afd25fefa7970db9f3528b700f5eb6ade868babaa65c178531ff43f584e28891",
+          "size": 304146
+        },
+        "models/op_facts.json": {
+          "sha256": "b91c2cd68299e76ec6b3e4cdb7f15a44353e9f763d528fd6a151b2d41425ec44",
+          "size": 9558
+        }
+      },
+      "graph_sha256": "afd25fefa7970db9f3528b700f5eb6ade868babaa65c178531ff43f584e28891",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "model_id": "smollm2-135m",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "path": "models/smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "d5bd54b3b4983f762377b2a084f872df8c0898d1f05edde43b8dbcd6980fa24d"
+      },
+      "category": "image-text-generation",
+      "component": "connector",
+      "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
+      "contract_sha256": "4fa8afd90cd5fedef32094c7505b6cc2429f7be21f0eed65ae73c19edd582f06",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "d5bd54b3b4983f762377b2a084f872df8c0898d1f05edde43b8dbcd6980fa24d",
+          "size": 905
+        },
+        "contract.json": {
+          "sha256": "4fa8afd90cd5fedef32094c7505b6cc2429f7be21f0eed65ae73c19edd582f06",
+          "size": 2328
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+          "size": 14
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "7ecdd9cf264a032364c671683eb215a275857749d9b7f449ee3f7dd35888fe5c",
+          "size": 352
+        },
+        "models/model.json": {
+          "sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+          "size": 13071
+        },
+        "models/op_facts.json": {
+          "sha256": "dff490bc481267c39dfdca41d36732d0d608cb106bc333494b165366946ade29",
+          "size": 1598
+        }
+      },
+      "graph_sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+      "inputs": [
+        "hidden_states"
+      ],
+      "model_id": "smolvlm-256m",
+      "outputs": [
+        "image_features"
+      ],
+      "path": "models/smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01",
+          "case-02",
+          "case-03",
+          "case-04",
+          "case-05",
+          "case-06"
+        ],
+        "manifest_sha256": "6cad4d9e443e87097219951f119597b9d8981727407ba9964669b159dbc8c6f3"
+      },
+      "category": "image-text-generation",
+      "component": "decode",
+      "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
+      "contract_sha256": "df33358b02598aee7295d56490689177d37fc493bf00bc6306ae509623f67ea2",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "6cad4d9e443e87097219951f119597b9d8981727407ba9964669b159dbc8c6f3",
+          "size": 3297
+        },
+        "contract.json": {
+          "sha256": "df33358b02598aee7295d56490689177d37fc493bf00bc6306ae509623f67ea2",
+          "size": 3490
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "702cf97b0f70b375ec872435f75271ef5693ba0446d120e1ed289144cc2cd416",
+          "size": 1479
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "a3d4f0715154c3bb861c3e9aa4f78201fe462679792f4fbdb0c3535474d0f297",
+          "size": 11568
+        },
+        "models/model.json": {
+          "sha256": "042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7",
+          "size": 243138
+        },
+        "models/op_facts.json": {
+          "sha256": "fb219f38b599d37c60be164894ec75590378ea4f5db424ec92bb4f2d252d7c5d",
+          "size": 10377
+        }
+      },
+      "graph_sha256": "042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "model_id": "smolvlm-256m",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "path": "models/smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "dynamic",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/prefill/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "e813991243438fe123fd0bec7da4156e8c4e2ddb9fe0f213370287d39466c56e"
+      },
+      "category": "image-text-generation",
+      "component": "prefill",
+      "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
+      "contract_sha256": "56caf971d78a6bb29450c224ba810f8e66d6dcd3ba6cc3d30d906ab5554e0eab",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "e813991243438fe123fd0bec7da4156e8c4e2ddb9fe0f213370287d39466c56e",
+          "size": 1087
+        },
+        "contract.json": {
+          "sha256": "56caf971d78a6bb29450c224ba810f8e66d6dcd3ba6cc3d30d906ab5554e0eab",
+          "size": 3201
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "094954a91ab02b6b81da94259f66d794b7c7d17bb45570f0a6977ddcb8fb6027",
+          "size": 1563
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "a3d4f0715154c3bb861c3e9aa4f78201fe462679792f4fbdb0c3535474d0f297",
+          "size": 11568
+        },
+        "models/model.json": {
+          "sha256": "276f33b6cd07aa5c184bd8c30b94d3d8adfbae3fb7f7ac85943456e13923caaa",
+          "size": 232204
+        },
+        "models/op_facts.json": {
+          "sha256": "509ca386eb6681f95bc11964b8e1dc8c471daee0ba79da662153d2d5d1bc1b67",
+          "size": 9812
+        }
+      },
+      "graph_sha256": "276f33b6cd07aa5c184bd8c30b94d3d8adfbae3fb7f7ac85943456e13923caaa",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "image_features"
+      ],
+      "model_id": "smolvlm-256m",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "path": "models/smolvlm-256m/image-text-generation/tiny/prefill/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "e9c61c009cfa477ad6a44b5a13b0d18450e54ab7b573953fbb7d780321464c9a"
+      },
+      "category": "image-text-generation",
+      "component": "vision",
+      "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
+      "contract_sha256": "3289a1b41f95dd5251795783819cda113bf8ff8b64843c5242f0fff115c2b751",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "e9c61c009cfa477ad6a44b5a13b0d18450e54ab7b573953fbb7d780321464c9a",
+          "size": 976
+        },
+        "contract.json": {
+          "sha256": "3289a1b41f95dd5251795783819cda113bf8ff8b64843c5242f0fff115c2b751",
+          "size": 2502
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "887bf4cc1b0dfea3bdb999c93edd75d68b15e71096d14c738bd30070672977e2",
+          "size": 275
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "adf0ad4ab508122be568dc518a90e6313393741d9a3a845b30e28106392bf476",
+          "size": 6785
+        },
+        "models/model.json": {
+          "sha256": "e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151",
+          "size": 143337
+        },
+        "models/op_facts.json": {
+          "sha256": "247be986e449c7efc108aed91efa896f38e568d8056613e5ee2f3c90693dd04b",
+          "size": 9961
+        }
+      },
+      "graph_sha256": "e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151",
+      "inputs": [
+        "pixel_values",
+        "patch_attention_mask"
+      ],
+      "model_id": "smolvlm-256m",
+      "outputs": [
+        "vision_hidden_states"
+      ],
+      "path": "models/smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01",
+          "case-02",
+          "case-03",
+          "case-04",
+          "case-05"
+        ],
+        "manifest_sha256": "419e58c2b545e73b66c44ad2a6686b3a98b4d80af7a1a94dc7433525c29b309c"
+      },
+      "category": "text-encoder-decoder",
+      "component": "decode",
+      "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+      "contract_sha256": "8a137491a8fdc3b2c288d98c0574c223056d9844101acfeb041e92c0b51efbf6",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "419e58c2b545e73b66c44ad2a6686b3a98b4d80af7a1a94dc7433525c29b309c",
+          "size": 4208
+        },
+        "contract.json": {
+          "sha256": "8a137491a8fdc3b2c288d98c0574c223056d9844101acfeb041e92c0b51efbf6",
+          "size": 4624
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "fdeff38ca206dae76e970eeea2add5e439e8fd432865ce40b58d72fc6821669e",
+          "size": 1674
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
+          "size": 9833
+        },
+        "models/model.json": {
+          "sha256": "4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b",
+          "size": 286159
+        },
+        "models/op_facts.json": {
+          "sha256": "dcd62446ec2fd499a964a1a0d25e9a67bfed3c70edd16c8d9277e563620d98e7",
+          "size": 11123
+        }
+      },
+      "graph_sha256": "4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "model_id": "t5-small",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "path": "models/t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "dynamic",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "89e2b287286e86a929babff050cd108fa687fe35abd960a870591136d6ed1a43"
+      },
+      "category": "text-encoder-decoder",
+      "component": "encoder",
+      "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+      "contract_sha256": "0e2fe4f31fb9706793a6ad7c896c4dc0a4c9276cdeb37faee8a6fc1f8359e911",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "89e2b287286e86a929babff050cd108fa687fe35abd960a870591136d6ed1a43",
+          "size": 956
+        },
+        "contract.json": {
+          "sha256": "0e2fe4f31fb9706793a6ad7c896c4dc0a4c9276cdeb37faee8a6fc1f8359e911",
+          "size": 2437
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "887bf4cc1b0dfea3bdb999c93edd75d68b15e71096d14c738bd30070672977e2",
+          "size": 275
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "e5a0849ef1a3f651e1aa6e8de1f8d123c2884d6cf527ec73ec36c87593227077",
+          "size": 3674
+        },
+        "models/model.json": {
+          "sha256": "98e0e55010272339721ba6a7af1be58a3e94a4d3e5c5e20a2b7f55ad557b970c",
+          "size": 155609
+        },
+        "models/op_facts.json": {
+          "sha256": "a3ffb293a43e40f0bb2b84b748dae0d4689fe624bddf627cc8f1ccfc95984c60",
+          "size": 8963
+        }
+      },
+      "graph_sha256": "98e0e55010272339721ba6a7af1be58a3e94a4d3e5c5e20a2b7f55ad557b970c",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "model_id": "t5-small",
+      "outputs": [
+        "encoder_hidden_states"
+      ],
+      "path": "models/t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "aab6dbd05277ef14de4fad1cd0353dc65ae88e4ff3812275d41c9d4059d59ad9"
+      },
+      "category": "text-encoder-decoder",
+      "component": "forward",
+      "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+      "contract_sha256": "c337ad7847a06ffac6cbf11eb8dd363ceb6ddc09cfffb306676601f0179d0059",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "aab6dbd05277ef14de4fad1cd0353dc65ae88e4ff3812275d41c9d4059d59ad9",
+          "size": 1052
+        },
+        "contract.json": {
+          "sha256": "c337ad7847a06ffac6cbf11eb8dd363ceb6ddc09cfffb306676601f0179d0059",
+          "size": 2722
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "0d2b162cf55d82c3a4e6f146869172adb14d701c8276bcfadd953ca0d12aeee3",
+          "size": 819
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
+          "size": 9833
+        },
+        "models/model.json": {
+          "sha256": "0bd4aeb209ef8e1828fd55de9e2c7fd20d0efd1fa97267fd87f346da9bb73e62",
+          "size": 422371
+        },
+        "models/op_facts.json": {
+          "sha256": "73f20759db72e85a7898d771ec915a93876e2655cb1c8b4032009c718c1382df",
+          "size": 11215
+        }
+      },
+      "graph_sha256": "0bd4aeb209ef8e1828fd55de9e2c7fd20d0efd1fa97267fd87f346da9bb73e62",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "decoder_input_ids",
+        "decoder_attention_mask"
+      ],
+      "model_id": "t5-small",
+      "outputs": [
+        "logits"
+      ],
+      "path": "models/t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "d9a83a52dae623b202b7c4e384550ac17375d4fad4aac317adc0d7e6238bc2dc"
+      },
+      "category": "text-encoder-decoder",
+      "component": "prefill",
+      "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+      "contract_sha256": "82fbce986862aadc20ad4a522468b87acafa16f6bb15ab1a455b08489d3b65f8",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "d9a83a52dae623b202b7c4e384550ac17375d4fad4aac317adc0d7e6238bc2dc",
+          "size": 1344
+        },
+        "contract.json": {
+          "sha256": "82fbce986862aadc20ad4a522468b87acafa16f6bb15ab1a455b08489d3b65f8",
+          "size": 3758
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "5b034d4d8cb63c31572f0505793161b7b937e54c471bd75ef82c176e3c2ee611",
+          "size": 1854
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
+          "size": 9833
+        },
+        "models/model.json": {
+          "sha256": "be6e662c9e210a54c993431d26e4f3704cac638015aaecfa48346f15f4f12f20",
+          "size": 277447
+        },
+        "models/op_facts.json": {
+          "sha256": "25aff3d17b462d3bcd03de76cde0129eb1b965de1bc4a5df93f4a87d2b8ba4cc",
+          "size": 10191
+        }
+      },
+      "graph_sha256": "be6e662c9e210a54c993431d26e4f3704cac638015aaecfa48346f15f4f12f20",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask"
+      ],
+      "model_id": "t5-small",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "path": "models/t5-small/text-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "time-series-small/time-series/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "2d30491427b52d71577c0511ebb1f09348d95c230b50c950e388276b2a42686c"
+      },
+      "category": "time-series",
+      "component": "forward",
+      "config_sha256": "eec99da959cffd0cf1f1e693e432e7f436a108b6c9839f9397345ac4275e1527",
+      "contract_sha256": "d537e77720b5ced67b32249c3de9f28cddb6ae0253e3eee1cb204076dbccb403",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "2d30491427b52d71577c0511ebb1f09348d95c230b50c950e388276b2a42686c",
+          "size": 1364
+        },
+        "contract.json": {
+          "sha256": "d537e77720b5ced67b32249c3de9f28cddb6ae0253e3eee1cb204076dbccb403",
+          "size": 3456
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "0d2b162cf55d82c3a4e6f146869172adb14d701c8276bcfadd953ca0d12aeee3",
+          "size": 819
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "715db21cd308614feeb5c1714aa0d0b487f657f550c310b86c5058a1b64ee316",
+          "size": 29996
+        },
+        "models/model.json": {
+          "sha256": "e6781d654e896bf3bdf56651ba92cba56e6446d697527f925c26f0e5df675674",
+          "size": 458302
+        },
+        "models/op_facts.json": {
+          "sha256": "238201438b5ab7f319eb070f146b914d972075e771ff7909695b69ad35325e29",
+          "size": 13792
+        }
+      },
+      "graph_sha256": "e6781d654e896bf3bdf56651ba92cba56e6446d697527f925c26f0e5df675674",
+      "inputs": [
+        "past_values",
+        "past_time_features",
+        "past_observed_mask",
+        "static_categorical_features",
+        "static_real_features",
+        "future_time_features"
+      ],
+      "model_id": "time-series-small",
+      "outputs": [
+        "last_hidden_state",
+        "encoder_last_hidden_state",
+        "loc",
+        "scale"
+      ],
+      "path": "models/time-series-small/time-series/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "70487da86388c6d7da5a64a97e4030f11f61b93f2162b965c837bbb69145bc3f"
+      },
+      "category": "image-text-embeddings",
+      "component": "forward",
+      "config_sha256": "b68e1715c8d7a69357dbab2692b4bd59a31bfa87bc74f897c141504b4accd746",
+      "contract_sha256": "46c3d88d256c0edf49692511e5df243f61bad4c0a33481280fa8ae999e60640b",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "70487da86388c6d7da5a64a97e4030f11f61b93f2162b965c837bbb69145bc3f",
+          "size": 1143
+        },
+        "contract.json": {
+          "sha256": "46c3d88d256c0edf49692511e5df243f61bad4c0a33481280fa8ae999e60640b",
+          "size": 2913
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "dddb709bc81492c5e976c4a779d474ffdd41165af878ff30515e901c2e349e77",
+          "size": 960
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "f2529d221edee2d503f6a9b69c0a4d5fb682fae8ec6d85d0d49ca2b96d63f1a3",
+          "size": 15140
+        },
+        "models/model.json": {
+          "sha256": "46c80aaaa1bc3b3911293da89ee934a62a5e63d6d571f55bf91ed596f5d3942d",
+          "size": 214066
+        },
+        "models/op_facts.json": {
+          "sha256": "69a8819ce6e0f3f8c20963de290456b8a2e6303e34098b49b0995f945cb49bfe",
+          "size": 9973
+        }
+      },
+      "graph_sha256": "46c80aaaa1bc3b3911293da89ee934a62a5e63d6d571f55bf91ed596f5d3942d",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "pixel_values"
+      ],
+      "model_id": "tinyclip",
+      "outputs": [
+        "text_embeds",
+        "image_embeds",
+        "logits_per_image",
+        "logits_per_text"
+      ],
+      "path": "models/tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "videomae-small/video-classification/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "ec15c217f3b9f77cda13ca890d8f186fff07367c5dbd9a0a41f531facecda054"
+      },
+      "category": "video-classification",
+      "component": "forward",
+      "config_sha256": "d9f305bc19f4e7373cfc820c49e4460a1e48de56cd2cc945df110897de0fc153",
+      "contract_sha256": "43dc3304240418d00183667b9c5ed81d46b7f67d2819a0152336fcd831ea2d88",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "ec15c217f3b9f77cda13ca890d8f186fff07367c5dbd9a0a41f531facecda054",
+          "size": 886
+        },
+        "contract.json": {
+          "sha256": "43dc3304240418d00183667b9c5ed81d46b7f67d2819a0152336fcd831ea2d88",
+          "size": 2328
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "1074f3cce3b78a0a08caa2f19615556a3f55083ade45a27a5f67a75438458040",
+          "size": 387
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "47c115d59b01d73766801a3ff302d6502a98dbf88d8f83f589e1dad4192a22eb",
+          "size": 6991
+        },
+        "models/model.json": {
+          "sha256": "edb3ff323163f47d7bcdd4109425189d18658539556e260b2836a16d41325d6b",
+          "size": 85296
+        },
+        "models/op_facts.json": {
+          "sha256": "388ec45f664233494b044bb70cbe67036f7a36fbee95334122357956fb1ec0e4",
+          "size": 4836
+        }
+      },
+      "graph_sha256": "edb3ff323163f47d7bcdd4109425189d18658539556e260b2836a16d41325d6b",
+      "inputs": [
+        "pixel_values"
+      ],
+      "model_id": "videomae-small",
+      "outputs": [
+        "logits"
+      ],
+      "path": "models/videomae-small/video-classification/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01",
+          "case-02",
+          "case-03",
+          "case-04",
+          "case-05"
+        ],
+        "manifest_sha256": "95e74b35ac303a3cb4e0c281115f8cab6e4aaeb728dcf7e64637f548976c75da"
+      },
+      "category": "audio-encoder-decoder",
+      "component": "decode",
+      "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+      "contract_sha256": "d036b4fc71eb67b5ea3a0347e275b8076e77f4d29dbe8038981eb441388479c1",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "95e74b35ac303a3cb4e0c281115f8cab6e4aaeb728dcf7e64637f548976c75da",
+          "size": 4009
+        },
+        "contract.json": {
+          "sha256": "d036b4fc71eb67b5ea3a0347e275b8076e77f4d29dbe8038981eb441388479c1",
+          "size": 4482
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "ee1dd4c937ef8e37031aedf524c565d592b70ea8190ae77e05f72ce0774c6c18",
+          "size": 1411
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
+          "size": 16699
+        },
+        "models/model.json": {
+          "sha256": "ccdccd7ab23829b838d81e8a1b9ac70a98f9e24cdf68c830dafdc1b9894088bc",
+          "size": 191855
+        },
+        "models/op_facts.json": {
+          "sha256": "5a5d75c74294a3cb228efe73db91844f78fef371bd51609555e3ad3a86a9bebd",
+          "size": 7747
+        }
+      },
+      "graph_sha256": "ccdccd7ab23829b838d81e8a1b9ac70a98f9e24cdf68c830dafdc1b9894088bc",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "model_id": "whisper-tiny",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "path": "models/whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "dynamic",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "63aef0831c499e8db0612f707673b9b8a6f9d0bc2e08b7f778971a243cb53e46"
+      },
+      "category": "audio-encoder-decoder",
+      "component": "encoder",
+      "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+      "contract_sha256": "90e4bc6457ee77ce071a67f9d8fbfc30935b0c8934f8ffd00bddd26872ac01e4",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "63aef0831c499e8db0612f707673b9b8a6f9d0bc2e08b7f778971a243cb53e46",
+          "size": 919
+        },
+        "contract.json": {
+          "sha256": "90e4bc6457ee77ce071a67f9d8fbfc30935b0c8934f8ffd00bddd26872ac01e4",
+          "size": 2335
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+          "size": 14
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "e3b3218930b1b6829890a5f8a3b523c5e403e506353c32d9e675017da67cdb19",
+          "size": 6904
+        },
+        "models/model.json": {
+          "sha256": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c",
+          "size": 70852
+        },
+        "models/op_facts.json": {
+          "sha256": "ff1482d86fffe6c85bdefe4c0d42bbe1a499fd42e455cef3272135f17a08c7ce",
+          "size": 4290
+        }
+      },
+      "graph_sha256": "4e2235956831af2fbba8831b251e2db3ac1f8ccd9327ef2d494144165e841c6c",
+      "inputs": [
+        "input_features"
+      ],
+      "model_id": "whisper-tiny",
+      "outputs": [
+        "encoder_hidden_states"
+      ],
+      "path": "models/whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "f4674e83cc5c12d1b8717c277bb530213f6c81c5d9311752aabea44855352dd3"
+      },
+      "category": "audio-encoder-decoder",
+      "component": "forward",
+      "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+      "contract_sha256": "94575703ba152a3f63cb4655e752f02c0c9910084af4461358c1064563da66e9",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "f4674e83cc5c12d1b8717c277bb530213f6c81c5d9311752aabea44855352dd3",
+          "size": 947
+        },
+        "contract.json": {
+          "sha256": "94575703ba152a3f63cb4655e752f02c0c9910084af4461358c1064563da66e9",
+          "size": 2465
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "46d9b4f449bdef910266ffef63db5c27bcaad1f84779493be2267492f51f409c",
+          "size": 287
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
+          "size": 16699
+        },
+        "models/model.json": {
+          "sha256": "8c5b8e909228f6e20856215aaf71e299ad628b2b03c1812fa70aa86117bafd9f",
+          "size": 259240
+        },
+        "models/op_facts.json": {
+          "sha256": "88c4425f09b144e41122bcfee208a7f77bfc59f7d7dbd44701ba49f1166065a7",
+          "size": 8966
+        }
+      },
+      "graph_sha256": "8c5b8e909228f6e20856215aaf71e299ad628b2b03c1812fa70aa86117bafd9f",
+      "inputs": [
+        "input_features",
+        "decoder_input_ids"
+      ],
+      "model_id": "whisper-tiny",
+      "outputs": [
+        "logits"
+      ],
+      "path": "models/whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    },
+    {
+      "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+      "cases": {
+        "ids": [
+          "case-00",
+          "case-01"
+        ],
+        "manifest_sha256": "1f4038eedd1ec9dbdf5acc29dc3b7e58b2f808778abc3921896547ad0c1bbf0f"
+      },
+      "category": "audio-encoder-decoder",
+      "component": "prefill",
+      "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+      "contract_sha256": "c5c7e4a1072f20eeb2f6fb660feab9f51ffa21bbd6367fd9b3f5b3e2347848f9",
+      "dtype": "fp32",
+      "files": {
+        "cases.json": {
+          "sha256": "1f4038eedd1ec9dbdf5acc29dc3b7e58b2f808778abc3921896547ad0c1bbf0f",
+          "size": 1281
+        },
+        "contract.json": {
+          "sha256": "c5c7e4a1072f20eeb2f6fb660feab9f51ffa21bbd6367fd9b3f5b3e2347848f9",
+          "size": 3616
+        },
+        "data/constants/model_constants_config.json": {
+          "sha256": "1c77547cc82ae497a9ea0667b61c3a7c2f92c17668d29f52bf1907e4957bc9c0",
+          "size": 1573
+        },
+        "data/weights/model_weights_config.json": {
+          "sha256": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
+          "size": 16699
+        },
+        "models/model.json": {
+          "sha256": "fd4e928917e91abbce8f2d81bc322c8fdf1223838c92f693b5dc6952006e55bd",
+          "size": 198701
+        },
+        "models/op_facts.json": {
+          "sha256": "dd5fe25f2c5bbb2a96bd44f9639b02710ec52acfadfac0240164c24f54d606a4",
+          "size": 6797
+        }
+      },
+      "graph_sha256": "fd4e928917e91abbce8f2d81bc322c8fdf1223838c92f693b5dc6952006e55bd",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states"
+      ],
+      "model_id": "whisper-tiny",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "path": "models/whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+      "policy": "dynamo",
+      "population": "tiny",
+      "shape_policy": "static",
+      "weight_source": {
+        "kind": "random",
+        "model_seed": 0
+      }
+    }
+  ],
+  "schema_version": 1
+}

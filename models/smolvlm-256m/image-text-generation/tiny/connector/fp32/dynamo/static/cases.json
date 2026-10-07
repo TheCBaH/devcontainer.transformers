@@ -1,0 +1,36 @@
+{
+  "artifact_id": "smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "hidden_states"
+      ],
+      "inputs_sha256": "74be0a927baa506a124ce8c306bb5e6c785048cb0a7886c90bdf532b6dc3a91d",
+      "outputs": [
+        "image_features"
+      ],
+      "outputs_sha256": "f4adb0a36fe8426c603ca12846eef4895a7e76db45614c42347d74b4382c5551"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "hidden_states"
+      ],
+      "inputs_sha256": "51fc1f545eb7defb43fe3f470e555a96b39ff0167afb0060cc78b686e9bd5494",
+      "outputs": [
+        "image_features"
+      ],
+      "outputs_sha256": "dbc9d1aecd159b4a2ea8ec9e2229bf23d94dece82a6c34a158a708ccfb026c63"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

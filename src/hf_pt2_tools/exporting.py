@@ -6,7 +6,6 @@ import platform
 import shutil
 import subprocess
 import sys
-import tomllib
 import traceback
 
 import torch
@@ -16,6 +15,7 @@ from pt2_export_core.archive import assert_portable, extract, graph_op_counts, m
 from pt2_export_core.opgraph import collect_ops, time_budget
 
 from .artifacts import file_hash, publish, verify_artifact, write_json
+from .fixtures import cases_document, write_cases
 from .recipes import AutocastTensorOutputs, TensorOutputs, compare, make_inputs, tensor_metadata
 from .registry import artifact_id, build_model, digest, read_manifest
 
@@ -30,12 +30,13 @@ def producer(root):
     sources = {path.name: file_hash(path) for path in sorted(Path(__file__).parent.glob('*.py'))}
     core_dir = Path(pt2_export_core.__file__).parent
     core_sources = {path.name: file_hash(path) for path in sorted(core_dir.glob('*.py'))}
-    installed_core = Path(importlib.metadata.distribution('pt2-export-core').locate_file('pt2_export_core'))
-    project = tomllib.loads((Path(root) / 'pyproject.toml').read_text())
+    core_module = Path(root) / 'modules' / 'devcontainer.pytorch-image-models'
+    core_revision = subprocess.run(['git', '-C', str(core_module), 'rev-parse', 'HEAD'],
+                                   check=True, capture_output=True, text=True).stdout.strip()
     return {'versions': {name: importlib.metadata.version(name) for name in packages},
             'python': platform.python_version(), 'architecture': platform.machine(),
-            'device': 'cpu', 'core_revision': project['tool']['uv']['sources']['pt2-export-core']['rev'],
-            'core_source_sha256': digest(core_sources), 'core_override': core_dir.resolve() != installed_core.resolve(),
+            'device': 'cpu', 'core_revision': core_revision,
+            'core_source_sha256': digest(core_sources), 'core_override': core_dir.resolve() != (core_module / 'modules/pt2-export-core/src/pt2_export_core').resolve(),
             'lock_sha256': file_hash(Path(root) / 'uv.lock'), 'tools_sha256': digest(sources)}
 
 
@@ -171,6 +172,8 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             success(stage)
             stage = 'fresh_load_run'
             tolerances = {'fp32': (1e-5, 1e-4), 'fp16': (5e-3, 5e-3), 'bf16': (5e-2, 5e-2)}[dtype]
+            case_entries = write_cases(work, entry['output_fields'],
+                                       [{'inputs': case, 'outputs': output} for case, output in zip(cases, expected, strict=True)])
             payload = work / 'examples.pt'
             torch.save({'cases': [{'inputs': case, 'outputs': output} for case, output in zip(cases, expected, strict=True)],
                         'tolerances': tolerances}, payload)
@@ -211,6 +214,8 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
                         'verified_cases': len(cases), 'tolerances': {'atol': tolerances[0], 'rtol': tolerances[1]},
                         'files': {str(path.relative_to(staging)): file_hash(path) for path in sorted(staging.rglob('*.json'))
                                   if path.name != 'op_facts.json'}}
+            write_json(staging / 'cases.json', cases_document(identity, case_entries, tolerances))
+            contract['files']['cases.json'] = file_hash(staging / 'cases.json')
             write_json(staging / 'contract.json', contract)
             verify_artifact(root, staging, identity)
             publish(staging, Path(output_root) / 'models' / identity)

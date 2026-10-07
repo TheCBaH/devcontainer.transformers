@@ -1,0 +1,50 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask"
+      ],
+      "inputs_sha256": "3fbe30b37ab42acc0ac9e2167f71df737cd10b937d0cd68479974292f65d6bb5",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "d0653d8a0d536b87bcacaf54ed617c67be95dcb2c1e07db8b70483eee09c3c4d"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "encoder_attention_mask"
+      ],
+      "inputs_sha256": "987640dd1b978205b3728b773f597f1be96dd087b42c80e9e2f9ab1ddb2cf4a8",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "f4e7b27eb38c5c64bce747e0f10da6b05a86e36bd1ebed8434929789641ff4e7"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "95393acc7f3745063a8aadc697b2142b28791c5443cd20842aa6354635258b57",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "91229639bcc6bf860ec003c00e85c12e6fce2311658d419ac81d9bf449852136"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "b2d6703dc4fd92bcd2bc425dce94f411221fe695d5c14cc8c1d615d4c2beaa93",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "7d1ed25b6d5cd3e4ce455f5b0f68088b18a636338918edd94dc845a6fa019e8d"
+    },
+    {
+      "id": "case-02",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "980a78168318e0defc1e8c1462ac35400d90aef89fb8509084450a99007f0fd0",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "c00e0b2338d527a161a7a56e85b178694a9e3367895344742d6e3c16c61f01d7"
+    },
+    {
+      "id": "case-03",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "5d86ed5119f1703b485c7475648023eb658369d604e288f15f32dc526e943869",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "2a52f496930e615828a132aea9792b54e41a521c8199b4f8470fbddf24eaa91e"
+    },
+    {
+      "id": "case-04",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "2443e9844e00d10480945f9c7fa5926aaf4e91cf02e0e665e2e7f401a204ec2b",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "73b07cae606deb8e06218fc6fdb75b89b578943848de0d80408fe40462d2cfbd"
+    },
+    {
+      "id": "case-05",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "929f91ef4ec0236a7e88b6236efbdccea976d2cb27ac786e8384138ce663318f",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "902fd26bc80853b265261585f7d5a1ce6a8ba9cb41f2607d429aa39b0a894dcc"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

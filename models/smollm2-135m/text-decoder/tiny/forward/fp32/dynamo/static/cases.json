@@ -1,0 +1,38 @@
+{
+  "artifact_id": "smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "cf70193a611434bb445e9cff91d237cb77a3e4b601c5d4d161fdf912700844f1",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "ed38199eda25a1d525a791a8fc9400601880f2397ce76ecea5ebbf257f2841c4"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "d53dc261da7de8203aa3173f1407e983fc759e1dc190f3b4f322b79684deede8",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "de309bbecc6a7bafb2d74239acef196ac69194118083bc83b9894e3e260c1670"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

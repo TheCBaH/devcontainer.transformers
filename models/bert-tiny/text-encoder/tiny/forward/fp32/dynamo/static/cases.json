@@ -1,0 +1,42 @@
+{
+  "artifact_id": "bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "80b7367e0b33b70cc712934eb0e8b6b6a6eb44c395518009988af8608fd01ead",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "4877b86d9dae19500cb6fd2e62a99bbd65c1c184f555c53755b8976f5c23dcfc"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "9d602b328c770aad54ab0f099cecea4c060ac5c75b90e414aff038309e82b64f",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "666d5bf625c8975fa7f107ce4d25ba1b699e62918d32ef137fdbafd5bf51a059"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

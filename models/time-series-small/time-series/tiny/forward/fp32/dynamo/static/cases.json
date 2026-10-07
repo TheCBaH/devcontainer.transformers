@@ -1,0 +1,52 @@
+{
+  "artifact_id": "time-series-small/time-series/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "past_values",
+        "past_time_features",
+        "past_observed_mask",
+        "static_categorical_features",
+        "static_real_features",
+        "future_time_features"
+      ],
+      "inputs_sha256": "e829cc1f80f6b105edc951e28bb62ee751c3c29f09137102933c97e27e194824",
+      "outputs": [
+        "last_hidden_state",
+        "encoder_last_hidden_state",
+        "loc",
+        "scale"
+      ],
+      "outputs_sha256": "2eb6db8c5b24aefb3c229befadc8ddae23068eb979c089eb9e91bab819b2c1f2"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "past_values",
+        "past_time_features",
+        "past_observed_mask",
+        "static_categorical_features",
+        "static_real_features",
+        "future_time_features"
+      ],
+      "inputs_sha256": "83c7d0cd9a85ce6a48e1ab5da2931ecea73698c13ebfb9675e353108646d4548",
+      "outputs": [
+        "last_hidden_state",
+        "encoder_last_hidden_state",
+        "loc",
+        "scale"
+      ],
+      "outputs_sha256": "a2a1b1d51e44255b7debfb9e6fce8037fbd29ff6aa07fa6cf22881c9786ea488"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

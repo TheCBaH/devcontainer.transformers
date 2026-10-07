@@ -1,0 +1,38 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_features",
+        "decoder_input_ids"
+      ],
+      "inputs_sha256": "42564dd2a21ebf03a5f456270cffecb2692493a2a775281d12b4da0447d57d33",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "c7af14494ea96c5fab91e60800d20d452947a085bc5ea440605e90e038b218be"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_features",
+        "decoder_input_ids"
+      ],
+      "inputs_sha256": "8427dc22dd0f5764fc37fd9585c9a51ad3d19ae57790dbade7c5caf15f5bb3cc",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "a9748ef36740d267bcf3f0606e6ef4c69c74644b9de69287723c75f369c56f02"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

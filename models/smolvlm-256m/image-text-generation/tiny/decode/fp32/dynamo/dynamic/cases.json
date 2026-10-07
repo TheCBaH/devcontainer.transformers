@@ -1,0 +1,126 @@
+{
+  "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "87f08c37f7865c5c8c19b45844e36a3ba385035274f79f2e6bff444e9cfa0c82",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "94e99c3dbf0dd1cb1b5eb3d6d600cf3a6938e62122ab9e26cd5d44192251ed7f"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "9c6cc19238970b3b45b9024a3a5b135ed77b558af92d78e321898c8e657a3dd5",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "6e08b67e877a47b1ea711ae5cdb16a7acf48e515cc1db8155f0445dbe20299ee"
+    },
+    {
+      "id": "case-02",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "48274e9d83b990c3ff742bcd4df52d86d836d4c3f2c875fcf4b5dbdcde81e2fc",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "a91620db27adba8cb8f200652cab12cfda67859b9284f774793e9ea02be109f6"
+    },
+    {
+      "id": "case-03",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "756c0332beff7c93833f41a8d6383019f6e27bfd2fae6905519fef5ff12a1527",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "880f9efcfa1f2f28e970c5c038d3ee580f5b3911cb4f6f4c7bde2883184ea5d4"
+    },
+    {
+      "id": "case-04",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "d59bd297c645d984f0e69cf3e3366f32afd318d12a03b4eb608263ccb8a1e404",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "a4973e15413a22cc55a517109b4b1ef675b4ac941b6f1eae4fe7c0c070c0f29d"
+    },
+    {
+      "id": "case-05",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "2004427e63734f3cbdfebf92702152446ee23fb81f847d5f6952af6d93d51f0e",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "3e6e5ed7d5b35ab57211782ba79050cd6ccfc3df7f2d8fe40dca9e88ce1a1c4a"
+    },
+    {
+      "id": "case-06",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "f2f1c3baff49ffb197bf8aac8b3613a121ea954eeeca73f23fe3c552f93933a0",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "f440cc38d61f85b36926ec7b1c072da7036bb9a047a580b29a97bf15b9a8adcf"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

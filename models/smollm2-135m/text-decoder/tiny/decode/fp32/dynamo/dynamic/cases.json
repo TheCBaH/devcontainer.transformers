@@ -1,0 +1,134 @@
+{
+  "artifact_id": "smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "06abb03d6ba52dbcab2685c1388d6e05d0b7b2559267f4f8a1c8c7629aa55be8",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "15f3e1ef6c147a3b2fd5c8c97c4718dc904cfaa0930bd75563bbb885eb0edabc"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "a96e31480b0d5426820a4bcdcc0b22af964bdaa3e5a27d9d4f044bdfcc5ef482",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "9ce9ae7415c85f5e6ac49ef04db2058af23e1f16d7531a0122bb191baba74c58"
+    },
+    {
+      "id": "case-02",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "1ef2ede18c2f6ba802a216567c8948e666b986aa348305bdf91fd46a7ad6f8b2",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "e2051598903a8b30541c72f17713a0e669a49534045d879c728e1186fa559f11"
+    },
+    {
+      "id": "case-03",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "53b997510f690efd1983147c1dc39de5928326502bf99afb36a3e3d0ecfd4d59",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "0f65bbb15f6e96f9f2b3773b10b8a76e46422adddcf8cac73a0db78fc405ef55"
+    },
+    {
+      "id": "case-04",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "09d1b8850d4c19902d032f00668d423c8bb655c41b3a13bf8d3241dc08f41e81",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "4591bdc7279fd8b491ba7d897885f29353a58605e8f311bbfec463996da0d3c0"
+    },
+    {
+      "id": "case-05",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
+      "inputs_sha256": "588aaf25f76c796c8820ccd4109451b47d9a7abb2a956e982ab97d6e1fadf630",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "00e8741ffc987ba7012c8b10ee0dfe169beab4dee717705ac7211d761692040a"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

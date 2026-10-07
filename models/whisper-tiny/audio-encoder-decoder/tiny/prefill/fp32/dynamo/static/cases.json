@@ -1,0 +1,48 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states"
+      ],
+      "inputs_sha256": "aebacb3c988ae4ea072da70e069ec80f6dc5defbbcd6719c364a6635bea08962",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "200b6f6626b3f27db1778556cd53235a5d032439d2006cfa5e34daef70cde7cf"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states"
+      ],
+      "inputs_sha256": "e4c76ab1671cfbfa205dc814d0f0a39f2292fb57f5defb8ba86a4cf5e1c58b38",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "6bc712e9c857aeec1d704445293cd0e6d7c289fbf154a6af7ebb79ef67e2eb43"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

@@ -36,8 +36,9 @@ research.reference: setup
 clean:
 	rm -rf .build .pytest_cache
 
-.PHONY: models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
+.PHONY: catalogue bundles bundles.verify models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
 GENERATION_OUTPUT ?= .build/generation
+BUNDLE_OUTPUT ?= .build/bundles
 models.fetch: setup
 	$(RUN) hf-pt2 fetch --subset $(SUBSET)
 models.weights.verify: setup
@@ -55,3 +56,9 @@ research.extended: setup
 models.precision.fp16 models.precision.bf16: setup
 	$(RUN) hf-pt2 research --dtype $(lastword $(subst ., ,$@)) --policy dynamo --subset bert-tiny,mobilevit-xxs,smollm2-135m --output .build/precision/$(lastword $(subst ., ,$@))-cast $(OPTIONS)
 	$(RUN) hf-pt2 research --dtype $(lastword $(subst ., ,$@)) --policy autocast --subset bert-tiny,mobilevit-xxs,smollm2-135m --output .build/precision/$(lastword $(subst ., ,$@))-autocast $(OPTIONS)
+catalogue: setup
+	$(RUN) hf-pt2 catalogue
+bundles: setup
+	$(RUN) hf-pt2 bundle $(if $(SUBSET),--subset $(SUBSET),) --output $(BUNDLE_OUTPUT)
+bundles.verify: setup
+	$(RUN) hf-pt2 bundle-verify --output $(BUNDLE_OUTPUT)

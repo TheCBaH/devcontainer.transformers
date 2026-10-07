@@ -13,18 +13,44 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/cache@v6
+        with:
+          path: .hf-cache
+          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
+          restore-keys: hf-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'
           python-version: '3.13.12'
           enable-cache: true
-      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic models.verify check-tree-clean
+      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic catalogue models.verify bundles bundles.verify check-tree-clean
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: fixture-bundles
+          path: .build/bundles
+          if-no-files-found: ignore
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: uv-diagnostics
           path: .build/**/*.log
           include-hidden-files: true
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: regenerated-tree
+          path: |
+            models
+            results
+            models.md
+            models-selected.yaml
+            symbolic-shapes.md
+            ops-*
+            catalogue.json
+          if-no-files-found: ignore
   devcontainer:
     runs-on: ubuntu-24.04-arm
     permissions:
@@ -32,11 +58,18 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/cache@v6
+        with:
+          path: .hf-cache
+          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
+          restore-keys: hf-${{ runner.arch }}-
       - uses: TheCBaH/devcontainer-action/devcontainer@v1
         id: devcontainer
         with:
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic models.verify check-tree-clean
+      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. report.symbolic catalogue models.verify bundles bundles.verify check-tree-clean
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
@@ -47,6 +80,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'
@@ -57,6 +92,13 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/cache@v6
+        with:
+          path: .hf-cache
+          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
+          restore-keys: hf-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'

@@ -107,7 +107,8 @@ def sweep(args):
 def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
-                                          'fetch', 'bind', 'generation', 'generation-worker'])
+                                          'fetch', 'bind', 'generation', 'generation-worker',
+                                          'catalogue', 'bundle', 'bundle-verify'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
     parser.add_argument('--subset')
@@ -146,6 +147,31 @@ def main():
                             'generation-llama', args.timeout)
         print(json.dumps(result))
         sys.exit(0 if result['status'] == 'verified' else 1)
+    if args.command == 'catalogue':
+        from .fixtures import catalogue
+        print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
+        return
+    if args.command in ('bundle', 'bundle-verify'):
+        from .fixtures import build_bundle, verify_bundle
+        output = Path(args.output or root / '.build/bundles').resolve()
+        if args.command == 'bundle-verify':
+            archives = sorted(output.glob('*.tar.gz'))
+            if not archives:
+                parser.error(f'no bundles in {output}')
+            for archive in archives:
+                print(archive.name, verify_bundle(root, archive))
+            return
+        names = set(args.subset.split(',')) if args.subset else None
+        count = 0
+        for contract in sorted((root / 'models').rglob('contract.json')):
+            directory = contract.parent
+            identity = str(directory.relative_to(root / 'models'))
+            if names and identity.split('/')[0] not in names:
+                continue
+            build_bundle(root, directory, root / '.build' / identity, output)
+            count += 1
+        print(f'bundled {count} artifacts into {output}')
+        return
     if args.command in ('fetch', 'bind'):
         from .checkpoints import bind, fetch
         if not args.subset or ',' in args.subset:

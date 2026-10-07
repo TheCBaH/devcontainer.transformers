@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -178,3 +179,74 @@ def test_generation_successive_state_reset_capacity_and_fresh_load(tmp_path, nam
     for component in result['components'].values():
         assert not component['fresh_load']['transformers_imported']
         verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])
+
+
+def _bundle(root, row, output):
+    from hf_pt2_tools.fixtures import build_bundle
+    identity = row['artifact_id']
+    return build_bundle(ROOT, root / 'models' / identity, root / '.build' / identity, output)
+
+
+def test_bundle_replays_flat_cases_with_torch_only_and_is_reproducible(bert_artifacts, tmp_path):
+    from hf_pt2_tools.fixtures import verify_bundle
+    roots, rows = bert_artifacts
+    manifests = [_bundle(root, row, tmp_path / str(i)) for i, (root, row) in enumerate(zip(roots, rows, strict=True))]
+    stable = [{k: v for k, v in m['members'].items() if not k.endswith(('.pt', '.pt2'))} for m in manifests]
+    assert stable[0] == stable[1] and 'cases.json' in stable[0]
+    assert manifests[0]['cases'] == ['case-00', 'case-01']
+    assert manifests[0]['weight_source']['kind'] == 'random'
+    assert {'model.pt2', 'cases.json', 'cases/case-00/inputs.pt', 'cases/case-01/outputs.pt'} <= set(manifests[0]['members'])
+    archive = tmp_path / '0' / manifests[0]['archive']['name']
+    assert verify_bundle(ROOT, archive) == {'status': 'ok', 'cases': 2, 'transformers_imported': False}
+
+
+@pytest.mark.parametrize('member', ['models/model.json', 'model.pt2', 'cases/case-00/inputs.pt', 'cases/case-01/outputs.pt'])
+def test_corrupt_bundle_member_rejected_before_use(bert_artifacts, tmp_path, member):
+    import gzip
+    import io
+    import tarfile
+    from hf_pt2_tools.fixtures import verify_bundle
+    roots, rows = bert_artifacts
+    manifest = _bundle(roots[0], rows[0], tmp_path / 'good')
+    good = tmp_path / 'good' / manifest['archive']['name']
+    bad = tmp_path / 'bad.tar.gz'
+    buffer = io.BytesIO()
+    with tarfile.open(good) as source, gzip.GzipFile(fileobj=buffer, mode='wb', mtime=0) as compressed, \
+            tarfile.open(fileobj=compressed, mode='w') as target:
+        for info in source.getmembers():
+            data = source.extractfile(info).read()
+            if info.name == member:
+                data = data[:-1] + bytes([data[-1] ^ 1])
+            info.size = len(data)
+            target.addfile(info, io.BytesIO(data))
+    bad.write_bytes(buffer.getvalue())
+    shutil.copy(tmp_path / 'good' / (good.name.removesuffix('.tar.gz') + '.manifest.json'),
+                tmp_path / 'bad.manifest.json')
+    with pytest.raises(ValueError):
+        verify_bundle(ROOT, bad)
+    # the manifest hash check must hold even when the archive digest is re-pinned
+    pinned = json.loads((tmp_path / 'bad.manifest.json').read_text())
+    pinned['archive'] = {'name': bad.name, 'sha256': hashlib.sha256(bad.read_bytes()).hexdigest(), 'size': bad.stat().st_size}
+    (tmp_path / 'bad.manifest.json').write_text(json.dumps(pinned))
+    with pytest.raises(ValueError, match='digest'):
+        verify_bundle(ROOT, bad, tmp_path / 'bad.manifest.json')
+
+
+def test_case_digest_is_content_based_and_order_sensitive():
+    import torch
+    from hf_pt2_tools.fixtures import tensor_digest
+    a, b = torch.arange(4), torch.ones(2, 2)
+    assert tensor_digest({'a': a, 'b': b}) == tensor_digest({'a': a.clone(), 'b': b.clone()})
+    assert tensor_digest({'a': a, 'b': b}) != tensor_digest({'b': b, 'a': a})
+    assert tensor_digest({'a': a}) != tensor_digest({'a': a.to(torch.int32)})
+
+
+def test_catalogue_lists_artifacts_with_weight_source(bert_artifacts, tmp_path):
+    from hf_pt2_tools.fixtures import catalogue
+    roots, rows = bert_artifacts
+    shutil.copytree(ROOT / 'schemas', tmp_path / 'schemas')
+    shutil.copytree(roots[0] / 'models', tmp_path / 'models')
+    entries = catalogue(tmp_path)['artifacts']
+    assert [e['artifact_id'] for e in entries] == [rows[0]['artifact_id']]
+    assert entries[0]['weight_source']['kind'] == 'random' and entries[0]['cases']['ids'] == ['case-00', 'case-01']
+    assert 'cases.json' in entries[0]['files']
