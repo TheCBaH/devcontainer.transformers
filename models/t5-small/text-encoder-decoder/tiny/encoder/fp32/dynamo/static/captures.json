@@ -1,0 +1,222 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7916fb3e12b69f81322b714d28d2ea51f24f5e3b89b2c1a08fab65a4144404d1"
+      },
+      "ssa_name": "p_encoder_embed_tokens_weight",
+      "target": "encoder.embed_tokens.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6e0adc514224c579420c731678ae71109f01b88ce856adb56fc61e56bf75cf41"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_selfattention_q_weight",
+      "target": "encoder.block.0.layer.0.SelfAttention.q.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "16ef30be6c3ee35fe7baeddcd5110b8c3a729ec64edec7a5e385d37f59853b5f"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_selfattention_k_weight",
+      "target": "encoder.block.0.layer.0.SelfAttention.k.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "90bd017ea3ab19334fff603f56edc3eedec674b7bf0ce4d016f304aa3ee93cfc"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_selfattention_v_weight",
+      "target": "encoder.block.0.layer.0.SelfAttention.v.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9d1421b1610c9362d60b28ff8e7e74cbe961058b666e34668d2f92553c140610"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_selfattention_o_weight",
+      "target": "encoder.block.0.layer.0.SelfAttention.o.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        2
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "eeb56afc48043dab52dbfe11d50f0ccb80fb284c10f0afc238dfe9cda3e14aa5"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_selfattention_relative_attention_bias_weight",
+      "target": "encoder.block.0.layer.0.SelfAttention.relative_attention_bias.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_encoder_block_0_layer_0_layer_norm_weight",
+      "target": "encoder.block.0.layer.0.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2dcb7b610cf702341d00f46c949c73542b2033df52813a014d170983128ba50c"
+      },
+      "ssa_name": "p_encoder_block_0_layer_1_densereludense_wi_weight",
+      "target": "encoder.block.0.layer.1.DenseReluDense.wi.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "87b306144af19b0343ea97bd6d5ecfe4bb67e0a5c77aa558ca4cef4d2b7385db"
+      },
+      "ssa_name": "p_encoder_block_0_layer_1_densereludense_wo_weight",
+      "target": "encoder.block.0.layer.1.DenseReluDense.wo.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_encoder_block_0_layer_1_layer_norm_weight",
+      "target": "encoder.block.0.layer.1.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_encoder_final_layer_norm_weight",
+      "target": "encoder.final_layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_encoder_lifted_tensor_0",
+      "target": "encoder.lifted_tensor_0"
+    }
+  ],
+  "counts": {
+    "BUFFER": 0,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 11
+  },
+  "graph_sha256": "98e0e55010272339721ba6a7af1be58a3e94a4d3e5c5e20a2b7f55ad557b970c",
+  "schema_version": 1
+}

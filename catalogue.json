@@ -12,16 +12,20 @@
       "category": "text-encoder",
       "component": "forward",
       "config_sha256": "fac01bb38e52199e3bf11775d8a5dc67b538842acdab5e2c76b1b4dad5e4c115",
-      "contract_sha256": "8e5e73ddc477e5b1eb39ee5bad8a93c785fbc501e4693d524a27a33b0f597433",
+      "contract_sha256": "17735000c4ce14ceb2bd62f3a88dba43f8a9d823fbaa9db3796a84d25d75912b",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "63a60edbf2727dd7c563fcb29ed84be5c72058dbb88b905e793e1e9113b05500",
+          "size": 20816
+        },
         "cases.json": {
           "sha256": "59a4e9444358d841a64bf20cba4f196dd65f88a3efbcc9ff40b626339868ea92",
           "size": 1043
         },
         "contract.json": {
-          "sha256": "8e5e73ddc477e5b1eb39ee5bad8a93c785fbc501e4693d524a27a33b0f597433",
-          "size": 2669
+          "sha256": "17735000c4ce14ceb2bd62f3a88dba43f8a9d823fbaa9db3796a84d25d75912b",
+          "size": 2758
         },
         "data/constants/model_constants_config.json": {
           "sha256": "fe88b14c21395fffce5c0d62d0c0b7717ab5636db3156a694bba953202d9a241",
@@ -72,16 +76,20 @@
       "category": "image-classification",
       "component": "forward",
       "config_sha256": "65a2af268c2898375d984636c9751398de9af8be5bce2210d1904c42d2ac5e5e",
-      "contract_sha256": "504764a0cbd74deba92adce99e5d1a21e83a9ddcd21b0851bdfc1c12efa2f626",
+      "contract_sha256": "f26d0e1e4e1e1ac65a9d208bc585808e01cd83cd4bd976d9c330dee14f31a68b",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "2b797392a609a4419d3b9ffc485f6d788fd41b6f009c100e1e83280ad498d0d5",
+          "size": 192555
+        },
         "cases.json": {
           "sha256": "bebf5d6c7249754a34b4848dbbf6c2eabd090c2b746dedfd45e20d79d3bfe0a9",
           "size": 885
         },
         "contract.json": {
-          "sha256": "504764a0cbd74deba92adce99e5d1a21e83a9ddcd21b0851bdfc1c12efa2f626",
-          "size": 2320
+          "sha256": "f26d0e1e4e1e1ac65a9d208bc585808e01cd83cd4bd976d9c330dee14f31a68b",
+          "size": 2409
         },
         "data/constants/model_constants_config.json": {
           "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
@@ -133,16 +141,20 @@
       "category": "text-decoder",
       "component": "decode",
       "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
-      "contract_sha256": "88de74f89de2f0ee1032c2666104ceca2efb560f3d9bbb7cf8245680fec1977c",
+      "contract_sha256": "d540b0182acce17abb67be3bb85b1ba45b4f0ac0e49351ba7bf933d02b99c7a4",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "a340c1a22c5c77c499b9ff1db04962cca1b622f194abadf2bea25812900a5f95",
+          "size": 13623
+        },
         "cases.json": {
           "sha256": "d309d6a7948b3689f5d2c55919582c3759bd6e11b0574c8797948ca0256956b3",
           "size": 3442
         },
         "contract.json": {
-          "sha256": "88de74f89de2f0ee1032c2666104ceca2efb560f3d9bbb7cf8245680fec1977c",
-          "size": 4144
+          "sha256": "d540b0182acce17abb67be3bb85b1ba45b4f0ac0e49351ba7bf933d02b99c7a4",
+          "size": 4233
         },
         "data/constants/model_constants_config.json": {
           "sha256": "3cc2da90f11b11f7eed8ab63460773e78eccc22e8b20b065d9ad63e73b2b3dee",
@@ -199,16 +211,20 @@
       "category": "text-decoder",
       "component": "forward",
       "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
-      "contract_sha256": "b34532fb45681ceb3c83d863b12f6f93f556623127f0c74445674afb211f42b3",
+      "contract_sha256": "d81cbb0de46970c21280d67434b74eae38cfcd799f33ad9a790c22624720c6b6",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "98ffcbb70292b1eb724ee6b7a9d985838e9b362cf2fbe57e69e32751be372116",
+          "size": 11907
+        },
         "cases.json": {
           "sha256": "33ccfa604e552236f1fa1c536b731392cba97a950046a99671fc12d484c37a47",
           "size": 922
         },
         "contract.json": {
-          "sha256": "b34532fb45681ceb3c83d863b12f6f93f556623127f0c74445674afb211f42b3",
-          "size": 2413
+          "sha256": "d81cbb0de46970c21280d67434b74eae38cfcd799f33ad9a790c22624720c6b6",
+          "size": 2502
         },
         "data/constants/model_constants_config.json": {
           "sha256": "2ba1fb421cb35a9425f57dbf29537d221791fb2962c4ac692e5b35042007971a",
@@ -257,16 +273,20 @@
       "category": "text-decoder",
       "component": "prefill",
       "config_sha256": "4c3024674d80d4d50d660a96199308fb2b795d922b9482c6c682c61db3a084c2",
-      "contract_sha256": "5709b2f2f414d02bbad6514f97595e9a6cc642b3906572ca91fe9a8399940985",
+      "contract_sha256": "27f424c3087c04a518d1d6140749ff8c49413dffdeaf22461ff089043aedcd73",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "ff933c8196050bb941f5dc65f795154cb2c5f26a12f1d3d04bccde0dc4268273",
+          "size": 13871
+        },
         "cases.json": {
           "sha256": "18d14deca572dfe22d3a9882a3942e3d98b196ac057bd340341065373921f1e5",
           "size": 1130
         },
         "contract.json": {
-          "sha256": "5709b2f2f414d02bbad6514f97595e9a6cc642b3906572ca91fe9a8399940985",
-          "size": 3346
+          "sha256": "27f424c3087c04a518d1d6140749ff8c49413dffdeaf22461ff089043aedcd73",
+          "size": 3435
         },
         "data/constants/model_constants_config.json": {
           "sha256": "cc875abbc4896a9060d0da1e51f8433951435562fa1f88279796c9ca1107842d",
@@ -319,16 +339,20 @@
       "category": "image-text-generation",
       "component": "connector",
       "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
-      "contract_sha256": "4fa8afd90cd5fedef32094c7505b6cc2429f7be21f0eed65ae73c19edd582f06",
+      "contract_sha256": "d53704491722db1464ed9676fa2363cce16723b6bedf62d4ac792803a081c91e",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "d26d24d09a4d9bd3a5efb2725a5fa0b7a4d8267c5ffc78369f60a5ae9face1be",
+          "size": 791
+        },
         "cases.json": {
           "sha256": "d5bd54b3b4983f762377b2a084f872df8c0898d1f05edde43b8dbcd6980fa24d",
           "size": 905
         },
         "contract.json": {
-          "sha256": "4fa8afd90cd5fedef32094c7505b6cc2429f7be21f0eed65ae73c19edd582f06",
-          "size": 2328
+          "sha256": "d53704491722db1464ed9676fa2363cce16723b6bedf62d4ac792803a081c91e",
+          "size": 2417
         },
         "data/constants/model_constants_config.json": {
           "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
@@ -381,16 +405,20 @@
       "category": "image-text-generation",
       "component": "decode",
       "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
-      "contract_sha256": "df33358b02598aee7295d56490689177d37fc493bf00bc6306ae509623f67ea2",
+      "contract_sha256": "1557f28b6a75382e69507a56a693dac136804d33c7e33e74f972794736f8c3ac",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "733a18b4339226965f66de3f34bdf71aa1af63f6f706abc5d5b9673e01e87b8a",
+          "size": 20101
+        },
         "cases.json": {
           "sha256": "6cad4d9e443e87097219951f119597b9d8981727407ba9964669b159dbc8c6f3",
           "size": 3297
         },
         "contract.json": {
-          "sha256": "df33358b02598aee7295d56490689177d37fc493bf00bc6306ae509623f67ea2",
-          "size": 3490
+          "sha256": "1557f28b6a75382e69507a56a693dac136804d33c7e33e74f972794736f8c3ac",
+          "size": 3579
         },
         "data/constants/model_constants_config.json": {
           "sha256": "702cf97b0f70b375ec872435f75271ef5693ba0446d120e1ed289144cc2cd416",
@@ -443,16 +471,20 @@
       "category": "image-text-generation",
       "component": "prefill",
       "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
-      "contract_sha256": "56caf971d78a6bb29450c224ba810f8e66d6dcd3ba6cc3d30d906ab5554e0eab",
+      "contract_sha256": "9ab276f7d31f4335bf81547a176271c949c83aab75a7094d93cba5dc6b9a4fe3",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "0ee66bc2db5ca0f5d37a5d6ee091cb793e2b4ed57a95408054aa2e620e7fc6ba",
+          "size": 20269
+        },
         "cases.json": {
           "sha256": "e813991243438fe123fd0bec7da4156e8c4e2ddb9fe0f213370287d39466c56e",
           "size": 1087
         },
         "contract.json": {
-          "sha256": "56caf971d78a6bb29450c224ba810f8e66d6dcd3ba6cc3d30d906ab5554e0eab",
-          "size": 3201
+          "sha256": "9ab276f7d31f4335bf81547a176271c949c83aab75a7094d93cba5dc6b9a4fe3",
+          "size": 3290
         },
         "data/constants/model_constants_config.json": {
           "sha256": "094954a91ab02b6b81da94259f66d794b7c7d17bb45570f0a6977ddcb8fb6027",
@@ -504,16 +536,20 @@
       "category": "image-text-generation",
       "component": "vision",
       "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
-      "contract_sha256": "3289a1b41f95dd5251795783819cda113bf8ff8b64843c5242f0fff115c2b751",
+      "contract_sha256": "1f9f37017ded9545e9458bdc98dc030c6f5f280ff3865d830b17828d1d701e3b",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "0efa56ced2178d764783d10102461429eef005345059c14765cd6adc799fc7cf",
+          "size": 10889
+        },
         "cases.json": {
           "sha256": "e9c61c009cfa477ad6a44b5a13b0d18450e54ab7b573953fbb7d780321464c9a",
           "size": 976
         },
         "contract.json": {
-          "sha256": "3289a1b41f95dd5251795783819cda113bf8ff8b64843c5242f0fff115c2b751",
-          "size": 2502
+          "sha256": "1f9f37017ded9545e9458bdc98dc030c6f5f280ff3865d830b17828d1d701e3b",
+          "size": 2591
         },
         "data/constants/model_constants_config.json": {
           "sha256": "887bf4cc1b0dfea3bdb999c93edd75d68b15e71096d14c738bd30070672977e2",
@@ -566,16 +602,20 @@
       "category": "text-encoder-decoder",
       "component": "decode",
       "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
-      "contract_sha256": "8a137491a8fdc3b2c288d98c0574c223056d9844101acfeb041e92c0b51efbf6",
+      "contract_sha256": "f8b258a457978b8a4288ab1a8e873c5ebac54f4022d1403df365ab7ff6d41376",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "0fea54304d67b40e6d691edc517f2042fe5fe9f635865f1a1005ec769896002d",
+          "size": 17452
+        },
         "cases.json": {
           "sha256": "419e58c2b545e73b66c44ad2a6686b3a98b4d80af7a1a94dc7433525c29b309c",
           "size": 4208
         },
         "contract.json": {
-          "sha256": "8a137491a8fdc3b2c288d98c0574c223056d9844101acfeb041e92c0b51efbf6",
-          "size": 4624
+          "sha256": "f8b258a457978b8a4288ab1a8e873c5ebac54f4022d1403df365ab7ff6d41376",
+          "size": 4713
         },
         "data/constants/model_constants_config.json": {
           "sha256": "fdeff38ca206dae76e970eeea2add5e439e8fd432865ce40b58d72fc6821669e",
@@ -634,16 +674,20 @@
       "category": "text-encoder-decoder",
       "component": "encoder",
       "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
-      "contract_sha256": "0e2fe4f31fb9706793a6ad7c896c4dc0a4c9276cdeb37faee8a6fc1f8359e911",
+      "contract_sha256": "74aeb3f58626bc6168dbe925d3d5eac7f6c75fc44f5033b8e560e3b5a6510b76",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "7d779769faaa794973397511d8215aac8bf39935bc866b4a782122bd9f62d2e9",
+          "size": 6132
+        },
         "cases.json": {
           "sha256": "89e2b287286e86a929babff050cd108fa687fe35abd960a870591136d6ed1a43",
           "size": 956
         },
         "contract.json": {
-          "sha256": "0e2fe4f31fb9706793a6ad7c896c4dc0a4c9276cdeb37faee8a6fc1f8359e911",
-          "size": 2437
+          "sha256": "74aeb3f58626bc6168dbe925d3d5eac7f6c75fc44f5033b8e560e3b5a6510b76",
+          "size": 2526
         },
         "data/constants/model_constants_config.json": {
           "sha256": "887bf4cc1b0dfea3bdb999c93edd75d68b15e71096d14c738bd30070672977e2",
@@ -692,16 +736,20 @@
       "category": "text-encoder-decoder",
       "component": "forward",
       "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
-      "contract_sha256": "c337ad7847a06ffac6cbf11eb8dd363ceb6ddc09cfffb306676601f0179d0059",
+      "contract_sha256": "037168b37ecaa3a1205b28996281bf881b67e67694a7ea6d828478446267cbd4",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "df0281c66f9c36efb7a2965624eccf169499fc4fdbd5b41287bdab9810064e04",
+          "size": 16151
+        },
         "cases.json": {
           "sha256": "aab6dbd05277ef14de4fad1cd0353dc65ae88e4ff3812275d41c9d4059d59ad9",
           "size": 1052
         },
         "contract.json": {
-          "sha256": "c337ad7847a06ffac6cbf11eb8dd363ceb6ddc09cfffb306676601f0179d0059",
-          "size": 2722
+          "sha256": "037168b37ecaa3a1205b28996281bf881b67e67694a7ea6d828478446267cbd4",
+          "size": 2811
         },
         "data/constants/model_constants_config.json": {
           "sha256": "0d2b162cf55d82c3a4e6f146869172adb14d701c8276bcfadd953ca0d12aeee3",
@@ -752,16 +800,20 @@
       "category": "text-encoder-decoder",
       "component": "prefill",
       "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
-      "contract_sha256": "82fbce986862aadc20ad4a522468b87acafa16f6bb15ab1a455b08489d3b65f8",
+      "contract_sha256": "db1e112de97014f38b5b0301575f81678915db47617d0c7b2f795e9613f823ae",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "23ba3dca29ea78fd87b0268f6e63488684817203c35ea4ad4f4dd911b3b34218",
+          "size": 17808
+        },
         "cases.json": {
           "sha256": "d9a83a52dae623b202b7c4e384550ac17375d4fad4aac317adc0d7e6238bc2dc",
           "size": 1344
         },
         "contract.json": {
-          "sha256": "82fbce986862aadc20ad4a522468b87acafa16f6bb15ab1a455b08489d3b65f8",
-          "size": 3758
+          "sha256": "db1e112de97014f38b5b0301575f81678915db47617d0c7b2f795e9613f823ae",
+          "size": 3847
         },
         "data/constants/model_constants_config.json": {
           "sha256": "5b034d4d8cb63c31572f0505793161b7b937e54c471bd75ef82c176e3c2ee611",
@@ -816,16 +868,20 @@
       "category": "time-series",
       "component": "forward",
       "config_sha256": "eec99da959cffd0cf1f1e693e432e7f436a108b6c9839f9397345ac4275e1527",
-      "contract_sha256": "d537e77720b5ced67b32249c3de9f28cddb6ae0253e3eee1cb204076dbccb403",
+      "contract_sha256": "212eb3bdb8ea99b788d21118c0e62b72267f761f02a77fbe0353b18b6e1513b9",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "256aeab32e6df2ef95e1331fc948762543b0c4ee4ad967bd2ed5a6b37952c008",
+          "size": 46924
+        },
         "cases.json": {
           "sha256": "2d30491427b52d71577c0511ebb1f09348d95c230b50c950e388276b2a42686c",
           "size": 1364
         },
         "contract.json": {
-          "sha256": "d537e77720b5ced67b32249c3de9f28cddb6ae0253e3eee1cb204076dbccb403",
-          "size": 3456
+          "sha256": "212eb3bdb8ea99b788d21118c0e62b72267f761f02a77fbe0353b18b6e1513b9",
+          "size": 3545
         },
         "data/constants/model_constants_config.json": {
           "sha256": "0d2b162cf55d82c3a4e6f146869172adb14d701c8276bcfadd953ca0d12aeee3",
@@ -881,16 +937,20 @@
       "category": "image-text-embeddings",
       "component": "forward",
       "config_sha256": "b68e1715c8d7a69357dbab2692b4bd59a31bfa87bc74f897c141504b4accd746",
-      "contract_sha256": "46c3d88d256c0edf49692511e5df243f61bad4c0a33481280fa8ae999e60640b",
+      "contract_sha256": "3f3c4f86e5d1e503591fe072bea91017ab5e3b7b71578666de06c378d7b35851",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "6b2b4b33d2baa873a7cfe06b96397eaf8f1ef0603fe937b440d75b9f2b74a968",
+          "size": 24706
+        },
         "cases.json": {
           "sha256": "70487da86388c6d7da5a64a97e4030f11f61b93f2162b965c837bbb69145bc3f",
           "size": 1143
         },
         "contract.json": {
-          "sha256": "46c3d88d256c0edf49692511e5df243f61bad4c0a33481280fa8ae999e60640b",
-          "size": 2913
+          "sha256": "3f3c4f86e5d1e503591fe072bea91017ab5e3b7b71578666de06c378d7b35851",
+          "size": 3002
         },
         "data/constants/model_constants_config.json": {
           "sha256": "dddb709bc81492c5e976c4a779d474ffdd41165af878ff30515e901c2e349e77",
@@ -943,16 +1003,20 @@
       "category": "video-classification",
       "component": "forward",
       "config_sha256": "d9f305bc19f4e7373cfc820c49e4460a1e48de56cd2cc945df110897de0fc153",
-      "contract_sha256": "43dc3304240418d00183667b9c5ed81d46b7f67d2819a0152336fcd831ea2d88",
+      "contract_sha256": "a67e600dd0bfdd120e300597c2ab339aa68918799678b3388a015feedd21bfd4",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "9529394a17da4f18f147ece1751377a2f5acc58189e21036e12cec65cc2233f0",
+          "size": 11322
+        },
         "cases.json": {
           "sha256": "ec15c217f3b9f77cda13ca890d8f186fff07367c5dbd9a0a41f531facecda054",
           "size": 886
         },
         "contract.json": {
-          "sha256": "43dc3304240418d00183667b9c5ed81d46b7f67d2819a0152336fcd831ea2d88",
-          "size": 2328
+          "sha256": "a67e600dd0bfdd120e300597c2ab339aa68918799678b3388a015feedd21bfd4",
+          "size": 2417
         },
         "data/constants/model_constants_config.json": {
           "sha256": "1074f3cce3b78a0a08caa2f19615556a3f55083ade45a27a5f67a75438458040",
@@ -1004,16 +1068,20 @@
       "category": "audio-encoder-decoder",
       "component": "decode",
       "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
-      "contract_sha256": "d036b4fc71eb67b5ea3a0347e275b8076e77f4d29dbe8038981eb441388479c1",
+      "contract_sha256": "42d1ef592f3afdf72cdd4575c0d727d6c8b77440fe6a397742e4cd79552365ee",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "9d6bd89e780ea486e75a4e89235dfdeae9a1a63f3f7b32acf99b3a928e5d8a75",
+          "size": 27669
+        },
         "cases.json": {
           "sha256": "95e74b35ac303a3cb4e0c281115f8cab6e4aaeb728dcf7e64637f548976c75da",
           "size": 4009
         },
         "contract.json": {
-          "sha256": "d036b4fc71eb67b5ea3a0347e275b8076e77f4d29dbe8038981eb441388479c1",
-          "size": 4482
+          "sha256": "42d1ef592f3afdf72cdd4575c0d727d6c8b77440fe6a397742e4cd79552365ee",
+          "size": 4571
         },
         "data/constants/model_constants_config.json": {
           "sha256": "ee1dd4c937ef8e37031aedf524c565d592b70ea8190ae77e05f72ce0774c6c18",
@@ -1071,16 +1139,20 @@
       "category": "audio-encoder-decoder",
       "component": "encoder",
       "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
-      "contract_sha256": "90e4bc6457ee77ce071a67f9d8fbfc30935b0c8934f8ffd00bddd26872ac01e4",
+      "contract_sha256": "589d68c0d6054d2f4f6b4e1a2be3a8165699f26d72fc8c866e3b2b99131a0964",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "ec7d48804818a241a09b92a1f15d0f5d633baa7a6413479f8fa9d602021b2189",
+          "size": 10511
+        },
         "cases.json": {
           "sha256": "63aef0831c499e8db0612f707673b9b8a6f9d0bc2e08b7f778971a243cb53e46",
           "size": 919
         },
         "contract.json": {
-          "sha256": "90e4bc6457ee77ce071a67f9d8fbfc30935b0c8934f8ffd00bddd26872ac01e4",
-          "size": 2335
+          "sha256": "589d68c0d6054d2f4f6b4e1a2be3a8165699f26d72fc8c866e3b2b99131a0964",
+          "size": 2424
         },
         "data/constants/model_constants_config.json": {
           "sha256": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
@@ -1128,16 +1200,20 @@
       "category": "audio-encoder-decoder",
       "component": "forward",
       "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
-      "contract_sha256": "94575703ba152a3f63cb4655e752f02c0c9910084af4461358c1064563da66e9",
+      "contract_sha256": "37add542f2f9fca57ed055b85ea07f562768068824de45246bb460f28193e837",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "fd834e66ed26189f6fe1700dff4e38e316a690fbd33cc96b0dd068562696607b",
+          "size": 25903
+        },
         "cases.json": {
           "sha256": "f4674e83cc5c12d1b8717c277bb530213f6c81c5d9311752aabea44855352dd3",
           "size": 947
         },
         "contract.json": {
-          "sha256": "94575703ba152a3f63cb4655e752f02c0c9910084af4461358c1064563da66e9",
-          "size": 2465
+          "sha256": "37add542f2f9fca57ed055b85ea07f562768068824de45246bb460f28193e837",
+          "size": 2554
         },
         "data/constants/model_constants_config.json": {
           "sha256": "46d9b4f449bdef910266ffef63db5c27bcaad1f84779493be2267492f51f409c",
@@ -1186,16 +1262,20 @@
       "category": "audio-encoder-decoder",
       "component": "prefill",
       "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
-      "contract_sha256": "c5c7e4a1072f20eeb2f6fb660feab9f51ffa21bbd6367fd9b3f5b3e2347848f9",
+      "contract_sha256": "71dc0f082db4f732a6206ed0215f636c87e28d275dcdf0779ff054bebc62b862",
       "dtype": "fp32",
       "files": {
+        "captures.json": {
+          "sha256": "d42030f34dd025fdc8cb76525c224bac2902089601c5385de0636e4c7b5f7e0d",
+          "size": 27987
+        },
         "cases.json": {
           "sha256": "1f4038eedd1ec9dbdf5acc29dc3b7e58b2f808778abc3921896547ad0c1bbf0f",
           "size": 1281
         },
         "contract.json": {
-          "sha256": "c5c7e4a1072f20eeb2f6fb660feab9f51ffa21bbd6367fd9b3f5b3e2347848f9",
-          "size": 3616
+          "sha256": "71dc0f082db4f732a6206ed0215f636c87e28d275dcdf0779ff054bebc62b862",
+          "size": 3705
         },
         "data/constants/model_constants_config.json": {
           "sha256": "1c77547cc82ae497a9ea0667b61c3a7c2f92c17668d29f52bf1907e4957bc9c0",

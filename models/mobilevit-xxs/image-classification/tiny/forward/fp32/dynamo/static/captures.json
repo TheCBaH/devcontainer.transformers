@@ -1,0 +1,6103 @@
+{
+  "artifact_id": "mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        3,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fd052e17e9fc1af195a9c17f4384a2ffc9ce501d3165d66c82dc9cff06a2f3b1"
+      },
+      "ssa_name": "p_model_mobilevit_conv_stem_convolution_weight",
+      "target": "model.mobilevit.conv_stem.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2355f8117c3db8261e1883365f740f2b6b0c4b2a6dfaafb935eeca07815d12b1"
+      },
+      "ssa_name": "p_model_mobilevit_conv_stem_normalization_weight",
+      "target": "model.mobilevit.conv_stem.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_mobilevit_conv_stem_normalization_bias",
+      "target": "model.mobilevit.conv_stem.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3641a875fd377b9865dc06361074a34fedc1a2e0c269345905cbdbaa21eb4ab4"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e221452d490eed0f05a7e662d8b27d5de072278669bf2cfb945e5bc0e581b08c"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4364395d23597a54310e95d2b26db7259816b8e011cf4f4dcfd745517fc0bc76"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2db3c04aa3b1eb56139f2dcec59eae401c52b4be709aad0b636a656db5cc4695"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        32,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8fc9ad973e6c53ecb323febdb9353fdf990230897022356fde03fc28ae293ee2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "10b2631a15f2099140372f533208bc5e40b2522b3d52693fe99ee6ef7847a07d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4c1404877bb3500546380fd3845a134becc572be704c6911cf09ece2f6fd331b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "074014a82b7b1b8d18d806f338a69290bbac4c5fec41695823e5bae82e9e8683"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b172be3807b2c877dca5e4dbefe935a67b8c3ef9e0d37baa9e3cea4cb153c4cf"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9d7ed595972c7ef0c30aee23c06475546cc3f4a9e539d9f8330ba7a05ecdf7e9"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24,
+        32,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ea3d079625a6f823adad1886dcef9970ce1b6bad1265ae09793897d81ce3aa06"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "514b8b8e3adfe3f19ac0098458e39d22dbacbc9212113946230d74b5291358dd"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        24,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8600d11a737baa5594094fb6187de44ef8736c95879b5e8ad6bc4715605bac41"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "51518df89bdd683baa9cbd77f4f67102b12a3c226e6809e560a1ffa6404c7668"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e8f68ee02caac36d46028725ef45002b4cf200754cdb8f9aad046ee165dd195c"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "68621f4c77454a0619fa52fda3464a49008b8825d4015b97dadddd2faccc34c3"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24,
+        48,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4a6460691a75d5f65ccdbfecc26a5508150c692ec581bb803b30611849b4a4a4"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0dba6af334cd4e82afafac469c0fd1291cd850a45ee88221a639b8f4af2e4153"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        24,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a3b497f30cf4e3d5dccead5660d93bd8dfbb38703742ea9581cb4a076d30b7f8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b0c0611f2d681794a4f870d930b29cc5483aea1565191012e61d7a6c92990864"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "955bb23c1772f992c711ca0e729e9db9ac9d8271ba3848dcb106450e48499c59"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ba0fa53ca9d989bdee9ebaaf139d664e3c94ada806002db80588698ac895f1a7"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24,
+        48,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0839f578b30b4f32265c1f70bb1d90a16a5e1a3df3cdca0e1c4b68f4c6760156"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "270ce53cb8bab09be1c94f88291c47610d7c3aeab2d47a7b20bc9a13aa1d657e"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_39",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        24,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ffed1c9706658b2b94630fda570aa5a08fe46f5b4bd4c2d97f4d9d0e6d58af0c"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_40",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "605809dc5b8062e055f45c202027d298ac541c57fa61c002e1d6ff17cf6c175f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_41",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_42",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "91bcd6953f938a022fb93dad88612a5454912a790f3f44b461d9c93f2cf95896"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_43",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b8b4e027888c22ab0dcb2683ea326be19ac66ff62c7dc851ab3f12a80cddab0c"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_44",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_45",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        48,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0bec838e8b1886f4f7c8ffeb3e678909c08132f7d21af8e763011e6f7fbb0532"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_46",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "abfa0ea110dfdb76afd0f318bafb2a04828ab718eea87539beea88b4e8ac0fa5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_47",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_48",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        48,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b2c62661e43873d70dba4201cd5d251da18fdb1f331ce7c05d3e673f5be67421"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_kxk_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_49",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a0b602792fefae87a2acb869b48424bb9cda94b94460a7e9484578e235e5c634"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_kxk_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_50",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_kxk_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_51",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        48,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "948e90c765c5bdf580f6a7a6671843875dc850538ce1692d73b8757e173f96f8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.conv_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_52",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c3cdf71875dea834343f78681b9ef8f67267ec352f32017496724518f670dd98"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_53",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_54",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "51665e4057f5a20bc72370b4ffdcbf5c12119fe79d8c3c93f73f4fad203e8ea7"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_55",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_56",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "727768883cfb8e141d817b56e08341ef9299803229482e6f36c9820dd6b8a3be"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_57",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_58",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ade12bc4ce49843ac8dd866bb22da0d9f060b848dbb95f6058b45f47e93189f6"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_59",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_60",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5c55c7590736e1fff2eb606eae7778a1affe41b150b33e79993d213d4dd681cf"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_61",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_62",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "582fe6e46d6139071acf213f2309186d747b5a387602a43a5b8c7819b887858d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_63",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_64",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_65",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_66",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_67",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_0_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_68",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "311b53b8fba74749a1e45696c7b26560568710fcd8e0a2cba2c612f2a2f4d05d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_69",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_70",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66ea0f13a0dd0831f047d43ce6d33224dc3678dcbb464e408098f63b6e0969d0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_71",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_72",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c45c783d2eacebe17448c83904ce93f51684d8e8f8b826199005d30132e23b5d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_73",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_74",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9b4b079595fe92ded641ad82295a16c41e75ec806158d8b5f065797f051f9242"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_75",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_76",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3ebd7f3b0d510d6501876f7ae76bf2827418976c13bfc34063733c9b1e621bed"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_77",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_78",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ea055a086863db3a2ab5a7d6f47cbd767c0518aff48a09d634aac2a50d002184"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_79",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_80",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_81",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_82",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_83",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_transformer_layer_1_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.2.transformer.layer.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_84",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_layernorm_weight",
+      "target": "model.mobilevit.encoder.layer.2.layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_85",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_layernorm_bias",
+      "target": "model.mobilevit.encoder.layer.2.layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_86",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        64,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c7ae064ef5374a48c0b882f32c827c11bc3b4a17d4f5059e7fa22799068a1287"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_projection_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_87",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f84753dbecee796edb9107eba25c0a07c1b7577828408a3fc4fef1dce254180"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_projection_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_88",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_conv_projection_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_89",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48,
+        96,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cb8fb8e508c78adcbc746992978ec91868ce76d0bb17f7a10ba4071a0842d9b7"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_fusion_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.2.fusion.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_90",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "21dc29b1368d6ed9eba646e3ce0bb5cd2fe883f093100de5ea52be7b21c82634"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_fusion_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.2.fusion.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_91",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_2_fusion_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.2.fusion.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_92",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        48,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ffc56819751ba2792b039f0ef35bf78894f366a08c7a7d42304a9c0d3e09f89d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_93",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "411b242d3ecb5b0d6c4e3fcd0b46edfa05decaf0ba3e25003a8ec598a8f476f7"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_94",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_95",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d1a35a408822643fe2a15e54f4f33c217af2aa8093b3b26bd678326482be66d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_96",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "772d86e8ef62f2488792b3e1d8806d896c9d46f47133e5eef82dc736861add84"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_97",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_98",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        96,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3791c7a54cdf6ac049522b7582938cdbe18abaa62305a915cc71c8c193aa5cc9"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_99",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ad3a17d9366792612ea9671f0e9d23eec07374b43668b313f900ac13d7bb2834"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_100",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_101",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ced29e7e37c45adb4511253dc25f7d112d95e445e161ea7860b2311aa58c5670"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_kxk_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_102",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "911f6d0c0dc2b4fd10dc91ce1535014165cdbbfb7417c202c407527ba6813ddc"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_kxk_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_103",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_kxk_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_104",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        64,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "25dca48e24019f9e3f5f31bb1da8b75634547fb138514c7d0f12dccddc56cff2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.conv_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_105",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5cee05a4c98ef01abc2f4c24f99949c477ca30df74e12332727f434c680c16b6"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_106",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_107",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "1d3870985c8b96e0f816e5f3864b1a2c1dd877d8ecfb2d840b91afc32a055f49"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_108",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_109",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "885a66e663caa58bf91a493a5084b16293dba3cc048e1cb6d76e449ea34440f2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_110",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_111",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b15fbcd3207f5483bf19dd740862eca569acbacc77824a28bc7899e94cbc7268"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_112",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_113",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ccaa7884ed5d6de07ec7ea156d2c4370de067f8df64ec5ef3da266256585b006"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_114",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e132485d5107211de325a45e7917cbe3e4b5b9cde3e4ee91d7d2102317759ee"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_115",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5f42f3b767dc9d3a805bd608db49db2468d076b1e566b8b8ebf6a974092b7845"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_116",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_117",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_118",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_119",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_120",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_0_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_121",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a51deedae6d42dca54097440bd99d71bcd80f9326401f9ba57d484928dc5220b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_122",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_123",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "caef8f553bf27d758bc8de7eb9d15a046886ceeff7ebb743fd9722d7d296e44d"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_124",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_125",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f09bc58c9496597740cff9f004d042283e0b524c4cad3213790298cd2bff8909"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_126",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_127",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0cd2533d7b24ff2826e1b254ee8ee7ca246dcb979d45a3d8676b9b43600540ac"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_128",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_129",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a66aa15922278c88cd04c2ea917e885d34b230d3cb1da2196ced03d87381937"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_130",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e132485d5107211de325a45e7917cbe3e4b5b9cde3e4ee91d7d2102317759ee"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_131",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f67e76454707df5d33c19082a19fe016950cfa72327af278edd44bb9e20dc65"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_132",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_133",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_134",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_135",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_136",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_1_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_137",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "56d3c220c6559ebfe920641e3309eb783e01187234b141b5a8b52853c0fc8a0b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_138",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_139",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b40dd25f6d95f683a295fc386c730e2767c6537b833c9cd6a7885c78a2216a1a"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_140",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_141",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "21a12f51d85338c5f86ab5465b63f11bcc6becea7d8a8d0af8c584521ffcbedc"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_142",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_143",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "081db8abf84fd38c0b8391c87d9a4915a361b6b938c0b0ea2a607d6e6e299351"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_144",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_145",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b4f3b90a695fef3e1d5062d5dfe7e171321e0d0f12f31f94c950b08442395dde"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_146",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e132485d5107211de325a45e7917cbe3e4b5b9cde3e4ee91d7d2102317759ee"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_147",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b92fda1e0fe0acacbd905f2133e1f511f0b3481194af1815e52b96288b8fcc91"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_148",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_149",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_150",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_151",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_152",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_2_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.2.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_153",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a69e61a2a7c682dce995188134e2504e19966a733d39e265894970898c771b17"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_154",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_155",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5715bb4ecd023287dc9367a078504b6e9d66c3f0dd4a1883fa4c5e6b6fa06138"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_156",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_157",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e57210c7904b9dc17ac0d85eca3bd6852ccb29f06039b877fbe79313a19519b3"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_158",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_159",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6150e2a2e1c5024532d36bd4241bb63048a7144905dcf3ea8e27d3ef316a9ed5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_160",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_161",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "31faac712013460f80712980148ab8b5e390bb2082f2a76795503fd48dd899d5"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_162",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e132485d5107211de325a45e7917cbe3e4b5b9cde3e4ee91d7d2102317759ee"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_163",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        160
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f9a2fbaff2cfcef02bc1b0d66d5c21cb5248c0b800085f9a9bf3b4f1365677bd"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_164",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_165",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_166",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_167",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_168",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_transformer_layer_3_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.3.transformer.layer.3.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_169",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_layernorm_weight",
+      "target": "model.mobilevit.encoder.layer.3.layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_170",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_layernorm_bias",
+      "target": "model.mobilevit.encoder.layer.3.layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_171",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        80,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ebef0807034b5128b8c714b7d26f2a0c445df8399cc4685f154c1ae15b750cde"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_projection_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_172",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "455eb093d0d4addb8f8d5929b98e6d59bac21990d57aee95d748775f1c0804ac"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_projection_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_173",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_conv_projection_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_174",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3802e37a043282897d32de13c34c06eb7d123cd222ba25f7557dc4a745599d01"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_fusion_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.3.fusion.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_175",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "14f226d79654c8a77c39b7839ed2a65e9a7cf7dfbc48747e816680e0cac595bf"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_fusion_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.3.fusion.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_176",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_3_fusion_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.3.fusion.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_177",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f3f8a36cbb2bed826d11bfec1b89be2174144c1fa39b42fcd495affce3483df6"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_178",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4eef75d5d2307f898f5c7ee06f77fc0373ba9ca6f86336675980ed545c9de561"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_179",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_180",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a675de4df5630f4aeb410c25bc9b46b2e2761f0e4e6224b5fdde671cba33e78f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_181",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fc75ed31138cfe3ad5c132fa14b1416d85d67e4b06b53d3ae3ffd8ca45d0e0fe"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_182",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_183",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        128,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0f8b817b91234248b72d79fcb4fddb58259ec6d33851ed48b5ced149eba77a27"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_184",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a5fd8d91056ef27368406ca1333c1acb3d11c91e081af11db43702a218b77bfa"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_185",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_186",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        80,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b2f9aafaf1df3309cd1b3dec2facc0ab6d58e8d98bdb37ee7cd24e3b94fb922b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_kxk_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_187",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ad05ec26547fd1f2ce73a06145c516ce2c64e254965fb3764f1c4e2f8a6f641f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_kxk_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_188",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_kxk_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_189",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        80,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4c95a89fa083a96840a2e6144a1cbdd28cddcb7e122972efa03f61ebad6bbf52"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_1x1_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.conv_1x1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_190",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a94493b431337129f6e6fa5fb7c7628657f00b7e47611fae0ad2d47327c20cf2"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_191",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_192",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "49f441eb687563b3a4951df3785fea6bcabb5c86bfa56b8585fe608f536dc62b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_193",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_194",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bf480098d9bd9de3eedabe21f3be82f2333f0bfe16bb69b72712ebb088e120ec"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_195",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_196",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5371aab151750f9a2bbdf7c6ff8b7db7c3ea7b8fc200dfc96c9aedfd1eef2dda"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_197",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_198",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e1c97a7c855cf9cfcd42ecad0077f5a95e3687a9e641d62764e6a391db7c2c63"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_199",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_200",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "94d38d89f8dea373e2070064d52cda361dcb95845ae13167d23e7e4ffeee1a9b"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_201",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_202",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_203",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_204",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_205",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_0_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_206",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d0e172e8a49b80567f4c5f023631133d2401a25e864bad5d10749a5b40bacc7"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_207",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_208",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "01998c94976ca2a1fe5a15d1acb9a1f113d83eafe8147bec056fef4931f5ec0f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_209",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_210",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "386fa7201fc6f7fdfb86920e45f2af3fe993b30dbf087f5c4ea5863ccfa2a62a"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_211",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_212",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e93d040e90bf0f8881df412fe0580bdb08450d1248ebd1b3176da1120a218b8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_213",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_214",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "edc5517d99b1e36fbc488a832f88b5f4f0f5e98d200a5aef43b76fa2e9623f64"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_215",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_216",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d25e87798e44649971d9bab0be19d6cab27219f8f07f30e328b8ce540c1aa79"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_217",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_218",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_219",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_220",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_221",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_1_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_222",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cba4e73c4439dd68d5f973e48660cea69174b292bd8f6e9e9cc31405a58e40ab"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_query_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_223",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_query_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_224",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "76f16eecdb75c3ef1b6d2675ec1599687ce77e72fd3497e01d05f7c58c3cb44a"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_key_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_225",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_key_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_226",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "580c1f83061268e25a5cc93bc71b0fdd3c7490411be429689d149466001c9d19"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_value_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_227",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_attention_value_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.attention.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_228",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38806c3332be612025d985904fe83ca0c206eecd6bfaa3377ccde2987a21de81"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_229",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_attention_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_230",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192,
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fdb9af80ea2788a4c7460c0a9021b83ddca538d355ceeaa4d177af45c09242b1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_intermediate_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_231",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ef115a0e0c15cdc41958ca46b5b14b456115f4baec5e3ca68599d2a8f435e3b8"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_intermediate_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_232",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        192
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7d88734fbf9a1cf624c9c53b9df531280994096090ea5061df3e0d02cf72fbfb"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_output_dense_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_233",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_output_dense_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_234",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_layernorm_before_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_235",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_layernorm_before_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_236",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_layernorm_after_weight",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_237",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_transformer_layer_2_layernorm_after_bias",
+      "target": "model.mobilevit.encoder.layer.4.transformer.layer.2.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_238",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_layernorm_weight",
+      "target": "model.mobilevit.encoder.layer.4.layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_239",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_layernorm_bias",
+      "target": "model.mobilevit.encoder.layer.4.layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_240",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        96,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "581001e8521c93c87da6952598f1ee217effe015a1c526ef0e57d9c22837e85f"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_projection_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_241",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "94a8873d103040bcf635b5d51c9e78c3522c73cf0e412e6115455296e7af7390"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_projection_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_242",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_conv_projection_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_243",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80,
+        160,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9c5b98f58ed67a483c2d0794f3fea7a29242fe9653a6ade335b85b03087f76b1"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_fusion_convolution_weight",
+      "target": "model.mobilevit.encoder.layer.4.fusion.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_244",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "284088719795bcc6643e15ae4c33de7d9254f460c0db827196f998aa6d28a5ee"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_fusion_normalization_weight",
+      "target": "model.mobilevit.encoder.layer.4.fusion.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_245",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "p_model_mobilevit_encoder_layer_4_fusion_normalization_bias",
+      "target": "model.mobilevit.encoder.layer.4.fusion.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_246",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        320,
+        80,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "878fa73a590b62609dfd79a5de80ae5f524c36c62238cbd4de200af1b8b040a6"
+      },
+      "ssa_name": "p_model_mobilevit_conv_1x1_exp_convolution_weight",
+      "target": "model.mobilevit.conv_1x1_exp.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_247",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        320
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6fa39873b6b56589980de359f089ac512bcfb3343670f84e30a5877e6a6264ca"
+      },
+      "ssa_name": "p_model_mobilevit_conv_1x1_exp_normalization_weight",
+      "target": "model.mobilevit.conv_1x1_exp.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_248",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        320
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bfe492baf731a0dbf6e1e050f5bc3fe8c1b049383194dcdf82f023bfa409f462"
+      },
+      "ssa_name": "p_model_mobilevit_conv_1x1_exp_normalization_bias",
+      "target": "model.mobilevit.conv_1x1_exp.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_249",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1000,
+        320
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "570e54697e1c13257227d4c4b9acd8db902ccf35bff6496e69aa1d0fd4b5cdd1"
+      },
+      "ssa_name": "p_model_classifier_weight",
+      "target": "model.classifier.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_250",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1000
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fc19b1997119425765295aeab72d76faa6927d4f83985d328c26f20468d6cc76"
+      },
+      "ssa_name": "p_model_classifier_bias",
+      "target": "model.classifier.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_251",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "b_model_mobilevit_conv_stem_normalization_running_mean",
+      "target": "model.mobilevit.conv_stem.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_252",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "b_model_mobilevit_conv_stem_normalization_running_var",
+      "target": "model.mobilevit.conv_stem.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_253",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_conv_stem_normalization_num_batches_tracked",
+      "target": "model.mobilevit.conv_stem.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_254",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_255",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_256",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_257",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_258",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_259",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_260",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_261",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_262",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_0_layer_0_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.0.layer.0.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_263",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_264",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_265",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_266",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_267",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_268",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_269",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_270",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "849203e6b4e586413022ab65a115f70a9e41cb0ee678fa1984c90f7d4a5f33ad"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_271",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_0_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.0.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_272",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_273",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_274",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_275",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_276",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_277",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_278",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_279",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "849203e6b4e586413022ab65a115f70a9e41cb0ee678fa1984c90f7d4a5f33ad"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_280",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_1_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.1.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_281",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_282",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_283",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_284",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_285",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_286",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_287",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_288",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "849203e6b4e586413022ab65a115f70a9e41cb0ee678fa1984c90f7d4a5f33ad"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_289",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_1_layer_2_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.1.layer.2.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_290",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_291",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_292",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_293",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_294",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_295",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_296",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_297",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_298",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_downsampling_layer_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.downsampling_layer.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_299",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_kxk_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_300",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_kxk_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_301",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_kxk_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.conv_kxk.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_302",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_projection_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_303",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_projection_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_304",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_conv_projection_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.conv_projection.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_305",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d89f056865052bcb89c910d2d62872e029fb273c3db03f8968a52a41593c1b5"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_fusion_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.2.fusion.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_306",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        48
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_fusion_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.2.fusion.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_307",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_2_fusion_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.2.fusion.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_308",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_309",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_310",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_311",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_312",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_313",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_314",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_315",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_316",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_downsampling_layer_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.downsampling_layer.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_317",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_kxk_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_318",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_kxk_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_319",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_kxk_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.conv_kxk.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_320",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_projection_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_321",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_projection_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_322",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_conv_projection_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.conv_projection.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_323",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_fusion_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.3.fusion.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_324",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_fusion_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.3.fusion.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_325",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_3_fusion_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.3.fusion.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_326",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_327",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_328",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_expand_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.expand_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_329",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_330",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_331",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_conv_3x3_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.conv_3x3.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_332",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_333",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_334",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_downsampling_layer_reduce_1x1_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.downsampling_layer.reduce_1x1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_335",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_kxk_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_336",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_kxk_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_337",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_kxk_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.conv_kxk.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_338",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_projection_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_339",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_projection_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_340",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_conv_projection_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.conv_projection.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_341",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7b6436b0c98f62380866d9432c2af0ee08ce16a171bda6951aecd95ee1307d61"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_fusion_normalization_running_mean",
+      "target": "model.mobilevit.encoder.layer.4.fusion.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_342",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        80
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "beea08e0b2386530f2625dfcc037b7237b4ca13ad5732e9798f5bbc619054fc2"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_fusion_normalization_running_var",
+      "target": "model.mobilevit.encoder.layer.4.fusion.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_343",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_encoder_layer_4_fusion_normalization_num_batches_tracked",
+      "target": "model.mobilevit.encoder.layer.4.fusion.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_344",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        320
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bfe492baf731a0dbf6e1e050f5bc3fe8c1b049383194dcdf82f023bfa409f462"
+      },
+      "ssa_name": "b_model_mobilevit_conv_1x1_exp_normalization_running_mean",
+      "target": "model.mobilevit.conv_1x1_exp.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_345",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        320
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5c9d51f4ee957e788ddbff3b0583fdbf2196b3aae4afecd7b198a54f6a211379"
+      },
+      "ssa_name": "b_model_mobilevit_conv_1x1_exp_normalization_running_var",
+      "target": "model.mobilevit.conv_1x1_exp.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_346",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_mobilevit_conv_1x1_exp_normalization_num_batches_tracked",
+      "target": "model.mobilevit.conv_1x1_exp.normalization.num_batches_tracked"
+    }
+  ],
+  "counts": {
+    "BUFFER": 96,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 251
+  },
+  "graph_sha256": "7b46299a1d7d23b4d1837bfe3362020518735abeab56065002aa7ef8927fb8be",
+  "schema_version": 1
+}

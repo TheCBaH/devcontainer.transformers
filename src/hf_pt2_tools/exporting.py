@@ -16,6 +16,7 @@ from pt2_export_core.opgraph import collect_ops, time_budget
 
 from .artifacts import file_hash, publish, verify_artifact, write_json
 from .fixtures import cases_document, write_cases
+from .inventory import captures_document, inventory, load_graph, program_values
 from .recipes import AutocastTensorOutputs, TensorOutputs, compare, make_inputs, tensor_metadata
 from .registry import artifact_id, build_model, digest, read_manifest
 
@@ -216,6 +217,9 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
                                   if path.name != 'op_facts.json'}}
             write_json(staging / 'cases.json', cases_document(identity, case_entries, tolerances))
             contract['files']['cases.json'] = file_hash(staging / 'cases.json')
+            write_json(staging / 'captures.json', captures_document(
+                identity, graph_hash, inventory(*load_graph(staging)), program_values(functional)))
+            contract['files']['captures.json'] = file_hash(staging / 'captures.json')
             write_json(staging / 'contract.json', contract)
             verify_artifact(root, staging, identity)
             publish(staging, Path(output_root) / 'models' / identity)

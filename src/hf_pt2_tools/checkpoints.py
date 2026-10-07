@@ -8,6 +8,7 @@ from huggingface_hub import snapshot_download
 from safetensors import safe_open
 
 from .artifacts import file_hash, verify_artifact, write_json
+from .inventory import inventory, load_graph
 from .registry import CONFIG_CLASSES, read_manifest
 
 
@@ -29,10 +30,6 @@ def tensor_hash(value):
 
 
 def bind(root, name, graph_root, output):
-    import transformers
-    from transformers.conversion_mapping import get_model_conversion_mapping
-    from transformers.core_model_loading import WeightRenaming
-
     root = Path(root)
     entry = next(e for e in read_manifest(root)['models'] if e['id'] == name)
     reference = entry['reference']
@@ -47,10 +44,19 @@ def bind(root, name, graph_root, output):
     snapshot = Path(snapshot_download(reference['repo'], revision=reference['revision'],
                                     cache_dir=root / '.hf-cache', local_files_only=True,
                                     allow_patterns=['config.json', 'model.safetensors.index.json', *reference['safetensors_files']]))
+    return bind_snapshot(root, entry, reference, snapshot, graph_root, output)
+
+
+def bind_snapshot(root, entry, reference, snapshot, graph_root, output, population='reference'):
+    import transformers
+    from transformers.conversion_mapping import get_model_conversion_mapping
+    from transformers.core_model_loading import WeightRenaming
+
+    root, snapshot, name = Path(root), Path(snapshot), entry['id']
     if file_hash(snapshot / 'config.json') != reference['config_sha256']:
         raise ValueError('cached config differs from the pinned snapshot')
     config = getattr(transformers, CONFIG_CLASSES[entry['model_class']]).from_dict(
-        json.loads((root / 'configs/reference' / (entry.get('config_model_id', name) + '.json')).read_text()))
+        json.loads((root / 'configs' / population / (entry.get('config_model_id', name) + '.json')).read_text()))
     config.use_cache = False
     model = getattr(transformers, entry['model_class']).from_pretrained(
         snapshot, config=config, local_files_only=True, use_safetensors=True,
@@ -71,7 +77,9 @@ def bind(root, name, graph_root, output):
         if weight_map != {key: filename for key, (filename, _) in tensors.items()}:
             raise ValueError('shard index differs from the pinned tensor files')
         files[index.name] = file_hash(index)
-    graph = json.loads(Path(graph_root).read_text())['graph_module']
+    artifact = Path(graph_root).parent.parent
+    graph, weights_config, constants_config = load_graph(artifact)
+    payload = {row['target']: row['source'] for row in json.loads((artifact / 'captures.json').read_text())['captures']}
     renamings = [conversion for conversion in get_model_conversion_mapping(model)
                  if isinstance(conversion, WeightRenaming)]
     converted_keys = {}
@@ -80,54 +88,63 @@ def bind(root, name, graph_root, output):
         for conversion in renamings:
             renamed, _ = conversion.rename_source_key(renamed)
         converted_keys.setdefault(renamed, []).append(source)
-    parameters = dict(model.named_parameters(remove_duplicate=False))
+    library = {**dict(model.named_buffers(remove_duplicate=False)), **dict(model.named_parameters(remove_duplicate=False))}
     aliases = {}
-    for key, value in parameters.items():
+    for key, value in library.items():
         aliases.setdefault(id(value), []).append(key)
-    bindings = []
-    unused = []
-    for spec in graph['signature']['input_specs']:
-        if 'parameter' not in spec:
-            continue
-        parameter = spec['parameter']
-        target = parameter['parameter_name']
-        local = target.removeprefix('model.')
-        value = parameters[local]
-        candidate_keys = [local, 'model.' + local]
-        for alias in aliases[id(value)]:
-            candidate_keys.extend([alias, 'model.' + alias])
-        candidates = [key for key in dict.fromkeys(candidate_keys) if key in tensors]
-        for alias in aliases[id(value)]:
-            candidates.extend(converted_keys.get(alias, []))
-        candidates = list(dict.fromkeys(candidates))
+    bindings, captures, unused, unmapped = [], [], [], []
+    for row in inventory(graph, weights_config, constants_config):
+        target, local = row['target'], row['target'].removeprefix('model.')
+        value = library.get(local)
+        candidates = []
+        if value is not None:
+            candidate_keys = [local, 'model.' + local]
+            for alias in aliases[id(value)]:
+                candidate_keys.extend([alias, 'model.' + alias])
+            candidates = [key for key in dict.fromkeys(candidate_keys) if key in tensors]
+            for alias in aliases[id(value)]:
+                candidates.extend(converted_keys.get(alias, []))
+            candidates = list(dict.fromkeys(candidates))
         if not candidates:
-            argument = parameter['arg']['name']
-            used = any(argument in json.dumps(node['inputs']) for node in graph['graph']['nodes'])
-            used = used or argument in json.dumps(graph['graph']['outputs'])
-            if not used:
+            if row['kind'] == 'PARAMETER' and not row['live']:
                 unused.append({'graph_parameter': target, 'reason': 'absent from checkpoint; graph input is unused'})
+                captures.append({**row, 'source': {'kind': 'omitted', 'reason': 'not live and absent from the checkpoint',
+                                                   'payload_sha256': payload[target]['value_sha256']}})
                 continue
-            raise ValueError(f'no pinned checkpoint tensor or tied alias for {local}')
+            if row['kind'] == 'PARAMETER':
+                unmapped.append(target)
+                continue
+            source = {'kind': 'payload', 'value_sha256': payload[target]['value_sha256'], 'library_verified': False}
+            if value is not None:
+                if tensor_hash(value) != source['value_sha256']:
+                    raise ValueError(f'graph-owned buffer differs from the pretrained library value: {target}')
+                source['library_verified'] = True
+            captures.append({**row, 'source': source})
+            continue
         source = candidates[0]
         filename, checkpoint_value = tensors[source]
-        serialized = graph['graph']['tensor_values'][parameter['arg']['name']]
-        shape = [size['as_int'] for size in serialized['sizes']]
-        if list(value.shape) != shape or list(checkpoint_value.shape) != shape:
+        if list(value.shape) != row['shape'] or list(checkpoint_value.shape) != row['shape']:
             raise ValueError('graph/checkpoint/library parameter shape differs')
         converted = checkpoint_value.to(dtype=value.dtype)
         if not torch.equal(value.detach(), converted):
             raise ValueError(f'checkpoint binding differs from library load: {local}')
-        bindings.append({'graph_parameter': target, 'checkpoint_file': filename,
-                         'checkpoint_tensor': source, 'library_parameter': local, 'shape': shape,
-                         'source_dtype': str(checkpoint_value.dtype), 'loaded_dtype': str(value.dtype),
-                         'loaded_sha256': tensor_hash(value),
-                         'key_renamed': source != local,
-                         'tied_aliases': aliases[id(value)] if len(aliases[id(value)]) > 1 else []})
+        tied = aliases[id(value)] if len(aliases[id(value)]) > 1 else []
+        details = {'checkpoint_file': filename, 'checkpoint_tensor': source, 'library_parameter': local,
+                   'source_dtype': str(checkpoint_value.dtype), 'loaded_dtype': str(value.dtype),
+                   'loaded_sha256': tensor_hash(value), 'key_renamed': source != local, 'tied_aliases': tied}
+        captures.append({**row, 'source': {'kind': 'checkpoint', **details,
+                                           'byte_size': checkpoint_value.numel() * checkpoint_value.element_size(),
+                                           'conversion': 'none' if checkpoint_value.dtype == value.dtype else 'cast'}})
+        if row['kind'] == 'PARAMETER':
+            bindings.append({'graph_parameter': target, 'shape': row['shape'], **details})
+    if unmapped:
+        raise ValueError(f'no pinned checkpoint tensor or tied alias for live parameters: {unmapped}')
     document = {'schema_version': 1, 'model_id': name, 'status': 'verified',
                 'graph_sha256': file_hash(graph_root), 'reference': reference,
-                'checkpoint_sha256': files, 'bindings': bindings, 'unbound_unused_parameters': unused,
+                'checkpoint_sha256': files, 'checkpoint_bytes': {n: (snapshot / n).stat().st_size for n in files},
+                'bindings': bindings, 'captures': captures, 'unmapped': unmapped, 'unbound_unused_parameters': unused,
                 'versions': {name: importlib.metadata.version(name) for name in ('transformers', 'torch', 'safetensors')},
                 'conversion': 'library load and checkpoint values compared after explicit float32 conversion',
-                'scope': 'parameter bindings for an original-config architecture graph; no pretrained accuracy claim'}
+                'scope': 'captured-value bindings for an original-config architecture graph; no pretrained accuracy claim'}
     write_json(output, document)
     return document

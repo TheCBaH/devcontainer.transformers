@@ -108,7 +108,7 @@ def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
                                           'fetch', 'bind', 'generation', 'generation-worker',
-                                          'catalogue', 'bundle', 'bundle-verify'])
+                                          'catalogue', 'bundle', 'bundle-verify', 'pack'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
     parser.add_argument('--subset')
@@ -120,6 +120,10 @@ def main():
     parser.add_argument('--timeout', type=int, default=900)
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--graph')
+    parser.add_argument('--program')
+    parser.add_argument('--pack-repo')
+    parser.add_argument('--pack-revision')
+    parser.add_argument('--pack-url')
     args = parser.parse_args()
     if args.workers < 1 or args.timeout < 1:
         parser.error('workers and timeout must be positive')
@@ -150,6 +154,18 @@ def main():
     if args.command == 'catalogue':
         from .fixtures import catalogue
         print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
+        return
+    if args.command == 'pack':
+        from .checkpoints import fetch
+        from .weights import build_pack, check_pack
+        if not args.subset or not args.program:
+            parser.error('pack requires --subset model ID and --program original-config model.pt2')
+        binding = json.loads((root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
+        output = Path(args.output or root / '.build/packs').resolve() / (args.subset + '.safetensors')
+        document = build_pack(binding, fetch(root, args.subset), Path(args.program).resolve(), output,
+                              {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url})
+        check_pack(document, output, binding['captures'])
+        print(f"{args.subset}: packed {len(document['tensors'])} captures, sha256 {document['source']['sha256']}")
         return
     if args.command in ('bundle', 'bundle-verify'):
         from .fixtures import build_bundle, verify_bundle

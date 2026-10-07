@@ -1,0 +1,30 @@
+{
+  "artifact_id": "smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7c2eed75587377b8842a002cafbd34a2dfc694d4c09597416acbec37230f9c28"
+      },
+      "ssa_name": "p_connector_modality_projection_proj_weight",
+      "target": "connector.modality_projection.proj.weight"
+    }
+  ],
+  "counts": {
+    "BUFFER": 0,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 1
+  },
+  "graph_sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+  "schema_version": 1
+}

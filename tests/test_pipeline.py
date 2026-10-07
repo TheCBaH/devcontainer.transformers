@@ -250,3 +250,57 @@ def test_catalogue_lists_artifacts_with_weight_source(bert_artifacts, tmp_path):
     assert [e['artifact_id'] for e in entries] == [rows[0]['artifact_id']]
     assert entries[0]['weight_source']['kind'] == 'random' and entries[0]['cases']['ids'] == ['case-00', 'case-01']
     assert 'cases.json' in entries[0]['files']
+
+
+def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts, tmp_path):
+    import torch
+    from safetensors import safe_open
+    from hf_pt2_tools.artifacts import file_hash
+    from hf_pt2_tools.checkpoints import bind_snapshot
+    from hf_pt2_tools.registry import build_model
+    from hf_pt2_tools.weights import build_pack, check_pack
+    roots, rows = bert_artifacts
+    entry = next(e for e in read_manifest(ROOT)['models'] if e['id'] == 'bert-tiny')
+    model, _ = build_model(ROOT, entry)
+    with torch.no_grad():
+        for parameter in model.parameters():
+            parameter.add_(1.0)
+    snapshot = tmp_path / 'snapshot'
+    model.save_pretrained(snapshot, safe_serialization=True)
+    reference = {'repo': 'local/bert-tiny', 'revision': '0' * 40, 'safetensors_files': ['model.safetensors'],
+                 'config_sha256': file_hash(snapshot / 'config.json')}
+    identity = rows[0]['artifact_id']
+    artifact = roots[0] / 'models' / identity
+    binding = bind_snapshot(ROOT, entry, reference, snapshot, artifact / 'models/model.json', tmp_path / 'binding.json',
+                            population='tiny')
+    kinds = {}
+    for capture in binding['captures']:
+        kinds.setdefault((capture['kind'], capture['source']['kind']), []).append(capture)
+    assert set(kinds) == {('PARAMETER', 'checkpoint'), ('BUFFER', 'payload'), ('CONSTANT_TENSOR', 'payload')}
+    assert all(c['source']['library_verified'] for c in kinds[('BUFFER', 'payload')])
+    assert not any(c['source']['library_verified'] for c in kinds[('CONSTANT_TENSOR', 'payload')])
+    assert binding['unmapped'] == []
+    with pytest.raises(ValueError, match='cached config'):
+        bind_snapshot(ROOT, entry, {**reference, 'config_sha256': '0' * 64}, snapshot,
+                      artifact / 'models/model.json', tmp_path / 'x.json', population='tiny')
+    pack = tmp_path / 'pack' / 'bert-tiny.safetensors'
+    source = {'repo_id': 'local/pack', 'revision': 'r1', 'url': 'https://example.invalid/bert-tiny.safetensors'}
+    with pytest.raises(ValueError, match='pinned location'):
+        build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, {})
+    document = build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, source)
+    assert check_pack(document, pack, binding['captures'])
+    with safe_open(pack, framework='pt') as archive:
+        assert torch.equal(archive.get_tensor('model.embeddings.word_embeddings.weight'),
+                           model.embeddings.word_embeddings.weight.detach())
+    import copy
+    for mutate, message in [
+            (lambda d: d['tensors'].pop(next(iter(d['tensors']))), 'exactly the captured'),
+            (lambda d: d['unmapped'].append('x'), 'unmapped'),
+            (lambda d: d['source'].update(sha256='0' * 64), 'digest'),
+            (lambda d: d['tensors'][next(iter(d['tensors']))].update(key='absent'), 'missing in pack'),
+            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(dtype='F16'), 'dtype'),
+            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(shape=[1, 1]), 'shape')]:
+        broken = copy.deepcopy(document)
+        mutate(broken)
+        with pytest.raises(ValueError, match=message):
+            check_pack(broken, pack, binding['captures'])
