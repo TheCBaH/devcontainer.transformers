@@ -119,8 +119,8 @@ def sweep(args):
 def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
-                                          'fetch', 'bind', 'generation', 'generation-worker',
-                                          'catalogue', 'bundle', 'bundle-verify', 'pack'])
+                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets',
+                                          'catalogue', 'bundle', 'bundle-verify', 'pack', 'index'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
     parser.add_argument('--subset')
@@ -142,15 +142,23 @@ def main():
     parser.add_argument('--pack-repo')
     parser.add_argument('--pack-revision')
     parser.add_argument('--pack-url')
+    parser.add_argument('--artifact')
+    parser.add_argument('--pack-tag')
+    parser.add_argument('--packs')
     args = parser.parse_args()
     if args.workers < 1 or args.timeout < 1:
         parser.error('workers and timeout must be positive')
     root = Path(args.root).resolve()
-    if args.command in ('worker', 'generation-worker'):
+    if args.command in ('worker', 'generation-worker', 'encoders-worker'):
         def offline(event, arguments):
             if event == 'socket.connect':
                 raise RuntimeError('random-weight workers forbid network access')
         sys.addaudithook(offline)
+        if args.command == 'encoders-worker':
+            from .encoders import run
+            print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'tinyclip', args.population,
+                                 args.snapshot, args.allow_unpinned_snapshot)))
+            return
         if args.command == 'generation-worker':
             from .generation import run
             histories = tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ()
@@ -176,6 +184,27 @@ def main():
         result = run_worker(root / 'scripts/worker.py', argv, 'generation-llama', args.timeout, hf_home=root / '.hf-cache')
         print(json.dumps(result))
         sys.exit(0 if result['status'] == 'verified' else 1)
+    if args.command == 'assets':
+        from .assets import build_assets
+        document = build_assets(root, Path(args.output or root / 'task-assets.json'),
+                                set(args.subset.split(',')) if args.subset else None)
+        failed = [(row['model_id'], kind) for row in document['models'] for kind, example in row['example'].items()
+                  if example.get('status') == 'failed']
+        print(f"described {len(document['models'])} models; failed examples: {failed}")
+        sys.exit(1 if failed else 0)
+    if args.command == 'encoders':
+        from .encoders import MODELS
+        if args.subset and args.subset not in MODELS:
+            parser.error(f'encoders requires a reviewed tower split: {MODELS}')
+        output = Path(args.output or root / '.build/components').resolve()
+        name = args.subset or MODELS[0]
+        argv = ['encoders-worker', '--root', root, '--output', output, '--subset', name, '--population', args.population]
+        if args.weights == 'checkpoint':
+            from .checkpoints import fetch
+            argv += ['--snapshot', fetch(root, name)]
+        result = run_worker(root / 'scripts/worker.py', argv, 'encoders-' + name, args.timeout, hf_home=root / '.hf-cache')
+        print(json.dumps(result))
+        sys.exit(0 if result['status'] == 'verified' else 1)
     if args.command == 'catalogue':
         from .fixtures import catalogue
         print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
@@ -186,11 +215,20 @@ def main():
         if not args.subset or not args.program:
             parser.error('pack requires --subset model ID and --program original-config model.pt2')
         binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
-        output = Path(args.output or root / '.build/packs').resolve() / (args.subset + '.safetensors')
+        from .fixtures import flat_name
+        output = Path(args.output or root / '.build/packs').resolve() / ((flat_name(args.artifact) if args.artifact else args.subset) + '.safetensors')
         document = build_pack(binding, fetch(root, args.subset), Path(args.program).resolve(), output,
-                              {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url})
+                              {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url},
+                              Path(args.graph).resolve() if args.graph else None)
         check_pack(document, output, binding['captures'])
         print(f"{args.subset}: packed {len(document['tensors'])} captures, sha256 {document['source']['sha256']}")
+        return
+    if args.command == 'index':
+        from .fixtures import publication_index
+        if not args.pack_repo or not args.pack_tag:
+            parser.error('index requires --pack-repo and --pack-tag')
+        document = publication_index(Path(args.output or root / '.build/bundles').resolve(), args.pack_repo, args.pack_tag)
+        print(f"indexed {len(document['artifacts'])} bundles under release {args.pack_tag}")
         return
     if args.command in ('bundle', 'bundle-verify'):
         from .fixtures import build_bundle, verify_bundle
@@ -210,7 +248,7 @@ def main():
             identity = str(directory.relative_to(source / 'models'))
             if names and identity.split('/')[0] not in names:
                 continue
-            build_bundle(root, directory, source / '.build' / identity, output)
+            build_bundle(root, directory, source / '.build' / identity, output, args.packs)
             count += 1
         print(f'bundled {count} artifacts into {output}')
         return

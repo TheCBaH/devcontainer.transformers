@@ -1,0 +1,451 @@
+{
+  "artifact_id": "tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "eedac89bb16b1919fb6e33f98de58af8322c2d5e00da5f4dd8eb8d1e8ce2d169"
+      },
+      "ssa_name": "p_vision_model_embeddings_class_embedding",
+      "target": "vision_model.embeddings.class_embedding"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        3,
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "233d96c8bf31fd6b7776bf507861baaf469a19e33d178223d350528190dab12f"
+      },
+      "ssa_name": "p_vision_model_embeddings_patch_embedding_weight",
+      "target": "vision_model.embeddings.patch_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        5,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "26b5c8464f5be2a9432257bb3b4116585087228a432d7e00473861889a245175"
+      },
+      "ssa_name": "p_vision_model_embeddings_position_embedding_weight",
+      "target": "vision_model.embeddings.position_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_vision_model_pre_layrnorm_weight",
+      "target": "vision_model.pre_layrnorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_pre_layrnorm_bias",
+      "target": "vision_model.pre_layrnorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "153ef8f8c9d07dd49c7efb4f3bdfca6d362236138edb80cc3284d6fda8aae49e"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_k_proj_weight",
+      "target": "vision_model.encoder.layers.0.self_attn.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_k_proj_bias",
+      "target": "vision_model.encoder.layers.0.self_attn.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ec3631522f4f8c729d57107a1644b115a2af683507085bac23c8c60e8625a6f5"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_v_proj_weight",
+      "target": "vision_model.encoder.layers.0.self_attn.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_v_proj_bias",
+      "target": "vision_model.encoder.layers.0.self_attn.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e245b1139a55c752b5f4494f3211be9871dc374ed638c17e8944f8be4823a444"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_q_proj_weight",
+      "target": "vision_model.encoder.layers.0.self_attn.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_q_proj_bias",
+      "target": "vision_model.encoder.layers.0.self_attn.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "de310c2cc829a572a676050aa5eda890ad536dd5284514cd0edfb4cd4d256e52"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_out_proj_weight",
+      "target": "vision_model.encoder.layers.0.self_attn.out_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_self_attn_out_proj_bias",
+      "target": "vision_model.encoder.layers.0.self_attn.out_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_layer_norm1_weight",
+      "target": "vision_model.encoder.layers.0.layer_norm1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_layer_norm1_bias",
+      "target": "vision_model.encoder.layers.0.layer_norm1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "dad7c19da4482814cf45b38e9c78c831479ec10d37f28ac52d138cc0e8cb44c7"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_mlp_fc1_weight",
+      "target": "vision_model.encoder.layers.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_mlp_fc1_bias",
+      "target": "vision_model.encoder.layers.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c37ca58ace3a53cb01d0605e3224ae50418ca855f92f359568ffb8f1dc398caa"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_mlp_fc2_weight",
+      "target": "vision_model.encoder.layers.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_mlp_fc2_bias",
+      "target": "vision_model.encoder.layers.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_layer_norm2_weight",
+      "target": "vision_model.encoder.layers.0.layer_norm2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_encoder_layers_0_layer_norm2_bias",
+      "target": "vision_model.encoder.layers.0.layer_norm2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_vision_model_post_layernorm_weight",
+      "target": "vision_model.post_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_vision_model_post_layernorm_bias",
+      "target": "vision_model.post_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "737b45398254f7f266a41441d1ae6b077c65e0d4721c65f652c3204b2a427584"
+      },
+      "ssa_name": "p_visual_projection_weight",
+      "target": "visual_projection.weight"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_0",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        5
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "281b02b10f5f4997e5bf8c93343e6f2aa8bc81ffad6d6813c593181ebceda12a"
+      },
+      "ssa_name": "b_vision_model_embeddings_position_ids",
+      "target": "vision_model.embeddings.position_ids"
+    }
+  ],
+  "counts": {
+    "BUFFER": 1,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 24
+  },
+  "graph_sha256": "346ecd63a280cc14c315f0245ff3e481fd6c8c1e0d336b86816b66b2da90c6f4",
+  "module_prefixes": {},
+  "schema_version": 1
+}

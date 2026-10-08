@@ -83,10 +83,12 @@ def verify_case_files(directory, document):
                 raise ValueError(f'case {case["id"]} {name} content digest mismatch')
 
 
-def _members(artifact, work):
-    """Deterministic archive layout: published artifact files, model.pt2, case tensors."""
+def _members(artifact, work, loader_map=None):
+    """Deterministic archive layout: published artifact files, model.pt2, case tensors, loader map."""
     members = {str(p.relative_to(artifact)): p for p in sorted(artifact.rglob('*')) if p.is_file()}
     members['model.pt2'] = work / 'model.pt2'
+    if loader_map:
+        members['models/safetensors.json'] = loader_map
     for p in sorted((work / 'cases').rglob('*.pt')):
         members[str(p.relative_to(work))] = p
     return dict(sorted(members.items()))
@@ -96,14 +98,45 @@ def flat_name(identity):
     return identity.replace('/', '--')
 
 
-def build_bundle(root, artifact, work, output):
-    """Pack one verified artifact with its payload and case tensors into a reproducible tar.gz."""
+def _find_pack(contract, document, packs):
+    """Derived (map, pack) for an artifact from `pack --artifact` outputs; checkpoint-backed ones must have it."""
+    stem = flat_name(contract['artifact_id'])
+    loader_map, pack = (Path(packs) / (stem + suffix) for suffix in ('.map.json', '.safetensors')) if packs else (None, None)
+    present = [path for path in (loader_map, pack) if path and path.exists()]
+    if len(present) == 1:
+        raise ValueError(f'incomplete derived pack for {stem}: need both map and safetensors')
+    if not present:
+        if packs and document['weight_source']['kind'] == 'checkpoint':
+            raise ValueError(f'no derived pack for checkpoint-backed artifact {stem}')
+        return None, None
+    return loader_map, pack
+
+
+def _check_pack_files(map_path, pack, captures):
+    from .weights import check_pack
+    document = json.loads(Path(map_path).read_text())
+    if document['source']['filename'] != Path(pack).name:
+        raise ValueError('map source filename differs from the pack file name')
+    check_pack(document, pack, captures['captures'])
+
+
+def build_bundle(root, artifact, work, output, packs=None):
+    """Pack one verified artifact with its payload and case tensors into a reproducible tar.gz.
+
+    With `packs`, a derived weight pack is checked against the artifact's captures, its map is bundled as
+    `models/safetensors.json` (the loader layout) and the pack is copied beside the archive.
+    """
     artifact, work, output = Path(artifact), Path(work), Path(output)
     contract = verify_artifact(root, artifact)
     document = json.loads((artifact / 'cases.json').read_text())
     verify_case_files(work, document)
-    members = _members(artifact, work)
+    loader_map, pack = _find_pack(contract, document, packs)
+    if pack:
+        _check_pack_files(loader_map, pack, json.loads((artifact / 'captures.json').read_text()))
+    members = _members(artifact, work, loader_map)
     output.mkdir(parents=True, exist_ok=True)
+    if pack:
+        shutil.copyfile(pack, output / pack.name)
     archive = output / (flat_name(contract['artifact_id']) + '.tar.gz')
     buffer = io.BytesIO()
     with gzip.GzipFile(fileobj=buffer, mode='wb', mtime=0) as compressed:
@@ -123,6 +156,10 @@ def build_bundle(root, artifact, work, output):
                 'members': {name: {'sha256': file_hash(path), 'size': path.stat().st_size}
                             for name, path in members.items()},
                 'cases': [case['id'] for case in document['cases']]}
+    if pack:
+        source = json.loads(loader_map.read_text())['source']
+        manifest['pack'] = {'name': pack.name, 'sha256': file_hash(pack), 'size': pack.stat().st_size,
+                            'map': 'models/safetensors.json', 'url': source['url']}
     write_json(output / (flat_name(contract['artifact_id']) + '.manifest.json'), manifest)
     return manifest
 
@@ -147,6 +184,12 @@ def verify_bundle(root, archive, manifest_path=None):
         contract = verify_artifact(root, target, manifest['artifact_id'])
         if file_hash(target / 'contract.json') != manifest['contract_sha256'] or contract['graph_sha256'] != manifest['graph_sha256']:
             raise ValueError('contract/graph digest differs from manifest')
+        if 'pack' in manifest:
+            pack = archive.with_name(manifest['pack']['name'])
+            if not pack.exists() or file_hash(pack) != manifest['pack']['sha256'] or pack.stat().st_size != manifest['pack']['size']:
+                raise ValueError('pack file missing or differs from the manifest')
+            _check_pack_files(target / manifest['pack']['map'], pack,
+                              json.loads((target / 'captures.json').read_text()))
         document = json.loads((target / 'cases.json').read_text())
         verify_case_files(target, document)
         payload = target / 'examples.pt'
@@ -188,3 +231,38 @@ def catalogue(root):
     result = {'schema_version': 1, 'artifacts': rows}
     write_json(root / 'catalogue.json', result)
     return result
+
+
+RELEASE_ASSET_LIMIT = 2 * 1024 ** 3
+
+
+def publication_index(bundles, repository, tag):
+    """Exact download locations and digests for every bundle, from the manifests alone.
+
+    The release tag is the hosting revision; producer commit and upstream checkpoint revision are separate facts.
+    """
+    bundles = Path(bundles)
+    base = f'https://github.com/{repository}/releases/download/{tag}/'
+    rows = []
+    for path in sorted(bundles.glob('*.manifest.json')):
+        manifest = json.loads(path.read_text())
+        assets = {'manifest': {'name': path.name, 'sha256': file_hash(path), 'size': path.stat().st_size},
+                  'archive': dict(manifest['archive'])}
+        pack = manifest.get('pack')
+        if pack:
+            if pack['url'] != base + pack['name']:
+                raise ValueError(f"map location {pack['url']} differs from the release asset {base + pack['name']}")
+            assets['pack'] = {key: pack[key] for key in ('name', 'sha256', 'size')}
+        for asset in assets.values():
+            if asset['size'] > RELEASE_ASSET_LIMIT:
+                raise ValueError(f"{asset['name']} exceeds the release asset size limit")
+            asset['url'] = base + asset['name']
+        model, category, population, component, *_ = manifest['artifact_id'].split('/')
+        rows.append({'artifact_id': manifest['artifact_id'], 'model_id': model, 'component': component,
+                     'graph_sha256': manifest['graph_sha256'], 'producer_commit': manifest['producer_commit'],
+                     'weight_source': manifest['weight_source'], 'assets': assets})
+    if not rows:
+        raise ValueError(f'no bundle manifests in {bundles}')
+    document = {'schema_version': 1, 'repository': repository, 'release_tag': tag, 'artifacts': rows}
+    write_json(bundles / 'publication.json', document)
+    return document

@@ -1,0 +1,86 @@
+{
+  "artifact_id": "tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "pixel_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "b68e1715c8d7a69357dbab2692b4bd59a31bfa87bc74f897c141504b4accd746",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "08dbace43a9b53ca06a7a0963ca011971dadee9752125cca8a8502eae86ca2e2",
+    "cases.json": "b181b53bf9acb1046b6f3d11c18512ed9e6a6fd9b079a1ddd1b68efde1e53e12",
+    "data/constants/model_constants_config.json": "ec6d8ae7d6023e8dd274662f429a4a9e222e8f19dcf176702ccd0105a4491a54",
+    "data/weights/model_weights_config.json": "4df2dfdd9e11dc3f3cd0920544f5251a666e97b8742e912624541ec6ca969275",
+    "models/model.json": "346ecd63a280cc14c315f0245ff3e481fd6c8c1e0d336b86816b66b2da90c6f4"
+  },
+  "graph_sha256": "346ecd63a280cc14c315f0245ff3e481fd6c8c1e0d336b86816b66b2da90c6f4",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "pixel_values",
+      "shape": [
+        1,
+        3,
+        32,
+        32
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "CLIPModel",
+  "model_id": "tinyclip",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "image_features",
+      "shape": [
+        1,
+        64
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "python": "3.13.12",
+    "tools_sha256": "0bd11116b3a1a33ebafb3d79deeec61a7338d56f64c43a8a6341b74b820b3b9b",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "6af1093a6bb4457d49a2d4028fbde991f95516dad1b834e20a0fce6599cbf6bb",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

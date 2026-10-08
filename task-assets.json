@@ -1,0 +1,1587 @@
+{
+  "models": [
+    {
+      "example": {
+        "text": {
+          "decoded": "[CLS] the quick brown fox jumps over the lazy dog. [SEP]",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "ee0b087b5d1a4d7c2b0b6137eb1ca0bdb5bc12f05f296e3c5f31e6bdb99aa7f5",
+              "shape": [
+                1,
+                12
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "2a2a6d4ec0cd9d9b8a787e63acbc7b59e737e995d30b5b08c97cd648374706d0",
+              "shape": [
+                1,
+                12
+              ]
+            },
+            "token_type_ids": {
+              "dtype": "int64",
+              "sha256": "7952802968d1905619b9242466ab54e6a4eee83530456d2940a64db1722382d1",
+              "shape": [
+                1,
+                12
+              ]
+            }
+          }
+        }
+      },
+      "family": "text",
+      "files": {
+        "config.json": {
+          "sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+          "size": 285,
+          "url": "https://huggingface.co/prajjwal1/bert-tiny/resolve/6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837/config.json"
+        },
+        "vocab.txt": {
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+          "size": 231508,
+          "url": "https://huggingface.co/prajjwal1/bert-tiny/resolve/6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837/vocab.txt"
+        }
+      },
+      "input_agreement": {
+        "attention_mask": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            12
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "input_ids": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            12
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "token_type_ids": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            12
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "bert-tiny",
+      "recipe": {
+        "text": {
+          "model_max_length": 1000000000000000019884624838656,
+          "padding_side": "right",
+          "special_tokens": {
+            "cls_token": {
+              "id": 101,
+              "token": "[CLS]"
+            },
+            "mask_token": {
+              "id": 103,
+              "token": "[MASK]"
+            },
+            "pad_token": {
+              "id": 0,
+              "token": "[PAD]"
+            },
+            "sep_token": {
+              "id": 102,
+              "token": "[SEP]"
+            },
+            "unk_token": {
+              "id": 100,
+              "token": "[UNK]"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 30522
+        }
+      },
+      "repo": "prajjwal1/bert-tiny",
+      "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837"
+    },
+    {
+      "example": {
+        "text": {
+          "decoded": "The quick brown fox jumps over the lazy dog.",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "94449c7941143928508d443f2ae504eea6f3fd7c975bf9d997ee70b0717efaea",
+              "shape": [
+                1,
+                10
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "e50a0ce8531a7fdbb84f44c9d28636b90e65af1c84b3bc44a3435c5b5eef4af3",
+              "shape": [
+                1,
+                10
+              ]
+            }
+          }
+        }
+      },
+      "family": "text",
+      "files": {
+        "config.json": {
+          "sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+          "size": 861,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/config.json"
+        },
+        "generation_config.json": {
+          "sha256": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+          "size": 132,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/generation_config.json"
+        },
+        "merges.txt": {
+          "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+          "size": 466391,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/merges.txt"
+        },
+        "special_tokens_map.json": {
+          "sha256": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+          "size": 655,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/special_tokens_map.json"
+        },
+        "tokenizer.json": {
+          "sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+          "size": 2104556,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer.json"
+        },
+        "tokenizer_config.json": {
+          "sha256": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+          "size": 3764,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer_config.json"
+        },
+        "vocab.json": {
+          "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+          "size": 800662,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/vocab.json"
+        }
+      },
+      "input_agreement": {
+        "attention_mask": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            10
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "input_ids": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            10
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "smollm2-135m",
+      "recipe": {
+        "generation": {
+          "bos_token_id": 1,
+          "eos_token_id": 2,
+          "pad_token_id": 2
+        },
+        "text": {
+          "model_max_length": 8192,
+          "padding_side": "right",
+          "special_tokens": {
+            "bos_token": {
+              "id": 1,
+              "token": "<|im_start|>"
+            },
+            "eos_token": {
+              "id": 2,
+              "token": "<|im_end|>"
+            },
+            "pad_token": {
+              "id": 2,
+              "token": "<|im_end|>"
+            },
+            "unk_token": {
+              "id": 0,
+              "token": "<|endoftext|>"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 49152
+        }
+      },
+      "repo": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac"
+    },
+    {
+      "example": {
+        "text": {
+          "decoded": "The quick brown fox jumps over the lazy dog.</s>",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "3e4f51abbe4858f6386b0e2ad16879b41e3d436cb48e576aae2ad6a0c796eab5",
+              "shape": [
+                1,
+                13
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "b81a3cee4dc7a549313c64e56c17c0dbe77da99820ab0724bd512e1dff1c178b",
+              "shape": [
+                1,
+                13
+              ]
+            }
+          }
+        }
+      },
+      "family": "text",
+      "files": {
+        "config.json": {
+          "sha256": "530e25060e3a8d5f7b0fcf53bfea9f3601165161f3b1914676e98d97cf07bcf1",
+          "size": 1206,
+          "url": "https://huggingface.co/google-t5/t5-small/resolve/df1b051c49625cf57a3d0d8d3863ed4d13564fe4/config.json"
+        },
+        "generation_config.json": {
+          "sha256": "f5a1c7e2be8092018d8835128987edf0111637dd98e90599cc80310fef75d95a",
+          "size": 147,
+          "url": "https://huggingface.co/google-t5/t5-small/resolve/df1b051c49625cf57a3d0d8d3863ed4d13564fe4/generation_config.json"
+        },
+        "spiece.model": {
+          "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+          "size": 791656,
+          "url": "https://huggingface.co/google-t5/t5-small/resolve/df1b051c49625cf57a3d0d8d3863ed4d13564fe4/spiece.model"
+        },
+        "tokenizer.json": {
+          "sha256": "d2acde0d8d71dd30a711834b07781b9c89feaac33fd332f60507699282740066",
+          "size": 1389353,
+          "url": "https://huggingface.co/google-t5/t5-small/resolve/df1b051c49625cf57a3d0d8d3863ed4d13564fe4/tokenizer.json"
+        },
+        "tokenizer_config.json": {
+          "sha256": "d1e7146101aa96282057f374aa9c3b260fba2109e5990edb1775d6efc70ffa3c",
+          "size": 2324,
+          "url": "https://huggingface.co/google-t5/t5-small/resolve/df1b051c49625cf57a3d0d8d3863ed4d13564fe4/tokenizer_config.json"
+        }
+      },
+      "input_agreement": {
+        "attention_mask": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            13
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "input_ids": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            13
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "t5-small",
+      "recipe": {
+        "generation": {
+          "decoder_start_token_id": 0,
+          "eos_token_id": 1,
+          "pad_token_id": 0
+        },
+        "text": {
+          "model_max_length": 512,
+          "padding_side": "right",
+          "special_tokens": {
+            "eos_token": {
+              "id": 1,
+              "token": "</s>"
+            },
+            "pad_token": {
+              "id": 0,
+              "token": "<pad>"
+            },
+            "unk_token": {
+              "id": 2,
+              "token": "<unk>"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 32100
+        }
+      },
+      "repo": "google-t5/t5-small",
+      "revision": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "kind": "image",
+            "seed": 3,
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ]
+          },
+          "tensors": {
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "6a25c3470ea6a5fa3714f4cef8947adb2ce910297debfe040ba14c659c3a6369",
+              "shape": [
+                1,
+                3,
+                256,
+                256
+              ]
+            }
+          }
+        }
+      },
+      "family": "image",
+      "files": {
+        "config.json": {
+          "sha256": "6f1b7c93da05058a62efcd10266079bbf1e6b430babd9367c8e20fdb21726f22",
+          "size": 69975,
+          "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "ac69eb9624defabf01056e9dee3c68eb9d5f528a550007033c7574d7179249ec",
+          "size": 187,
+          "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/preprocessor_config.json"
+        }
+      },
+      "input_agreement": {
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "processor_shape": [
+            1,
+            3,
+            256,
+            256
+          ],
+          "rank_matches": true,
+          "shape_matches": true
+        }
+      },
+      "model_id": "mobilevit-xxs",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "crop_size": 256,
+            "do_center_crop": true,
+            "do_resize": true,
+            "resample": 2,
+            "size": 288
+          }
+        },
+        "output_decoding": {
+          "config_file": "config.json",
+          "num_labels": 1000
+        }
+      },
+      "repo": "apple/mobilevit-xx-small",
+      "revision": "6703997f9e940e312a04b8b7c26463d631c0d1f8"
+    },
+    {
+      "example": {
+        "audio": {
+          "raw": {
+            "kind": "audio",
+            "sampling_rate": 16000,
+            "seconds": 1,
+            "seed": 5,
+            "uniform": [
+              -0.5,
+              0.5
+            ]
+          },
+          "tensors": {
+            "input_features": {
+              "dtype": "float32",
+              "sha256": "96ab3694aa88a9640186f1c449a30e6d1a008aa7973a0ac245209698c6928545",
+              "shape": [
+                1,
+                80,
+                3000
+              ]
+            }
+          }
+        },
+        "tokenizer": {
+          "decoded": "<|startoftranscript|><|notimestamps|>The quick brown fox jumps over the lazy dog.<|endoftext|>",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "3e4f51abbe4858f6386b0e2ad16879b41e3d436cb48e576aae2ad6a0c796eab5",
+              "shape": [
+                1,
+                13
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "68dee3dc6932b6022313cfab9e236d14bd3f81ffe794eb0abc5500cca14f7a72",
+              "shape": [
+                1,
+                13
+              ]
+            }
+          }
+        }
+      },
+      "family": "audio",
+      "files": {
+        "added_tokens.json": {
+          "sha256": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1",
+          "size": 34604,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/added_tokens.json"
+        },
+        "config.json": {
+          "sha256": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+          "size": 1983,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/config.json"
+        },
+        "generation_config.json": {
+          "sha256": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512",
+          "size": 3747,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/generation_config.json"
+        },
+        "merges.txt": {
+          "sha256": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+          "size": 493869,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/merges.txt"
+        },
+        "normalizer.json": {
+          "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+          "size": 52666,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/normalizer.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666",
+          "size": 184990,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/preprocessor_config.json"
+        },
+        "special_tokens_map.json": {
+          "sha256": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691",
+          "size": 2194,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/special_tokens_map.json"
+        },
+        "tokenizer.json": {
+          "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+          "size": 2480466,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/tokenizer.json"
+        },
+        "tokenizer_config.json": {
+          "sha256": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce",
+          "size": 282683,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/tokenizer_config.json"
+        },
+        "vocab.json": {
+          "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9",
+          "size": 835550,
+          "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/vocab.json"
+        }
+      },
+      "input_agreement": {
+        "input_features": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            80,
+            3000
+          ],
+          "processor_shape": [
+            1,
+            80,
+            3000
+          ],
+          "rank_matches": true,
+          "shape_matches": true
+        }
+      },
+      "model_id": "whisper-tiny",
+      "recipe": {
+        "audio": {
+          "preprocessor": {
+            "chunk_length": 30,
+            "feature_size": 80,
+            "hop_length": 160,
+            "n_fft": 400,
+            "n_samples": 480000,
+            "nb_max_frames": 3000,
+            "padding_value": 0.0,
+            "return_attention_mask": false,
+            "sampling_rate": 16000
+          }
+        },
+        "generation": {
+          "begin_suppress_tokens": [
+            220,
+            50257
+          ],
+          "bos_token_id": 50257,
+          "decoder_start_token_id": 50258,
+          "eos_token_id": 50257,
+          "forced_decoder_ids": [
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              50359
+            ]
+          ],
+          "max_length": 448,
+          "pad_token_id": 50257,
+          "suppress_tokens": [
+            1,
+            2,
+            7,
+            8,
+            9,
+            10,
+            14,
+            25,
+            26,
+            27,
+            28,
+            29,
+            31,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            90,
+            91,
+            92,
+            93,
+            359,
+            503,
+            522,
+            542,
+            873,
+            893,
+            902,
+            918,
+            922,
+            931,
+            1350,
+            1853,
+            1982,
+            2460,
+            2627,
+            3246,
+            3253,
+            3268,
+            3536,
+            3846,
+            3961,
+            4183,
+            4667,
+            6585,
+            6647,
+            7273,
+            9061,
+            9383,
+            10428,
+            10929,
+            11938,
+            12033,
+            12331,
+            12562,
+            13793,
+            14157,
+            14635,
+            15265,
+            15618,
+            16553,
+            16604,
+            18362,
+            18956,
+            20075,
+            21675,
+            22520,
+            26130,
+            26161,
+            26435,
+            28279,
+            29464,
+            31650,
+            32302,
+            32470,
+            36865,
+            42863,
+            47425,
+            49870,
+            50254,
+            50258,
+            50358,
+            50359,
+            50360,
+            50361,
+            50362
+          ]
+        },
+        "tokenizer": {
+          "model_max_length": 1024,
+          "padding_side": "right",
+          "special_tokens": {
+            "bos_token": {
+              "id": 50257,
+              "token": "<|endoftext|>"
+            },
+            "eos_token": {
+              "id": 50257,
+              "token": "<|endoftext|>"
+            },
+            "pad_token": {
+              "id": 50257,
+              "token": "<|endoftext|>"
+            },
+            "unk_token": {
+              "id": 50257,
+              "token": "<|endoftext|>"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 51865
+        }
+      },
+      "repo": "openai/whisper-tiny",
+      "revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "kind": "image",
+            "seed": 3,
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ]
+          },
+          "tensors": {
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "efee287ece343c856b86682b891c66a13b794fe4feb5c7edd97a98db677efc88",
+              "shape": [
+                1,
+                3,
+                224,
+                224
+              ]
+            }
+          }
+        },
+        "text": {
+          "decoded": "<|startoftext|>the quick brown fox jumps over the lazy dog . <|endoftext|>",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "ee0b087b5d1a4d7c2b0b6137eb1ca0bdb5bc12f05f296e3c5f31e6bdb99aa7f5",
+              "shape": [
+                1,
+                12
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "9f8557f967433ef1239b38804552bbf8ac9810d3232b0a799f2fbc976e2b6b8e",
+              "shape": [
+                1,
+                12
+              ]
+            }
+          }
+        }
+      },
+      "family": "image-text",
+      "files": {
+        "config.json": {
+          "sha256": "c586d856dbd5589b67525db9e791ee0917402405672c7773aead373efb7d7bca",
+          "size": 4602,
+          "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+          "size": 316,
+          "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/preprocessor_config.json"
+        },
+        "tokenizer.json": {
+          "sha256": "b556ac8c99757ffb677208af34bc8c6721572114111a6e0aaf5fa69ff0b8d842",
+          "size": 2224041,
+          "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/tokenizer.json"
+        }
+      },
+      "input_agreement": {
+        "attention_mask": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            12
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "input_ids": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16
+          ],
+          "processor_shape": [
+            1,
+            12
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        },
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            3,
+            224,
+            224
+          ],
+          "processor_shape": [
+            1,
+            3,
+            224,
+            224
+          ],
+          "rank_matches": true,
+          "shape_matches": true
+        }
+      },
+      "model_id": "tinyclip",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "crop_size": 224,
+            "do_center_crop": true,
+            "do_normalize": true,
+            "do_resize": true,
+            "image_mean": [
+              0.48145466,
+              0.4578275,
+              0.40821073
+            ],
+            "image_std": [
+              0.26862954,
+              0.26130258,
+              0.27577711
+            ],
+            "resample": 3,
+            "size": 224
+          }
+        },
+        "text": {
+          "model_max_length": 1000000000000000019884624838656,
+          "padding_side": "right",
+          "special_tokens": {
+            "bos_token": {
+              "id": 49406,
+              "token": "<|startoftext|>"
+            },
+            "eos_token": {
+              "id": 49407,
+              "token": "<|endoftext|>"
+            },
+            "pad_token": {
+              "id": 49407,
+              "token": "<|endoftext|>"
+            },
+            "unk_token": {
+              "id": 49407,
+              "token": "<|endoftext|>"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 49408
+        }
+      },
+      "repo": "wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M",
+      "revision": "a2a8c6eaa2549ad66eb7c31b85022bf58273a26c"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "frames": 16,
+            "kind": "video",
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ],
+            "seeds": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          "tensors": {
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "de3856eed3730faf29078b2e1cda9310b59a572954cc193ae8341e2345fed0c8",
+              "shape": [
+                1,
+                16,
+                3,
+                224,
+                224
+              ]
+            }
+          }
+        }
+      },
+      "family": "video",
+      "files": {
+        "config.json": {
+          "sha256": "20b05a5026313946ec026dc0c7be4f1f641c47ab66ec7125d406403ce251165c",
+          "size": 22864,
+          "url": "https://huggingface.co/MCG-NJU/videomae-small-finetuned-kinetics/resolve/1bf2b82c809609f5df1ea7648aee577e2e486b63/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "c3aa722f22a7ff0d234d407862025fe47672f74f46f92c91f757f7a7354107c2",
+          "size": 271,
+          "url": "https://huggingface.co/MCG-NJU/videomae-small-finetuned-kinetics/resolve/1bf2b82c809609f5df1ea7648aee577e2e486b63/preprocessor_config.json"
+        }
+      },
+      "input_agreement": {
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16,
+            3,
+            224,
+            224
+          ],
+          "processor_shape": [
+            1,
+            16,
+            3,
+            224,
+            224
+          ],
+          "rank_matches": true,
+          "shape_matches": true
+        }
+      },
+      "model_id": "videomae-small",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "do_center_crop": true,
+            "do_normalize": true,
+            "do_resize": true,
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "resample": 2,
+            "size": 224
+          }
+        },
+        "output_decoding": {
+          "config_file": "config.json",
+          "num_labels": 400
+        }
+      },
+      "repo": "MCG-NJU/videomae-small-finetuned-kinetics",
+      "revision": "1bf2b82c809609f5df1ea7648aee577e2e486b63"
+    },
+    {
+      "example": {
+        "tensor-only": {
+          "status": "no processor: callers build past/future value and time-feature tensors directly"
+        }
+      },
+      "family": "tensor-only",
+      "files": {
+        "config.json": {
+          "sha256": "39d19e705b63258265d07723b83ce9ca3e08ca8feec87afae144686f149e11d8",
+          "size": 1214,
+          "url": "https://huggingface.co/huggingface/time-series-transformer-tourism-monthly/resolve/2a40ad41f6ffe61e7bef6099b08c6c2fce36ac35/config.json"
+        }
+      },
+      "input_agreement": {},
+      "model_id": "time-series-small",
+      "recipe": {},
+      "repo": "huggingface/time-series-transformer-tourism-monthly",
+      "revision": "2a40ad41f6ffe61e7bef6099b08c6c2fce36ac35"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "kind": "image",
+            "seed": 3,
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ]
+          },
+          "tensors": {
+            "pixel_mask": {
+              "dtype": "int64",
+              "sha256": "23ee4ef50c90704efa4c3c13c8633b9836103fc6f8364253346e05785a9b8241",
+              "shape": [
+                1,
+                512,
+                672
+              ]
+            },
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "e33aa788f356041ab50785083b6f00330fcc75b44ead41e98178614d8af1db7d",
+              "shape": [
+                1,
+                3,
+                512,
+                672
+              ]
+            }
+          }
+        }
+      },
+      "family": "image",
+      "files": {
+        "config.json": {
+          "sha256": "a171607bf33c3c85c2cda36e63f681e8b7fd101396b3f0f7a4aa40214020b86e",
+          "size": 4133,
+          "url": "https://huggingface.co/hustvl/yolos-tiny/resolve/95a90f3c189fbfca3bcfc6d7315b9e84d95dc2de/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "4309cf0226631c9cd34e6981af842c74f4c9214932741d7fc84b68715c36cf66",
+          "size": 291,
+          "url": "https://huggingface.co/hustvl/yolos-tiny/resolve/95a90f3c189fbfca3bcfc6d7315b9e84d95dc2de/preprocessor_config.json"
+        }
+      },
+      "input_agreement": {
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            3,
+            224,
+            224
+          ],
+          "processor_shape": [
+            1,
+            3,
+            512,
+            672
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "yolos-tiny",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "do_normalize": true,
+            "do_resize": true,
+            "format": "coco_detection",
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "size": {
+              "longest_edge": 1333,
+              "shortest_edge": 512
+            }
+          }
+        },
+        "output_decoding": {
+          "config_file": "config.json",
+          "num_labels": 91
+        }
+      },
+      "repo": "hustvl/yolos-tiny",
+      "revision": "95a90f3c189fbfca3bcfc6d7315b9e84d95dc2de"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "kind": "image",
+            "seed": 3,
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ]
+          },
+          "tensors": {
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "c156e577b1eaca41e0f4cdd8b75e5e9b8516ba53ef855b7ffd5123ceaf98cc58",
+              "shape": [
+                1,
+                3,
+                512,
+                512
+              ]
+            }
+          }
+        }
+      },
+      "family": "image",
+      "files": {
+        "config.json": {
+          "sha256": "209caa9091e4632f7c8883c11170cd08ad29af68b23c09590aa4a5befb1a2a7f",
+          "size": 6884,
+          "url": "https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512/resolve/489d5cd81a0b59fab9b7ea758d3548ebe99677da/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "8039d1d210abaa7117ad78e58cdfd6141a2ec72c03dae891b3cd76737e422c6c",
+          "size": 271,
+          "url": "https://huggingface.co/nvidia/segformer-b0-finetuned-ade-512-512/resolve/489d5cd81a0b59fab9b7ea758d3548ebe99677da/preprocessor_config.json"
+        }
+      },
+      "input_agreement": {
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            3,
+            224,
+            224
+          ],
+          "processor_shape": [
+            1,
+            3,
+            512,
+            512
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "segformer-b0",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "do_normalize": true,
+            "do_resize": true,
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "resample": 2,
+            "size": 512
+          }
+        },
+        "output_decoding": {
+          "config_file": "config.json",
+          "num_labels": 150
+        }
+      },
+      "repo": "nvidia/segformer-b0-finetuned-ade-512-512",
+      "revision": "489d5cd81a0b59fab9b7ea758d3548ebe99677da"
+    },
+    {
+      "example": {
+        "image": {
+          "raw": {
+            "kind": "image",
+            "seed": 3,
+            "seeded_uint8_hwc": [
+              96,
+              128,
+              3
+            ]
+          },
+          "tensors": {
+            "pixel_values": {
+              "dtype": "float32",
+              "sha256": "1be56d5ef293f9d37a53bc8780e5e6ba3ea803a9a8efbcf11c3166c21c26573d",
+              "shape": [
+                1,
+                3,
+                392,
+                518
+              ]
+            }
+          }
+        }
+      },
+      "family": "image",
+      "files": {
+        "config.json": {
+          "sha256": "c56698d3643dde1f83ea2212759e6b31a22b8f827246a36dd007ee8a22b3ff75",
+          "size": 950,
+          "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf/resolve/5426e4f0f36572d16453bbda7a8389317b1bef99/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "d41175c0d889477ca8fc67191e540faef14baf6275157b3fdecf78469e6bbf84",
+          "size": 775,
+          "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf/resolve/5426e4f0f36572d16453bbda7a8389317b1bef99/preprocessor_config.json"
+        }
+      },
+      "input_agreement": {
+        "pixel_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            3,
+            224,
+            224
+          ],
+          "processor_shape": [
+            1,
+            3,
+            392,
+            518
+          ],
+          "rank_matches": true,
+          "shape_matches": false
+        }
+      },
+      "model_id": "depth-anything-small",
+      "recipe": {
+        "image": {
+          "preprocessor": {
+            "do_normalize": true,
+            "do_pad": false,
+            "do_rescale": true,
+            "do_resize": true,
+            "ensure_multiple_of": 14,
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "keep_aspect_ratio": true,
+            "resample": 3,
+            "rescale_factor": 0.00392156862745098,
+            "size": {
+              "height": 518,
+              "width": 518
+            },
+            "size_divisor": null
+          }
+        }
+      },
+      "repo": "depth-anything/Depth-Anything-V2-Small-hf",
+      "revision": "5426e4f0f36572d16453bbda7a8389317b1bef99"
+    },
+    {
+      "example": {
+        "audio": {
+          "raw": {
+            "kind": "audio",
+            "sampling_rate": 16000,
+            "seconds": 1,
+            "seed": 5,
+            "uniform": [
+              -0.5,
+              0.5
+            ]
+          },
+          "tensors": {
+            "input_values": {
+              "dtype": "float32",
+              "sha256": "3fd8b192a0a2ac08001c24990f23b72dbea80e34633235b7b6a5b5336e557c69",
+              "shape": [
+                1,
+                16000
+              ]
+            }
+          }
+        },
+        "tokenizer": {
+          "decoded": "T<unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk> <unk>",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "86bf0413afb7cf41eb796b70144ab8e6f98f268a33caec98d3b6b49f61db14e8",
+              "shape": [
+                1,
+                44
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "2f48e67770e242f80519148131252e51dda8fabf3c7282dd11b70058f1f4b19f",
+              "shape": [
+                1,
+                44
+              ]
+            }
+          }
+        }
+      },
+      "family": "audio",
+      "files": {
+        "config.json": {
+          "sha256": "d3ec255c063d9f95057b553b19c20135b259875834a4fe9deb218a6be25b4cf3",
+          "size": 1596,
+          "url": "https://huggingface.co/facebook/wav2vec2-base-960h/resolve/22aad52d435eb6dbaf354bdad9b0da84ce7d6156/config.json"
+        },
+        "preprocessor_config.json": {
+          "sha256": "b225d617c025463b9e157e06afea8b90dc7078fc70b013c533328423e0486b4a",
+          "size": 159,
+          "url": "https://huggingface.co/facebook/wav2vec2-base-960h/resolve/22aad52d435eb6dbaf354bdad9b0da84ce7d6156/preprocessor_config.json"
+        },
+        "special_tokens_map.json": {
+          "sha256": "bb7068de1150661a10b55f9e4b12a0e77af8bf91f5e45e1b58afaf1d0e17f675",
+          "size": 85,
+          "url": "https://huggingface.co/facebook/wav2vec2-base-960h/resolve/22aad52d435eb6dbaf354bdad9b0da84ce7d6156/special_tokens_map.json"
+        },
+        "tokenizer_config.json": {
+          "sha256": "dc790594f5bc351a4311c6624f40acd95850d4aaf2a5cb3c656c9b610720b608",
+          "size": 163,
+          "url": "https://huggingface.co/facebook/wav2vec2-base-960h/resolve/22aad52d435eb6dbaf354bdad9b0da84ce7d6156/tokenizer_config.json"
+        },
+        "vocab.json": {
+          "sha256": "19727f8944fe6459fc3f240ae2c198395b740f6a029bd23e06656266b83bcf64",
+          "size": 291,
+          "url": "https://huggingface.co/facebook/wav2vec2-base-960h/resolve/22aad52d435eb6dbaf354bdad9b0da84ce7d6156/vocab.json"
+        }
+      },
+      "input_agreement": {
+        "input_values": {
+          "dtype_matches": true,
+          "model_shape": [
+            1,
+            16000
+          ],
+          "processor_shape": [
+            1,
+            16000
+          ],
+          "rank_matches": true,
+          "shape_matches": true
+        }
+      },
+      "model_id": "wav2vec2-base",
+      "recipe": {
+        "audio": {
+          "preprocessor": {
+            "do_normalize": true,
+            "feature_size": 1,
+            "padding_value": 0.0,
+            "return_attention_mask": false,
+            "sampling_rate": 16000
+          }
+        },
+        "tokenizer": {
+          "model_max_length": 1000000000000000019884624838656,
+          "padding_side": "right",
+          "special_tokens": {
+            "bos_token": {
+              "id": 1,
+              "token": "<s>"
+            },
+            "eos_token": {
+              "id": 2,
+              "token": "</s>"
+            },
+            "pad_token": {
+              "id": 0,
+              "token": "<pad>"
+            },
+            "unk_token": {
+              "id": 3,
+              "token": "<unk>"
+            },
+            "word_delimiter_token": {
+              "id": 4,
+              "token": "|"
+            }
+          },
+          "truncation_side": "right",
+          "vocab_size": 32
+        }
+      },
+      "repo": "facebook/wav2vec2-base-960h",
+      "revision": "22aad52d435eb6dbaf354bdad9b0da84ce7d6156"
+    },
+    {
+      "example": {
+        "text": {
+          "decoded": "The quick brown fox jumps over the lazy dog.",
+          "raw": {
+            "kind": "text",
+            "value": "The quick brown fox jumps over the lazy dog."
+          },
+          "tensors": {
+            "attention_mask": {
+              "dtype": "int64",
+              "sha256": "94449c7941143928508d443f2ae504eea6f3fd7c975bf9d997ee70b0717efaea",
+              "shape": [
+                1,
+                10
+              ]
+            },
+            "input_ids": {
+              "dtype": "int64",
+              "sha256": "e50a0ce8531a7fdbb84f44c9d28636b90e65af1c84b3bc44a3435c5b5eef4af3",
+              "shape": [
+                1,
+                10
+              ]
+            }
+          }
+        }
+      },
+      "family": "image-text-chat",
+      "files": {
+        "added_tokens.json": {
+          "sha256": "74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a",
+          "size": 4739,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/added_tokens.json"
+        },
+        "chat_template.json": {
+          "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168",
+          "size": 429,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/chat_template.json"
+        },
+        "config.json": {
+          "sha256": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+          "size": 7353,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/config.json"
+        },
+        "generation_config.json": {
+          "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+          "size": 136,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/generation_config.json"
+        },
+        "merges.txt": {
+          "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+          "size": 466391,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/merges.txt"
+        },
+        "preprocessor_config.json": {
+          "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+          "size": 486,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/preprocessor_config.json"
+        },
+        "processor_config.json": {
+          "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+          "size": 68,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/processor_config.json"
+        },
+        "special_tokens_map.json": {
+          "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09",
+          "size": 1069,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/special_tokens_map.json"
+        },
+        "tokenizer.json": {
+          "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+          "size": 3548256,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/tokenizer.json"
+        },
+        "tokenizer_config.json": {
+          "sha256": "36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777",
+          "size": 28249,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/tokenizer_config.json"
+        },
+        "vocab.json": {
+          "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+          "size": 800662,
+          "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/vocab.json"
+        }
+      },
+      "input_agreement": {},
+      "model_id": "smolvlm-256m",
+      "recipe": {
+        "generation": {
+          "bos_token_id": 0,
+          "eos_token_id": 49279,
+          "pad_token_id": 2
+        },
+        "image_preprocessor": {
+          "do_convert_rgb": true,
+          "do_image_splitting": true,
+          "do_normalize": true,
+          "do_pad": true,
+          "do_rescale": true,
+          "do_resize": true,
+          "image_mean": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "image_std": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "max_image_size": {
+            "longest_edge": 512
+          },
+          "resample": 1,
+          "rescale_factor": 0.00392156862745098,
+          "size": {
+            "longest_edge": 2048
+          }
+        },
+        "processor_fixture": {
+          "path": "fixtures/processors/smolvlm-tiny-recipe.json",
+          "sha256": "0182e2a84074d04c1cddac16bd9b391bc7273a15ef2d90edcb6a132605348264"
+        },
+        "text": {
+          "model_max_length": 8192,
+          "padding_side": "right",
+          "special_tokens": {
+            "bos_token": {
+              "id": 1,
+              "token": "<|im_start|>"
+            },
+            "eos_token": {
+              "id": 49279,
+              "token": "<end_of_utterance>"
+            },
+            "pad_token": {
+              "id": 2,
+              "token": "<|im_end|>"
+            },
+            "unk_token": {
+              "id": 0,
+              "token": "<|endoftext|>"
+            }
+          },
+          "truncation_side": "left",
+          "vocab_size": 49280
+        }
+      },
+      "repo": "HuggingFaceTB/SmolVLM-256M-Instruct",
+      "revision": "7e3e67edbbed1bf9888184d9df282b700a323964"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "pinned processor/tokenizer assets and tensor-level recipes; raw-media decoding is not covered",
+  "versions": {
+    "numpy": "2.5.3",
+    "tokenizers": "0.23.2",
+    "torch": "2.12.0+cpu",
+    "transformers": "5.18.0"
+  }
+}

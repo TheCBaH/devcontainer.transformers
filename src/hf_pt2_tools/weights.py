@@ -13,10 +13,14 @@ from .inventory import SAFETENSORS_DTYPES, program_values
 SOURCE_FIELDS = ('repo_id', 'revision', 'url')
 
 
-def build_pack(binding, snapshot, program_path, output, source):
+def build_pack(binding, snapshot, program_path, output, source, graph=None):
     """Combine verified checkpoint values with graph-owned captures; return the v1 map document."""
+    if 'captures' not in binding:
+        raise ValueError('binding predates the all-capture inventory; rerun `hf-pt2 bind` for this graph')
     if binding['status'] != 'verified':
         raise ValueError('pack requires a verified checkpoint binding')
+    if graph is not None and file_hash(graph) != binding['graph_sha256']:
+        raise ValueError('binding was made for a different graph; rerun `hf-pt2 bind`')
     missing = [field for field in SOURCE_FIELDS if not source.get(field)]
     if missing:
         raise ValueError(f'pack source needs a pinned location: {missing}')

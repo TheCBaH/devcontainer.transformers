@@ -1,0 +1,34 @@
+{
+  "components": {
+    "image-encoder": {
+      "artifact_id": "tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static",
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "346ecd63a280cc14c315f0245ff3e481fd6c8c1e0d336b86816b66b2da90c6f4",
+      "status": "verified"
+    },
+    "text-encoder": {
+      "artifact_id": "tinyclip/image-text-embeddings/tiny/text-encoder/fp32/dynamo/static",
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "e4f28f4b05f659bb5e92555578cb95434d360de1c5a8e4d4a7fc420b687c8ab4",
+      "status": "verified"
+    }
+  },
+  "model_id": "tinyclip",
+  "population": "tiny",
+  "schema_version": 1,
+  "status": "verified",
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

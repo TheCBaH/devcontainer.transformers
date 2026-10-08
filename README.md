@@ -89,11 +89,45 @@ replays all cases with torch only. `bind` records, per capture, a checkpoint
 source (file, key, dtype, conversion, aliases) or a graph-owned payload digest,
 and `unmapped` means a live capture without a source. `hf-pt2 pack` emits the
 captured-value safetensors file plus the version-1 `safetensors.json` map for
-mltorch and checks it as the consumer would. Static-history decode variants
-(`decode/.../static-h<N>`) pin one history length beside the dynamic artifact.
+mltorch and checks it as the consumer would. `pack --artifact <id>` names the
+files after the full artifact ID (components of one model would otherwise
+collide) and `--graph` rejects a binding made for another graph; maps from
+before the all-capture inventory are refused with a request to rerun `bind`.
+`bundle --packs <dir>` adds the map as the loader's `models/safetensors.json`
+member, copies the pack beside the archive and records it in the manifest;
+`bundle-verify` re-checks the pack digest and that every capture is mapped. Static-history decode variants
+(`decode/.../static-h<N>`) pin one history length beside the dynamic artifact,
+with two independent cases each (the initial prompt and a cache reset onto
+another prompt, both rolled forward to every history) and a recorded refusal of
+every other history and of an over-capacity state.
+Empty-cache captures are live, not dead: their clones feed the cache
+concatenations, so canonical exports keep them. The cohort's 36 empty captures
+all have shape `[0]`; a static consumer must support empty 1-D tensors in
+concatenation (or normalize them with value-preserving provenance) rather than
+prune them, which would change the graph.
 Original-size and checkpoint-backed runs are heavy: dispatch the `checkpoint`
 workflow by editing `checkpoint-request.json` (push to `devel`), which exports,
 binds, packs and bundles the requested models and uploads the evidence.
+With `publish` (a request field or dispatch input) a second job uploads bundles,
+manifests, packs and `publication.json` (`hf-pt2 index`: exact URLs, SHA-256 and
+sizes, with producer commit, upstream checkpoint and release tag kept as
+separate facts) to the release `pack_tag` (default `checkpoint-packs-<sha12>`),
+never overwriting assets, then downloads each URL fresh and compares digests.
+The maps' `source.url` points at those assets; mltorch's resolver still reads
+only `repo_id`/`revision`/`filename` as a Hugging Face source, so consumers use
+the URL or a local file until it gains URL loading.
+
+**Task assets and components.** `task-assets.json` (`make assets`, needs the
+Hub) pins each base model's processor, tokenizer and generation files by
+revision URL and SHA-256 and records tensor-level recipes: preprocessing
+policies, special-token ids, output decoding and one seeded raw-input-to-tensor
+example per family, with an informational comparison to the model's original-size
+input shapes (for example YOLOS/SegFormer processors emit larger images than
+the exported 224 contract, and tokenizers pad to their own length). Raw media
+decoding is out of scope. `make models.encoders` publishes TinyCLIP's
+`image-encoder` and `text-encoder` as standalone components with their own
+graphs, cases, captures and (checkpoint-backed) packs, verified against the
+combined model's normalized embeddings.
 
 Each `models/<model>/<task>/<population>/forward/<dtype>/<policy>/<shape>/`
 directory contains the unmodified serializer JSON, weight/constant metadata,

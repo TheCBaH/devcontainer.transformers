@@ -1,0 +1,36 @@
+{
+  "artifact_id": "tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "c3bc225a64f948a80965569af386a3bad7bf68c85fce977c1d68dcca4880ad8d",
+      "outputs": [
+        "image_features"
+      ],
+      "outputs_sha256": "ac125049b1de4010a670f5297ad9b9a76bb33fc26df243a259e07456fffa5dc8"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "0234ecde38de40fe157b9d35c017337f5b60cff01fe030a76fdca23b4dc2dcaa",
+      "outputs": [
+        "image_features"
+      ],
+      "outputs_sha256": "a0c6032c756120559fa090d6a30593fec104cb23258f88e1a8d246bccbf52c78"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

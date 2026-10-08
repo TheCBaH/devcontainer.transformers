@@ -160,7 +160,7 @@
     "device": "cpu",
     "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
     "python": "3.13.12",
-    "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
+    "tools_sha256": "0bd11116b3a1a33ebafb3d79deeec61a7338d56f64c43a8a6341b74b820b3b9b",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",

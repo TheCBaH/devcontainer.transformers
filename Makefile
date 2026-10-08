@@ -36,8 +36,9 @@ research.reference: setup
 clean:
 	rm -rf .build .pytest_cache
 
-.PHONY: catalogue bundles bundles.verify models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
+.PHONY: assets models.encoders catalogue bundles bundles.verify models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
 GENERATION_OUTPUT ?= .build/generation
+COMPONENT_OUTPUT ?= .build/components
 BUNDLE_OUTPUT ?= .build/bundles
 models.fetch: setup
 	$(RUN) hf-pt2 fetch --subset $(SUBSET)
@@ -50,6 +51,10 @@ models.generation.all: setup
 		extra=; [ "$$model" = smollm2-135m ] && extra='--static-history 4,8'; \
 		$(RUN) hf-pt2 generation --subset $$model $$extra --output $(GENERATION_OUTPUT) --timeout $(TIMEOUT); \
 	done
+assets: setup
+	$(RUN) hf-pt2 assets
+models.encoders: setup
+	$(RUN) hf-pt2 encoders --output $(COMPONENT_OUTPUT) --timeout $(TIMEOUT)
 models.heads: setup
 	$(RUN) hf-pt2 research --subset bert-tiny-sequence-classification,bert-tiny-qa,bert-tiny-token-classification,bert-tiny-masked-lm --output .build/heads --workers $(WORKERS) --timeout $(TIMEOUT)
 research.extended: setup

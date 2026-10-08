@@ -309,6 +309,35 @@ def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts
         mutate(broken)
         with pytest.raises(ValueError, match=message):
             check_pack(broken, pack, binding['captures'])
+    program = roots[0] / '.build' / identity / 'model.pt2'
+    stale = {k: v for k, v in binding.items() if k != 'captures'}
+    with pytest.raises(ValueError, match='rerun `hf-pt2 bind`'):
+        build_pack(stale, snapshot, program, pack, source)
+    with pytest.raises(ValueError, match='different graph'):
+        build_pack({**binding, 'graph_sha256': '0' * 64}, snapshot, program, pack, source, artifact / 'models/model.json')
+    from hf_pt2_tools.fixtures import build_bundle, flat_name, verify_bundle
+    packs = tmp_path / 'artifact-packs'
+    named = packs / (flat_name(identity) + '.safetensors')
+    build_pack(binding, snapshot, program, named, {**source, 'url': 'https://github.com/o/r/releases/download/t1/' + named.name},
+               artifact / 'models/model.json')
+    manifest = build_bundle(ROOT, artifact, roots[0] / '.build' / identity, tmp_path / 'packed', packs)
+    assert manifest['pack']['name'] == named.name and manifest['members']['models/safetensors.json']
+    archive = tmp_path / 'packed' / manifest['archive']['name']
+    assert verify_bundle(ROOT, archive)['status'] == 'ok'
+    from hf_pt2_tools.fixtures import publication_index
+    index = publication_index(tmp_path / 'packed', 'o/r', 't1')
+    entry = index['artifacts'][0]
+    assert entry['assets']['pack']['url'] == 'https://github.com/o/r/releases/download/t1/' + named.name
+    assert entry['assets']['pack']['sha256'] == manifest['pack']['sha256'] and entry['assets']['archive']['url'].endswith('.tar.gz')
+    assert entry['weight_source']['kind'] == 'random' and entry['producer_commit'] != entry['graph_sha256']
+    with pytest.raises(ValueError, match='differs from the release asset'):
+        publication_index(tmp_path / 'packed', 'o/r', 'other-tag')
+    (tmp_path / 'packed' / named.name).write_bytes(b'x' + named.read_bytes())
+    with pytest.raises(ValueError, match='pack file missing or differs'):
+        verify_bundle(ROOT, archive)
+    (packs / (flat_name(identity) + '.map.json')).unlink()
+    with pytest.raises(ValueError, match='incomplete derived pack'):
+        build_bundle(ROOT, artifact, roots[0] / '.build' / identity, tmp_path / 'half', packs)
 
 
 def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail(tmp_path):
@@ -366,9 +395,28 @@ def test_static_decode_variants_pin_history_and_reject_others(tmp_path):
     assert dynamic['dynamic_constraints']['history'] == [1, 8] and 'variant' not in dynamic
     for history, component in result['static_variants'].items():
         assert component['artifact_id'].endswith(f'/decode/fp32/dynamo/static-h{history}')
-        assert component['rejected_other_histories'] == 4
+        assert component['rejected_other_histories'] == 9 and component['case_sequences'] == ['initial', 'reset']
+        document = json.loads((tmp_path / 'models' / component['artifact_id'] / 'cases.json').read_text())
+        assert len(document['cases']) == 2 and document['cases'][0]['inputs_sha256'] != document['cases'][1]['inputs_sha256']
         contract = verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])
         assert contract['variant'] == {'kind': 'static-history', 'history': int(history), 'attention_length': int(history) + 1}
         assert contract['dynamic_constraints'] == {} and contract['exporter']['shape_policy'] == 'static'
         shapes = {t['name']: t['shape'] for t in contract['inputs']}
         assert shapes['past_0_key'][2] == int(history) and shapes['attention_mask'][1] == int(history) + 1
+
+
+def test_tinyclip_towers_are_independent_components_matching_the_whole_model(tmp_path):
+    result = run_worker(ROOT / 'scripts/worker.py',
+                        ['encoders-worker', '--root', ROOT, '--output', tmp_path, '--subset', 'tinyclip'], 'towers', 300)
+    if result['status'] != 'verified':
+        pytest.fail(json.dumps(result)[:2000] + str(sorted((tmp_path / '.build/encoders').glob('*.log'))))
+    assert set(result['components']) == {'image-encoder', 'text-encoder'}
+    for component, inputs, output in (('image-encoder', ['pixel_values'], 'image_features'),
+                                      ('text-encoder', ['input_ids', 'attention_mask'], 'text_features')):
+        contract = verify_artifact(ROOT, tmp_path / 'models' / result['components'][component]['artifact_id'])
+        assert [t['name'] for t in contract['inputs']] == inputs and [t['name'] for t in contract['outputs']] == [output]
+        assert contract['verified_cases'] == 2 and 'state' not in contract
+        captures = json.loads((tmp_path / 'models' / contract['artifact_id'] / 'captures.json').read_text())
+        other = 'text' if component == 'image-encoder' else 'vision'
+        assert not any(row['target'].startswith(other) or row['target'].startswith('visual' if other == 'vision' else 'text')
+                       for row in captures['captures'])
