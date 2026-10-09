@@ -2983,6 +2983,5532 @@
       "tied_aliases": []
     }
   ],
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        3,
+        7,
+        7
+      ],
+      "source": {
+        "byte_size": 18816,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.0.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.patch_embeddings.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "04a742c247e57b000f01b1b011a60dc0d4aca466cc3a4e5ee8b9d26252e93bd7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.0.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.0.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.patch_embeddings.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "bc8e320462a171a0d8abca6988f673784a10cf61882151387300600d8ddcdac8",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.0.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.0.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.patch_embeddings.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e5e72627f8346653929769f87ae4b479ef080b6a5b26d32be28f41069d194f10",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.0.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.0.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.patch_embeddings.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "effaf8ddb79690c58b7c5bc144aa385c749f1d71228aa2b214ee5897d0cbda66",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.0.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6b75f2c6822a61d08bfeef63e22ebad1d95170476f80b8f68443d88d66462fc6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "cfcdcbbc132977faf6b8c59f66ff07f41abc4596a411a1c648c4b168ed7a902c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7714e4b7b9d747d6463e5a496215a743065ac9e80761a6dc82fec6ab152a7c08",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "51c0d4fc3b2dd5ccabcab318e84775208ac1d3fabec8058c18b8ddd15e53697d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2a0d88c5e7aadfdb452955b8dacbe8e3ef80d9d8483d1363802cffa7de2aff67",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "76643fb802db94dab494d4ba6b82c925991acb481391fce6bbed508f6f50a3fe",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "074c43d99ad37987640f9b5d11cfd7f1f373c56658f0a6ef75b9051c8eb15b30",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3342573927b351f1ec59a81be25382a99b35c1f2ce675702b29f326b7558f21d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "92b4354b33c30a422d044ab2a7f57226efe97a66115f2ff44df9a38f737939a1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "21debc5b44b5cea7fc8afe8ccf1f4840d617750719227b74740fa8dd7ec480cd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32,
+        8,
+        8
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ebbfe58f5d1578f668bd24a5f4ad8c699a15fea902438af7258f21544fabdd43",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "696fa24604c745d75788e0f884e9bc76363954790f42f09541e90c9108087392",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d090964332f3890f8eac0eb37db0411a82845f66c5e14ea18bd74ee0a1074246",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "dd4a14226fe9e4440d76efe58921513b5514d1f55ea96bd862dd065617c2f67d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3d7ad544330ecaa1892902a6692f07b12877cf67b3b88253feb4b906d3da6585",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f09f0e96609f17296b7fcd82d73e5c73ab26d96bfd0824746e0bc6d17c8f19fb",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "89de4ff00666ba897aa71371b4d85aa6ae9553653bf08b093a29c069f2e901b7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e2e042b1f617f80d10098341995ea87e9690585f8e94da759867476b990f6379",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 4608,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e7a6aebe613c47798ad5e137ed9fe56e1eb3787d3d666cc85acb78b1072ca29b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d21da1e504c71890ac5d0b277c8a99ea00ec306a11842690b83ae4642269cdbd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        128
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "08de0cdf7dabcc8d2e61a64f0762071012ff29e2f5e9ed0867dca4d89793927a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.0.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.0.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3dc15063eb1f4f64f66f16e357adecd0851b670503f1b2c77672eac021e87dee",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "fbcabdbc4add33d809206fa2d17db08fa40570e56eb394e3eb702c14bfbcae34",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_layernorm_before_weight",
+      "target": "model.segformer.stages.0.blocks.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "254cd9f8d3a6f5a4836a3503c2a2fb0b93f358c4c88e4e785cbcb6e9df75cb3f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_layernorm_before_bias",
+      "target": "model.segformer.stages.0.blocks.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8d514d1762b8d4635784f4fb7b8eeb39cb5626383a2b1210a8ca3cef07a67a2f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_q_proj_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a7d528f2d5dd4d8f6978127b3d41920ef3af5e95dbf16c4ac5e06b46b1c6e7d8",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_q_proj_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "687db8841643fb6c5dc5cf5d97235df377acba75c64706e174b828dc3f308878",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_k_proj_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "29fa84c0ef63ab75edce27e4d1511c818056ee390a4cfc273084e180fa51e399",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_k_proj_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d8d3319ee2608503f198b134369a1a3876fc0449a574d1b7ed2456fd5b7911d2",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_v_proj_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e61d6799a73cfd2c0b732ed26bb506baf9036d13b6f08710fa54020390f42ed7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_v_proj_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "da5d18fe0e2e2ba2dcd2d7ed8729c5ca90796543381c52d4377b640eb71c3b18",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_o_proj_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "100064de80668b339cd4e71a946279a1cc5cd2795cbad5e1040b8c9e9d8b25cc",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_o_proj_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32,
+        8,
+        8
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "45e0e5b60c00e8164cf0dac501704b6c57780dc3e9440edf3e0310d84eb8932e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "383ddad8db21fd77d7d96d08e11eace1167a3fa19d0fbedebde71aed565d28f4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "83677721880cb1cf452987116778b4e53a6cf2e72727d7373732dd92c87d8d81",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.0.blocks.1.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_39",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "67ccc881852a497e0585339c09259be60d9a19422eba3b927a491d8ab9c48ed2",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.0.blocks.1.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_40",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7914ed221843e54ae53054576d1bb5ee7607cb5251e05bbe40f66a6e28b6135b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_layernorm_after_weight",
+      "target": "model.segformer.stages.0.blocks.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_41",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a5d7b5be8591d206619dfec482d3f342cc0ec8a3c23ae50d69aa9de2b6efcfc4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_layernorm_after_bias",
+      "target": "model.segformer.stages.0.blocks.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_42",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6c0844f836f0c040bbd2465c3a0ecf66c5d2de358bc6893e615ffe4bfcd8401e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_fc1_weight",
+      "target": "model.segformer.stages.0.blocks.1.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_43",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7f3714aaf0794d6b509efcecef5bb3e03df48c9113f6a0e6392622ccdf0e930b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_fc1_bias",
+      "target": "model.segformer.stages.0.blocks.1.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_44",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 4608,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "5049525b84de788c3cde3a0f35056b7c365e9a230a2dc228b288e1d72e5bfe89",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.0.blocks.1.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_45",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9176b726827c4c1710a4ab56ff241ebe9254ccd68933ab5f19f91540084becf0",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.0.blocks.1.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_46",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        128
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "fc765a98df7d14e30db0762a278f42d581f5d3e6f2826e853c692d19e6cf48e9",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_fc2_weight",
+      "target": "model.segformer.stages.0.blocks.1.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_47",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.0.1.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.blocks.1.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "db62f2d0a72a3acd3731047dbb92a4d18a55a8791d0ceb0d705cfd3e4e6ac29f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_1_mlp_fc2_bias",
+      "target": "model.segformer.stages.0.blocks.1.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_48",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.0.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "16287c3beab62d762e6425e2668dc966146b01eb55f7cb7f8bac38550494a289",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_layer_norm_weight",
+      "target": "model.segformer.stages.0.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_49",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "byte_size": 128,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.0.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.0.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c920f9f268ef00dbdca12fd015611f0ae8b395be4e3487f4523c7902dab138c5",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_0_layer_norm_bias",
+      "target": "model.segformer.stages.0.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_50",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 73728,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.1.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.patch_embeddings.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "fa250e75c2cd5e446013db11deee0bb65301a6957ffc41d978fa692296e2f9ca",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.1.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_51",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.1.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.patch_embeddings.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a46a65129b74b18aabe19ffd423aad7fe0589ae7723558fb34f65842523aa0c0",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.1.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_52",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.1.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.patch_embeddings.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "15591dc34ee3803adfc59093789f67e4408b6a589cb9e1e1fd84c505bcc6adbe",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.1.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_53",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.1.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.patch_embeddings.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a4636dada5c2f8eee3031605e40af9305b1d7d95bdf67c948cc7fbadbf49f7c3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.1.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_54",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1747e1d5a398f494e2e8880d5e3150b0d55298c97e98630babdf1f502c4a6ace",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_55",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6b13096cef68175f7c575b203ca70ca1d7b5fff45c52dca8a165e6ba0d3d4711",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_56",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "19530de12a59b102966f65e783b3da7a8db6e6cfcb9e05a8d0db5b320064e57b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_57",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4226af4752a690b98921f5ea5347059b2aa5971c3f9e5ab452a24866c88ef8a1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_58",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c2e2b998707017b2e58795172aba207318403e844abd9ba90e1764016ca81490",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_59",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ff6333b060bf562620f89b03d4822842f308a2cab681bcac50ca1845de3dc661",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_60",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8bc2063a95431932e599b0af0a589e3ecf962e2fe6564829adb72e741f2cef4e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_61",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "01872bb5047962e4e43bbca1cb7673f4a17815f4f3876cd89b7a339dbd542778",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_62",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "22db4a47fcea98ba5457c5d678bf2c8edb99e58713e2847f4094c2831bfbf33c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_63",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "151b19a5ea334fb4d3c738fd733c3635a95eefa4ada3051665b30f73f263ff70",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_64",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64,
+        4,
+        4
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d87445034291d76bd8d6ac165cafe3f5adf66805156e80453cbba8253f707949",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_65",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "97d0a298b85e43b8dde87c61bc1e0f450a82e261c5f8224738213d875163d5f2",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_66",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e78c9dc7f5842abb62c42225a66c37abf0bd9a8d940a274f0301464b5ae63d59",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_67",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7b35f78120b43ade06afe3fd41a63d7dcda3a8692035284736de3aa83a233f38",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_68",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a9b6f78166bb972426eaf6471cce5986583b70d91dbba395448c336cc20daf79",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_69",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c168c323b0208f4cda8912ebf472ecad676df39728c966c4773aed00eaa83f6c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_70",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        64
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "286ce7c70cc8528219b47cdc1de785f0d58d9effb73c21d30bc40fe886835558",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_71",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "11245fcd9bda5bc048a486860eec92d89b40baae89d5cf8caa115e69c9d9badd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_72",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 9216,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9f5db66fc2a3704cf90fcfb8d2eac3fbdd0bbe34de5c5930638ad43ef01eaba4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_73",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7751cfa2068e736ab83981015bed93717cacde7a6ca3514bce82eb0f45112f99",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_74",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        256
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "cfc7b567118f70b82c53113581d6ecdf6cdca9acd64d87698e23d3217301b30b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_75",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.0.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.0.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0b6be01f87b02ad0e098f5a643ad99329b3b9175924bc2b346da0dc943c5f86f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_76",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c375208778207e277b046c406684c2242561a07b916129f27f0bc3ae91df7241",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_layernorm_before_weight",
+      "target": "model.segformer.stages.1.blocks.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_77",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8e5a7cb579bede104b7bba75c1da736fe709481d97000ac4216e6d1a0da4fd77",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_layernorm_before_bias",
+      "target": "model.segformer.stages.1.blocks.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_78",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4886b8db8bf5fb54c551200eff2aa796ab18d8f2186a614e45bebb0ae8d3456d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_q_proj_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_79",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ed0f99d561bd8d16c7edbbb5f6c66a1a1509cf93c40879de41e42d005f4148bc",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_q_proj_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_80",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a9546040e865e5c4c0aa1f889ca4c5ca2cddd1bd4e19cfff257adeeea18f55c0",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_k_proj_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_81",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6e731e0c1506ce6b9603581da99035d5ea9b8e3eee60fa7cbe077bec3088f01b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_k_proj_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_82",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "06be5bd3e2b802662edc355af42cec64cb95cd51738dbab92f90f994e281146a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_v_proj_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_83",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "21aa20443a459b0ec9d58bda4b178336c18045ad51c11d68e5f042988fe7cacb",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_v_proj_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_84",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "byte_size": 16384,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "91293eaf23cb9c8061a7dfbf559f49f0e39bc30fa6f851431efe5096d8ef007e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_o_proj_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_85",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "fc72e034994ee895d7a0f3ec6ff0a077bca839af1fe35f6247503cf776e3103c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_o_proj_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_86",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64,
+        4,
+        4
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7ed21ea7399b619a3a463c79177f28b021a85047932a879515d0299f0c3828ea",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_87",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d3ea46f745f773164c6b7e5979e8bd9c5043105a2bab726d636e70f5c01b3b1c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_88",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b3c03d2654fb27de9b8538e3650a7fba9919b8b7db52f90e3c65af230324cb32",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.1.blocks.1.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_89",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d562b97d47eeb987c60b90ac27c3d1c6c0473a9c80c880e79d9ff6d2e4f57d8b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.1.blocks.1.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_90",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "120f1c0c9b0528c9a5ca073611d2089a0dd38e4ceb408be8875f811ea7c69b70",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_layernorm_after_weight",
+      "target": "model.segformer.stages.1.blocks.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_91",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1ce28b935c482cc770117793477b979be9b507334a673bb47f0c5ef19ee9befb",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_layernorm_after_bias",
+      "target": "model.segformer.stages.1.blocks.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_92",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        64
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "cbe746dc0b6e60798956986670a0dc819289ab51e26e7a5ef4bb822bd5906f05",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_fc1_weight",
+      "target": "model.segformer.stages.1.blocks.1.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_93",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "07ffced4644d2d6cffa0423800999d52d04bfc45b6f58df546162aa5a0277185",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_fc1_bias",
+      "target": "model.segformer.stages.1.blocks.1.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_94",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 9216,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7abcb4c53603dc437f036f363fb705ec08c51ca4a1494b9cf7e579b7470ca94b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.1.blocks.1.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_95",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "262c7013a92c9cca1f6efadebcae742e1303b57b4b16b897bf43caed41d429c7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.1.blocks.1.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_96",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        256
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "afe048f209af6c11be48c31bd590c40191a57364b7b27fd0ae828622b0b36d47",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_fc2_weight",
+      "target": "model.segformer.stages.1.blocks.1.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_97",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.1.1.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.blocks.1.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b24a2806fc87bc6231ea82a7f0782ba561d1cdce8e1d089db67fa92acc405d4e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_1_mlp_fc2_bias",
+      "target": "model.segformer.stages.1.blocks.1.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_98",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "612038144e901cba4064c52f7005d6ab4281fade370964507c0648a54c765ce6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_layer_norm_weight",
+      "target": "model.segformer.stages.1.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_99",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "byte_size": 256,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.1.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d64a55168f3526c70279e0b54510394654bc3ffb3146d2d282dd1518eed90853",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_1_layer_norm_bias",
+      "target": "model.segformer.stages.1.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_100",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        64,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 368640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.2.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.patch_embeddings.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7c21c63aa0f8cf305103be0eef51cb9d769c9cad475c5abf96155b2f2c72f645",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.2.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_101",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.2.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.patch_embeddings.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f9dd8a8d1170964a04760df7a2ba27a6ea37bdcd30676c1222f2bb53c49a965f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.2.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_102",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.2.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.patch_embeddings.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0388352180fb6808dacdfd1a7ecf376be32ebc56020f3415b8ebc6f1fa1fde46",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.2.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_103",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.2.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.patch_embeddings.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "830d4f7297d49d58cc137c0081de0b4d6b437b9481bb782b636350155f8979a4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.2.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_104",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b3dfdf7b4d1d98cddaf0e86f1b43f16d8cbc859d6b9bc186d89b9be78ec79493",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_105",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "31c3c9178ea3f88f3d0ce29bea3817a41f7dc3377865d2e5f500b4a0187c18fc",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_106",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0336b220fcfb276dfff38b5abdf99464543858427b4d4b8ad98b559afd5b2175",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_107",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ffba088fb724dbd8bf9a6fba0a8a41ee74aa78009b8fe67b661767b9edfe313f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_108",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2f6de32084b080595af37441caa3b5400cfed915eb91886b4c596e6b966c5c31",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_109",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "38a662d8227b1ed4e6aa18dbb60ff6dbefa0fd4c3661550d39628f189aa3a1cd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_110",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9a799f79e4ae1166d04c02e4f26d9772d023d25db65ecd04470ff0aa39fc3551",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_111",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "183ce177d7abdad9a0f2c9af3201cec51236faecb07590e887079974817d3343",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_112",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8c5ce07056fda72fc538d6c11f8b88efc3f3e4c3d1489e37eeca4513c32adb12",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_113",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "71acfb933bb09adc0c62036cbeafce9bcaa8487f1852adb04cf1a085be16b104",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_114",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160,
+        2,
+        2
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2d52ca20a082f5441fd5e6cb45452bfa0d73cbe539e79cf162ce6feb09c519de",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_115",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e278689d8a6624b8c27c6413e2ea792f6a68767e6af4dd2ddae4c5e5be3b11a1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_116",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "41562a28d4aa7e1a189bc3e5295176ac298390852358ad8bcf4d0717b44a9046",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_117",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "605439b2cc0d7edc69e181c95dc6606c20be976370280292c4bacef1b6bfd1fd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_118",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "dd4fcbdab07f6a98d76ad31faf117524f0493d6a3da391415f663f699109eed2",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_119",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "407d80c562d5cec0523956cac3da7e4c4b16b796822f4d34587be477ab6d781a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_120",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640,
+        160
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "88c7ca632d168a2890be360a059b6560e9a1052016ba0960488fa79fc33636c5",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_121",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640
+      ],
+      "source": {
+        "byte_size": 2560,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4159091b122dce3f783491d2ecea2f6a5f0cb71c0c2dcdddb5c35bd86f96a40e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_122",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 23040,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9a46232811154cbae957f8ae929d383d73b2c64a3bd5f52b502f059249fc0387",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_123",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640
+      ],
+      "source": {
+        "byte_size": 2560,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0d1bc0d244183d56950552295742addbf09d86875943430227c40c25f385be13",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_124",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        640
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "662ef501d614cb952e60907576033e34227920b69d9063781926bbb97ee559dd",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_125",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.0.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.0.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9579604adbd60073658b28cd2bb5c6bb2c927f04f02e72050918a0cea9e10c1e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_126",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "970918dd389411209ec7995a445ddcdf50e41d2db4dd1e8045b47b2aba76d46d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_layernorm_before_weight",
+      "target": "model.segformer.stages.2.blocks.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_127",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a102a3e4db004477459c6131f5e8f7220ac07dd7bab7d78230463d6541e4d71b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_layernorm_before_bias",
+      "target": "model.segformer.stages.2.blocks.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_128",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2070c12b5e1109e11936eb859f436cf84a6ce395f016f714dc51affbad3aeb79",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_q_proj_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_129",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "af8023ee2d2caa3e348d3c1712699e65592916c8098f792a39e7224ef68f0f22",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_q_proj_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_130",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b97ffc7dc719d6ae8f67de6678cd8d31b60eaec0333e722ddb0d2cd62b70572d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_k_proj_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_131",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "04c335956674cbc4521c3d935f9db03b2a974dc97e938777ca6fe0a47c4d900a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_k_proj_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_132",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d27b605d23fad759464fd9ba565510793e893a76119e4d9a69d7c1f7e919f283",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_v_proj_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_133",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0bbd5183397642374aa4d09e3cba3c69e747f8bb5f1d44ac77124c228d173c5c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_v_proj_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_134",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160
+      ],
+      "source": {
+        "byte_size": 102400,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f41603bdfedfba0d102625e651c515f72a7dc74d336d4b54282a27c15d564949",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_o_proj_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_135",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c46008f39a40e330365e2af3c095a170acf5b9aace040e9a7414a0e8a307113e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_o_proj_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_136",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        160,
+        2,
+        2
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.sr.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.sequence_reduction.sequence_reduction.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "50044be78bad48b79f34682b7f10c31a7a115df739b7251cf463b7510e5bfcc8",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_137",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.sr.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.sequence_reduction.sequence_reduction.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c0fe4072ba04edf6d0b9eefb9517ac9def46d30cf0c9117ff669dabddef46dd6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_138",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.sequence_reduction.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "eedea51969719d53c0ecf609f7b02eddeda26e1b468cb50d68269ed7f3f1442c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.2.blocks.1.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_139",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.attention.self.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.attention.sequence_reduction.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8d09dbcf947ae51dc80339b9e151afdcb26689b47170e4cb78e92a025df359be",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.2.blocks.1.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_140",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b16973decd0c9cce8592d11185298c8a8340962bd0b6439b09629d67fa62282c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_layernorm_after_weight",
+      "target": "model.segformer.stages.2.blocks.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_141",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "69942d283f735397c6e2859b8bd9e1a71ea7d3b22c1b763c142a99f7bd25adb1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_layernorm_after_bias",
+      "target": "model.segformer.stages.2.blocks.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_142",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640,
+        160
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "deea2d4e78612bfd685cf9d7397609b7f12d75a47487822dd736f14e5f2e399c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_fc1_weight",
+      "target": "model.segformer.stages.2.blocks.1.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_143",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640
+      ],
+      "source": {
+        "byte_size": 2560,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "5916df5a52dafa6da9b248ea80321d2ea5d1e2ccad06595474658dfc68835ff0",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_fc1_bias",
+      "target": "model.segformer.stages.2.blocks.1.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_144",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 23040,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "26421abf41ff90326e5ef9600be08eaf9cd2ffe563bcfe9498948315e161ebac",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.2.blocks.1.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_145",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        640
+      ],
+      "source": {
+        "byte_size": 2560,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "738fd59f6f777a6ecd65cd9878695ee37fc82feda2f7ac1211e5fa0f241703e7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.2.blocks.1.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_146",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160,
+        640
+      ],
+      "source": {
+        "byte_size": 409600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "79b888246e6af729befe51b9b6c7ac14f1536089380f09c9cd1f5ce4d2ee3db9",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_fc2_weight",
+      "target": "model.segformer.stages.2.blocks.1.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_147",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.2.1.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.blocks.1.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "915ff5615abc0a467d73f9f39d373b8f2a9425faf25a75f096839319f81bf7ec",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_1_mlp_fc2_bias",
+      "target": "model.segformer.stages.2.blocks.1.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_148",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9967766cd551cc7ae0cc0416180edaca107acf4f92a882899b55c2049a057b47",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_layer_norm_weight",
+      "target": "model.segformer.stages.2.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_149",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        160
+      ],
+      "source": {
+        "byte_size": 640,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.2.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "da0b6fd4c88592eac85555a2efae173afd21e031a0b75009a459edd3a63c5c1c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_2_layer_norm_bias",
+      "target": "model.segformer.stages.2.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_150",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        160,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 1474560,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.3.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.patch_embeddings.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "869cf00343615a97b8aac50d20b409e135fbbb4f219a2a20e3de540a5a5fb333",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.3.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_151",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.3.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.patch_embeddings.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2e12ee59e29931f3d544869f115d5956ec6858b12707ece1977cbff0b2b5ad9d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.3.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_152",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.3.layer_norm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.patch_embeddings.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "279a1275446e0e50354af378c4da03e727a25834c682d5e73ae94a5dab082186",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.3.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_153",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.patch_embeddings.3.layer_norm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.patch_embeddings.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4e78f194304afe6edb08ddb02f48481477d417e274f22e8f560b5fb6a0f6b06a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.3.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_154",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "931042f49f73be4e0aa58a950408303b07913d47b92817c88ef54e92a85b6a62",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_155",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ba8547d447e810112c66c02ee8f6e9b7f73eb3f255a31c5f67a7716fde18fb98",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_156",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1547dfe3af2a178e472e87aaf0086792c303485fc649fd91fa7945df132f2e43",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_157",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9674aa787a9bab80503adee7164d6b082dbc3ee4c1a96f005ae132fd34b96127",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_158",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3211a64b1ebe94bf3d64d1c8f5271e595126649f2d74cb72a39309886e58c930",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_159",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "92fd36353a92883616be10f9586efa853f823bade9dee0429cc797e517e8485e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_160",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9b445b075396941412ac1bcf32b1e88d4cdfdc8eb70780b86b0eaecdd9a3aa2f",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_161",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4001bdbd9fcd94ab26d8faba28f2208a7c5b1813607e7dadd7e4ac1f677f2917",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_162",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "118d6e8025581ce1cb4e30c70049529b8517b150f3f87eecc6d7c52e3bb8cfb4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_163",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "600b392008663ff32d325545ee426783d9103fee89c12f4389750e4994cc4e85",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_164",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d01fdb389e1dccc31f0cd52050e081b42d7dde650309209171fde910965ee9f6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_165",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e0abca1a471a47117e4191e49d74787c586c6c74f2cb49d558d08c3776554034",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_166",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024,
+        256
+      ],
+      "source": {
+        "byte_size": 1048576,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a2752b1737085bc0b06dfba5f3ad0d8937afae0e439327e11705af2a0d6bdba5",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_167",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3304cde4cb8e9f4a69c16c013a64aa2d3ca6bc8bd02a79a15bd189c38be54e18",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_168",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 36864,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "86beade092acd78008ee38a5aaeec6147511eff5ca21669a92b2be31e69c2e81",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_169",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "eaa1af3309cb5cbf93f69c0ab84b2b1b942ea4ca0dacd2e22f09492feb2b18e6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_170",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        1024
+      ],
+      "source": {
+        "byte_size": 1048576,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c91e8b731f40a527c1aac5b4384961481396b81607cac0f76dc624927d749953",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_171",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.0.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.0.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "07b0033006ccefba68fa8a2e31b432aaf5b4e16fbd759c245431b8f29eb11938",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_172",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.layer_norm_1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.layernorm_before.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9a076aa78e226adabce1c79837c0eb959351bb42029103ebffb184368a8e4454",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_layernorm_before_weight",
+      "target": "model.segformer.stages.3.blocks.1.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_173",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.layer_norm_1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.layernorm_before.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7f7e8644ce2920baf9ec322f6c576b84f5bdeabfc8928762d9929ce93abe902b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_layernorm_before_bias",
+      "target": "model.segformer.stages.3.blocks.1.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_174",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.q_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "27bd8f8719c307ebea9d96030c1ad636a654539d0495371051735ba9caa05983",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_q_proj_weight",
+      "target": "model.segformer.stages.3.blocks.1.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_175",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.q_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e5350cc698602304f14d7e93ac651fb03fa6560435671e1e281947b1fc23734e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_q_proj_bias",
+      "target": "model.segformer.stages.3.blocks.1.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_176",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.k_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "351168f8dc80f9037031e6fdb95efd0d169f6f4edfdd8a940b4b80dc7b7aadae",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_k_proj_weight",
+      "target": "model.segformer.stages.3.blocks.1.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_177",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.k_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a952ab86e565c176a955c130e0c3803df2a4bf06eeeacf278e703be4d89e1c35",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_k_proj_bias",
+      "target": "model.segformer.stages.3.blocks.1.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_178",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.v_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ac386f7ad70caa491861665088c54a670e260c2040097a384f739f429bd1180a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_v_proj_weight",
+      "target": "model.segformer.stages.3.blocks.1.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_179",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.v_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c0c4fadc7557a45d93aae7b8f49eab2f240919e1169f04f706ac44158a01350c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_v_proj_bias",
+      "target": "model.segformer.stages.3.blocks.1.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_180",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.o_proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "5d1572fcea9928c5add2d763f3b4ae3501db2a8a9b5ab8271d6f7cabff8a2d13",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_o_proj_weight",
+      "target": "model.segformer.stages.3.blocks.1.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_181",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.attention.o_proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f6163413fedc78963625ae51b6fc2c575e8fe040ff512e5eee59067d956cbc9b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_attention_o_proj_bias",
+      "target": "model.segformer.stages.3.blocks.1.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_182",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.layer_norm_2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.layernorm_after.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6d19ade504a3958efc594f8cb81c4c187d53ec630b4f0600e3b8a79b85fd7799",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_layernorm_after_weight",
+      "target": "model.segformer.stages.3.blocks.1.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_183",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.layer_norm_2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.layernorm_after.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "50749104f9992cbb44d9439a7ad6e15b7b112f0eb07e17029a5a4e4e741f36a9",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_layernorm_after_bias",
+      "target": "model.segformer.stages.3.blocks.1.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_184",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024,
+        256
+      ],
+      "source": {
+        "byte_size": 1048576,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dense1.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.fc1.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7dc378970ddbd9b49b69f460b176ebeae76cf7a33d29efff9a592764f7c4d1b7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_fc1_weight",
+      "target": "model.segformer.stages.3.blocks.1.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_185",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dense1.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.fc1.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4123df94f84943ea17bf4edd906cb9156054fb1d869488ef028e2dad33a7eb1e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_fc1_bias",
+      "target": "model.segformer.stages.3.blocks.1.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_186",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "byte_size": 36864,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dwconv.dwconv.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.dwconv.dwconv.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b30a4b42f4b3d2b09faba875afe4fd003baa3d01a8bd4f35e3709ccad56414da",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.3.blocks.1.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_187",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1024
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dwconv.dwconv.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.dwconv.dwconv.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d3bbf3f468821e39113514b8f03526ee3e6d43e49010a16c3744ec5bf30b4929",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.3.blocks.1.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_188",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        1024
+      ],
+      "source": {
+        "byte_size": 1048576,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dense2.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.fc2.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8c8dac90935b071056e66a336f68eb9cb5f0784b835599e71d5c315a6b77b906",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_fc2_weight",
+      "target": "model.segformer.stages.3.blocks.1.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_189",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.block.3.1.mlp.dense2.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.blocks.1.mlp.fc2.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2c779c313e6fbb69537cb3426c2909340a27c770d4876bec5e238b841f6b7fd5",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_1_mlp_fc2_bias",
+      "target": "model.segformer.stages.3.blocks.1.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_190",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.3.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.layer_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "64a81e251a9cdedb7f7a70e1a8089d3e9e8a8b1a12d19fe8136be927da074299",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_layer_norm_weight",
+      "target": "model.segformer.stages.3.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_191",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "segformer.encoder.layer_norm.3.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "segformer.stages.3.layer_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c8ed35449c03842ab4ca76b81c8be4ebe574290a0e479bb698988461d6f522f4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_segformer_stages_3_layer_norm_bias",
+      "target": "model.segformer.stages.3.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_192",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        32
+      ],
+      "source": {
+        "byte_size": 32768,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.0.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.0.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ff64dfd4e75aa48e0ef3a2640ef8681725786bc042e703ef1224b5943597a176",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_0_proj_weight",
+      "target": "model.decode_head.linear_projections.0.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_193",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.0.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.0.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "08f98417f35032b64e0bc7ded64ca6330ed106986eacf4a6be7043f44da15253",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_0_proj_bias",
+      "target": "model.decode_head.linear_projections.0.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_194",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        64
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.1.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.1.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2af80ae4a3e9de2c34bfc331622683c7fbab31ffa3416ebe559742ee20a300d4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_1_proj_weight",
+      "target": "model.decode_head.linear_projections.1.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_195",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.1.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.1.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "209b62b4b168c887ef71a7ccd91ee27ed4e84ca66a88b32cb7e5eae58609395e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_1_proj_bias",
+      "target": "model.decode_head.linear_projections.1.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_196",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        160
+      ],
+      "source": {
+        "byte_size": 163840,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.2.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.2.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ccbf4e05d59bc819898c548c2fad46d753cc137458fcccb8ff3d4f3f3179e6bb",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_2_proj_weight",
+      "target": "model.decode_head.linear_projections.2.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_197",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.2.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.2.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e0f30c7a40fd686cc47457ca75c7441479ef6d221ea7d40d5e3515f825df3eb7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_2_proj_bias",
+      "target": "model.decode_head.linear_projections.2.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_198",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        256
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.3.proj.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.3.proj.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7e3bcaeb5f242db77ef47fba55da7e22534f1d19f5b27cced5dc36c6f7320a5e",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_3_proj_weight",
+      "target": "model.decode_head.linear_projections.3.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_199",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_c.3.proj.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_projections.3.proj.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c3a9f7ae643e9533b0cd250bf11eb7ce5f6489b85ba51fe06c84b222440eda43",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_3_proj_bias",
+      "target": "model.decode_head.linear_projections.3.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_200",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ],
+      "source": {
+        "byte_size": 1048576,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.linear_fuse.weight",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.linear_fuse.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6217649b44a228d85190508161f5d0c4dd0d8160754bd27625bc549e4db8e5df",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_linear_fuse_weight",
+      "target": "model.decode_head.linear_fuse.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_201",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.batch_norm.weight",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.batch_norm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d53334350c129d9cf273be37ba7c486b706af85763856af183dd374d567d4a5b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_batch_norm_weight",
+      "target": "model.decode_head.batch_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_202",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.batch_norm.bias",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.batch_norm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "5ec7549ecc08d03011e278e56e7c6433d3b27ccb8036e5853a8395f246219b01",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_batch_norm_bias",
+      "target": "model.decode_head.batch_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_203",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        150,
+        256,
+        1,
+        1
+      ],
+      "source": {
+        "byte_size": 153600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.classifier.weight",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.classifier.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1d4078d1238165c26cd06a37b91cb6d58096c0dd57b2c6764322c01781b93c72",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_classifier_weight",
+      "target": "model.decode_head.classifier.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_204",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        150
+      ],
+      "source": {
+        "byte_size": 600,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.classifier.bias",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.classifier.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0b836811c301c9685fe3f4747f1ddedd584ffa7788a315695a1777025e0bd885",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_decode_head_classifier_bias",
+      "target": "model.decode_head.classifier.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_205",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.batch_norm.running_mean",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.batch_norm.running_mean",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b6dc9dcc3411054229225fb2723da60f75c29d11dd8a79a17226423e7bb12b6c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_running_mean",
+      "target": "model.decode_head.batch_norm.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_206",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.batch_norm.running_var",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.batch_norm.running_var",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a15934f3b8fdd82c2e3ee58ffa9c284a243cacdb6c86ed12aad2a59edd5415e1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_running_var",
+      "target": "model.decode_head.batch_norm.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_207",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "byte_size": 8,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "decode_head.batch_norm.num_batches_tracked",
+        "conversion": "none",
+        "key_renamed": false,
+        "kind": "checkpoint",
+        "library_parameter": "decode_head.batch_norm.num_batches_tracked",
+        "loaded_dtype": "torch.int64",
+        "loaded_sha256": "e6085fe3661472d1a57f58a166ea0f1d0488030f1da1856e92606cbe52f53f65",
+        "source_dtype": "torch.int64",
+        "tied_aliases": []
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_num_batches_tracked",
+      "target": "model.decode_head.batch_norm.num_batches_tracked"
+    }
+  ],
+  "checkpoint_bytes": {
+    "model.safetensors": 15036944
+  },
   "checkpoint_sha256": {
     "model.safetensors": "6ae39addd01de6b1b8bde2cf677d43a5cd733424b8d186de3f95d1c51fee23f9"
   },
@@ -3002,9 +8528,10 @@
     "size_basis": "Hub safetensors stored tensor count"
   },
   "schema_version": 1,
-  "scope": "parameter bindings for an original-config architecture graph; no pretrained accuracy claim",
+  "scope": "captured-value bindings for an original-config architecture graph; no pretrained accuracy claim",
   "status": "verified",
   "unbound_unused_parameters": [],
+  "unmapped": [],
   "versions": {
     "safetensors": "0.8.0",
     "torch": "2.12.0+cpu",

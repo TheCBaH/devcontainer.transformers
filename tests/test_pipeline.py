@@ -383,7 +383,7 @@ def test_matrix_separates_producer_stages_from_consumer_admission(bert_artifacts
     by_model = {r['model']: r for r in document['rows']}
     assert [r['model'] for r in document['rows']] == list(BASE_MODELS)
     bert = by_model['bert-tiny']
-    assert (bert['export'], bert['bind'], bert['map_v2'], bert['offline_replay']) == ('ok', 'not run', 'not run', 'ok')
+    assert (bert['export'], bert['bind'], bert['map_v2'], bert['bundle_check']) == ('ok', 'not run', 'not run', 'ok')
     assert all(r['consumer_admission'] == NOT_MEASURED for r in document['rows'])
     assert by_model['yolos-tiny']['export'] == 'not run'
     assert '| bert-tiny | forward | ok |' in (tmp_path / 'matrix.md').read_text()
@@ -466,5 +466,11 @@ def test_map_v2_declares_conversion_and_reproduces_every_capture(bert_artifacts,
     assert slim['payload'] is None and 'model.pt2' not in slim['members'] and 'pack' not in slim
     assert slim['members']['models/safetensors.v2.json'] and slim['map_v2']['assets'][0]['name'].endswith('.graph-owned.safetensors')
     assert verify_bundle(ROOT, tmp_path / 'slim' / slim['archive']['name']) == {'status': 'ok', 'cases': 2, 'replay': 'not included (slim bundle)'}
+    import sys
+    from hf_pt2_tools.cli import main
+    monkeypatch.setattr(sys, 'argv', ['hf-pt2', 'index', '--root', str(ROOT), '--output', str(tmp_path / 'slim'),
+                                     '--release-repo', 'o/r', '--release-tag', 't1'])
+    main()
+    assert (tmp_path / 'slim' / 'publication.json').exists()
     index = publication_index(tmp_path / 'slim', 'o/r', 't1')
     assert any(name.startswith('v2:') for name in index['artifacts'][0]['assets'])

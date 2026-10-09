@@ -1,4 +1,4 @@
-"""Per-artifact checkpoint matrix: export, bind, map, bundle verification, kept apart from consumer admission."""
+"""Per-artifact checkpoint matrix: export, bind, map, bundle checks, kept apart from consumer admission."""
 import json
 from pathlib import Path
 
@@ -23,14 +23,14 @@ def _row(model, identity, component, export, source, bundles, maps, replay):
            'bind': (binding or {}).get('status', 'not run'),
            'unmapped_captures': len((binding or {}).get('unmapped', [])) if binding else None,
            'map_v2': 'ok' if manifest and 'map_v2' in manifest else 'not run',
-           'offline_replay': 'not run', 'consumer_admission': NOT_MEASURED,
+           'bundle_check': 'not run', 'consumer_admission': NOT_MEASURED,
            'weights': (manifest or {}).get('weight_source', {}).get('kind')}
     if manifest and replay:
         archive = bundles / manifest['archive']['name']
         try:
-            row['offline_replay'] = verify_bundle(replay, archive)['status']
+            row['bundle_check'] = verify_bundle(replay, archive)['status']
         except Exception as error:  # a failed replay is a result, not a crash
-            row['offline_replay'] = f'failed: {type(error).__name__}'
+            row['bundle_check'] = f'failed: {type(error).__name__}'
     return row
 
 
@@ -46,7 +46,7 @@ def build_matrix(root, source, output, replay=True):
         if not reference['safetensors_files']:
             rows.append({'model': model, 'component': 'forward', 'artifact_id': None, 'export': 'unavailable',
                          'bind': 'unavailable', 'unmapped_captures': None, 'map_v2': 'unavailable',
-                         'offline_replay': 'unavailable', 'consumer_admission': NOT_MEASURED, 'weights': None,
+                         'bundle_check': 'unavailable', 'consumer_admission': NOT_MEASURED, 'weights': None,
                          'note': 'no upstream safetensors at the pinned revision'})
             continue
         result = forward.get(model)
@@ -57,7 +57,7 @@ def build_matrix(root, source, output, replay=True):
             rows.append(row)
         else:
             rows.append({'model': model, 'component': 'forward', 'artifact_id': None, 'export': 'not run', 'bind': 'not run',
-                         'unmapped_captures': None, 'map_v2': 'not run', 'offline_replay': 'not run',
+                         'unmapped_captures': None, 'map_v2': 'not run', 'bundle_check': 'not run',
                          'consumer_admission': NOT_MEASURED, 'weights': None})
     for folder, key in ((Path(str(source) + '-generation'), 'generation'), (Path(str(source) + '-components'), 'encoders')):
         for path in sorted((folder / 'results' / key).glob('*-reference-checkpoint.json')) if (folder / 'results' / key).exists() else ():
@@ -72,9 +72,9 @@ def build_matrix(root, source, output, replay=True):
                 'consumer inference', 'rows': rows}
     write_json(Path(output).with_suffix('.json'), document)
     lines = ['# Checkpoint matrix', '', document['scope'] + '.', '',
-             '| model | component | export | bind | map v2 | offline replay | consumer admission |', '|---|---|---|---|---|---|---|']
+             '| model | component | export | bind | map v2 | bundle check | consumer admission |', '|---|---|---|---|---|---|---|']
     for r in rows:
-        lines.append(f"| {r['model']} | {r['component']} | {r['export']} | {r['bind']} | {r['map_v2']} | {r['offline_replay']} | "
+        lines.append(f"| {r['model']} | {r['component']} | {r['export']} | {r['bind']} | {r['map_v2']} | {r['bundle_check']} | "
                      f"{'not measured' if r['consumer_admission'] == NOT_MEASURED else r['consumer_admission']} |")
     notes = [f"- {r['model']}: {r['note']}" for r in rows if r.get('note')]
     Path(output).write_text('\n'.join(lines + ([''] + notes if notes else []) + ['']))

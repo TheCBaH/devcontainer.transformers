@@ -246,6 +246,13 @@ def main():
         from .fixtures import catalogue
         print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
         return
+    if args.command == 'index':
+        from .fixtures import publication_index
+        if not args.release_repo or not args.release_tag:
+            parser.error('index requires --release-repo and --release-tag')
+        document = publication_index(Path(args.output or root / '.build/bundles').resolve(), args.release_repo, args.release_tag)
+        print(f"indexed {len(document['artifacts'])} bundles under release {args.release_tag}")
+        return
     if args.command in ('bundle', 'bundle-verify'):
         from .fixtures import build_bundle, verify_bundle
         output = Path(args.output or root / '.build/bundles').resolve()
@@ -291,6 +298,8 @@ def main():
         from .reporting import selection
         selection(root, json.loads((root / 'results/models.json').read_text()))
         return
+    if args.command != 'verify':
+        parser.error(f'unhandled command: {args.command}')
     selected = yaml.safe_load((root / 'models-selected.yaml').read_text())
     for entry in selected['models'].values():
         verify_artifact(root, root / 'models' / entry['artifact_id'], entry['artifact_id'])
