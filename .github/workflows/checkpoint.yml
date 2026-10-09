@@ -73,8 +73,8 @@ jobs:
         id: hf-cache
         with:
           path: .hf-cache
-          key: hf-ckpt-${{ runner.arch }}-forward-${{ hashFiles('model-candidates.yaml') }}
-          restore-keys: hf-ckpt-${{ runner.arch }}-forward-
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
+          restore-keys: hf-ckpt-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'
@@ -105,7 +105,7 @@ jobs:
         if: always() && steps.hf-cache.outputs.cache-hit != 'true'
         with:
           path: .hf-cache
-          key: hf-ckpt-${{ runner.arch }}-forward-${{ hashFiles('model-candidates.yaml') }}
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -135,12 +135,12 @@ jobs:
       - uses: actions/checkout@v7
         with:
           submodules: true
+      # restore only: the forward job downloads every model and is the sole saver, so the entry is complete
       - uses: actions/cache/restore@v6
-        id: hf-cache
         with:
           path: .hf-cache
-          key: hf-ckpt-${{ runner.arch }}-${{ matrix.model }}-${{ hashFiles('model-candidates.yaml') }}
-          restore-keys: hf-ckpt-${{ runner.arch }}-${{ matrix.model }}-
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
+          restore-keys: hf-ckpt-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'
@@ -173,11 +173,6 @@ jobs:
         if: always()
         run: |
           for f in "$ROOT"/.build/generation/*.log "$ROOT"/.build/encoders/*.log; do [ -f "$f" ] && { echo "== $f"; tail -n 25 "$f"; }; done || true
-      - uses: actions/cache/save@v6
-        if: always() && steps.hf-cache.outputs.cache-hit != 'true'
-        with:
-          path: .hf-cache
-          key: hf-ckpt-${{ runner.arch }}-${{ matrix.model }}-${{ hashFiles('model-candidates.yaml') }}
       - uses: actions/upload-artifact@v7
         if: always()
         with:
