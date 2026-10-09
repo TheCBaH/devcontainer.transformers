@@ -204,14 +204,14 @@ def main():
         document = build_map_v2(binding, fetch(root, args.subset), Path(args.program).resolve(), output, args.artifact, args.release_base_url)
         validate_document(strict_json_loads(json.dumps(document)), 'checkpoint-map-v2', str(root / 'schemas'))
         check_structure(document, binding['captures'], args.artifact, binding['graph_sha256'])
-        directory = output / 'verify'
-        directory.mkdir(parents=True, exist_ok=True)
-        for source in [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]:
-            target = directory / source['name']
-            if not target.exists():
+        import tempfile
+        snapshot = Path(fetch(root, args.subset))
+        with tempfile.TemporaryDirectory() as scratch:
+            directory = Path(scratch)
+            for source in [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]:
                 local = output / source['name']
-                target.symlink_to(local if local.exists() else Path(fetch(root, args.subset)) / source['name'])
-        load_tensors(document, directory)
+                (directory / source['name']).symlink_to(local if local.exists() else snapshot / source['name'])
+            load_tensors(document, directory)
         print(f"{args.subset}: map v2 for {len(document['tensors'])} captures verified by applying it to the sources")
         return
     if args.command == 'matrix':
