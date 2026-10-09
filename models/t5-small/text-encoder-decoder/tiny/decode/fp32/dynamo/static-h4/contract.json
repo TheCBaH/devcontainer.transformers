@@ -1,0 +1,219 @@
+{
+  "artifact_id": "t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h4",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "decoder_input_ids",
+      "decoder_attention_mask",
+      "encoder_hidden_states",
+      "encoder_attention_mask",
+      "past_0_self_key",
+      "past_0_self_value",
+      "past_0_cross_key",
+      "past_0_cross_value"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "12deeccc749252a35c955441517cc0ecb6a88508e0ffa5b57b8a1e92bda334ea",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": true,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "201c03c2d929ba81434d89a3eeedac7aaa422b915f5b2acbb42cfd266529f47b",
+    "cases.json": "3c09a409d665277a0b5d5d48fa641fbe7c16c6fe5be6adccd451f8e47a2e983a",
+    "data/constants/model_constants_config.json": "fdeff38ca206dae76e970eeea2add5e439e8fd432865ce40b58d72fc6821669e",
+    "data/weights/model_weights_config.json": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
+    "models/model.json": "bde52a7fab9acef7e6c30da5f4aa22261702743e30e7143d2166b225b5e2237c"
+  },
+  "graph_sha256": "bde52a7fab9acef7e6c30da5f4aa22261702743e30e7143d2166b225b5e2237c",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_attention_mask",
+      "shape": [
+        1,
+        5
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "encoder_hidden_states",
+      "shape": [
+        1,
+        16,
+        64
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "encoder_attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_self_key",
+      "shape": [
+        1,
+        2,
+        4,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_self_value",
+      "shape": [
+        1,
+        2,
+        4,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_cross_key",
+      "shape": [
+        1,
+        2,
+        16,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_cross_value",
+      "shape": [
+        1,
+        2,
+        16,
+        32
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "T5ForConditionalGeneration",
+  "model_id": "t5-small",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        1,
+        256
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_self_key",
+      "shape": [
+        1,
+        2,
+        5,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_self_value",
+      "shape": [
+        1,
+        2,
+        5,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_cross_key",
+      "shape": [
+        1,
+        2,
+        16,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_cross_value",
+      "shape": [
+        1,
+        2,
+        16,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "python": "3.13.12",
+    "tools_sha256": "c4e4616442189b662c4ff6dfebbbbcb6672ab22e266a9f0fa17c4de4d4a6c049",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "e58e94e48e9d9ab8f40841770cf7db43943261e0d5c5195455b8ae2c4ec1ac9e",
+  "schema_version": 1,
+  "state": {
+    "host": "feed returned tensors into the next step; host owns sampling and stopping",
+    "input": [
+      "past_0_self_key",
+      "past_0_self_value",
+      "past_0_cross_key",
+      "past_0_cross_value"
+    ],
+    "maximum_input_history": 4,
+    "output": [
+      "present_0_self_key",
+      "present_0_self_value",
+      "present_0_cross_key",
+      "present_0_cross_value"
+    ],
+    "semantics": "named self/cross-attention K/V tensors; batch x heads x history x head dimension"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "variant": {
+    "attention_length": 5,
+    "history": 4,
+    "kind": "static-history"
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

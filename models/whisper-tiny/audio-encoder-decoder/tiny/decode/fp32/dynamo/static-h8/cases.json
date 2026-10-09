@@ -1,0 +1,56 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h8",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "2443e9844e00d10480945f9c7fa5926aaf4e91cf02e0e665e2e7f401a204ec2b",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "73b07cae606deb8e06218fc6fdb75b89b578943848de0d80408fe40462d2cfbd"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "decoder_input_ids",
+        "decoder_attention_mask",
+        "encoder_hidden_states",
+        "past_0_self_key",
+        "past_0_self_value",
+        "past_0_cross_key",
+        "past_0_cross_value"
+      ],
+      "inputs_sha256": "ca1bcad22ca96014a09cff38da34e0ee58c492c32ecd80b7214bd0f4dadae647",
+      "outputs": [
+        "logits",
+        "present_0_self_key",
+        "present_0_self_value",
+        "present_0_cross_key",
+        "present_0_cross_value"
+      ],
+      "outputs_sha256": "5fa74b5510265d9cb20f95ac48c943ee73e1b3028871095f4a1a9b2f8946ccba"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

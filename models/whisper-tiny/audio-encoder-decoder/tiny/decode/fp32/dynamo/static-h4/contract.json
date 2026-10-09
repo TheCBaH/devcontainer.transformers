@@ -1,0 +1,210 @@
+{
+  "artifact_id": "whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h4",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "decoder_input_ids",
+      "decoder_attention_mask",
+      "encoder_hidden_states",
+      "past_0_self_key",
+      "past_0_self_value",
+      "past_0_cross_key",
+      "past_0_cross_value"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "0ee14bc195163aae513d1d2152af5ccfd6080cf6c6916ed90e6924f8ca1f7f18",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": true,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "7d5d9a186c1862e9210a2ca4ee93433d012fb9ab146324b75e4f1074fb321ae4",
+    "cases.json": "fbcafe49f7d1e71780d2d7f31564b0c008007bd7e34bbd671bedf2736082ff41",
+    "data/constants/model_constants_config.json": "ee1dd4c937ef8e37031aedf524c565d592b70ea8190ae77e05f72ce0774c6c18",
+    "data/weights/model_weights_config.json": "22f691033a7e387dbb2d6354f3b7f3938080cd9c542d71cf19ae433c0c2ac0ec",
+    "models/model.json": "42085ed53a3b1f6c0c3cb23ef10960155e3161b8fad369213d953c3e9a7d0e4c"
+  },
+  "graph_sha256": "42085ed53a3b1f6c0c3cb23ef10960155e3161b8fad369213d953c3e9a7d0e4c",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_attention_mask",
+      "shape": [
+        1,
+        5
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "encoder_hidden_states",
+      "shape": [
+        1,
+        32,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_self_key",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_self_value",
+      "shape": [
+        1,
+        2,
+        4,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_cross_key",
+      "shape": [
+        1,
+        2,
+        32,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_cross_value",
+      "shape": [
+        1,
+        2,
+        32,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "WhisperForConditionalGeneration",
+  "model_id": "whisper-tiny",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        1,
+        256
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_self_key",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_self_value",
+      "shape": [
+        1,
+        2,
+        5,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_cross_key",
+      "shape": [
+        1,
+        2,
+        32,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_cross_value",
+      "shape": [
+        1,
+        2,
+        32,
+        16
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "python": "3.13.12",
+    "tools_sha256": "c4e4616442189b662c4ff6dfebbbbcb6672ab22e266a9f0fa17c4de4d4a6c049",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "1b7fab1d72f211aa6eb5e8af3bf74b9a23490f76ea8fd9800cbcdb14c9a4a714",
+  "schema_version": 1,
+  "state": {
+    "host": "feed returned tensors into the next step; host owns sampling and stopping",
+    "input": [
+      "past_0_self_key",
+      "past_0_self_value",
+      "past_0_cross_key",
+      "past_0_cross_value"
+    ],
+    "maximum_input_history": 4,
+    "output": [
+      "present_0_self_key",
+      "present_0_self_value",
+      "present_0_cross_key",
+      "present_0_cross_value"
+    ],
+    "semantics": "named self/cross-attention K/V tensors; batch x heads x history x head dimension"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "variant": {
+    "attention_length": 5,
+    "history": 4,
+    "kind": "static-history"
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

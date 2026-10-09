@@ -62,7 +62,7 @@
     "device": "cpu",
     "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
     "python": "3.13.12",
-    "tools_sha256": "0bd11116b3a1a33ebafb3d79deeec61a7338d56f64c43a8a6341b74b820b3b9b",
+    "tools_sha256": "c4e4616442189b662c4ff6dfebbbbcb6672ab22e266a9f0fa17c4de4d4a6c049",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
@@ -73,6 +73,40 @@
     }
   },
   "schema_version": 1,
+  "static_variants": {
+    "11": {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h11",
+      "case_sequences": [
+        "initial",
+        "reset"
+      ],
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "ee255dad8486e335f417c56a40e37e59b065861f55e07e3b8a74c5a0a38a3617",
+      "rejected_other_histories": 11,
+      "status": "verified"
+    },
+    "16": {
+      "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h16",
+      "case_sequences": [
+        "initial",
+        "reset"
+      ],
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "057f9320987b7f3f2317e709c23608515b34faced54e9fd8adab911cd7c14be9",
+      "rejected_other_histories": 11,
+      "status": "verified"
+    }
+  },
   "status": "verified",
   "successive_steps": 6,
   "upstream_export_for_generation": {
