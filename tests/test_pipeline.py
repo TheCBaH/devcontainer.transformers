@@ -420,3 +420,21 @@ def test_tinyclip_towers_are_independent_components_matching_the_whole_model(tmp
         other = 'text' if component == 'image-encoder' else 'vision'
         assert not any(row['target'].startswith(other) or row['target'].startswith('visual' if other == 'vision' else 'text')
                        for row in captures['captures'])
+
+
+def test_matrix_separates_producer_stages_from_consumer_admission(bert_artifacts, tmp_path):
+    from hf_pt2_tools.fixtures import build_bundle
+    from hf_pt2_tools.matrix import BASE_MODELS, NOT_MEASURED, build_matrix
+    roots, rows = bert_artifacts
+    identity = rows[0]['artifact_id']
+    evidence = tmp_path / 'run'
+    write_json(evidence / 'results/checkpoint.json', {'models': {'bert-tiny': {'status': 'ok', 'artifact_id': identity}}})
+    build_bundle(ROOT, roots[0] / 'models' / identity, roots[0] / '.build' / identity, evidence / 'bundles')
+    document = build_matrix(ROOT, evidence, tmp_path / 'matrix.md')
+    by_model = {r['model']: r for r in document['rows']}
+    assert [r['model'] for r in document['rows']] == list(BASE_MODELS)
+    bert = by_model['bert-tiny']
+    assert (bert['export'], bert['bind'], bert['pack'], bert['offline_replay']) == ('ok', 'not run', 'not run', 'ok')
+    assert all(r['consumer_admission'] == NOT_MEASURED for r in document['rows'])
+    assert by_model['yolos-tiny']['export'] == 'not run'
+    assert '| bert-tiny | forward | ok |' in (tmp_path / 'matrix.md').read_text()

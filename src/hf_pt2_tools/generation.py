@@ -352,6 +352,8 @@ def run(root, output_root, name='smollm2-135m', population='tiny', snapshot=None
             if static_histories:
                 result['static_variants'] = {}
                 history_key = next(key for key in cases[0]['inputs'] if key.startswith('past_') and '_cross_' not in key)
+                if static_histories == ('auto',):
+                    static_histories = (cases[0]['inputs'][history_key].shape[2], capacity)
                 by_history = {}
                 for sequence, case in static_cases(decode, decode_program, reset_output, reset_constants, fields, seq2seq,
                                                    capacity, history_key, cases):

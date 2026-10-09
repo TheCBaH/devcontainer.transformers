@@ -119,7 +119,7 @@ def sweep(args):
 def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
-                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets',
+                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets', 'convert', 'matrix',
                                           'catalogue', 'bundle', 'bundle-verify', 'pack', 'index'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
@@ -161,7 +161,8 @@ def main():
             return
         if args.command == 'generation-worker':
             from .generation import run
-            histories = tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ()
+            histories = (('auto',) if args.static_history == 'auto' else
+                         tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ())
             print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'smollm2-135m', args.population,
                                  args.snapshot, args.allow_unpinned_snapshot, histories)))
             return
@@ -184,6 +185,20 @@ def main():
         result = run_worker(root / 'scripts/worker.py', argv, 'generation-llama', args.timeout, hf_home=root / '.hf-cache')
         print(json.dumps(result))
         sys.exit(0 if result['status'] == 'verified' else 1)
+    if args.command == 'convert':
+        from .checkpoints import convert_snapshot
+        entry = next(e for e in read_manifest(root)['models'] if e['id'] == args.subset)
+        output = convert_snapshot(root, entry, {'source': args.source or 'pytorch_model.bin',
+                                                'source_sha256': None, 'converted_sha256': None})
+        print(json.dumps({'id': entry['id'], **json.loads((output / 'conversion.json').read_text())}))
+        return
+    if args.command == 'matrix':
+        from .matrix import build_matrix
+        if not args.source:
+            parser.error('matrix requires --source (the checkpoint run output directory)')
+        document = build_matrix(root, args.source, Path(args.output or root / '.build/checkpoint-matrix.md'))
+        print(f"matrix: {len(document['rows'])} rows")
+        return
     if args.command == 'assets':
         from .assets import build_assets
         document = build_assets(root, Path(args.output or root / 'task-assets.json'),

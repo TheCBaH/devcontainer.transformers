@@ -96,7 +96,8 @@ before the all-capture inventory are refused with a request to rerun `bind`.
 `bundle --packs <dir>` adds the map as the loader's `models/safetensors.json`
 member, copies the pack beside the archive and records it in the manifest;
 `bundle-verify` re-checks the pack digest and that every capture is mapped. Static-history decode variants
-(`decode/.../static-h<N>`) pin one history length beside the dynamic artifact,
+(`decode/.../static-h<N>`, for SmolLM2, T5, Whisper and SmolVLM at the first history and the
+capacity; `--static-history auto`) pin one history length beside the dynamic artifact,
 with two independent cases each (the initial prompt and a cache reset onto
 another prompt, both rolled forward to every history) and a recorded refusal of
 every other history and of an over-capacity state.
@@ -116,6 +117,16 @@ never overwriting assets, then downloads each URL fresh and compares digests.
 The maps' `source.url` points at those assets; mltorch's resolver still reads
 only `repo_id`/`revision`/`filename` as a Hugging Face source, so consumers use
 the URL or a local file until it gains URL loading.
+
+**Converted checkpoints and the matrix.** BERT, MobileViT and VideoMAE have no
+upstream safetensors at their pinned revisions, so `reference.conversion` pins the
+upstream `pytorch_model.bin` digest and the digest of the converted file;
+`hf-pt2 convert` loads the bin with `weights_only`, writes safetensors, checks it
+tensor-for-tensor and prints both digests. Their contracts record the
+conversion apart from upstream weights. BERT task heads stay random
+architecture probes. `hf-pt2 matrix` joins one checkpoint run's export, bind,
+pack and offline-replay results into `checkpoint-matrix.md/json` (released with
+the bundles); consumer admission is never inferred from producer success.
 
 **Task assets and components.** `task-assets.json` (`make assets`, needs the
 Hub) pins each base model's processor, tokenizer and generation files by

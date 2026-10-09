@@ -48,8 +48,7 @@ models.generation: setup
 	$(RUN) hf-pt2 generation --output $(GENERATION_OUTPUT) $(OPTIONS)
 models.generation.all: setup
 	@set -e; for model in smollm2-135m t5-small whisper-tiny smolvlm-256m; do \
-		extra=; [ "$$model" = smollm2-135m ] && extra='--static-history 4,8'; \
-		$(RUN) hf-pt2 generation --subset $$model $$extra --output $(GENERATION_OUTPUT) --timeout $(TIMEOUT); \
+		$(RUN) hf-pt2 generation --subset $$model --static-history auto --output $(GENERATION_OUTPUT) --timeout $(TIMEOUT); \
 	done
 assets: setup
 	$(RUN) hf-pt2 assets

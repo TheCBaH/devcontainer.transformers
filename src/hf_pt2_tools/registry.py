@@ -89,9 +89,14 @@ def weight_provenance(entry, snapshot=None, allow_unpinned=False):
         names.append('model.safetensors.index.json')
     files = {name: {'sha256': hashlib.sha256((snapshot / name).read_bytes()).hexdigest(),
                     'size': (snapshot / name).stat().st_size} for name in names}
-    return {'kind': 'checkpoint', 'repo': reference['repo'], 'revision': reference['revision'],
-            'config_sha256': config_hash, 'pinned_config_match': config_hash == reference['config_sha256'],
-            'files': files, 'conversion': 'transformers from_pretrained, explicit dtype cast to the artifact dtype'}
+    document = {'kind': 'checkpoint', 'repo': reference['repo'], 'revision': reference['revision'],
+                'config_sha256': config_hash, 'pinned_config_match': config_hash == reference['config_sha256'],
+                'files': files, 'conversion': 'transformers from_pretrained, explicit dtype cast to the artifact dtype'}
+    if 'conversion' in reference:
+        document['upstream_conversion'] = {'from': reference['conversion']['source'],
+                                           'source_sha256': reference['conversion']['source_sha256'],
+                                           'tool': 'hf-pt2 convert: torch.load(weights_only) -> safetensors, tensor-for-tensor verified'}
+    return document
 
 
 def build_model(root, entry, population='tiny', dtype='fp32', snapshot=None):

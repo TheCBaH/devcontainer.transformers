@@ -13,7 +13,7 @@ on:
         type: boolean
         default: false
       static_history:
-        description: 'Comma-separated SmolLM2 static decode histories to export (checkpoint-backed), e.g. 4,8'
+        description: 'Static decode histories for every generation model (checkpoint-backed): auto (first history and capacity) or e.g. 4,8'
         default: ''
         type: string
       pack_tag:
@@ -70,12 +70,17 @@ jobs:
       - name: Export, bind and verify checkpoint-backed graphs
         run: |
           set -euo pipefail
-          uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT"
+          uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT" \
+            || echo "::warning::research reported failures; see the matrix"
           mkdir -p "$OUT/maps" "$OUT/packs"
           for model in ${SUBSET//,/ }; do
+            if [ "$(jq -r --arg m "$model" '.models[$m].status // "missing"' "$OUT/results/checkpoint.json")" != ok ]; then
+              echo "::warning::$model export did not succeed; recorded in the matrix"; continue
+            fi
             id=$(jq -r --arg m "$model" '.models[$m].artifact_id' "$OUT/results/checkpoint.json")
-            uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$model.json"
-            uv run --frozen hf-pt2 pack --subset "$model" --binding "$OUT/maps/$model.json" --program "$OUT/.build/$id/model.pt2" \
+            flat=${id//\//--}
+            uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$flat.json"
+            uv run --frozen hf-pt2 pack --subset "$model" --binding "$OUT/maps/$flat.json" --program "$OUT/.build/$id/model.pt2" \
               --graph "$OUT/models/$id/models/model.json" --artifact "$id" \
               --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
               --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/${id//\//--}.safetensors" \
@@ -101,7 +106,7 @@ jobs:
           for model in ${SUBSET//,/ }; do
             case "$model" in
               smollm2-135m|t5-small|whisper-tiny|smolvlm-256m)
-                extra=(); [ "$model" = smollm2-135m ] && [ -n "$STATIC_HISTORY" ] && extra=(--static-history "$STATIC_HISTORY")
+                extra=(); [ -n "$STATIC_HISTORY" ] && extra=(--static-history "$STATIC_HISTORY")
                 uv run --frozen hf-pt2 generation --population reference --weights checkpoint --subset "$model" "${extra[@]}" --output "$OUT-generation" --timeout 3600
                 mapfile -t ids < <(jq -r '(.components[].artifact_id), ((.static_variants // {})[] | .artifact_id)' "$OUT-generation/results/generation/$model-reference-checkpoint.json")
                 pack_components "$model" "$OUT-generation" "${ids[@]}" ;;
@@ -121,6 +126,9 @@ jobs:
           for f in "$OUT"-generation/.build/generation/*.log "$OUT"-components/.build/encoders/*.log; do [ -f "$f" ] && { echo "== $f"; tail -n 25 "$f"; }; done || true
       - name: Verify bundles offline
         run: uv run --frozen hf-pt2 bundle-verify --output "$OUT/bundles"
+      - name: Checkpoint matrix
+        if: always()
+        run: uv run --frozen hf-pt2 matrix --source "$OUT" --output "$OUT/bundles/checkpoint-matrix.md"
       - name: Publication index
         run: uv run --frozen hf-pt2 index --output "$OUT/bundles" --pack-repo "$GITHUB_REPOSITORY" --pack-tag "$PACK_TAG"
       - uses: actions/upload-artifact@v7

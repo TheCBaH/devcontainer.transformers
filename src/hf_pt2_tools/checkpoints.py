@@ -12,11 +12,42 @@ from .inventory import inventory, load_graph
 from .registry import CONFIG_CLASSES, read_manifest
 
 
+def convert_snapshot(root, entry, pin=None):
+    """Verified pytorch_model.bin -> safetensors for pins that upstream never converted; returns a snapshot dir."""
+    from safetensors.torch import save_file
+    reference, root = entry['reference'], Path(root)
+    pin = pin or reference['conversion']
+    path = Path(snapshot_download(reference['repo'], revision=reference['revision'], cache_dir=root / '.hf-cache',
+                                  allow_patterns=['config.json', pin['source']]))
+    if file_hash(path / 'config.json') != reference['config_sha256']:
+        raise ValueError('downloaded config differs from the pinned snapshot')
+    if pin['source_sha256'] and file_hash(path / pin['source']) != pin['source_sha256']:
+        raise ValueError(f"{pin['source']} differs from the pinned upstream file")
+    output = root / '.hf-cache' / 'converted' / f"{entry['id']}-{reference['revision'][:12]}"
+    output.mkdir(parents=True, exist_ok=True)
+    state = torch.load(path / pin['source'], map_location='cpu', weights_only=True)
+    tensors = {key: value.detach().contiguous().clone() for key, value in sorted(state.items()) if isinstance(value, torch.Tensor)}
+    if len(tensors) != len(state):
+        raise ValueError('upstream state dict holds non-tensor entries')
+    save_file(tensors, output / 'model.safetensors', metadata={'format': 'pt'})
+    (output / 'config.json').write_bytes((path / 'config.json').read_bytes())
+    with safe_open(output / 'model.safetensors', framework='pt') as archive:
+        if set(archive.keys()) != set(tensors) or any(not torch.equal(archive.get_tensor(k), v) for k, v in tensors.items()):
+            raise ValueError('converted safetensors differ from the upstream state dict')
+    if pin['converted_sha256'] and file_hash(output / 'model.safetensors') != pin['converted_sha256']:
+        raise ValueError('conversion output differs from the pinned digest (toolchain drift?)')
+    write_json(output / 'conversion.json', {'source': pin['source'], 'source_sha256': file_hash(path / pin['source']),
+                                            'converted_sha256': file_hash(output / 'model.safetensors')})
+    return output
+
+
 def fetch(root, name):
     entry = next(e for e in read_manifest(root)['models'] if e['id'] == name)
     reference = entry['reference']
     if not reference['safetensors_files']:
         raise ValueError(f'{name}: no upstream safetensors at the pinned revision')
+    if 'conversion' in reference:
+        return str(convert_snapshot(root, entry))
     path = snapshot_download(reference['repo'], revision=reference['revision'],
                              cache_dir=Path(root) / '.hf-cache',
                              allow_patterns=['config.json', 'model.safetensors.index.json', *reference['safetensors_files']])
@@ -41,9 +72,10 @@ def bind(root, name, graph_root, output):
     contract = verify_artifact(root, Path(graph_root).parent.parent)
     if contract['population'] != 'reference' or contract['model_id'] != name or contract['model_class'] != entry['model_class']:
         raise ValueError('checkpoint binding requires this model\'s original-config graph')
-    snapshot = Path(snapshot_download(reference['repo'], revision=reference['revision'],
-                                    cache_dir=root / '.hf-cache', local_files_only=True,
-                                    allow_patterns=['config.json', 'model.safetensors.index.json', *reference['safetensors_files']]))
+    snapshot = (convert_snapshot(root, entry) if 'conversion' in reference else
+                Path(snapshot_download(reference['repo'], revision=reference['revision'],
+                                       cache_dir=root / '.hf-cache', local_files_only=True,
+                                       allow_patterns=['config.json', 'model.safetensors.index.json', *reference['safetensors_files']])))
     return bind_snapshot(root, entry, reference, snapshot, graph_root, output)
 
 
@@ -90,6 +122,9 @@ def bind_snapshot(root, entry, reference, snapshot, graph_root, output, populati
         for conversion in renamings:
             renamed, _ = conversion.rename_source_key(renamed)
         converted_keys.setdefault(renamed, []).append(source)
+        prefix = (getattr(model, 'base_model_prefix', '') or '') + '.'
+        if prefix != '.' and renamed.startswith(prefix):
+            converted_keys.setdefault(renamed[len(prefix):], []).append(source)
     library = {**dict(model.named_buffers(remove_duplicate=False)), **dict(model.named_parameters(remove_duplicate=False))}
     aliases = {}
     for key, value in library.items():
