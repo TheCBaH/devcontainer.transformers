@@ -257,13 +257,11 @@ def test_catalogue_lists_artifacts_with_weight_source(bert_artifacts, tmp_path):
     assert 'cases.json' in entries[0]['files']
 
 
-def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts, tmp_path):
+def test_binding_accounts_for_every_capture_by_source(bert_artifacts, tmp_path):
     import torch
-    from safetensors import safe_open
     from hf_pt2_tools.artifacts import file_hash
     from hf_pt2_tools.checkpoints import bind_snapshot
     from hf_pt2_tools.registry import build_model
-    from hf_pt2_tools.weights import build_pack, check_pack
     roots, rows = bert_artifacts
     entry = next(e for e in read_manifest(ROOT)['models'] if e['id'] == 'bert-tiny')
     model, _ = build_model(ROOT, entry)
@@ -288,59 +286,9 @@ def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts
     with pytest.raises(ValueError, match='cached config'):
         bind_snapshot(ROOT, entry, {**reference, 'config_sha256': '0' * 64}, snapshot,
                       artifact / 'models/model.json', tmp_path / 'x.json', population='tiny')
-    pack = tmp_path / 'pack' / 'bert-tiny.safetensors'
-    source = {'repo_id': 'local/pack', 'revision': 'r1', 'url': 'https://example.invalid/bert-tiny.safetensors'}
-    with pytest.raises(ValueError, match='pinned location'):
-        build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, {})
-    document = build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, source)
-    assert check_pack(document, pack, binding['captures'])
-    with safe_open(pack, framework='pt') as archive:
-        assert torch.equal(archive.get_tensor('model.embeddings.word_embeddings.weight'),
-                           model.embeddings.word_embeddings.weight.detach())
-    import copy
-    for mutate, message in [
-            (lambda d: d['tensors'].pop(next(iter(d['tensors']))), 'exactly the captured'),
-            (lambda d: d['unmapped'].append('x'), 'unmapped'),
-            (lambda d: d['source'].update(sha256='0' * 64), 'digest'),
-            (lambda d: d['tensors'][next(iter(d['tensors']))].update(key='absent'), 'missing in pack'),
-            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(dtype='F16'), 'dtype'),
-            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(shape=[1, 1]), 'shape')]:
-        broken = copy.deepcopy(document)
-        mutate(broken)
-        with pytest.raises(ValueError, match=message):
-            check_pack(broken, pack, binding['captures'])
-    program = roots[0] / '.build' / identity / 'model.pt2'
-    stale = {k: v for k, v in binding.items() if k != 'captures'}
-    with pytest.raises(ValueError, match='rerun `hf-pt2 bind`'):
-        build_pack(stale, snapshot, program, pack, source)
-    with pytest.raises(ValueError, match='different graph'):
-        build_pack({**binding, 'graph_sha256': '0' * 64}, snapshot, program, pack, source, artifact / 'models/model.json')
-    from hf_pt2_tools.fixtures import build_bundle, flat_name, verify_bundle
-    packs = tmp_path / 'artifact-packs'
-    named = packs / (flat_name(identity) + '.safetensors')
-    build_pack(binding, snapshot, program, named, {**source, 'url': 'https://github.com/o/r/releases/download/t1/' + named.name},
-               artifact / 'models/model.json')
-    manifest = build_bundle(ROOT, artifact, roots[0] / '.build' / identity, tmp_path / 'packed', packs)
-    assert manifest['pack']['name'] == named.name and manifest['members']['models/safetensors.json']
-    archive = tmp_path / 'packed' / manifest['archive']['name']
-    assert verify_bundle(ROOT, archive)['status'] == 'ok'
-    from hf_pt2_tools.fixtures import publication_index
-    index = publication_index(tmp_path / 'packed', 'o/r', 't1')
-    entry = index['artifacts'][0]
-    assert entry['assets']['pack']['url'] == 'https://github.com/o/r/releases/download/t1/' + named.name
-    assert entry['assets']['pack']['sha256'] == manifest['pack']['sha256'] and entry['assets']['archive']['url'].endswith('.tar.gz')
-    assert entry['weight_source']['kind'] == 'random' and entry['producer_commit'] != entry['graph_sha256']
-    with pytest.raises(ValueError, match='differs from the release asset'):
-        publication_index(tmp_path / 'packed', 'o/r', 'other-tag')
-    (tmp_path / 'packed' / named.name).write_bytes(b'x' + named.read_bytes())
-    with pytest.raises(ValueError, match='pack file missing or differs'):
-        verify_bundle(ROOT, archive)
-    (packs / (flat_name(identity) + '.map.json')).unlink()
-    with pytest.raises(ValueError, match='incomplete derived pack'):
-        build_bundle(ROOT, artifact, roots[0] / '.build' / identity, tmp_path / 'half', packs)
 
 
-def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail(tmp_path):
+def test_checkpoint_backed_export_has_distinct_identity_and_swapped_payload_fails(tmp_path):
     import torch
     from hf_pt2_tools.artifacts import file_hash
     from hf_pt2_tools.fixtures import build_bundle, verify_bundle
@@ -372,14 +320,15 @@ def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail
              for label, row in rows.items()}
     assert cases['checkpoint']['weight_source'] == weights
     assert cases['random']['cases'][0]['outputs_sha256'] != cases['checkpoint']['cases'][0]['outputs_sha256']
-    good = build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, tmp_path / 'checkpoint/.build' / checkpoint_id,
-                        tmp_path / 'bundles')
-    from hf_pt2_tools.fixtures import verify_bundle
+    good = build_bundle(ROOT, tmp_path / 'random/models' / random_id, tmp_path / 'random/.build' / random_id, tmp_path / 'bundles')
     assert verify_bundle(ROOT, tmp_path / 'bundles' / good['archive']['name'])['status'] == 'ok'
+    with pytest.raises(ValueError, match='no v2 map for checkpoint-backed'):
+        build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, tmp_path / 'checkpoint/.build' / checkpoint_id,
+                     tmp_path / 'checkpoint-bundles')
     swapped = tmp_path / 'swapped'
-    shutil.copytree(tmp_path / 'checkpoint/.build' / checkpoint_id, swapped)
-    shutil.copy(tmp_path / 'random/.build' / random_id / 'model.pt2', swapped / 'model.pt2')
-    build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, swapped, tmp_path / 'swapped-bundles')
+    shutil.copytree(tmp_path / 'random/.build' / random_id, swapped)
+    shutil.copy(tmp_path / 'checkpoint/.build' / checkpoint_id / 'model.pt2', swapped / 'model.pt2')
+    build_bundle(ROOT, tmp_path / 'random/models' / random_id, swapped, tmp_path / 'swapped-bundles')
     with pytest.raises(RuntimeError, match='torch-only replay'):
         verify_bundle(ROOT, tmp_path / 'swapped-bundles' / good['archive']['name'])
 
@@ -434,7 +383,7 @@ def test_matrix_separates_producer_stages_from_consumer_admission(bert_artifacts
     by_model = {r['model']: r for r in document['rows']}
     assert [r['model'] for r in document['rows']] == list(BASE_MODELS)
     bert = by_model['bert-tiny']
-    assert (bert['export'], bert['bind'], bert['pack'], bert['offline_replay']) == ('ok', 'not run', 'not run', 'ok')
+    assert (bert['export'], bert['bind'], bert['map_v2'], bert['offline_replay']) == ('ok', 'not run', 'not run', 'ok')
     assert all(r['consumer_admission'] == NOT_MEASURED for r in document['rows'])
     assert by_model['yolos-tiny']['export'] == 'not run'
     assert '| bert-tiny | forward | ok |' in (tmp_path / 'matrix.md').read_text()
@@ -513,7 +462,7 @@ def test_map_v2_declares_conversion_and_reproduces_every_capture(bert_artifacts,
     # a slim bundle carries the v2 map, leaves out model.pt2 and the full pack, and verifies without torch replay
     from hf_pt2_tools.fixtures import build_bundle, publication_index, verify_bundle
     build = bert_artifacts[0][0] / '.build' / identity
-    slim = build_bundle(ROOT, artifact, build, tmp_path / 'slim', maps=tmp_path / 'forced', slim=True)
+    slim = build_bundle(ROOT, artifact, build, tmp_path / 'slim', maps=tmp_path / 'forced')
     assert slim['payload'] is None and 'model.pt2' not in slim['members'] and 'pack' not in slim
     assert slim['members']['models/safetensors.v2.json'] and slim['map_v2']['assets'][0]['name'].endswith('.graph-owned.safetensors')
     assert verify_bundle(ROOT, tmp_path / 'slim' / slim['archive']['name']) == {'status': 'ok', 'cases': 2, 'replay': 'not included (slim bundle)'}

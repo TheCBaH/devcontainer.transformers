@@ -83,19 +83,13 @@ input/output order and content digests of flat `cases/<id>/{inputs,outputs}.pt`
 graph-owned value digest), and a `weights` record in its contract: `random`
 (seed 0) or a pinned `checkpoint` (repo, revision, file digests and sizes).
 Checkpoint-backed artifacts add `/ckpt-<revision[:12]>` to the ID, so they can
-never overwrite random-weight ones. `hf-pt2 bundle` packs graph, `model.pt2` and
-case tensors reproducibly; `bundle-verify` extracts, checks every hash and
-replays all cases with torch only. `bind` records, per capture, a checkpoint
+never overwrite random-weight ones. `hf-pt2 bundle` packs graph and
+case tensors reproducibly. Random-weight fixtures also carry `model.pt2` (nothing else holds their weights) and
+`bundle-verify` replays their cases with torch only; checkpoint-backed bundles are slim (see map v2 below).
+`bind` records, per capture, a checkpoint
 source (file, key, dtype, conversion, aliases) or a graph-owned payload digest,
-and `unmapped` means a live capture without a source. `hf-pt2 pack` emits the
-captured-value safetensors file plus the version-1 `safetensors.json` map for
-mltorch and checks it as the consumer would. `pack --artifact <id>` names the
-files after the full artifact ID (components of one model would otherwise
-collide) and `--graph` rejects a binding made for another graph; maps from
-before the all-capture inventory are refused with a request to rerun `bind`.
-`bundle --packs <dir>` adds the map as the loader's `models/safetensors.json`
-member, copies the pack beside the archive and records it in the manifest;
-`bundle-verify` re-checks the pack digest and that every capture is mapped. Static-history decode variants
+and `unmapped` means a live capture without a source; bindings from before the
+all-capture inventory are refused with a request to rerun `bind`. Static-history decode variants
 (`decode/.../static-h<N>`, for SmolLM2, T5, Whisper and SmolVLM at the first history and the
 capacity; `--static-history auto`) pin one history length beside the dynamic artifact,
 with two independent cases each (the initial prompt and a cache reset onto
@@ -108,23 +102,21 @@ concatenation (or normalize them with value-preserving provenance) rather than
 prune them, which would change the graph.
 Original-size and checkpoint-backed runs are heavy: dispatch the `checkpoint`
 workflow by editing `checkpoint-request.json` (push to `devel`), which exports,
-binds, packs and bundles the requested models and uploads the evidence.
-With `publish` (a request field or dispatch input) a second job uploads bundles,
-manifests, packs and `publication.json` (`hf-pt2 index`: exact URLs, SHA-256 and
+binds, maps and bundles the requested models in parallel jobs and uploads the evidence.
+With `publish` (a request field or dispatch input) a final job uploads bundles,
+manifests, hosted files and `publication.json` (`hf-pt2 index`: exact URLs, SHA-256 and
 sizes, with producer commit, upstream checkpoint and release tag kept as
-separate facts) to the release `pack_tag` (default `checkpoint-packs-<sha12>`),
+separate facts) to the release `release_tag` (default `checkpoint-<sha12>`),
 never overwriting assets, then downloads each URL fresh and compares digests.
-The maps' `source.url` points at those assets; mltorch's resolver still reads
-only `repo_id`/`revision`/`filename` as a Hugging Face source, so consumers use
-the URL or a local file until it gains URL loading.
 
 **Checkpoint map v2.** [`docs/checkpoint-map-v2.md`](docs/checkpoint-map-v2.md)
-specifies a map that points every capture at pinned files instead of a derived
-full-weights pack: the original (or converted) checkpoint with a declared
-conversion (`none`, or `cast` such as BF16 to F32), and small graph-owned values
-generated, inlined or in a tiny pack. `hf-pt2 map` emits it and proves it by
-reproducing every capture digest; `bundle --maps [--slim]` ships it, and slim
-bundles omit `model.pt2` and the full pack. Version 1 maps are unchanged.
+specifies how every capture of a checkpoint-backed graph is obtained from pinned
+files: the original (or converted) checkpoint with a declared conversion (`none`,
+or `cast` such as BF16 to F32), and small graph-owned values generated, inlined or
+in a tiny pack. `hf-pt2 map` emits it and proves it by reproducing every capture
+digest; `bundle --maps` ships it. Checkpoint-backed bundles are slim: no
+`model.pt2` and no derived full-weights pack. The earlier version-1 pack and map
+were removed; mltorch's own v1 maps are unaffected.
 
 **Converted checkpoints and the matrix.** BERT, MobileViT and VideoMAE have no
 upstream safetensors at their pinned revisions, so `reference.conversion` pins the
@@ -133,7 +125,7 @@ upstream `pytorch_model.bin` digest and the digest of the converted file;
 tensor-for-tensor and prints both digests. Their contracts record the
 conversion apart from upstream weights. BERT task heads stay random
 architecture probes. `hf-pt2 matrix` joins one checkpoint run's export, bind,
-pack and offline-replay results into `checkpoint-matrix.md/json` (released with
+map and bundle-verification results into `checkpoint-matrix.md/json` (released with
 the bundles); consumer admission is never inferred from producer success.
 
 **Task assets and components.** `task-assets.json` (`make assets`, needs the
@@ -145,7 +137,7 @@ input shapes (for example YOLOS/SegFormer processors emit larger images than
 the exported 224 contract, and tokenizers pad to their own length). Raw media
 decoding is out of scope. `make models.encoders` publishes TinyCLIP's
 `image-encoder` and `text-encoder` as standalone components with their own
-graphs, cases, captures and (checkpoint-backed) packs, verified against the
+graphs, cases, captures and (checkpoint-backed) v2 maps, verified against the
 combined model's normalized embeddings.
 
 Each `models/<model>/<task>/<population>/forward/<dtype>/<policy>/<shape>/`

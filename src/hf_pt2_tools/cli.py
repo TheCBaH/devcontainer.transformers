@@ -120,7 +120,7 @@ def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
                                           'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets', 'convert', 'matrix', 'map',
-                                          'catalogue', 'bundle', 'bundle-verify', 'pack', 'index'])
+                                          'catalogue', 'bundle', 'bundle-verify', 'index'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
     parser.add_argument('--subset')
@@ -139,14 +139,11 @@ def main():
     parser.add_argument('--program')
     parser.add_argument('--binding')
     parser.add_argument('--source')
-    parser.add_argument('--pack-repo')
-    parser.add_argument('--pack-revision')
-    parser.add_argument('--pack-url')
+    parser.add_argument('--release-repo')
+    parser.add_argument('--release-base-url')
     parser.add_argument('--artifact')
-    parser.add_argument('--pack-tag')
+    parser.add_argument('--release-tag')
     parser.add_argument('--maps')
-    parser.add_argument('--slim', action='store_true')
-    parser.add_argument('--packs')
     args = parser.parse_args()
     if args.workers < 1 or args.timeout < 1:
         parser.error('workers and timeout must be positive')
@@ -198,13 +195,13 @@ def main():
         from .checkpoints import fetch
         from .mapv2 import build_map_v2, check_structure, load_tensors
         from pt2_export_core.opgraph import strict_json_loads
-        if not args.subset or not args.program or not args.artifact or not args.pack_url:
-            parser.error('map requires --subset, --program, --artifact and --pack-url (the release base URL, ending in /)')
+        if not args.subset or not args.program or not args.artifact or not args.release_base_url:
+            parser.error('map requires --subset, --program, --artifact and --release-base-url (ending in /)')
         binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
         if args.graph and file_hash(args.graph) != binding['graph_sha256']:
             parser.error('binding was made for a different graph; rerun `hf-pt2 bind`')
         output = Path(args.output or root / '.build/maps').resolve()
-        document = build_map_v2(binding, fetch(root, args.subset), Path(args.program).resolve(), output, args.artifact, args.pack_url)
+        document = build_map_v2(binding, fetch(root, args.subset), Path(args.program).resolve(), output, args.artifact, args.release_base_url)
         validate_document(strict_json_loads(json.dumps(document)), 'checkpoint-map-v2', str(root / 'schemas'))
         check_structure(document, binding['captures'], args.artifact, binding['graph_sha256'])
         directory = output / 'verify'
@@ -249,27 +246,6 @@ def main():
         from .fixtures import catalogue
         print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
         return
-    if args.command == 'pack':
-        from .checkpoints import fetch
-        from .weights import build_pack, check_pack
-        if not args.subset or not args.program:
-            parser.error('pack requires --subset model ID and --program original-config model.pt2')
-        binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
-        from .fixtures import flat_name
-        output = Path(args.output or root / '.build/packs').resolve() / ((flat_name(args.artifact) if args.artifact else args.subset) + '.safetensors')
-        document = build_pack(binding, fetch(root, args.subset), Path(args.program).resolve(), output,
-                              {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url},
-                              Path(args.graph).resolve() if args.graph else None)
-        check_pack(document, output, binding['captures'])
-        print(f"{args.subset}: packed {len(document['tensors'])} captures, sha256 {document['source']['sha256']}")
-        return
-    if args.command == 'index':
-        from .fixtures import publication_index
-        if not args.pack_repo or not args.pack_tag:
-            parser.error('index requires --pack-repo and --pack-tag')
-        document = publication_index(Path(args.output or root / '.build/bundles').resolve(), args.pack_repo, args.pack_tag)
-        print(f"indexed {len(document['artifacts'])} bundles under release {args.pack_tag}")
-        return
     if args.command in ('bundle', 'bundle-verify'):
         from .fixtures import build_bundle, verify_bundle
         output = Path(args.output or root / '.build/bundles').resolve()
@@ -288,7 +264,7 @@ def main():
             identity = str(directory.relative_to(source / 'models'))
             if names and identity.split('/')[0] not in names:
                 continue
-            build_bundle(root, directory, source / '.build' / identity, output, args.packs, args.maps, args.slim)
+            build_bundle(root, directory, source / '.build' / identity, output, args.maps)
             count += 1
         print(f'bundled {count} artifacts into {output}')
         return

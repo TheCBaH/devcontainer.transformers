@@ -16,16 +16,12 @@ on:
         description: 'Static decode histories for every generation model (checkpoint-backed): auto (first history and capacity) or e.g. 4,8'
         default: ''
         type: string
-      pack_tag:
-        description: 'Release tag for the derived packs (empty: checkpoint-packs-<sha12>)'
+      release_tag:
+        description: 'Release tag for the bundles (empty: checkpoint-<sha12>)'
         default: ''
         type: string
       publish:
-        description: 'Upload bundles, packs and the publication index to the release, then verify the downloads'
-        type: boolean
-        default: false
-      slim:
-        description: 'Bundle without model.pt2 and the full v1 pack (v2 map only)'
+        description: 'Upload bundles, hosted files and the publication index to the release, then verify the downloads'
         type: boolean
         default: false
 permissions:
@@ -41,7 +37,6 @@ jobs:
       static: ${{ steps.request.outputs.static }}
       tag: ${{ steps.request.outputs.tag }}
       publish: ${{ steps.request.outputs.publish }}
-      slim: ${{ steps.request.outputs.slim }}
       components: ${{ steps.request.outputs.components }}
     steps:
       - uses: actions/checkout@v7
@@ -50,18 +45,18 @@ jobs:
         run: |
           # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
           if [ -n "${{ inputs.subset }}" ]; then
-            subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.pack_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'; slim='${{ inputs.slim }}'
+            subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.release_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'
           else
             subset=$(jq -r .subset checkpoint-request.json); generation=$(jq -r .generation checkpoint-request.json)
-            tag=$(jq -r '.pack_tag // ""' checkpoint-request.json); publish=$(jq -r '.publish // false' checkpoint-request.json)
-            static=$(jq -r '.static_history // ""' checkpoint-request.json); slim=$(jq -r '.slim // false' checkpoint-request.json)
+            tag=$(jq -r '.release_tag // ""' checkpoint-request.json); publish=$(jq -r '.publish // false' checkpoint-request.json)
+            static=$(jq -r '.static_history // ""' checkpoint-request.json)
           fi
-          tag=${tag:-checkpoint-packs-${GITHUB_SHA::12}}
+          tag=${tag:-checkpoint-${GITHUB_SHA::12}}
           components='[]'
           if [ "$generation" = true ]; then
             components=$(jq -cn --arg s "$subset" '[($s | split(",")[]) | select(IN("smollm2-135m","t5-small","whisper-tiny","smolvlm-256m","tinyclip"))]')
           fi
-          { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; echo "slim=$slim"; } >> "$GITHUB_OUTPUT"
+          { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; } >> "$GITHUB_OUTPUT"
   forward:
     needs: plan
     runs-on: ubuntu-24.04-arm
@@ -69,8 +64,7 @@ jobs:
     env:
       OUT: .build/checkpoint
       SUBSET: ${{ needs.plan.outputs.subset }}
-      PACK_TAG: ${{ needs.plan.outputs.tag }}
-      SLIM: ${{ needs.plan.outputs.slim }}
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -87,12 +81,12 @@ jobs:
           python-version: '3.13.12'
           enable-cache: true
       - run: make setup
-      - name: Export, bind, pack and bundle checkpoint-backed graphs
+      - name: Export, bind, map and bundle checkpoint-backed graphs
         run: |
           set -euo pipefail
           uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT" \
             || echo "::warning::research reported failures; see the matrix"
-          mkdir -p "$OUT/maps" "$OUT/packs"
+          mkdir -p "$OUT/maps"
           for model in ${SUBSET//,/ }; do
             if [ "$(jq -r --arg m "$model" '.models[$m].status // "missing"' "$OUT/results/checkpoint.json")" != ok ]; then
               echo "::warning::$model export did not succeed; recorded in the matrix"; continue
@@ -100,16 +94,11 @@ jobs:
             id=$(jq -r --arg m "$model" '.models[$m].artifact_id' "$OUT/results/checkpoint.json")
             flat=${id//\//--}
             uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$flat.json"
-            uv run --frozen hf-pt2 pack --subset "$model" --binding "$OUT/maps/$flat.json" --program "$OUT/.build/$id/model.pt2" \
-              --graph "$OUT/models/$id/models/model.json" --artifact "$id" \
-              --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
-              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$flat.safetensors" \
-              --output "$OUT/packs"
             uv run --frozen hf-pt2 map --subset "$model" --binding "$OUT/maps/$flat.json" --program "$OUT/.build/$id/model.pt2" \
               --graph "$OUT/models/$id/models/model.json" --artifact "$id" \
-              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/" --output "$OUT/mapsv2"
+              --release-base-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/" --output "$OUT/mapsv2"
           done
-          uv run --frozen hf-pt2 bundle --source "$OUT" --packs "$OUT/packs" --maps "$OUT/mapsv2" $([ "$SLIM" = true ] && echo --slim) --output "$OUT/bundles"
+          uv run --frozen hf-pt2 bundle --source "$OUT" --maps "$OUT/mapsv2" --output "$OUT/bundles"
       - uses: actions/cache/save@v6
         if: always() && steps.hf-cache.outputs.cache-hit != 'true'
         with:
@@ -139,8 +128,7 @@ jobs:
       ROOT: .build/component
       MODEL: ${{ matrix.model }}
       STATIC_HISTORY: ${{ needs.plan.outputs.static }}
-      PACK_TAG: ${{ needs.plan.outputs.tag }}
-      SLIM: ${{ needs.plan.outputs.slim }}
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -157,10 +145,10 @@ jobs:
           python-version: '3.13.12'
           enable-cache: true
       - run: make setup
-      - name: Original-size components, bind, pack and bundle
+      - name: Original-size components, bind, map and bundle
         run: |
           set -euo pipefail
-          mkdir -p "$ROOT/maps" "$ROOT/packs"
+          mkdir -p "$ROOT/maps"
           if [ "$MODEL" = tinyclip ]; then
             uv run --frozen hf-pt2 encoders --population reference --weights checkpoint --subset "$MODEL" --output "$ROOT" --timeout 3600
             mapfile -t ids < <(jq -r '.components[].artifact_id' "$ROOT/results/encoders/$MODEL-reference-checkpoint.json")
@@ -172,16 +160,11 @@ jobs:
           for component in "${ids[@]}"; do
             flat=${component//\//--}
             uv run --frozen hf-pt2 bind --subset "$MODEL" --graph "$ROOT/models/$component/models/model.json" --output "$ROOT/maps/$flat.json"
-            uv run --frozen hf-pt2 pack --subset "$MODEL" --binding "$ROOT/maps/$flat.json" \
-              --program "$ROOT/.build/$component/model.pt2" --graph "$ROOT/models/$component/models/model.json" --artifact "$component" \
-              --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
-              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$flat.safetensors" \
-              --output "$ROOT/packs"
             uv run --frozen hf-pt2 map --subset "$MODEL" --binding "$ROOT/maps/$flat.json" --program "$ROOT/.build/$component/model.pt2" \
               --graph "$ROOT/models/$component/models/model.json" --artifact "$component" \
-              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/" --output "$ROOT/mapsv2"
+              --release-base-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/" --output "$ROOT/mapsv2"
           done
-          uv run --frozen hf-pt2 bundle --source "$ROOT" --packs "$ROOT/packs" --maps "$ROOT/mapsv2" $([ "$SLIM" = true ] && echo --slim) --output "$ROOT/bundles"
+          uv run --frozen hf-pt2 bundle --source "$ROOT" --maps "$ROOT/mapsv2" --output "$ROOT/bundles"
       - name: Diagnostics
         if: always()
         run: |
@@ -203,7 +186,7 @@ jobs:
     runs-on: ubuntu-24.04-arm
     env:
       OUT: .build/checkpoint
-      PACK_TAG: ${{ needs.plan.outputs.tag }}
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -236,7 +219,7 @@ jobs:
         if: always()
         run: uv run --frozen hf-pt2 matrix --source "$OUT" --output "$OUT/bundles/checkpoint-matrix.md"
       - name: Publication index
-        run: uv run --frozen hf-pt2 index --output "$OUT/bundles" --pack-repo "$GITHUB_REPOSITORY" --pack-tag "$PACK_TAG"
+        run: uv run --frozen hf-pt2 index --output "$OUT/bundles" --release-repo "$GITHUB_REPOSITORY" --release-tag "$RELEASE_TAG"
       - uses: actions/upload-artifact@v7
         with:
           name: checkpoint-bundles
@@ -261,7 +244,7 @@ jobs:
           set -euo pipefail
           gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
             gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
-              --title "Derived checkpoint packs $TAG" --notes "Producer commit $GITHUB_SHA. See publication.json for digests and provenance."
+              --title "Checkpoint bundles $TAG" --notes "Producer commit $GITHUB_SHA. See publication.json for digests and provenance."
           gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" bundles/*
       - name: Verify clean downloads against the index
         run: |

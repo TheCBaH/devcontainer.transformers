@@ -4,7 +4,7 @@ A v2 map tells a consumer how to obtain every tensor a graph captures
 (`PARAMETER`, `BUFFER`, `CONSTANT_TENSOR`) from pinned files, and declares any
 conversion. It replaces the derived full-weights pack with: the original
 checkpoint where a tensor already exists, and a small description of the rest.
-Version 1 (`safetensors.json`, one source file, no conversions) is unchanged.
+It supersedes version 1 (`safetensors.json`: one source file, no conversions), which this repository no longer produces.
 
 A bundle carries the map as `models/safetensors.v2.json`. A map belongs to one
 artifact: `artifact_id` and `graph_sha256` must equal the graph's. The schema is
@@ -82,13 +82,13 @@ resolved: `key` is the name in the file.
 ## Producer and reference consumer
 
 - `hf-pt2 map --subset M --binding B --program P --artifact ID --graph G
-  --pack-url <release base URL> --output DIR` writes `<flat id>.map.v2.json`
+  --release-base-url <release base URL> --output DIR` writes `<flat id>.map.v2.json`
   (plus the graph-owned and converted files it hosts), validates the schema,
   checks the structure against the graph's captures, then applies the map to the
   sources with the reference consumer and requires every digest to reproduce.
-- `hf-pt2 bundle --maps DIR [--slim]` adds the map and the hosted files to a
-  bundle. `--slim` also leaves out `model.pt2` and the full v1 pack; the
-  manifest then has `payload: null` and `map_v2.assets`.
+- `hf-pt2 bundle --maps DIR` adds the map and the hosted files to a
+  bundle. A bundle with a map is slim: no `model.pt2`, `payload: null` and
+  `map_v2.assets` in the manifest. Checkpoint-backed artifacts must have a map.
 - `mapv2.load_tensors` is the reference consumer (about 40 lines) and
   `mapv2.check_structure` the weight-free structural check.
 
@@ -99,5 +99,5 @@ resolved: `key` is the name in the file.
 3. For each capture, produce the value from its origin, verify `sha256`.
 4. Run the graph; compare with the bundled reference cases.
 
-Replay with `model.pt2` is a CI check on the full artifact; slim bundles record
-the case tensors and the digests but do not ship the program.
+Replay with `model.pt2` happens at export time (a fresh process runs every case);
+slim bundles record the case tensors and digests but do not ship the program.

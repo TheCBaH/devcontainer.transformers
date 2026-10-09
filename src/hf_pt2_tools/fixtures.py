@@ -83,15 +83,13 @@ def verify_case_files(directory, document):
                 raise ValueError(f'case {case["id"]} {name} content digest mismatch')
 
 
-def _members(artifact, work, loader_map=None, map_v2=None, slim=False):
-    """Deterministic archive layout: published artifact files, model.pt2, case tensors, loader maps."""
+def _members(artifact, work, map_v2=None):
+    """Deterministic archive layout: published artifact files, case tensors, then model.pt2 (full) or the v2 map (slim)."""
     members = {str(p.relative_to(artifact)): p for p in sorted(artifact.rglob('*')) if p.is_file()}
-    if not slim:
-        members['model.pt2'] = work / 'model.pt2'
-    if loader_map:
-        members['models/safetensors.json'] = loader_map
     if map_v2:
         members['models/safetensors.v2.json'] = map_v2
+    else:
+        members['model.pt2'] = work / 'model.pt2'
     for p in sorted((work / 'cases').rglob('*.pt')):
         members[str(p.relative_to(work))] = p
     return dict(sorted(members.items()))
@@ -101,28 +99,6 @@ def flat_name(identity):
     return identity.replace('/', '--')
 
 
-def _find_pack(contract, document, packs):
-    """Derived (map, pack) for an artifact from `pack --artifact` outputs; checkpoint-backed ones must have it."""
-    stem = flat_name(contract['artifact_id'])
-    loader_map, pack = (Path(packs) / (stem + suffix) for suffix in ('.map.json', '.safetensors')) if packs else (None, None)
-    present = [path for path in (loader_map, pack) if path and path.exists()]
-    if len(present) == 1:
-        raise ValueError(f'incomplete derived pack for {stem}: need both map and safetensors')
-    if not present:
-        if packs and document['weight_source']['kind'] == 'checkpoint':
-            raise ValueError(f'no derived pack for checkpoint-backed artifact {stem}')
-        return None, None
-    return loader_map, pack
-
-
-def _check_pack_files(map_path, pack, captures):
-    from .weights import check_pack
-    document = json.loads(Path(map_path).read_text())
-    if document['source']['filename'] != Path(pack).name:
-        raise ValueError('map source filename differs from the pack file name')
-    check_pack(document, pack, captures['captures'])
-
-
 def _v2_assets(map_path):
     """Release-hosted files a v2 map names (graph-owned pack, converted checkpoint), taken from `maps`."""
     document = json.loads(Path(map_path).read_text())
@@ -130,40 +106,34 @@ def _v2_assets(map_path):
     return document, [source for source in sources if 'derived_from' in source or source is document['sources'].get('graph_owned')]
 
 
-def build_bundle(root, artifact, work, output, packs=None, maps=None, slim=False):
-    """Pack one verified artifact with its payload and case tensors into a reproducible tar.gz.
+def build_bundle(root, artifact, work, output, maps=None):
+    """Pack one verified artifact with its case tensors into a reproducible tar.gz.
 
-    With `packs`, a derived weight pack is checked against the artifact's captures, its map is bundled as
-    `models/safetensors.json` (the loader layout) and the pack is copied beside the archive. With `maps`, the
-    v2 map (docs/checkpoint-map-v2.md) is bundled as `models/safetensors.v2.json` and the files it hosts are
-    copied beside the archive; `slim` then leaves out `model.pt2` and the full v1 pack.
+    With a v2 map for the artifact in `maps` (docs/checkpoint-map-v2.md) the bundle is slim: the map is the member
+    `models/safetensors.v2.json`, the release-hosted files it names are copied beside the archive, and there is no
+    `model.pt2`. Without one the bundle is full and carries `model.pt2`, which random-weight fixtures need because
+    nothing else holds their weights; checkpoint-backed artifacts must have a map.
     """
     artifact, work, output = Path(artifact), Path(work), Path(output)
     contract = verify_artifact(root, artifact)
     document = json.loads((artifact / 'cases.json').read_text())
     verify_case_files(work, document)
     captures = json.loads((artifact / 'captures.json').read_text())
-    loader_map, pack = (None, None) if slim else _find_pack(contract, document, packs)
-    if pack:
-        _check_pack_files(loader_map, pack, captures)
     map_v2, hosted = None, []
-    if maps:
-        candidate = Path(maps) / (flat_name(contract['artifact_id']) + '.map.v2.json')
-        if candidate.exists():
-            from .mapv2 import check_structure
-            map_v2 = candidate
-            map_document, hosted = _v2_assets(map_v2)
-            check_structure(map_document, captures['captures'], contract['artifact_id'], contract['graph_sha256'])
-            for source in hosted:
-                held = Path(maps) / source['name']
-                if file_hash(held) != source['sha256'] or held.stat().st_size != source['size']:
-                    raise ValueError(f"hosted file differs from the v2 map pin: {source['name']}")
-        elif slim and document['weight_source']['kind'] == 'checkpoint':
-            raise ValueError(f"no v2 map for checkpoint-backed artifact {contract['artifact_id']}")
-    members = _members(artifact, work, loader_map, map_v2, slim)
+    candidate = Path(maps) / (flat_name(contract['artifact_id']) + '.map.v2.json') if maps else None
+    if candidate and candidate.exists():
+        from .mapv2 import check_structure
+        map_v2 = candidate
+        map_document, hosted = _v2_assets(map_v2)
+        check_structure(map_document, captures['captures'], contract['artifact_id'], contract['graph_sha256'])
+        for source in hosted:
+            held = Path(maps) / source['name']
+            if file_hash(held) != source['sha256'] or held.stat().st_size != source['size']:
+                raise ValueError(f"hosted file differs from the v2 map pin: {source['name']}")
+    elif document['weight_source']['kind'] == 'checkpoint':
+        raise ValueError(f"no v2 map for checkpoint-backed artifact {contract['artifact_id']}")
+    members = _members(artifact, work, map_v2)
     output.mkdir(parents=True, exist_ok=True)
-    if pack:
-        shutil.copyfile(pack, output / pack.name)
     for source in hosted:
         shutil.copyfile(Path(maps) / source['name'], output / source['name'])
     archive = output / (flat_name(contract['artifact_id']) + '.tar.gz')
@@ -180,15 +150,11 @@ def build_bundle(root, artifact, work, output, packs=None, maps=None, slim=False
                             capture_output=True, text=True).stdout.strip() or None
     manifest = {'schema_version': 1, 'artifact_id': contract['artifact_id'], 'producer_commit': commit,
                 'graph_sha256': contract['graph_sha256'], 'contract_sha256': file_hash(artifact / 'contract.json'),
-                'weight_source': document['weight_source'], 'payload': None if slim else 'model.pt2',
+                'weight_source': document['weight_source'], 'payload': None if map_v2 else 'model.pt2',
                 'archive': {'name': archive.name, 'sha256': file_hash(archive), 'size': archive.stat().st_size},
                 'members': {name: {'sha256': file_hash(path), 'size': path.stat().st_size}
                             for name, path in members.items()},
                 'cases': [case['id'] for case in document['cases']]}
-    if pack:
-        source = json.loads(loader_map.read_text())['source']
-        manifest['pack'] = {'name': pack.name, 'sha256': file_hash(pack), 'size': pack.stat().st_size,
-                            'map': 'models/safetensors.json', 'url': source['url']}
     if map_v2:
         manifest['map_v2'] = {'member': 'models/safetensors.v2.json',
                               'assets': [{key: source[key] for key in ('name', 'sha256', 'size', 'url')} for source in hosted]}
@@ -216,12 +182,6 @@ def verify_bundle(root, archive, manifest_path=None):
         contract = verify_artifact(root, target, manifest['artifact_id'])
         if file_hash(target / 'contract.json') != manifest['contract_sha256'] or contract['graph_sha256'] != manifest['graph_sha256']:
             raise ValueError('contract/graph digest differs from manifest')
-        if 'pack' in manifest:
-            pack = archive.with_name(manifest['pack']['name'])
-            if not pack.exists() or file_hash(pack) != manifest['pack']['sha256'] or pack.stat().st_size != manifest['pack']['size']:
-                raise ValueError('pack file missing or differs from the manifest')
-            _check_pack_files(target / manifest['pack']['map'], pack,
-                              json.loads((target / 'captures.json').read_text()))
         if 'map_v2' in manifest:
             from .mapv2 import check_structure
             for asset in manifest['map_v2']['assets']:
@@ -291,11 +251,6 @@ def publication_index(bundles, repository, tag):
         manifest = json.loads(path.read_text())
         assets = {'manifest': {'name': path.name, 'sha256': file_hash(path), 'size': path.stat().st_size},
                   'archive': dict(manifest['archive'])}
-        pack = manifest.get('pack')
-        if pack:
-            if pack['url'] != base + pack['name']:
-                raise ValueError(f"map location {pack['url']} differs from the release asset {base + pack['name']}")
-            assets['pack'] = {key: pack[key] for key in ('name', 'sha256', 'size')}
         for asset in manifest.get('map_v2', {}).get('assets', []):
             if asset['url'] != base + asset['name']:
                 raise ValueError(f"v2 map location {asset['url']} differs from the release asset {base + asset['name']}")
