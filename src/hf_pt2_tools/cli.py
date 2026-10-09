@@ -7,7 +7,7 @@ import yaml
 from pt2_export_core.harness import run_pool, run_worker
 from pt2_export_core.schema_validate import validate_document
 
-from .artifacts import verify_artifact, write_json
+from .artifacts import file_hash, verify_artifact, write_json
 from .registry import artifact_id, digest, read_manifest
 
 
@@ -119,7 +119,7 @@ def sweep(args):
 def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
-                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets', 'convert', 'matrix',
+                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets', 'convert', 'matrix', 'map',
                                           'catalogue', 'bundle', 'bundle-verify', 'pack', 'index'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
@@ -144,6 +144,8 @@ def main():
     parser.add_argument('--pack-url')
     parser.add_argument('--artifact')
     parser.add_argument('--pack-tag')
+    parser.add_argument('--maps')
+    parser.add_argument('--slim', action='store_true')
     parser.add_argument('--packs')
     args = parser.parse_args()
     if args.workers < 1 or args.timeout < 1:
@@ -191,6 +193,29 @@ def main():
         output = convert_snapshot(root, entry, {'source': args.source or 'pytorch_model.bin',
                                                 'source_sha256': None, 'converted_sha256': None})
         print(json.dumps({'id': entry['id'], **json.loads((output / 'conversion.json').read_text())}))
+        return
+    if args.command == 'map':
+        from .checkpoints import fetch
+        from .mapv2 import build_map_v2, check_structure, load_tensors
+        from pt2_export_core.opgraph import strict_json_loads
+        if not args.subset or not args.program or not args.artifact or not args.pack_url:
+            parser.error('map requires --subset, --program, --artifact and --pack-url (the release base URL, ending in /)')
+        binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
+        if args.graph and file_hash(args.graph) != binding['graph_sha256']:
+            parser.error('binding was made for a different graph; rerun `hf-pt2 bind`')
+        output = Path(args.output or root / '.build/maps').resolve()
+        document = build_map_v2(binding, fetch(root, args.subset), Path(args.program).resolve(), output, args.artifact, args.pack_url)
+        validate_document(strict_json_loads(json.dumps(document)), 'checkpoint-map-v2', str(root / 'schemas'))
+        check_structure(document, binding['captures'], args.artifact, binding['graph_sha256'])
+        directory = output / 'verify'
+        directory.mkdir(parents=True, exist_ok=True)
+        for source in [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]:
+            target = directory / source['name']
+            if not target.exists():
+                local = output / source['name']
+                target.symlink_to(local if local.exists() else Path(fetch(root, args.subset)) / source['name'])
+        load_tensors(document, directory)
+        print(f"{args.subset}: map v2 for {len(document['tensors'])} captures verified by applying it to the sources")
         return
     if args.command == 'matrix':
         from .matrix import build_matrix
@@ -263,7 +288,7 @@ def main():
             identity = str(directory.relative_to(source / 'models'))
             if names and identity.split('/')[0] not in names:
                 continue
-            build_bundle(root, directory, source / '.build' / identity, output, args.packs)
+            build_bundle(root, directory, source / '.build' / identity, output, args.packs, args.maps, args.slim)
             count += 1
         print(f'bundled {count} artifacts into {output}')
         return

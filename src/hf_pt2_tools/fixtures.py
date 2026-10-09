@@ -83,12 +83,15 @@ def verify_case_files(directory, document):
                 raise ValueError(f'case {case["id"]} {name} content digest mismatch')
 
 
-def _members(artifact, work, loader_map=None):
-    """Deterministic archive layout: published artifact files, model.pt2, case tensors, loader map."""
+def _members(artifact, work, loader_map=None, map_v2=None, slim=False):
+    """Deterministic archive layout: published artifact files, model.pt2, case tensors, loader maps."""
     members = {str(p.relative_to(artifact)): p for p in sorted(artifact.rglob('*')) if p.is_file()}
-    members['model.pt2'] = work / 'model.pt2'
+    if not slim:
+        members['model.pt2'] = work / 'model.pt2'
     if loader_map:
         members['models/safetensors.json'] = loader_map
+    if map_v2:
+        members['models/safetensors.v2.json'] = map_v2
     for p in sorted((work / 'cases').rglob('*.pt')):
         members[str(p.relative_to(work))] = p
     return dict(sorted(members.items()))
@@ -120,23 +123,49 @@ def _check_pack_files(map_path, pack, captures):
     check_pack(document, pack, captures['captures'])
 
 
-def build_bundle(root, artifact, work, output, packs=None):
+def _v2_assets(map_path):
+    """Release-hosted files a v2 map names (graph-owned pack, converted checkpoint), taken from `maps`."""
+    document = json.loads(Path(map_path).read_text())
+    sources = [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]
+    return document, [source for source in sources if 'derived_from' in source or source is document['sources'].get('graph_owned')]
+
+
+def build_bundle(root, artifact, work, output, packs=None, maps=None, slim=False):
     """Pack one verified artifact with its payload and case tensors into a reproducible tar.gz.
 
     With `packs`, a derived weight pack is checked against the artifact's captures, its map is bundled as
-    `models/safetensors.json` (the loader layout) and the pack is copied beside the archive.
+    `models/safetensors.json` (the loader layout) and the pack is copied beside the archive. With `maps`, the
+    v2 map (docs/checkpoint-map-v2.md) is bundled as `models/safetensors.v2.json` and the files it hosts are
+    copied beside the archive; `slim` then leaves out `model.pt2` and the full v1 pack.
     """
     artifact, work, output = Path(artifact), Path(work), Path(output)
     contract = verify_artifact(root, artifact)
     document = json.loads((artifact / 'cases.json').read_text())
     verify_case_files(work, document)
-    loader_map, pack = _find_pack(contract, document, packs)
+    captures = json.loads((artifact / 'captures.json').read_text())
+    loader_map, pack = (None, None) if slim else _find_pack(contract, document, packs)
     if pack:
-        _check_pack_files(loader_map, pack, json.loads((artifact / 'captures.json').read_text()))
-    members = _members(artifact, work, loader_map)
+        _check_pack_files(loader_map, pack, captures)
+    map_v2, hosted = None, []
+    if maps:
+        candidate = Path(maps) / (flat_name(contract['artifact_id']) + '.map.v2.json')
+        if candidate.exists():
+            from .mapv2 import check_structure
+            map_v2 = candidate
+            map_document, hosted = _v2_assets(map_v2)
+            check_structure(map_document, captures['captures'], contract['artifact_id'], contract['graph_sha256'])
+            for source in hosted:
+                held = Path(maps) / source['name']
+                if file_hash(held) != source['sha256'] or held.stat().st_size != source['size']:
+                    raise ValueError(f"hosted file differs from the v2 map pin: {source['name']}")
+        elif slim and document['weight_source']['kind'] == 'checkpoint':
+            raise ValueError(f"no v2 map for checkpoint-backed artifact {contract['artifact_id']}")
+    members = _members(artifact, work, loader_map, map_v2, slim)
     output.mkdir(parents=True, exist_ok=True)
     if pack:
         shutil.copyfile(pack, output / pack.name)
+    for source in hosted:
+        shutil.copyfile(Path(maps) / source['name'], output / source['name'])
     archive = output / (flat_name(contract['artifact_id']) + '.tar.gz')
     buffer = io.BytesIO()
     with gzip.GzipFile(fileobj=buffer, mode='wb', mtime=0) as compressed:
@@ -151,7 +180,7 @@ def build_bundle(root, artifact, work, output, packs=None):
                             capture_output=True, text=True).stdout.strip() or None
     manifest = {'schema_version': 1, 'artifact_id': contract['artifact_id'], 'producer_commit': commit,
                 'graph_sha256': contract['graph_sha256'], 'contract_sha256': file_hash(artifact / 'contract.json'),
-                'weight_source': document['weight_source'], 'payload': 'model.pt2',
+                'weight_source': document['weight_source'], 'payload': None if slim else 'model.pt2',
                 'archive': {'name': archive.name, 'sha256': file_hash(archive), 'size': archive.stat().st_size},
                 'members': {name: {'sha256': file_hash(path), 'size': path.stat().st_size}
                             for name, path in members.items()},
@@ -160,6 +189,9 @@ def build_bundle(root, artifact, work, output, packs=None):
         source = json.loads(loader_map.read_text())['source']
         manifest['pack'] = {'name': pack.name, 'sha256': file_hash(pack), 'size': pack.stat().st_size,
                             'map': 'models/safetensors.json', 'url': source['url']}
+    if map_v2:
+        manifest['map_v2'] = {'member': 'models/safetensors.v2.json',
+                              'assets': [{key: source[key] for key in ('name', 'sha256', 'size', 'url')} for source in hosted]}
     write_json(output / (flat_name(contract['artifact_id']) + '.manifest.json'), manifest)
     return manifest
 
@@ -190,8 +222,19 @@ def verify_bundle(root, archive, manifest_path=None):
                 raise ValueError('pack file missing or differs from the manifest')
             _check_pack_files(target / manifest['pack']['map'], pack,
                               json.loads((target / 'captures.json').read_text()))
+        if 'map_v2' in manifest:
+            from .mapv2 import check_structure
+            for asset in manifest['map_v2']['assets']:
+                held = archive.with_name(asset['name'])
+                if not held.exists() or file_hash(held) != asset['sha256'] or held.stat().st_size != asset['size']:
+                    raise ValueError(f"v2 hosted file missing or differs from the manifest: {asset['name']}")
+            check_structure(json.loads((target / manifest['map_v2']['member']).read_text()),
+                            json.loads((target / 'captures.json').read_text())['captures'],
+                            manifest['artifact_id'], manifest['graph_sha256'])
         document = json.loads((target / 'cases.json').read_text())
         verify_case_files(target, document)
+        if manifest['payload'] is None:
+            return {'status': 'ok', 'cases': len(document['cases']), 'replay': 'not included (slim bundle)'}
         payload = target / 'examples.pt'
         torch.save({'cases': [{'inputs': torch.load(target / 'cases' / c['id'] / 'inputs.pt', weights_only=True),
                                'outputs': tuple(torch.load(target / 'cases' / c['id'] / 'outputs.pt', weights_only=True).values())}
@@ -253,6 +296,10 @@ def publication_index(bundles, repository, tag):
             if pack['url'] != base + pack['name']:
                 raise ValueError(f"map location {pack['url']} differs from the release asset {base + pack['name']}")
             assets['pack'] = {key: pack[key] for key in ('name', 'sha256', 'size')}
+        for asset in manifest.get('map_v2', {}).get('assets', []):
+            if asset['url'] != base + asset['name']:
+                raise ValueError(f"v2 map location {asset['url']} differs from the release asset {base + asset['name']}")
+            assets['v2:' + asset['name']] = {key: asset[key] for key in ('name', 'sha256', 'size')}
         for asset in assets.values():
             if asset['size'] > RELEASE_ASSET_LIMIT:
                 raise ValueError(f"{asset['name']} exceeds the release asset size limit")

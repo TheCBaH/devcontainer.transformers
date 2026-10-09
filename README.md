@@ -118,6 +118,14 @@ The maps' `source.url` points at those assets; mltorch's resolver still reads
 only `repo_id`/`revision`/`filename` as a Hugging Face source, so consumers use
 the URL or a local file until it gains URL loading.
 
+**Checkpoint map v2.** [`docs/checkpoint-map-v2.md`](docs/checkpoint-map-v2.md)
+specifies a map that points every capture at pinned files instead of a derived
+full-weights pack: the original (or converted) checkpoint with a declared
+conversion (`none`, or `cast` such as BF16 to F32), and small graph-owned values
+generated, inlined or in a tiny pack. `hf-pt2 map` emits it and proves it by
+reproducing every capture digest; `bundle --maps [--slim]` ships it, and slim
+bundles omit `model.pt2` and the full pack. Version 1 maps are unchanged.
+
 **Converted checkpoints and the matrix.** BERT, MobileViT and VideoMAE have no
 upstream safetensors at their pinned revisions, so `reference.conversion` pins the
 upstream `pytorch_model.bin` digest and the digest of the converted file;

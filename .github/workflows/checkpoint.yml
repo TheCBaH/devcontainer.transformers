@@ -24,6 +24,10 @@ on:
         description: 'Upload bundles, packs and the publication index to the release, then verify the downloads'
         type: boolean
         default: false
+      slim:
+        description: 'Bundle without model.pt2 and the full v1 pack (v2 map only)'
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -37,6 +41,7 @@ jobs:
       static: ${{ steps.request.outputs.static }}
       tag: ${{ steps.request.outputs.tag }}
       publish: ${{ steps.request.outputs.publish }}
+      slim: ${{ steps.request.outputs.slim }}
       components: ${{ steps.request.outputs.components }}
     steps:
       - uses: actions/checkout@v7
@@ -45,18 +50,18 @@ jobs:
         run: |
           # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
           if [ -n "${{ inputs.subset }}" ]; then
-            subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.pack_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'
+            subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.pack_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'; slim='${{ inputs.slim }}'
           else
             subset=$(jq -r .subset checkpoint-request.json); generation=$(jq -r .generation checkpoint-request.json)
             tag=$(jq -r '.pack_tag // ""' checkpoint-request.json); publish=$(jq -r '.publish // false' checkpoint-request.json)
-            static=$(jq -r '.static_history // ""' checkpoint-request.json)
+            static=$(jq -r '.static_history // ""' checkpoint-request.json); slim=$(jq -r '.slim // false' checkpoint-request.json)
           fi
           tag=${tag:-checkpoint-packs-${GITHUB_SHA::12}}
           components='[]'
           if [ "$generation" = true ]; then
             components=$(jq -cn --arg s "$subset" '[($s | split(",")[]) | select(IN("smollm2-135m","t5-small","whisper-tiny","smolvlm-256m","tinyclip"))]')
           fi
-          { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; } >> "$GITHUB_OUTPUT"
+          { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; echo "slim=$slim"; } >> "$GITHUB_OUTPUT"
   forward:
     needs: plan
     runs-on: ubuntu-24.04-arm
@@ -65,6 +70,7 @@ jobs:
       OUT: .build/checkpoint
       SUBSET: ${{ needs.plan.outputs.subset }}
       PACK_TAG: ${{ needs.plan.outputs.tag }}
+      SLIM: ${{ needs.plan.outputs.slim }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -99,8 +105,11 @@ jobs:
               --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
               --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$flat.safetensors" \
               --output "$OUT/packs"
+            uv run --frozen hf-pt2 map --subset "$model" --binding "$OUT/maps/$flat.json" --program "$OUT/.build/$id/model.pt2" \
+              --graph "$OUT/models/$id/models/model.json" --artifact "$id" \
+              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/" --output "$OUT/mapsv2"
           done
-          uv run --frozen hf-pt2 bundle --source "$OUT" --packs "$OUT/packs" --output "$OUT/bundles"
+          uv run --frozen hf-pt2 bundle --source "$OUT" --packs "$OUT/packs" --maps "$OUT/mapsv2" $([ "$SLIM" = true ] && echo --slim) --output "$OUT/bundles"
       - uses: actions/cache/save@v6
         if: always() && steps.hf-cache.outputs.cache-hit != 'true'
         with:
@@ -131,6 +140,7 @@ jobs:
       MODEL: ${{ matrix.model }}
       STATIC_HISTORY: ${{ needs.plan.outputs.static }}
       PACK_TAG: ${{ needs.plan.outputs.tag }}
+      SLIM: ${{ needs.plan.outputs.slim }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -167,8 +177,11 @@ jobs:
               --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
               --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$flat.safetensors" \
               --output "$ROOT/packs"
+            uv run --frozen hf-pt2 map --subset "$MODEL" --binding "$ROOT/maps/$flat.json" --program "$ROOT/.build/$component/model.pt2" \
+              --graph "$ROOT/models/$component/models/model.json" --artifact "$component" \
+              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/" --output "$ROOT/mapsv2"
           done
-          uv run --frozen hf-pt2 bundle --source "$ROOT" --packs "$ROOT/packs" --output "$ROOT/bundles"
+          uv run --frozen hf-pt2 bundle --source "$ROOT" --packs "$ROOT/packs" --maps "$ROOT/mapsv2" $([ "$SLIM" = true ] && echo --slim) --output "$ROOT/bundles"
       - name: Diagnostics
         if: always()
         run: |
