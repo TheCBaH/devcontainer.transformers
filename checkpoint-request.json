@@ -1,1 +1,1 @@
-{"subset": "bert-tiny,smollm2-135m,t5-small,mobilevit-xxs,whisper-tiny,tinyclip,videomae-small,time-series-small,yolos-tiny,segformer-b0,depth-anything-small,wav2vec2-base,smolvlm-256m", "generation": true, "static_history": "auto", "publish": false, "run": 13}
+{"subset": "bert-tiny,smollm2-135m,t5-small,mobilevit-xxs,whisper-tiny,tinyclip,videomae-small,time-series-small,yolos-tiny,segformer-b0,depth-anything-small,wav2vec2-base,smolvlm-256m", "generation": true, "static_history": "auto", "publish": true, "run": 14}
