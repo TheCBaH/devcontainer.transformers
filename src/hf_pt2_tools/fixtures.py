@@ -83,10 +83,13 @@ def verify_case_files(directory, document):
                 raise ValueError(f'case {case["id"]} {name} content digest mismatch')
 
 
-def _members(artifact, work):
-    """Deterministic archive layout: published artifact files, model.pt2, case tensors."""
+def _members(artifact, work, map_v2=None):
+    """Deterministic archive layout: published artifact files, case tensors, then model.pt2 (full) or the v2 map (slim)."""
     members = {str(p.relative_to(artifact)): p for p in sorted(artifact.rglob('*')) if p.is_file()}
-    members['model.pt2'] = work / 'model.pt2'
+    if map_v2:
+        members['models/safetensors.v2.json'] = map_v2
+    else:
+        members['model.pt2'] = work / 'model.pt2'
     for p in sorted((work / 'cases').rglob('*.pt')):
         members[str(p.relative_to(work))] = p
     return dict(sorted(members.items()))
@@ -96,14 +99,43 @@ def flat_name(identity):
     return identity.replace('/', '--')
 
 
-def build_bundle(root, artifact, work, output):
-    """Pack one verified artifact with its payload and case tensors into a reproducible tar.gz."""
+def _v2_assets(map_path):
+    """Release-hosted files a v2 map names (graph-owned pack, converted checkpoint), taken from `maps`."""
+    document = json.loads(Path(map_path).read_text())
+    sources = [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]
+    return document, [source for source in sources if 'derived_from' in source or source is document['sources'].get('graph_owned')]
+
+
+def build_bundle(root, artifact, work, output, maps=None):
+    """Pack one verified artifact with its case tensors into a reproducible tar.gz.
+
+    With a v2 map for the artifact in `maps` (docs/checkpoint-map-v2.md) the bundle is slim: the map is the member
+    `models/safetensors.v2.json`, the release-hosted files it names are copied beside the archive, and there is no
+    `model.pt2`. Without one the bundle is full and carries `model.pt2`, which random-weight fixtures need because
+    nothing else holds their weights; checkpoint-backed artifacts must have a map.
+    """
     artifact, work, output = Path(artifact), Path(work), Path(output)
     contract = verify_artifact(root, artifact)
     document = json.loads((artifact / 'cases.json').read_text())
     verify_case_files(work, document)
-    members = _members(artifact, work)
+    captures = json.loads((artifact / 'captures.json').read_text())
+    map_v2, hosted = None, []
+    candidate = Path(maps) / (flat_name(contract['artifact_id']) + '.map.v2.json') if maps else None
+    if candidate and candidate.exists():
+        from .mapv2 import check_structure
+        map_v2 = candidate
+        map_document, hosted = _v2_assets(map_v2)
+        check_structure(map_document, captures['captures'], contract['artifact_id'], contract['graph_sha256'])
+        for source in hosted:
+            held = Path(maps) / source['name']
+            if file_hash(held) != source['sha256'] or held.stat().st_size != source['size']:
+                raise ValueError(f"hosted file differs from the v2 map pin: {source['name']}")
+    elif document['weight_source']['kind'] == 'checkpoint':
+        raise ValueError(f"no v2 map for checkpoint-backed artifact {contract['artifact_id']}")
+    members = _members(artifact, work, map_v2)
     output.mkdir(parents=True, exist_ok=True)
+    for source in hosted:
+        shutil.copyfile(Path(maps) / source['name'], output / source['name'])
     archive = output / (flat_name(contract['artifact_id']) + '.tar.gz')
     buffer = io.BytesIO()
     with gzip.GzipFile(fileobj=buffer, mode='wb', mtime=0) as compressed:
@@ -118,11 +150,14 @@ def build_bundle(root, artifact, work, output):
                             capture_output=True, text=True).stdout.strip() or None
     manifest = {'schema_version': 1, 'artifact_id': contract['artifact_id'], 'producer_commit': commit,
                 'graph_sha256': contract['graph_sha256'], 'contract_sha256': file_hash(artifact / 'contract.json'),
-                'weight_source': document['weight_source'], 'payload': 'model.pt2',
+                'weight_source': document['weight_source'], 'payload': None if map_v2 else 'model.pt2',
                 'archive': {'name': archive.name, 'sha256': file_hash(archive), 'size': archive.stat().st_size},
                 'members': {name: {'sha256': file_hash(path), 'size': path.stat().st_size}
                             for name, path in members.items()},
                 'cases': [case['id'] for case in document['cases']]}
+    if map_v2:
+        manifest['map_v2'] = {'member': 'models/safetensors.v2.json',
+                              'assets': [{key: source[key] for key in ('name', 'sha256', 'size', 'url')} for source in hosted]}
     write_json(output / (flat_name(contract['artifact_id']) + '.manifest.json'), manifest)
     return manifest
 
@@ -147,8 +182,19 @@ def verify_bundle(root, archive, manifest_path=None):
         contract = verify_artifact(root, target, manifest['artifact_id'])
         if file_hash(target / 'contract.json') != manifest['contract_sha256'] or contract['graph_sha256'] != manifest['graph_sha256']:
             raise ValueError('contract/graph digest differs from manifest')
+        if 'map_v2' in manifest:
+            from .mapv2 import check_structure
+            for asset in manifest['map_v2']['assets']:
+                held = archive.with_name(asset['name'])
+                if not held.exists() or file_hash(held) != asset['sha256'] or held.stat().st_size != asset['size']:
+                    raise ValueError(f"v2 hosted file missing or differs from the manifest: {asset['name']}")
+            check_structure(json.loads((target / manifest['map_v2']['member']).read_text()),
+                            json.loads((target / 'captures.json').read_text())['captures'],
+                            manifest['artifact_id'], manifest['graph_sha256'])
         document = json.loads((target / 'cases.json').read_text())
         verify_case_files(target, document)
+        if manifest['payload'] is None:
+            return {'status': 'ok', 'cases': len(document['cases']), 'replay': 'not included (slim bundle)'}
         payload = target / 'examples.pt'
         torch.save({'cases': [{'inputs': torch.load(target / 'cases' / c['id'] / 'inputs.pt', weights_only=True),
                                'outputs': tuple(torch.load(target / 'cases' / c['id'] / 'outputs.pt', weights_only=True).values())}
@@ -188,3 +234,37 @@ def catalogue(root):
     result = {'schema_version': 1, 'artifacts': rows}
     write_json(root / 'catalogue.json', result)
     return result
+
+
+RELEASE_ASSET_LIMIT = 2 * 1024 ** 3
+
+
+def publication_index(bundles, repository, tag):
+    """Exact download locations and digests for every bundle, from the manifests alone.
+
+    The release tag is the hosting revision; producer commit and upstream checkpoint revision are separate facts.
+    """
+    bundles = Path(bundles)
+    base = f'https://github.com/{repository}/releases/download/{tag}/'
+    rows = []
+    for path in sorted(bundles.glob('*.manifest.json')):
+        manifest = json.loads(path.read_text())
+        assets = {'manifest': {'name': path.name, 'sha256': file_hash(path), 'size': path.stat().st_size},
+                  'archive': dict(manifest['archive'])}
+        for asset in manifest.get('map_v2', {}).get('assets', []):
+            if asset['url'] != base + asset['name']:
+                raise ValueError(f"v2 map location {asset['url']} differs from the release asset {base + asset['name']}")
+            assets['v2:' + asset['name']] = {key: asset[key] for key in ('name', 'sha256', 'size')}
+        for asset in assets.values():
+            if asset['size'] > RELEASE_ASSET_LIMIT:
+                raise ValueError(f"{asset['name']} exceeds the release asset size limit")
+            asset['url'] = base + asset['name']
+        model, category, population, component, *_ = manifest['artifact_id'].split('/')
+        rows.append({'artifact_id': manifest['artifact_id'], 'model_id': model, 'component': component,
+                     'graph_sha256': manifest['graph_sha256'], 'producer_commit': manifest['producer_commit'],
+                     'weight_source': manifest['weight_source'], 'assets': assets})
+    if not rows:
+        raise ValueError(f'no bundle manifests in {bundles}')
+    document = {'schema_version': 1, 'repository': repository, 'release_tag': tag, 'artifacts': rows}
+    write_json(bundles / 'publication.json', document)
+    return document

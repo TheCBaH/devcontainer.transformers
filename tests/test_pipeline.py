@@ -257,13 +257,11 @@ def test_catalogue_lists_artifacts_with_weight_source(bert_artifacts, tmp_path):
     assert 'cases.json' in entries[0]['files']
 
 
-def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts, tmp_path):
+def test_binding_accounts_for_every_capture_by_source(bert_artifacts, tmp_path):
     import torch
-    from safetensors import safe_open
     from hf_pt2_tools.artifacts import file_hash
     from hf_pt2_tools.checkpoints import bind_snapshot
     from hf_pt2_tools.registry import build_model
-    from hf_pt2_tools.weights import build_pack, check_pack
     roots, rows = bert_artifacts
     entry = next(e for e in read_manifest(ROOT)['models'] if e['id'] == 'bert-tiny')
     model, _ = build_model(ROOT, entry)
@@ -288,30 +286,9 @@ def test_checkpoint_pack_maps_every_capture_and_rejects_tampering(bert_artifacts
     with pytest.raises(ValueError, match='cached config'):
         bind_snapshot(ROOT, entry, {**reference, 'config_sha256': '0' * 64}, snapshot,
                       artifact / 'models/model.json', tmp_path / 'x.json', population='tiny')
-    pack = tmp_path / 'pack' / 'bert-tiny.safetensors'
-    source = {'repo_id': 'local/pack', 'revision': 'r1', 'url': 'https://example.invalid/bert-tiny.safetensors'}
-    with pytest.raises(ValueError, match='pinned location'):
-        build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, {})
-    document = build_pack(binding, snapshot, roots[0] / '.build' / identity / 'model.pt2', pack, source)
-    assert check_pack(document, pack, binding['captures'])
-    with safe_open(pack, framework='pt') as archive:
-        assert torch.equal(archive.get_tensor('model.embeddings.word_embeddings.weight'),
-                           model.embeddings.word_embeddings.weight.detach())
-    import copy
-    for mutate, message in [
-            (lambda d: d['tensors'].pop(next(iter(d['tensors']))), 'exactly the captured'),
-            (lambda d: d['unmapped'].append('x'), 'unmapped'),
-            (lambda d: d['source'].update(sha256='0' * 64), 'digest'),
-            (lambda d: d['tensors'][next(iter(d['tensors']))].update(key='absent'), 'missing in pack'),
-            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(dtype='F16'), 'dtype'),
-            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(shape=[1, 1]), 'shape')]:
-        broken = copy.deepcopy(document)
-        mutate(broken)
-        with pytest.raises(ValueError, match=message):
-            check_pack(broken, pack, binding['captures'])
 
 
-def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail(tmp_path):
+def test_checkpoint_backed_export_has_distinct_identity_and_swapped_payload_fails(tmp_path):
     import torch
     from hf_pt2_tools.artifacts import file_hash
     from hf_pt2_tools.fixtures import build_bundle, verify_bundle
@@ -343,14 +320,15 @@ def test_checkpoint_backed_export_has_distinct_identity_and_swapped_weights_fail
              for label, row in rows.items()}
     assert cases['checkpoint']['weight_source'] == weights
     assert cases['random']['cases'][0]['outputs_sha256'] != cases['checkpoint']['cases'][0]['outputs_sha256']
-    good = build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, tmp_path / 'checkpoint/.build' / checkpoint_id,
-                        tmp_path / 'bundles')
-    from hf_pt2_tools.fixtures import verify_bundle
+    good = build_bundle(ROOT, tmp_path / 'random/models' / random_id, tmp_path / 'random/.build' / random_id, tmp_path / 'bundles')
     assert verify_bundle(ROOT, tmp_path / 'bundles' / good['archive']['name'])['status'] == 'ok'
+    with pytest.raises(ValueError, match='no v2 map for checkpoint-backed'):
+        build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, tmp_path / 'checkpoint/.build' / checkpoint_id,
+                     tmp_path / 'checkpoint-bundles')
     swapped = tmp_path / 'swapped'
-    shutil.copytree(tmp_path / 'checkpoint/.build' / checkpoint_id, swapped)
-    shutil.copy(tmp_path / 'random/.build' / random_id / 'model.pt2', swapped / 'model.pt2')
-    build_bundle(ROOT, tmp_path / 'checkpoint/models' / checkpoint_id, swapped, tmp_path / 'swapped-bundles')
+    shutil.copytree(tmp_path / 'random/.build' / random_id, swapped)
+    shutil.copy(tmp_path / 'checkpoint/.build' / checkpoint_id / 'model.pt2', swapped / 'model.pt2')
+    build_bundle(ROOT, tmp_path / 'random/models' / random_id, swapped, tmp_path / 'swapped-bundles')
     with pytest.raises(RuntimeError, match='torch-only replay'):
         verify_bundle(ROOT, tmp_path / 'swapped-bundles' / good['archive']['name'])
 
@@ -366,9 +344,133 @@ def test_static_decode_variants_pin_history_and_reject_others(tmp_path):
     assert dynamic['dynamic_constraints']['history'] == [1, 8] and 'variant' not in dynamic
     for history, component in result['static_variants'].items():
         assert component['artifact_id'].endswith(f'/decode/fp32/dynamo/static-h{history}')
-        assert component['rejected_other_histories'] == 4
+        assert component['rejected_other_histories'] == 9 and component['case_sequences'] == ['initial', 'reset']
+        document = json.loads((tmp_path / 'models' / component['artifact_id'] / 'cases.json').read_text())
+        assert len(document['cases']) == 2 and document['cases'][0]['inputs_sha256'] != document['cases'][1]['inputs_sha256']
         contract = verify_artifact(ROOT, tmp_path / 'models' / component['artifact_id'])
         assert contract['variant'] == {'kind': 'static-history', 'history': int(history), 'attention_length': int(history) + 1}
         assert contract['dynamic_constraints'] == {} and contract['exporter']['shape_policy'] == 'static'
         shapes = {t['name']: t['shape'] for t in contract['inputs']}
         assert shapes['past_0_key'][2] == int(history) and shapes['attention_mask'][1] == int(history) + 1
+
+
+def test_tinyclip_towers_are_independent_components_matching_the_whole_model(tmp_path):
+    result = run_worker(ROOT / 'scripts/worker.py',
+                        ['encoders-worker', '--root', ROOT, '--output', tmp_path, '--subset', 'tinyclip'], 'towers', 300)
+    if result['status'] != 'verified':
+        pytest.fail(json.dumps(result)[:2000] + str(sorted((tmp_path / '.build/encoders').glob('*.log'))))
+    assert set(result['components']) == {'image-encoder', 'text-encoder'}
+    for component, inputs, output in (('image-encoder', ['pixel_values'], 'image_features'),
+                                      ('text-encoder', ['input_ids', 'attention_mask'], 'text_features')):
+        contract = verify_artifact(ROOT, tmp_path / 'models' / result['components'][component]['artifact_id'])
+        assert [t['name'] for t in contract['inputs']] == inputs and [t['name'] for t in contract['outputs']] == [output]
+        assert contract['verified_cases'] == 2 and 'state' not in contract
+        captures = json.loads((tmp_path / 'models' / contract['artifact_id'] / 'captures.json').read_text())
+        other = 'text' if component == 'image-encoder' else 'vision'
+        assert not any(row['target'].startswith(other) or row['target'].startswith('visual' if other == 'vision' else 'text')
+                       for row in captures['captures'])
+
+
+def test_matrix_separates_producer_stages_from_consumer_admission(bert_artifacts, tmp_path):
+    from hf_pt2_tools.fixtures import build_bundle
+    from hf_pt2_tools.matrix import BASE_MODELS, NOT_MEASURED, build_matrix
+    roots, rows = bert_artifacts
+    identity = rows[0]['artifact_id']
+    evidence = tmp_path / 'run'
+    write_json(evidence / 'results/checkpoint.json', {'models': {'bert-tiny': {'status': 'ok', 'artifact_id': identity}}})
+    build_bundle(ROOT, roots[0] / 'models' / identity, roots[0] / '.build' / identity, evidence / 'bundles')
+    document = build_matrix(ROOT, evidence, tmp_path / 'matrix.md')
+    by_model = {r['model']: r for r in document['rows']}
+    assert [r['model'] for r in document['rows']] == list(BASE_MODELS)
+    bert = by_model['bert-tiny']
+    assert (bert['export'], bert['bind'], bert['map_v2'], bert['bundle_check']) == ('ok', 'not run', 'not run', 'ok')
+    assert all(r['consumer_admission'] == NOT_MEASURED for r in document['rows'])
+    assert by_model['yolos-tiny']['export'] == 'not run'
+    assert '| bert-tiny | forward | ok |' in (tmp_path / 'matrix.md').read_text()
+
+
+def _bf16_bert_binding(bert_artifacts, tmp_path):
+    import torch
+    from hf_pt2_tools.artifacts import file_hash
+    from hf_pt2_tools.checkpoints import bind_snapshot
+    from hf_pt2_tools.registry import build_model
+    roots, rows = bert_artifacts
+    entry = next(e for e in read_manifest(ROOT)['models'] if e['id'] == 'bert-tiny')
+    model, _ = build_model(ROOT, entry)
+    model.to(torch.bfloat16)
+    snapshot = tmp_path / 'snapshot'
+    model.save_pretrained(snapshot, safe_serialization=True)
+    reference = {'repo': 'local/bert-tiny', 'revision': '0' * 40, 'safetensors_files': ['model.safetensors'],
+                 'config_sha256': file_hash(snapshot / 'config.json')}
+    identity = rows[0]['artifact_id']
+    artifact = roots[0] / 'models' / identity
+    binding = bind_snapshot(ROOT, entry, reference, snapshot, artifact / 'models/model.json', tmp_path / 'binding.json',
+                            population='tiny')
+    return binding, snapshot, identity, artifact, roots[0] / '.build' / identity / 'model.pt2'
+
+
+def test_map_v2_declares_conversion_and_reproduces_every_capture(bert_artifacts, tmp_path, monkeypatch):
+    import copy
+    from pt2_export_core.opgraph import strict_json_loads
+    from pt2_export_core.schema_validate import validate_document
+    from hf_pt2_tools import mapv2
+    binding, snapshot, identity, artifact, program = _bf16_bert_binding(bert_artifacts, tmp_path)
+    base = 'https://github.com/o/r/releases/download/t1/'
+    output = tmp_path / 'maps'
+    document = mapv2.build_map_v2(binding, snapshot, program, output, identity, base)
+    validate_document(strict_json_loads(json.dumps(document)), 'checkpoint-map-v2', str(ROOT / 'schemas'))
+    origins = {name: entry['origin'] for name, entry in document['tensors'].items()}
+    cast = origins['model.embeddings.word_embeddings.weight']
+    assert cast['kind'] == 'checkpoint' and cast['convert'] == {'op': 'cast', 'from': 'BF16', 'to': 'F32'}
+    assert document['tensors']['model.embeddings.word_embeddings.weight']['dtype'] == 'F32'
+    assert origins['model.embeddings.token_type_ids'] == {'kind': 'generated', 'op': 'fill', 'element_hex': '00' * 8}
+    assert 'graph_owned' not in document['sources']
+    source = document['sources']['checkpoint']['files'][0]
+    assert source['url'] == f"https://huggingface.co/local/bert-tiny/resolve/{'0' * 40}/model.safetensors"
+    captures = json.loads((artifact / 'captures.json').read_text())['captures']
+    graph_sha = json.loads((artifact / 'contract.json').read_text())['graph_sha256']
+    mapv2.check_structure(document, captures, identity, graph_sha)
+    files = tmp_path / 'files'
+    files.mkdir()
+    shutil.copy(snapshot / 'model.safetensors', files / 'model.safetensors')
+    loaded = mapv2.load_tensors(document, files)
+    assert sorted(loaded) == sorted(c['target'] for c in captures)
+    # inline and pack origins for graph-owned values, forced by disabling the uniform shortcut
+    monkeypatch.setattr(mapv2, '_generator', lambda value: None)
+    monkeypatch.setattr(mapv2, 'INLINE_LIMIT', 16)
+    forced = mapv2.build_map_v2(binding, snapshot, program, tmp_path / 'forced', identity, base)
+    kinds = {entry['origin']['kind'] for entry in forced['tensors'].values()}
+    assert {'inline', 'pack', 'checkpoint'} <= kinds and forced['sources']['graph_owned']['url'].startswith(base)
+    shutil.copy(tmp_path / 'forced' / forced['sources']['graph_owned']['name'], files / forced['sources']['graph_owned']['name'])
+    assert sorted(mapv2.load_tensors(forced, files)) == sorted(loaded)
+    # a wrong declaration, digest, structure or source is refused
+    for mutate, message in [
+            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight']['origin']['convert'].update(**{'from': 'F16'}), 'declared conversion'),
+            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(sha256='0' * 64), 'pinned digest'),
+            (lambda d: d['tensors']['model.embeddings.word_embeddings.weight'].update(shape=[1, 1]), 'wrong dtype/shape'),
+            (lambda d: d['sources']['checkpoint']['files'][0].update(sha256='0' * 64), 'differs from its pin')]:
+        broken = copy.deepcopy(document)
+        mutate(broken)
+        with pytest.raises(ValueError, match=message):
+            mapv2.load_tensors(broken, files)
+    for mutate, message in [(lambda d: d['tensors'].pop('model.embeddings.word_embeddings.weight'), 'exactly the captured'),
+                            (lambda d: d.update(graph_sha256='0' * 64), 'different artifact or graph')]:
+        broken = copy.deepcopy(document)
+        mutate(broken)
+        with pytest.raises(ValueError, match=message):
+            mapv2.check_structure(broken, captures, identity, graph_sha)
+    # a slim bundle carries the v2 map, leaves out model.pt2 and the full pack, and verifies without torch replay
+    from hf_pt2_tools.fixtures import build_bundle, publication_index, verify_bundle
+    build = bert_artifacts[0][0] / '.build' / identity
+    slim = build_bundle(ROOT, artifact, build, tmp_path / 'slim', maps=tmp_path / 'forced')
+    assert slim['payload'] is None and 'model.pt2' not in slim['members'] and 'pack' not in slim
+    assert slim['members']['models/safetensors.v2.json'] and slim['map_v2']['assets'][0]['name'].endswith('.graph-owned.safetensors')
+    assert verify_bundle(ROOT, tmp_path / 'slim' / slim['archive']['name']) == {'status': 'ok', 'cases': 2, 'replay': 'not included (slim bundle)'}
+    import sys
+    from hf_pt2_tools.cli import main
+    monkeypatch.setattr(sys, 'argv', ['hf-pt2', 'index', '--root', str(ROOT), '--output', str(tmp_path / 'slim'),
+                                     '--release-repo', 'o/r', '--release-tag', 't1'])
+    main()
+    assert (tmp_path / 'slim' / 'publication.json').exists()
+    index = publication_index(tmp_path / 'slim', 'o/r', 't1')
+    assert any(name.startswith('v2:') for name in index['artifacts'][0]['assets'])

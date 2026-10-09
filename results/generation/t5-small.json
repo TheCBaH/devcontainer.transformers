@@ -50,7 +50,7 @@
     "device": "cpu",
     "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
     "python": "3.13.12",
-    "tools_sha256": "8529eb9698ed3b0124ff657030278e49599c19ed6ee59c7a72c2e1842fc72b96",
+    "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
@@ -61,6 +61,40 @@
     }
   },
   "schema_version": 1,
+  "static_variants": {
+    "4": {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h4",
+      "case_sequences": [
+        "initial",
+        "reset"
+      ],
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "bde52a7fab9acef7e6c30da5f4aa22261702743e30e7143d2166b225b5e2237c",
+      "rejected_other_histories": 9,
+      "status": "verified"
+    },
+    "8": {
+      "artifact_id": "t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h8",
+      "case_sequences": [
+        "initial",
+        "reset"
+      ],
+      "cases": 2,
+      "fresh_load": {
+        "cases": 2,
+        "status": "ok",
+        "transformers_imported": false
+      },
+      "graph_sha256": "70d8072feb80d48ea06fa24348573c85bce4629066d4a0b6bf1c55893a71d2ef",
+      "rejected_other_histories": 9,
+      "status": "verified"
+    }
+  },
   "status": "verified",
   "successive_steps": 5,
   "upstream_export_for_generation": {

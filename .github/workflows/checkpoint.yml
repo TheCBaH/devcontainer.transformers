@@ -9,92 +9,250 @@ on:
         default: 't5-small,whisper-tiny'
         type: string
       generation:
-        description: 'Also export original-size generation components'
+        description: 'Also export original-size generation components and TinyCLIP towers'
         type: boolean
         default: false
-      pack_tag:
-        description: 'Release tag the derived packs will be uploaded under'
-        default: 'checkpoint-packs'
+      static_history:
+        description: 'Static decode histories for every generation model (checkpoint-backed): auto (first history and capacity) or e.g. 4,8'
+        default: ''
         type: string
+      release_tag:
+        description: 'Release tag for the bundles (empty: checkpoint-<sha12>)'
+        default: ''
+        type: string
+      publish:
+        description: 'Upload bundles, hosted files and the publication index to the release, then verify the downloads'
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
   group: checkpoint-${{ github.ref }}
   cancel-in-progress: false
 jobs:
-  checkpoint:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      subset: ${{ steps.request.outputs.subset }}
+      static: ${{ steps.request.outputs.static }}
+      tag: ${{ steps.request.outputs.tag }}
+      publish: ${{ steps.request.outputs.publish }}
+      components: ${{ steps.request.outputs.components }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Read request
+        id: request
+        run: |
+          # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
+          if [ -n "${{ inputs.subset }}" ]; then
+            subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.release_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'
+          else
+            subset=$(jq -r .subset checkpoint-request.json); generation=$(jq -r .generation checkpoint-request.json)
+            tag=$(jq -r '.release_tag // ""' checkpoint-request.json); publish=$(jq -r '.publish // false' checkpoint-request.json)
+            static=$(jq -r '.static_history // ""' checkpoint-request.json)
+          fi
+          tag=${tag:-checkpoint-${GITHUB_SHA::12}}
+          components='[]'
+          if [ "$generation" = true ]; then
+            components=$(jq -cn --arg s "$subset" '[($s | split(",")[]) | select(IN("smollm2-135m","t5-small","whisper-tiny","smolvlm-256m","tinyclip"))]')
+          fi
+          { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; } >> "$GITHUB_OUTPUT"
+  forward:
+    needs: plan
     runs-on: ubuntu-24.04-arm
-    timeout-minutes: 180
+    timeout-minutes: 345
     env:
       OUT: .build/checkpoint
+      SUBSET: ${{ needs.plan.outputs.subset }}
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
     steps:
       - uses: actions/checkout@v7
         with:
           submodules: true
-      - name: Read request
-        run: |
-          # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
-          if [ -n "${{ inputs.subset }}" ]; then
-            echo "SUBSET=${{ inputs.subset }}" >> "$GITHUB_ENV"
-            echo "GENERATION=${{ inputs.generation }}" >> "$GITHUB_ENV"
-            echo "PACK_TAG=${{ inputs.pack_tag }}" >> "$GITHUB_ENV"
-          else
-            echo "SUBSET=$(jq -r .subset checkpoint-request.json)" >> "$GITHUB_ENV"
-            echo "GENERATION=$(jq -r .generation checkpoint-request.json)" >> "$GITHUB_ENV"
-            echo "PACK_TAG=$(jq -r '.pack_tag // "checkpoint-packs"' checkpoint-request.json)" >> "$GITHUB_ENV"
-          fi
-      - uses: actions/cache@v6
+      - uses: actions/cache/restore@v6
+        id: hf-cache
         with:
           path: .hf-cache
-          key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
-          restore-keys: hf-${{ runner.arch }}-
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
+          restore-keys: hf-ckpt-${{ runner.arch }}-
       - uses: astral-sh/setup-uv@v10.2.0
         with:
           version: '0.12.23'
           python-version: '3.13.12'
           enable-cache: true
       - run: make setup
-      - name: Export, bind and verify checkpoint-backed graphs
+      - name: Export, bind, map and bundle checkpoint-backed graphs
         run: |
           set -euo pipefail
-          uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT"
-          mkdir -p "$OUT/maps" "$OUT/packs"
+          uv run --frozen hf-pt2 research --population reference --weights checkpoint --subset "$SUBSET" --workers 1 --timeout 1800 --output "$OUT" \
+            || echo "::warning::research reported failures; see the matrix"
+          mkdir -p "$OUT/maps"
           for model in ${SUBSET//,/ }; do
+            if [ "$(jq -r --arg m "$model" '.models[$m].status // "missing"' "$OUT/results/checkpoint.json")" != ok ]; then
+              echo "::warning::$model export did not succeed; recorded in the matrix"; continue
+            fi
             id=$(jq -r --arg m "$model" '.models[$m].artifact_id' "$OUT/results/checkpoint.json")
-            uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$model.json"
-            uv run --frozen hf-pt2 pack --subset "$model" --binding "$OUT/maps/$model.json" --program "$OUT/.build/$id/model.pt2" \
-              --pack-repo "$GITHUB_REPOSITORY" --pack-revision "$GITHUB_SHA" \
-              --pack-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$PACK_TAG/$model.safetensors" \
-              --output "$OUT/packs"
+            flat=${id//\//--}
+            uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT/models/$id/models/model.json" --output "$OUT/maps/$flat.json"
+            uv run --frozen hf-pt2 map --subset "$model" --binding "$OUT/maps/$flat.json" --program "$OUT/.build/$id/model.pt2" \
+              --graph "$OUT/models/$id/models/model.json" --artifact "$id" \
+              --release-base-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/" --output "$OUT/mapsv2"
           done
-          uv run --frozen hf-pt2 bundle --source "$OUT" --output "$OUT/bundles"
-          uv run --frozen hf-pt2 bundle-verify --output "$OUT/bundles"
-      - name: Original-size generation components
-        if: ${{ env.GENERATION == 'true' }}
-        run: |
-          set -euo pipefail
-          for model in ${SUBSET//,/ }; do
-            case "$model" in smollm2-135m|t5-small|whisper-tiny|smolvlm-256m) ;; *) continue ;; esac
-            uv run --frozen hf-pt2 generation --population reference --weights checkpoint --subset "$model" --output "$OUT-generation" --timeout 3600
-            for component in $(jq -r '.components[].artifact_id' "$OUT-generation/results/generation/$model-reference-checkpoint.json"); do
-              uv run --frozen hf-pt2 bind --subset "$model" --graph "$OUT-generation/models/$component/models/model.json" \
-                --output "$OUT/maps/$model.$(echo "$component" | cut -d/ -f4).json"
-            done
-          done
-      - name: Generation diagnostics
-        if: always()
-        run: |
-          for f in "$OUT"-generation/.build/generation/*.log; do [ -f "$f" ] && { echo "== $f"; tail -n 25 "$f"; }; done || true
+          uv run --frozen hf-pt2 bundle --source "$OUT" --maps "$OUT/mapsv2" --output "$OUT/bundles"
+      - uses: actions/cache/save@v6
+        if: always() && steps.hf-cache.outputs.cache-hit != 'true'
+        with:
+          path: .hf-cache
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: checkpoint-evidence
+          name: forward
           path: |
-            .build/checkpoint/results
-            .build/checkpoint/maps
-            .build/checkpoint/packs
             .build/checkpoint/bundles
-            .build/checkpoint-generation/results
+            .build/checkpoint/maps
+            .build/checkpoint/results
             .build/checkpoint/**/*.log
           include-hidden-files: true
-          if-no-files-found: ignore
+          if-no-files-found: error
+  components:
+    needs: plan
+    if: needs.plan.outputs.components != '[]'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        model: ${{ fromJSON(needs.plan.outputs.components) }}
+    env:
+      ROOT: .build/component
+      MODEL: ${{ matrix.model }}
+      STATIC_HISTORY: ${{ needs.plan.outputs.static }}
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      # restore only: the forward job downloads every model and is the sole saver, so the entry is complete
+      - uses: actions/cache/restore@v6
+        with:
+          path: .hf-cache
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
+          restore-keys: hf-ckpt-${{ runner.arch }}-
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - name: Original-size components, bind, map and bundle
+        run: |
+          set -euo pipefail
+          mkdir -p "$ROOT/maps"
+          if [ "$MODEL" = tinyclip ]; then
+            uv run --frozen hf-pt2 encoders --population reference --weights checkpoint --subset "$MODEL" --output "$ROOT" --timeout 3600
+            mapfile -t ids < <(jq -r '.components[].artifact_id' "$ROOT/results/encoders/$MODEL-reference-checkpoint.json")
+          else
+            extra=(); [ -n "$STATIC_HISTORY" ] && extra=(--static-history "$STATIC_HISTORY")
+            uv run --frozen hf-pt2 generation --population reference --weights checkpoint --subset "$MODEL" "${extra[@]}" --output "$ROOT" --timeout 3600
+            mapfile -t ids < <(jq -r '(.components[].artifact_id), ((.static_variants // {})[] | .artifact_id)' "$ROOT/results/generation/$MODEL-reference-checkpoint.json")
+          fi
+          for component in "${ids[@]}"; do
+            flat=${component//\//--}
+            uv run --frozen hf-pt2 bind --subset "$MODEL" --graph "$ROOT/models/$component/models/model.json" --output "$ROOT/maps/$flat.json"
+            uv run --frozen hf-pt2 map --subset "$MODEL" --binding "$ROOT/maps/$flat.json" --program "$ROOT/.build/$component/model.pt2" \
+              --graph "$ROOT/models/$component/models/model.json" --artifact "$component" \
+              --release-base-url "https://github.com/$GITHUB_REPOSITORY/releases/download/$RELEASE_TAG/" --output "$ROOT/mapsv2"
+          done
+          uv run --frozen hf-pt2 bundle --source "$ROOT" --maps "$ROOT/mapsv2" --output "$ROOT/bundles"
+      - name: Diagnostics
+        if: always()
+        run: |
+          for f in "$ROOT"/.build/generation/*.log "$ROOT"/.build/encoders/*.log; do [ -f "$f" ] && { echo "== $f"; tail -n 25 "$f"; }; done || true
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: component-${{ matrix.model }}
+          path: |
+            .build/component/bundles
+            .build/component/maps
+            .build/component/results
+            .build/component/**/*.log
+          include-hidden-files: true
+          if-no-files-found: error
+  collect:
+    needs: [plan, forward, components]
+    if: ${{ !cancelled() && needs.forward.result == 'success' }}
+    runs-on: ubuntu-24.04-arm
+    env:
+      OUT: .build/checkpoint
+      RELEASE_TAG: ${{ needs.plan.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: '{forward,component-*}'
+          path: parts
+      - name: Merge parts
+        run: |
+          set -euo pipefail
+          mkdir -p "$OUT/bundles" "$OUT/maps" "$OUT/results" "$OUT-generation/results" "$OUT-components/results"
+          cp -r parts/forward/bundles/. "$OUT/bundles/"; cp -r parts/forward/maps/. "$OUT/maps/"; cp -r parts/forward/results/. "$OUT/results/"
+          shopt -s nullglob
+          for part in parts/component-*; do
+            cp -r "$part"/bundles/. "$OUT/bundles/"; cp -r "$part"/maps/. "$OUT/maps/"
+            [ -d "$part/results/generation" ] && cp -r "$part/results/generation" "$OUT-generation/results/"
+            [ -d "$part/results/encoders" ] && cp -r "$part/results/encoders" "$OUT-components/results/"
+          done
+          true
+      - name: Verify bundles offline
+        run: uv run --frozen hf-pt2 bundle-verify --output "$OUT/bundles"
+      - name: Checkpoint matrix
+        if: always()
+        run: uv run --frozen hf-pt2 matrix --source "$OUT" --output "$OUT/bundles/checkpoint-matrix.md"
+      - name: Publication index
+        run: uv run --frozen hf-pt2 index --output "$OUT/bundles" --release-repo "$GITHUB_REPOSITORY" --release-tag "$RELEASE_TAG"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: checkpoint-bundles
+          path: .build/checkpoint/bundles
+          if-no-files-found: error
+  publish:
+    needs: [plan, components, collect]
+    if: ${{ !cancelled() && needs.plan.outputs.publish == 'true' && needs.collect.result == 'success' && needs.components.result != 'failure' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ needs.plan.outputs.tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: checkpoint-bundles
+          path: bundles
+      - name: Upload release assets
+        run: |
+          set -euo pipefail
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
+              --title "Checkpoint bundles $TAG" --notes "Producer commit $GITHUB_SHA. See publication.json for digests and provenance."
+          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" bundles/*
+      - name: Verify clean downloads against the index
+        run: |
+          set -euo pipefail
+          mkdir -p fresh
+          jq -r '.artifacts[].assets[] | [.url, .sha256, .size] | @tsv' bundles/publication.json | while IFS=$'\t' read -r url sha size; do
+            curl -fsSL --retry 3 -o fresh/asset "$url"
+            [ "$(sha256sum fresh/asset | cut -d' ' -f1)" = "$sha" ] && [ "$(stat -c %s fresh/asset)" = "$size" ] \
+              || { echo "MISMATCH $url"; exit 1; }
+            echo "ok $url"
+          done

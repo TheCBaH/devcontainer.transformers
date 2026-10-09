@@ -1,16 +1,1698 @@
 {
+  "bindings": [
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.embeddings.word_embeddings.weight",
+      "graph_parameter": "model.embeddings.word_embeddings.weight",
+      "key_renamed": true,
+      "library_parameter": "embeddings.word_embeddings.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f49cea2ec944d799022612633ec594eddfb82cd81c54f98be79ef0c58d5cb0ff",
+      "shape": [
+        30522,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.embeddings.position_embeddings.weight",
+      "graph_parameter": "model.embeddings.position_embeddings.weight",
+      "key_renamed": true,
+      "library_parameter": "embeddings.position_embeddings.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "b17b9d2b78503b0057db042854f79ad83c8eb8a8f022c5e07f9b4a98283bc480",
+      "shape": [
+        512,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.embeddings.token_type_embeddings.weight",
+      "graph_parameter": "model.embeddings.token_type_embeddings.weight",
+      "key_renamed": true,
+      "library_parameter": "embeddings.token_type_embeddings.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "5d0abc942e607e690c4e1229c28ced11c8191b1955fda71c81a196ca07869ecb",
+      "shape": [
+        2,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.embeddings.LayerNorm.weight",
+      "graph_parameter": "model.embeddings.LayerNorm.weight",
+      "key_renamed": true,
+      "library_parameter": "embeddings.LayerNorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9ebbf221e9922fa7e96a65d83860e14fde877c37901794188dbc0119fb04d78d",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.embeddings.LayerNorm.bias",
+      "graph_parameter": "model.embeddings.LayerNorm.bias",
+      "key_renamed": true,
+      "library_parameter": "embeddings.LayerNorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ad4ffafdc100192191cca090b76519c689068fb8b8ee8a5d770bf75fd4f556ce",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.query.weight",
+      "graph_parameter": "model.encoder.layer.0.attention.self.query.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0acebbdf18ed97979c2a5d205d5785fb4bae30c9df08064823ca53150ebfd635",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.query.bias",
+      "graph_parameter": "model.encoder.layer.0.attention.self.query.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1c0ae37a6f1e963fedea5b81c732f3230e7f0cddc592938a80c461800f32fe3a",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.key.weight",
+      "graph_parameter": "model.encoder.layer.0.attention.self.key.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6b950f921ee111d9d70682f89ed855e7a2e9d6a6af50555027ce7cbed3757cc7",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.key.bias",
+      "graph_parameter": "model.encoder.layer.0.attention.self.key.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "55adb28810a6020320d74a41284b73bb51bf4bf5226198e53cab720f53531f0c",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.value.weight",
+      "graph_parameter": "model.encoder.layer.0.attention.self.value.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2ea5868004c66fc912fe74e5c9238ac6d91cc3ecb83729dfeb1e0f5ab1c187df",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.self.value.bias",
+      "graph_parameter": "model.encoder.layer.0.attention.self.value.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.self.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "18c4ec14ca13f7fe4bab91c55eb9b02c012ed073d3c56beaed45ad5f067fcc22",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.output.dense.weight",
+      "graph_parameter": "model.encoder.layer.0.attention.output.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f22f2bec4a303e4d0c3d326ec101b7042d194c2e1522b5ebd3377dfde2e169b3",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.output.dense.bias",
+      "graph_parameter": "model.encoder.layer.0.attention.output.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2885546bee40403065c3d4858a17edd09ce84d4df58e06855e5f290b01bae1c4",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+      "graph_parameter": "model.encoder.layer.0.attention.output.LayerNorm.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.output.LayerNorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "326a90ea729d7f1c8dc0b599f49926980d59d73cdcff7c2c80dea2dbf6b094ef",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+      "graph_parameter": "model.encoder.layer.0.attention.output.LayerNorm.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.attention.output.LayerNorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "6c21382c9a7f96e18dd8c1740f50030e73a52bfedc6185dfb36c4ea309cfc65d",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.intermediate.dense.weight",
+      "graph_parameter": "model.encoder.layer.0.intermediate.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "1837abddcee6e6d755e3c5276021a60d8d7be3c568b9d16ce8c3c2fc517794b3",
+      "shape": [
+        512,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.intermediate.dense.bias",
+      "graph_parameter": "model.encoder.layer.0.intermediate.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "0652ab6a4eba5562dcce4be341f4e8bdca1509394b6035c02d27a2697a07eb85",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.output.dense.weight",
+      "graph_parameter": "model.encoder.layer.0.output.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "3d2afe109364e857354a64679de404820cf3cadf7c5241046c97288db5317a25",
+      "shape": [
+        128,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.output.dense.bias",
+      "graph_parameter": "model.encoder.layer.0.output.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "7bdc9b2cdec6b03f998f8e7c170415598f70c18b989f6586f567eb33d99e3f06",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.output.LayerNorm.weight",
+      "graph_parameter": "model.encoder.layer.0.output.LayerNorm.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.output.LayerNorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "2d9108431697bd6faea8055f0a61ea5ef07dc367c013d1436627d02d86d6e66a",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.0.output.LayerNorm.bias",
+      "graph_parameter": "model.encoder.layer.0.output.LayerNorm.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.0.output.LayerNorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "78d681625f5b35c3eb164d46f4033817992bf1262ab4ff063b03519464862e65",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.query.weight",
+      "graph_parameter": "model.encoder.layer.1.attention.self.query.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.query.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "f591ff3f97c84d002964ae49a5c3672ed00320db444e49fa843419d91e69db5b",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.query.bias",
+      "graph_parameter": "model.encoder.layer.1.attention.self.query.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.query.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ebcb022f66703ac7f8187146e9f2051dc01f5ad81629552887784138a8557861",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.key.weight",
+      "graph_parameter": "model.encoder.layer.1.attention.self.key.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.key.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ff567742407f7f8c032754b56f31b718455bdcae21c0b287027f44f07f481769",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.key.bias",
+      "graph_parameter": "model.encoder.layer.1.attention.self.key.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.key.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "4b0eb16ecfae12acae7c2add258a2734db4d46e4ae9a3374a3065e9206a915c6",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.value.weight",
+      "graph_parameter": "model.encoder.layer.1.attention.self.value.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.value.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "9de7af9f8abd2d730f88d426ed40e1d63a7643dd85fdfac5467137526db10f29",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.self.value.bias",
+      "graph_parameter": "model.encoder.layer.1.attention.self.value.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.self.value.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "e8332addbc11ac4437819dbea9b4dd584611017613bf12b8f40c5d5b24a4e8c3",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.output.dense.weight",
+      "graph_parameter": "model.encoder.layer.1.attention.output.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "bb091a113ba8dc74d5005b20dc45edebf8a82ff12df7a18532eeb88eb92eaf96",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.output.dense.bias",
+      "graph_parameter": "model.encoder.layer.1.attention.output.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d841b4359077aba819ba8753cf639774d159c18b207e72b1d31997161d748e8b",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+      "graph_parameter": "model.encoder.layer.1.attention.output.LayerNorm.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.output.LayerNorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "8cce4d623046843995bbbc4c582abb76c615ae0da97cc4489ec24effcdb36421",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+      "graph_parameter": "model.encoder.layer.1.attention.output.LayerNorm.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.attention.output.LayerNorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "106941eea5efc2b3ca11072f55a543bdae2ee6dd592b4b2d4bf6230b70cf28df",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.intermediate.dense.weight",
+      "graph_parameter": "model.encoder.layer.1.intermediate.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.intermediate.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a08978aa217acb8aa2d956d728a9b5d39d1924af217d3bcce91322a088046606",
+      "shape": [
+        512,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.intermediate.dense.bias",
+      "graph_parameter": "model.encoder.layer.1.intermediate.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.intermediate.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "ad2916a72a70f197e6252d5df3e1dea61e4c67bd1ec672944360b4ef7c3ab2b1",
+      "shape": [
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.output.dense.weight",
+      "graph_parameter": "model.encoder.layer.1.output.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.output.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "fb9898b9df5f9f55e0f40b10bb25c0a14d6f97412c8a87e6b553ea2237dfae50",
+      "shape": [
+        128,
+        512
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.output.dense.bias",
+      "graph_parameter": "model.encoder.layer.1.output.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.output.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "aa08e02a0a4bd1b01b60dcf1194e6552733dc8cbe8a45543a62532f9e96ef268",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.output.LayerNorm.weight",
+      "graph_parameter": "model.encoder.layer.1.output.LayerNorm.weight",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.output.LayerNorm.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c0fcf5d3d8a4dbb1a9ed8b8c3fbf10c568d6d28262d0d69e5bafd1adb482b518",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.encoder.layer.1.output.LayerNorm.bias",
+      "graph_parameter": "model.encoder.layer.1.output.LayerNorm.bias",
+      "key_renamed": true,
+      "library_parameter": "encoder.layer.1.output.LayerNorm.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "c5a0eddf8c9d2d8d2baaf109424fe8233224330347f65bffed0dff0c186fe6d3",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.pooler.dense.weight",
+      "graph_parameter": "model.pooler.dense.weight",
+      "key_renamed": true,
+      "library_parameter": "pooler.dense.weight",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "d288a0b6aff69cba192b299e3d12f948cbc5b43393f0198673dc4ea5914e4bb3",
+      "shape": [
+        128,
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    },
+    {
+      "checkpoint_file": "model.safetensors",
+      "checkpoint_tensor": "bert.pooler.dense.bias",
+      "graph_parameter": "model.pooler.dense.bias",
+      "key_renamed": true,
+      "library_parameter": "pooler.dense.bias",
+      "loaded_dtype": "torch.float32",
+      "loaded_sha256": "a7da0faaef5689a538d0117b0414260814fb91fc3d886db97045e0d5eccd0f60",
+      "shape": [
+        128
+      ],
+      "source_dtype": "torch.float32",
+      "tied_aliases": []
+    }
+  ],
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        30522,
+        128
+      ],
+      "source": {
+        "byte_size": 15627264,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.word_embeddings.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.word_embeddings.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f49cea2ec944d799022612633ec594eddfb82cd81c54f98be79ef0c58d5cb0ff",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_embeddings_word_embeddings_weight",
+      "target": "model.embeddings.word_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512,
+        128
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.position_embeddings.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.position_embeddings.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "b17b9d2b78503b0057db042854f79ad83c8eb8a8f022c5e07f9b4a98283bc480",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_embeddings_position_embeddings_weight",
+      "target": "model.embeddings.position_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        2,
+        128
+      ],
+      "source": {
+        "byte_size": 1024,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.token_type_embeddings.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.token_type_embeddings.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "5d0abc942e607e690c4e1229c28ced11c8191b1955fda71c81a196ca07869ecb",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_embeddings_token_type_embeddings_weight",
+      "target": "model.embeddings.token_type_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.LayerNorm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.LayerNorm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9ebbf221e9922fa7e96a65d83860e14fde877c37901794188dbc0119fb04d78d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_embeddings_layernorm_weight",
+      "target": "model.embeddings.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.LayerNorm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.LayerNorm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ad4ffafdc100192191cca090b76519c689068fb8b8ee8a5d770bf75fd4f556ce",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_embeddings_layernorm_bias",
+      "target": "model.embeddings.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.query.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0acebbdf18ed97979c2a5d205d5785fb4bae30c9df08064823ca53150ebfd635",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_query_weight",
+      "target": "model.encoder.layer.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.query.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1c0ae37a6f1e963fedea5b81c732f3230e7f0cddc592938a80c461800f32fe3a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_query_bias",
+      "target": "model.encoder.layer.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.key.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6b950f921ee111d9d70682f89ed855e7a2e9d6a6af50555027ce7cbed3757cc7",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_key_weight",
+      "target": "model.encoder.layer.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.key.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "55adb28810a6020320d74a41284b73bb51bf4bf5226198e53cab720f53531f0c",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_key_bias",
+      "target": "model.encoder.layer.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.value.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2ea5868004c66fc912fe74e5c9238ac6d91cc3ecb83729dfeb1e0f5ab1c187df",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_value_weight",
+      "target": "model.encoder.layer.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.self.value.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "18c4ec14ca13f7fe4bab91c55eb9b02c012ed073d3c56beaed45ad5f067fcc22",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_value_bias",
+      "target": "model.encoder.layer.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.output.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f22f2bec4a303e4d0c3d326ec101b7042d194c2e1522b5ebd3377dfde2e169b3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_dense_weight",
+      "target": "model.encoder.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.output.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2885546bee40403065c3d4858a17edd09ce84d4df58e06855e5f290b01bae1c4",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_dense_bias",
+      "target": "model.encoder.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.output.LayerNorm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.output.LayerNorm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "326a90ea729d7f1c8dc0b599f49926980d59d73cdcff7c2c80dea2dbf6b094ef",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_layernorm_weight",
+      "target": "model.encoder.layer.0.attention.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.attention.output.LayerNorm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.attention.output.LayerNorm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "6c21382c9a7f96e18dd8c1740f50030e73a52bfedc6185dfb36c4ea309cfc65d",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_layernorm_bias",
+      "target": "model.encoder.layer.0.attention.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512,
+        128
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.intermediate.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.intermediate.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "1837abddcee6e6d755e3c5276021a60d8d7be3c568b9d16ce8c3c2fc517794b3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_intermediate_dense_weight",
+      "target": "model.encoder.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512
+      ],
+      "source": {
+        "byte_size": 2048,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.intermediate.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.intermediate.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "0652ab6a4eba5562dcce4be341f4e8bdca1509394b6035c02d27a2697a07eb85",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_intermediate_dense_bias",
+      "target": "model.encoder.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        512
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.output.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "3d2afe109364e857354a64679de404820cf3cadf7c5241046c97288db5317a25",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_dense_weight",
+      "target": "model.encoder.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.output.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "7bdc9b2cdec6b03f998f8e7c170415598f70c18b989f6586f567eb33d99e3f06",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_dense_bias",
+      "target": "model.encoder.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.output.LayerNorm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.output.LayerNorm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "2d9108431697bd6faea8055f0a61ea5ef07dc367c013d1436627d02d86d6e66a",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_layernorm_weight",
+      "target": "model.encoder.layer.0.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.0.output.LayerNorm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.0.output.LayerNorm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "78d681625f5b35c3eb164d46f4033817992bf1262ab4ff063b03519464862e65",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_layernorm_bias",
+      "target": "model.encoder.layer.0.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.query.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.query.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "f591ff3f97c84d002964ae49a5c3672ed00320db444e49fa843419d91e69db5b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_query_weight",
+      "target": "model.encoder.layer.1.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.query.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.query.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ebcb022f66703ac7f8187146e9f2051dc01f5ad81629552887784138a8557861",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_query_bias",
+      "target": "model.encoder.layer.1.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.key.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.key.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ff567742407f7f8c032754b56f31b718455bdcae21c0b287027f44f07f481769",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_key_weight",
+      "target": "model.encoder.layer.1.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.key.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.key.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "4b0eb16ecfae12acae7c2add258a2734db4d46e4ae9a3374a3065e9206a915c6",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_key_bias",
+      "target": "model.encoder.layer.1.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.value.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.value.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "9de7af9f8abd2d730f88d426ed40e1d63a7643dd85fdfac5467137526db10f29",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_value_weight",
+      "target": "model.encoder.layer.1.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.self.value.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.self.value.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "e8332addbc11ac4437819dbea9b4dd584611017613bf12b8f40c5d5b24a4e8c3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_value_bias",
+      "target": "model.encoder.layer.1.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.output.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "bb091a113ba8dc74d5005b20dc45edebf8a82ff12df7a18532eeb88eb92eaf96",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_dense_weight",
+      "target": "model.encoder.layer.1.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.output.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d841b4359077aba819ba8753cf639774d159c18b207e72b1d31997161d748e8b",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_dense_bias",
+      "target": "model.encoder.layer.1.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.output.LayerNorm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.output.LayerNorm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "8cce4d623046843995bbbc4c582abb76c615ae0da97cc4489ec24effcdb36421",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_layernorm_weight",
+      "target": "model.encoder.layer.1.attention.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.attention.output.LayerNorm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.attention.output.LayerNorm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "106941eea5efc2b3ca11072f55a543bdae2ee6dd592b4b2d4bf6230b70cf28df",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_layernorm_bias",
+      "target": "model.encoder.layer.1.attention.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512,
+        128
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.intermediate.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.intermediate.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a08978aa217acb8aa2d956d728a9b5d39d1924af217d3bcce91322a088046606",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_intermediate_dense_weight",
+      "target": "model.encoder.layer.1.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512
+      ],
+      "source": {
+        "byte_size": 2048,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.intermediate.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.intermediate.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "ad2916a72a70f197e6252d5df3e1dea61e4c67bd1ec672944360b4ef7c3ab2b1",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_intermediate_dense_bias",
+      "target": "model.encoder.layer.1.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        512
+      ],
+      "source": {
+        "byte_size": 262144,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.output.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.output.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "fb9898b9df5f9f55e0f40b10bb25c0a14d6f97412c8a87e6b553ea2237dfae50",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_dense_weight",
+      "target": "model.encoder.layer.1.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.output.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.output.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "aa08e02a0a4bd1b01b60dcf1194e6552733dc8cbe8a45543a62532f9e96ef268",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_dense_bias",
+      "target": "model.encoder.layer.1.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.output.LayerNorm.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.output.LayerNorm.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c0fcf5d3d8a4dbb1a9ed8b8c3fbf10c568d6d28262d0d69e5bafd1adb482b518",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_layernorm_weight",
+      "target": "model.encoder.layer.1.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.encoder.layer.1.output.LayerNorm.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "encoder.layer.1.output.LayerNorm.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "c5a0eddf8c9d2d8d2baaf109424fe8233224330347f65bffed0dff0c186fe6d3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_layernorm_bias",
+      "target": "model.encoder.layer.1.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "byte_size": 65536,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.pooler.dense.weight",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "pooler.dense.weight",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "d288a0b6aff69cba192b299e3d12f948cbc5b43393f0198673dc4ea5914e4bb3",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_pooler_dense_weight",
+      "target": "model.pooler.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "byte_size": 512,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.pooler.dense.bias",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "pooler.dense.bias",
+        "loaded_dtype": "torch.float32",
+        "loaded_sha256": "a7da0faaef5689a538d0117b0414260814fb91fc3d886db97045e0d5eccd0f60",
+        "source_dtype": "torch.float32",
+        "tied_aliases": []
+      },
+      "ssa_name": "p_model_pooler_dense_bias",
+      "target": "model.pooler.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "library_verified": false,
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_lifted_tensor_0",
+      "target": "model.lifted_tensor_0"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_1",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        512
+      ],
+      "source": {
+        "byte_size": 4096,
+        "checkpoint_file": "model.safetensors",
+        "checkpoint_tensor": "bert.embeddings.position_ids",
+        "conversion": "none",
+        "key_renamed": true,
+        "kind": "checkpoint",
+        "library_parameter": "embeddings.position_ids",
+        "loaded_dtype": "torch.int64",
+        "loaded_sha256": "5738153ec97595b1c1e4dc027f7b7fb4534f19ed2ce9f9ee712e6d34a384cde7",
+        "source_dtype": "torch.int64",
+        "tied_aliases": []
+      },
+      "ssa_name": "b_model_embeddings_position_ids",
+      "target": "model.embeddings.position_ids"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "tensor_2",
+      "persistent": false,
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        1,
+        512
+      ],
+      "source": {
+        "kind": "payload",
+        "library_verified": true,
+        "value_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      "ssa_name": "b_model_embeddings_token_type_ids",
+      "target": "model.embeddings.token_type_ids"
+    }
+  ],
+  "checkpoint_bytes": {
+    "model.safetensors": 33492752
+  },
+  "checkpoint_sha256": {
+    "model.safetensors": "312b6bf1364262ade43664fb3a0013b0865873dd77391379d2f2b5589eb200e6"
+  },
+  "conversion": "library load and checkpoint values compared after explicit float32 conversion",
+  "graph_sha256": "82f8f2e3201f6f005a58b4635fa6cd69c8212fa54c5c16839c8b7083e1e70fc0",
   "model_id": "bert-tiny",
-  "reason": "no upstream safetensors at the pinned revision",
   "reference": {
     "config_file": "prajjwal1--bert-tiny.config.json",
     "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+    "conversion": {
+      "converted_sha256": "312b6bf1364262ade43664fb3a0013b0865873dd77391379d2f2b5589eb200e6",
+      "source": "pytorch_model.bin",
+      "source_sha256": "dab2c2bddcfb48ea430ef63fd76d46d67d704487844d967256a50dd7d7fd0a66"
+    },
     "model_type": "bert",
     "reference_size_million": 4.4,
     "repo": "prajjwal1/bert-tiny",
     "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
-    "safetensors_files": [],
+    "safetensors_files": [
+      "model.safetensors"
+    ],
     "size_basis": "approximate; 2-layer/128-wide BERT config"
   },
   "schema_version": 1,
-  "status": "unavailable"
+  "scope": "captured-value bindings for an original-config architecture graph; no pretrained accuracy claim",
+  "status": "verified",
+  "unbound_unused_parameters": [],
+  "unmapped": [],
+  "versions": {
+    "safetensors": "0.8.0",
+    "torch": "2.12.0+cpu",
+    "transformers": "5.18.0"
+  }
 }

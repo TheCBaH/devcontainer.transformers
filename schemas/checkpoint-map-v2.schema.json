@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thecbah.github.io/devcontainer.transformers/schemas/checkpoint-map-v2.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "artifact_id", "graph_sha256", "model_id", "sources", "tensors", "unmapped"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "artifact_id": {"type": "string"},
+    "graph_sha256": {"$ref": "#/$defs/sha256"},
+    "model_id": {"type": "string"},
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkpoint"],
+      "properties": {
+        "checkpoint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["files"],
+          "properties": {"files": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/checkpointFile"}}}
+        },
+        "graph_owned": {"$ref": "#/$defs/pinnedFile"}
+      }
+    },
+    "tensors": {"type": "object", "additionalProperties": {"$ref": "#/$defs/tensor"}},
+    "unmapped": {"type": "array", "maxItems": 0}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "dtype": {"enum": ["F64", "F32", "F16", "BF16", "I64", "I32", "I16", "I8", "U8", "BOOL"]},
+    "pinnedFile": {
+      "type": "object",
+      "required": ["name", "sha256", "size", "url"],
+      "properties": {
+        "name": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha256"},
+        "size": {"type": "integer", "minimum": 1}, "url": {"type": "string", "pattern": "^https://"}
+      }
+    },
+    "checkpointFile": {
+      "allOf": [{"$ref": "#/$defs/pinnedFile"}],
+      "oneOf": [
+        {"required": ["repo_id", "revision"], "properties": {"repo_id": {"type": "string"}, "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"}}},
+        {"required": ["derived_from"], "properties": {"derived_from": {
+          "type": "object", "required": ["repo_id", "revision", "file", "sha256", "tool"],
+          "properties": {"repo_id": {"type": "string"}, "revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+                         "file": {"type": "string"}, "sha256": {"$ref": "#/$defs/sha256"}, "tool": {"type": "string"}}}}}
+      ]
+    },
+    "tensor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dtype", "shape", "sha256", "origin"],
+      "properties": {
+        "dtype": {"$ref": "#/$defs/dtype"},
+        "shape": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "origin": {
+          "oneOf": [
+            {"type": "object", "additionalProperties": false, "required": ["kind", "file", "key", "convert", "tied_aliases"],
+             "properties": {"kind": {"const": "checkpoint"}, "file": {"type": "string"}, "key": {"type": "string"},
+                            "tied_aliases": {"type": "array", "items": {"type": "string"}},
+                            "convert": {"oneOf": [
+                              {"type": "object", "additionalProperties": false, "required": ["op"], "properties": {"op": {"const": "none"}}},
+                              {"type": "object", "additionalProperties": false, "required": ["op", "from", "to"],
+                               "properties": {"op": {"const": "cast"}, "from": {"$ref": "#/$defs/dtype"}, "to": {"$ref": "#/$defs/dtype"}}}]}}},
+            {"type": "object", "additionalProperties": false, "required": ["kind", "op"],
+             "properties": {"kind": {"const": "generated"}, "op": {"const": "empty"}}},
+            {"type": "object", "additionalProperties": false, "required": ["kind", "op", "element_hex"],
+             "properties": {"kind": {"const": "generated"}, "op": {"const": "fill"}, "element_hex": {"type": "string", "pattern": "^([0-9a-f]{2})+$"}}},
+            {"type": "object", "additionalProperties": false, "required": ["kind", "data_base64"],
+             "properties": {"kind": {"const": "inline"}, "data_base64": {"type": "string"}}},
+            {"type": "object", "additionalProperties": false, "required": ["kind", "key"],
+             "properties": {"kind": {"const": "pack"}, "key": {"type": "string"}}}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import yaml
 from pt2_export_core.harness import run_pool, run_worker
 from pt2_export_core.schema_validate import validate_document
 
-from .artifacts import verify_artifact, write_json
+from .artifacts import file_hash, verify_artifact, write_json
 from .registry import artifact_id, digest, read_manifest
 
 
@@ -119,8 +119,8 @@ def sweep(args):
 def main():
     parser = argparse.ArgumentParser(description='Offline Transformers PT2 architecture research')
     parser.add_argument('command', choices=['smoke', 'report', 'models', 'worker', 'select', 'verify', 'research',
-                                          'fetch', 'bind', 'generation', 'generation-worker',
-                                          'catalogue', 'bundle', 'bundle-verify', 'pack'])
+                                          'fetch', 'bind', 'generation', 'generation-worker', 'encoders', 'encoders-worker', 'assets', 'convert', 'matrix', 'map',
+                                          'catalogue', 'bundle', 'bundle-verify', 'index'])
     parser.add_argument('--root', default='.')
     parser.add_argument('--output')
     parser.add_argument('--subset')
@@ -139,21 +139,29 @@ def main():
     parser.add_argument('--program')
     parser.add_argument('--binding')
     parser.add_argument('--source')
-    parser.add_argument('--pack-repo')
-    parser.add_argument('--pack-revision')
-    parser.add_argument('--pack-url')
+    parser.add_argument('--release-repo')
+    parser.add_argument('--release-base-url')
+    parser.add_argument('--artifact')
+    parser.add_argument('--release-tag')
+    parser.add_argument('--maps')
     args = parser.parse_args()
     if args.workers < 1 or args.timeout < 1:
         parser.error('workers and timeout must be positive')
     root = Path(args.root).resolve()
-    if args.command in ('worker', 'generation-worker'):
+    if args.command in ('worker', 'generation-worker', 'encoders-worker'):
         def offline(event, arguments):
             if event == 'socket.connect':
                 raise RuntimeError('random-weight workers forbid network access')
         sys.addaudithook(offline)
+        if args.command == 'encoders-worker':
+            from .encoders import run
+            print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'tinyclip', args.population,
+                                 args.snapshot, args.allow_unpinned_snapshot)))
+            return
         if args.command == 'generation-worker':
             from .generation import run
-            histories = tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ()
+            histories = (('auto',) if args.static_history == 'auto' else
+                         tuple(int(h) for h in args.static_history.split(',')) if args.static_history else ())
             print(json.dumps(run(root, Path(args.output).resolve(), args.subset or 'smollm2-135m', args.population,
                                  args.snapshot, args.allow_unpinned_snapshot, histories)))
             return
@@ -176,21 +184,74 @@ def main():
         result = run_worker(root / 'scripts/worker.py', argv, 'generation-llama', args.timeout, hf_home=root / '.hf-cache')
         print(json.dumps(result))
         sys.exit(0 if result['status'] == 'verified' else 1)
+    if args.command == 'convert':
+        from .checkpoints import convert_snapshot
+        entry = next(e for e in read_manifest(root)['models'] if e['id'] == args.subset)
+        output = convert_snapshot(root, entry, {'source': args.source or 'pytorch_model.bin',
+                                                'source_sha256': None, 'converted_sha256': None})
+        print(json.dumps({'id': entry['id'], **json.loads((output / 'conversion.json').read_text())}))
+        return
+    if args.command == 'map':
+        from .checkpoints import fetch
+        from .mapv2 import build_map_v2, check_structure, load_tensors
+        from pt2_export_core.opgraph import strict_json_loads
+        if not args.subset or not args.program or not args.artifact or not args.release_base_url:
+            parser.error('map requires --subset, --program, --artifact and --release-base-url (ending in /)')
+        binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
+        if args.graph and file_hash(args.graph) != binding['graph_sha256']:
+            parser.error('binding was made for a different graph; rerun `hf-pt2 bind`')
+        output = Path(args.output or root / '.build/maps').resolve()
+        document = build_map_v2(binding, fetch(root, args.subset), Path(args.program).resolve(), output, args.artifact, args.release_base_url)
+        validate_document(strict_json_loads(json.dumps(document)), 'checkpoint-map-v2', str(root / 'schemas'))
+        check_structure(document, binding['captures'], args.artifact, binding['graph_sha256'])
+        import tempfile
+        snapshot = Path(fetch(root, args.subset))
+        with tempfile.TemporaryDirectory() as scratch:
+            directory = Path(scratch)
+            for source in [*document['sources']['checkpoint']['files'], *([document['sources']['graph_owned']] if 'graph_owned' in document['sources'] else [])]:
+                local = output / source['name']
+                (directory / source['name']).symlink_to(local if local.exists() else snapshot / source['name'])
+            load_tensors(document, directory)
+        print(f"{args.subset}: map v2 for {len(document['tensors'])} captures verified by applying it to the sources")
+        return
+    if args.command == 'matrix':
+        from .matrix import build_matrix
+        if not args.source:
+            parser.error('matrix requires --source (the checkpoint run output directory)')
+        document = build_matrix(root, args.source, Path(args.output or root / '.build/checkpoint-matrix.md'))
+        print(f"matrix: {len(document['rows'])} rows")
+        return
+    if args.command == 'assets':
+        from .assets import build_assets
+        document = build_assets(root, Path(args.output or root / 'task-assets.json'),
+                                set(args.subset.split(',')) if args.subset else None)
+        failed = [(row['model_id'], kind) for row in document['models'] for kind, example in row['example'].items()
+                  if example.get('status') == 'failed']
+        print(f"described {len(document['models'])} models; failed examples: {failed}")
+        sys.exit(1 if failed else 0)
+    if args.command == 'encoders':
+        from .encoders import MODELS
+        if args.subset and args.subset not in MODELS:
+            parser.error(f'encoders requires a reviewed tower split: {MODELS}')
+        output = Path(args.output or root / '.build/components').resolve()
+        name = args.subset or MODELS[0]
+        argv = ['encoders-worker', '--root', root, '--output', output, '--subset', name, '--population', args.population]
+        if args.weights == 'checkpoint':
+            from .checkpoints import fetch
+            argv += ['--snapshot', fetch(root, name)]
+        result = run_worker(root / 'scripts/worker.py', argv, 'encoders-' + name, args.timeout, hf_home=root / '.hf-cache')
+        print(json.dumps(result))
+        sys.exit(0 if result['status'] == 'verified' else 1)
     if args.command == 'catalogue':
         from .fixtures import catalogue
         print(f"catalogued {len(catalogue(root)['artifacts'])} artifacts")
         return
-    if args.command == 'pack':
-        from .checkpoints import fetch
-        from .weights import build_pack, check_pack
-        if not args.subset or not args.program:
-            parser.error('pack requires --subset model ID and --program original-config model.pt2')
-        binding = json.loads(Path(args.binding or root / 'checkpoint-maps' / (args.subset + '.json')).read_text())
-        output = Path(args.output or root / '.build/packs').resolve() / (args.subset + '.safetensors')
-        document = build_pack(binding, fetch(root, args.subset), Path(args.program).resolve(), output,
-                              {'repo_id': args.pack_repo, 'revision': args.pack_revision, 'url': args.pack_url})
-        check_pack(document, output, binding['captures'])
-        print(f"{args.subset}: packed {len(document['tensors'])} captures, sha256 {document['source']['sha256']}")
+    if args.command == 'index':
+        from .fixtures import publication_index
+        if not args.release_repo or not args.release_tag:
+            parser.error('index requires --release-repo and --release-tag')
+        document = publication_index(Path(args.output or root / '.build/bundles').resolve(), args.release_repo, args.release_tag)
+        print(f"indexed {len(document['artifacts'])} bundles under release {args.release_tag}")
         return
     if args.command in ('bundle', 'bundle-verify'):
         from .fixtures import build_bundle, verify_bundle
@@ -210,7 +271,7 @@ def main():
             identity = str(directory.relative_to(source / 'models'))
             if names and identity.split('/')[0] not in names:
                 continue
-            build_bundle(root, directory, source / '.build' / identity, output)
+            build_bundle(root, directory, source / '.build' / identity, output, args.maps)
             count += 1
         print(f'bundled {count} artifacts into {output}')
         return
@@ -237,6 +298,8 @@ def main():
         from .reporting import selection
         selection(root, json.loads((root / 'results/models.json').read_text()))
         return
+    if args.command != 'verify':
+        parser.error(f'unhandled command: {args.command}')
     selected = yaml.safe_load((root / 'models-selected.yaml').read_text())
     for entry in selected['models'].values():
         verify_artifact(root, root / 'models' / entry['artifact_id'], entry['artifact_id'])

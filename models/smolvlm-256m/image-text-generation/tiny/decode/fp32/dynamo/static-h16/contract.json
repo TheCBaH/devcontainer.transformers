@@ -1,0 +1,154 @@
+{
+  "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h16",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "past_0_key",
+      "past_0_value"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "7677cec9d8f4344ac0b5db796ace02c20986f8934d5625dcb0f5885a936ef34e",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": true,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "f3431f575c3e414f19e388563feb8b4b72de803648fbe70afe53a52af7c3cbd5",
+    "cases.json": "fdc6589cacbd7269dc58b501cf2d5da99bde974297f12ee2a553a0f1b6f175c4",
+    "data/constants/model_constants_config.json": "702cf97b0f70b375ec872435f75271ef5693ba0446d120e1ed289144cc2cd416",
+    "data/weights/model_weights_config.json": "a3d4f0715154c3bb861c3e9aa4f78201fe462679792f4fbdb0c3535474d0f297",
+    "models/model.json": "057f9320987b7f3f2317e709c23608515b34faced54e9fd8adab911cd7c14be9"
+  },
+  "graph_sha256": "057f9320987b7f3f2317e709c23608515b34faced54e9fd8adab911cd7c14be9",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        17
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_key",
+      "shape": [
+        1,
+        1,
+        16,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "past_0_value",
+      "shape": [
+        1,
+        1,
+        16,
+        32
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "Idefics3ForConditionalGeneration",
+  "model_id": "smolvlm-256m",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        1,
+        256
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_key",
+      "shape": [
+        1,
+        1,
+        17,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "present_0_value",
+      "shape": [
+        1,
+        1,
+        17,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "python": "3.13.12",
+    "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.12.0+cpu",
+      "torchvision": "0.27.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "c06401eea29633fb76c7ff5f59533137c2ff1ec3114ed88c336b8000bcef9b9c",
+  "schema_version": 1,
+  "state": {
+    "host": "feed returned tensors into the next step; host owns sampling and stopping",
+    "input": [
+      "past_0_key",
+      "past_0_value"
+    ],
+    "maximum_input_history": 16,
+    "output": [
+      "present_0_key",
+      "present_0_value"
+    ],
+    "semantics": "named self/cross-attention K/V tensors; batch x heads x history x head dimension"
+  },
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "variant": {
+    "attention_length": 17,
+    "history": 16,
+    "kind": "static-history"
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

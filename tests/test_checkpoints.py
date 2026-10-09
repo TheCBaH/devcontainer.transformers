@@ -55,3 +55,27 @@ def test_sharded_tied_checkpoint_binding_and_value_mismatch(tmp_path, monkeypatc
     monkeypatch.setattr(transformers.T5ForConditionalGeneration, 'from_pretrained', wrong_library_load)
     with pytest.raises(ValueError, match='differs from library load'):
         checkpoints.bind(root, 't5-small', graph, tmp_path / 'wrong.json')
+
+
+def test_conversion_is_verified_and_pinned(tmp_path, monkeypatch):
+    from safetensors import safe_open
+    source = tmp_path / 'upstream'
+    source.mkdir()
+    state = {'bert.w': torch.arange(6, dtype=torch.float32).reshape(2, 3), 'bert.b': torch.ones(3)}
+    torch.save(state, source / 'pytorch_model.bin')
+    (source / 'config.json').write_text('{"model_type": "bert"}')
+    entry = {'id': 'toy', 'reference': {'repo': 'o/toy', 'revision': 'a' * 40, 'config_sha256': file_hash(source / 'config.json'),
+                                         'safetensors_files': ['model.safetensors']}}
+    monkeypatch.setattr(checkpoints, 'snapshot_download', lambda *args, **kwargs: source)
+    root = tmp_path / 'root'
+    proposal = checkpoints.convert_snapshot(root, entry, {'source': 'pytorch_model.bin', 'source_sha256': None, 'converted_sha256': None})
+    record = json.loads((proposal / 'conversion.json').read_text())
+    assert record['source_sha256'] == file_hash(source / 'pytorch_model.bin')
+    with safe_open(proposal / 'model.safetensors', framework='pt') as archive:
+        assert torch.equal(archive.get_tensor('bert.w'), state['bert.w'])
+    entry['reference']['conversion'] = {'source': 'pytorch_model.bin', **{k: record[k] for k in ('source_sha256', 'converted_sha256')}}
+    assert checkpoints.convert_snapshot(root, entry) == proposal
+    for field, message in (('source_sha256', 'differs from the pinned upstream'), ('converted_sha256', 'pinned digest')):
+        entry['reference']['conversion'] = {'source': 'pytorch_model.bin', **{k: record[k] for k in ('source_sha256', 'converted_sha256')}, field: '0' * 64}
+        with pytest.raises(ValueError, match=message):
+            checkpoints.convert_snapshot(root, entry)

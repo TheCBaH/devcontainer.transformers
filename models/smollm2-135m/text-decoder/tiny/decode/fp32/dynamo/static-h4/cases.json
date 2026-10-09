@@ -11,6 +11,26 @@
         "past_1_key",
         "past_1_value"
       ],
+      "inputs_sha256": "06abb03d6ba52dbcab2685c1388d6e05d0b7b2559267f4f8a1c8c7629aa55be8",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value",
+        "present_1_key",
+        "present_1_value"
+      ],
+      "outputs_sha256": "15f3e1ef6c147a3b2fd5c8c97c4718dc904cfaa0930bd75563bbb885eb0edabc"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value",
+        "past_1_key",
+        "past_1_value"
+      ],
       "inputs_sha256": "588aaf25f76c796c8820ccd4109451b47d9a7abb2a956e982ab97d6e1fadf630",
       "outputs": [
         "logits",

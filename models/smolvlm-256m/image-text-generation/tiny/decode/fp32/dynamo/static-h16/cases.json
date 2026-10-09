@@ -1,0 +1,46 @@
+{
+  "artifact_id": "smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h16",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "2004427e63734f3cbdfebf92702152446ee23fb81f847d5f6952af6d93d51f0e",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "3e6e5ed7d5b35ab57211782ba79050cd6ccfc3df7f2d8fe40dca9e88ce1a1c4a"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "past_0_key",
+        "past_0_value"
+      ],
+      "inputs_sha256": "93d5a6fcaa42bfee0ea4048865398f0d761cefecf0b57d6c16f01d14db90735a",
+      "outputs": [
+        "logits",
+        "present_0_key",
+        "present_0_value"
+      ],
+      "outputs_sha256": "17ce1a9f7e256dc7450b6e737ab08a5db70d3fc032de03ca319422abdb40110c"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

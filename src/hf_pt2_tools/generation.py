@@ -142,7 +142,9 @@ def save_component(root, output_root, entry, config, component, program, cases, 
              'output': fields[1:], 'semantics': 'named self/cross-attention K/V tensors; batch x heads x history x head dimension',
              'host': 'feed returned tensors into the next step; host owns sampling and stopping',
              'maximum_input_history': capacity if component == 'decode' else None}
-    recipe = {'component': component, 'state': state, 'inputs': tensor_metadata(cases[0]['inputs'])}
+    recipe = {'component': component, 'inputs': tensor_metadata(cases[0]['inputs'])}
+    if component in ('prefill', 'decode'):
+        recipe['state'] = state
     if weights['kind'] == 'checkpoint':
         recipe['weights'] = weights
     if entry.get('processor_fixture'):
@@ -176,6 +178,23 @@ def save_component(root, output_root, entry, config, component, program, cases, 
     publish(staging, Path(output_root) / 'models' / identity)
     return {'artifact_id': identity, 'status': 'verified', 'graph_sha256': file_hash(graph) if graph.exists() else contract['graph_sha256'],
             'cases': len(cases), 'fresh_load': json.loads(process.stdout.strip().splitlines()[-1])}
+
+
+def static_cases(decode, decode_program, reset_output, reset_constants, fields, seq2seq, capacity, history_key, initial_cases):
+    """Decode steps per history from two independent states: the initial prompt and a cache reset onto another prompt.
+
+    The reset sequence is rolled forward in eager mode and checked against the dynamic graph at every step.
+    """
+    steps = [('initial', case) for case in initial_cases[:-1]]
+    eager_state = graph_state = reset_output
+    while eager_state[1].shape[2] <= capacity:
+        token = eager_state[0][:, -1:].argmax(-1)
+        inputs = decode_inputs(token, eager_state[1:], fields, reset_constants, seq2seq)
+        eager_state = decode(**copy.deepcopy(inputs))
+        graph_state = decode_program.module()(**copy.deepcopy(inputs))
+        compare(graph_state, eager_state)
+        steps.append(('reset', {'inputs': inputs, 'outputs': eager_state}))
+    return steps
 
 
 def run(root, output_root, name='smollm2-135m', population='tiny', snapshot=None, allow_unpinned=False,
@@ -333,26 +352,35 @@ def run(root, output_root, name='smollm2-135m', population='tiny', snapshot=None
             if static_histories:
                 result['static_variants'] = {}
                 history_key = next(key for key in cases[0]['inputs'] if key.startswith('past_') and '_cross_' not in key)
-                by_history = {case['inputs'][history_key].shape[2]: case for case in cases}
+                if static_histories == ('auto',):
+                    static_histories = (cases[0]['inputs'][history_key].shape[2], capacity)
+                by_history = {}
+                for sequence, case in static_cases(decode, decode_program, reset_output, reset_constants, fields, seq2seq,
+                                                   capacity, history_key, cases):
+                    by_history.setdefault(case['inputs'][history_key].shape[2], []).append((sequence, case))
                 for history in static_histories:
                     if history not in by_history:
                         raise ValueError(f'no verified decode step with history {history}')
-                    case = by_history[history]
-                    static = DynamoExporter().export(decode, copy.deepcopy(case['inputs']), DynamoConfig(strict=False))
+                    picked = by_history[history]
+                    if {sequence for sequence, _ in picked} != {'initial', 'reset'}:
+                        raise ValueError(f'static history {history} lacks independent initial and reset cases')
+                    static = DynamoExporter().export(decode, copy.deepcopy(picked[0][1]['inputs']), DynamoConfig(strict=False))
                     static = static.run_decompositions(decomp_table={})
-                    compare(static.module()(**copy.deepcopy(case['inputs'])), case['outputs'])
-                    others = [other for key, other in by_history.items() if key != history]
+                    for _, case in picked:
+                        compare(static.module()(**copy.deepcopy(case['inputs'])), case['outputs'])
+                    others = [other['inputs'] for key, group in by_history.items() if key != history for _, other in group]
                     rejected = 0
-                    for other in others:
+                    for other in others + [invalid]:
                         try:
-                            static.module()(**copy.deepcopy(other['inputs']))
+                            static.module()(**copy.deepcopy(other))
                         except (RuntimeError, AssertionError):
                             rejected += 1
-                    if not others or rejected != len(others):
-                        raise ValueError('static variant accepted a different history')
-                    component = save(root, output_root, entry, config, 'decode', static, [case], fields, history,
-                                     variant=f'static-h{history}')
-                    result['static_variants'][str(history)] = {**component, 'rejected_other_histories': rejected}
+                    if not others or rejected != len(others) + 1:
+                        raise ValueError('static variant accepted a different history or an over-capacity state')
+                    component = save(root, output_root, entry, config, 'decode', static, [case for _, case in picked], fields,
+                                     history, variant=f'static-h{history}')
+                    result['static_variants'][str(history)] = {**component, 'rejected_other_histories': rejected,
+                                                               'case_sequences': [sequence for sequence, _ in picked]}
             result['cache_reset_verified'] = True
             result['status'] = 'verified'
     except Exception as error:

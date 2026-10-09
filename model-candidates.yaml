@@ -16,9 +16,16 @@
         "config_sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
         "config_file": "prajjwal1--bert-tiny.config.json",
         "model_type": "bert",
-        "safetensors_files": [],
+        "safetensors_files": [
+          "model.safetensors"
+        ],
         "reference_size_million": 4.4,
-        "size_basis": "approximate; 2-layer/128-wide BERT config"
+        "size_basis": "approximate; 2-layer/128-wide BERT config",
+        "conversion": {
+          "source": "pytorch_model.bin",
+          "source_sha256": "dab2c2bddcfb48ea430ef63fd76d46d67d704487844d967256a50dd7d7fd0a66",
+          "converted_sha256": "312b6bf1364262ade43664fb3a0013b0865873dd77391379d2f2b5589eb200e6"
+        }
       },
       "reference_inputs": {
         "input_ids": {
@@ -143,9 +150,16 @@
         "config_sha256": "6f1b7c93da05058a62efcd10266079bbf1e6b430babd9367c8e20fdb21726f22",
         "config_file": "apple--mobilevit-xx-small.config.json",
         "model_type": "mobilevit",
-        "safetensors_files": [],
+        "safetensors_files": [
+          "model.safetensors"
+        ],
         "reference_size_million": 1.3,
-        "size_basis": "publisher model card"
+        "size_basis": "publisher model card",
+        "conversion": {
+          "source": "pytorch_model.bin",
+          "source_sha256": "9d11a44822385937be46ecfa81757e306e47143323cba5cdc09a3b48966fe22a",
+          "converted_sha256": "635a7cdd86f6ffd9e6ceb2f0b5b5f1971af129d12cb693ef70fe2ac471ff6399"
+        }
       },
       "reference_inputs": {
         "pixel_values": {
@@ -263,9 +277,16 @@
         "config_sha256": "20b05a5026313946ec026dc0c7be4f1f641c47ab66ec7125d406403ce251165c",
         "config_file": "MCG-NJU--videomae-small-finetuned-kinetics.config.json",
         "model_type": "videomae",
-        "safetensors_files": [],
+        "safetensors_files": [
+          "model.safetensors"
+        ],
         "reference_size_million": 22,
-        "size_basis": "approximate from 88.2 MB PyTorch checkpoint"
+        "size_basis": "approximate from 88.2 MB PyTorch checkpoint",
+        "conversion": {
+          "source": "pytorch_model.bin",
+          "source_sha256": "d69585904fec7e507bf2edfba4a7abe2b92def9afc76460d1dc14dbbf864bcfc",
+          "converted_sha256": "6af658f96396ed5f1207244a5a409ca4f6686f05f63b1be6b3609deee195eca7"
+        }
       },
       "reference_inputs": {
         "pixel_values": {

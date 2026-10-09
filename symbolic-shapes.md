@@ -1,6 +1,6 @@
 # Symbolic shapes in functional graphs
 
-22 saved artifacts inspected; 5 contain symbolic dimensions or scalars, affecting 249 nodes.
+30 saved artifacts inspected; 5 contain symbolic dimensions or scalars, affecting 249 nodes.
 
 Generated from the hash-bound `models/**/models/model.json` files. This includes forward, encoder, vision, connector, prefill and decode artifacts present under `models/`. Symbols are local to each artifact: the same name in two graphs does not connect their dimensions. Export hints are examples, not fixed sizes. A static input contract can still contain data-dependent internal dimensions.
 
@@ -19,16 +19,24 @@ The operator catalog in [ops-func.md](ops-func.md) describes the core forward po
 | [`smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static`](models/smollm2-135m/text-decoder/tiny/prefill/fp32/dynamo/static/models/model.json) | 200 | 0 | — |
 | [`smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static`](models/smolvlm-256m/image-text-generation/tiny/connector/fp32/dynamo/static/models/model.json) | 9 | 0 | — |
 | [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) | 141 | 44 | `s15` |
+| [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h11`](models/smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h11/models/model.json) | 128 | 0 | — |
+| [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h16`](models/smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/static-h16/models/model.json) | 128 | 0 | — |
 | [`smolvlm-256m/image-text-generation/tiny/prefill/fp32/dynamo/static`](models/smolvlm-256m/image-text-generation/tiny/prefill/fp32/dynamo/static/models/model.json) | 133 | 0 | — |
-| [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) | 98 | 7 | `u0` |
-| [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) | 179 | 61 | `s0` |
+| [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) | 98 | 7 | `u0` |
+| [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) | 179 | 61 | `s0` |
+| [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h4`](models/t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h4/models/model.json) | 166 | 0 | — |
+| [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h8`](models/t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/static-h8/models/model.json) | 166 | 0 | — |
 | [`t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static`](models/t5-small/text-encoder-decoder/tiny/encoder/fp32/dynamo/static/models/model.json) | 108 | 0 | — |
 | [`t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static`](models/t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static/models/model.json) | 272 | 0 | — |
 | [`t5-small/text-encoder-decoder/tiny/prefill/fp32/dynamo/static`](models/t5-small/text-encoder-decoder/tiny/prefill/fp32/dynamo/static/models/model.json) | 172 | 0 | — |
 | [`time-series-small/time-series/tiny/forward/fp32/dynamo/static`](models/time-series-small/time-series/tiny/forward/fp32/dynamo/static/models/model.json) | 259 | 0 | — |
 | [`tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static`](models/tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static/models/model.json) | 124 | 0 | — |
+| [`tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static`](models/tinyclip/image-text-embeddings/tiny/image-encoder/fp32/dynamo/static/models/model.json) | 41 | 0 | — |
+| [`tinyclip/image-text-embeddings/tiny/text-encoder/fp32/dynamo/static`](models/tinyclip/image-text-embeddings/tiny/text-encoder/fp32/dynamo/static/models/model.json) | 68 | 0 | — |
 | [`videomae-small/video-classification/tiny/forward/fp32/dynamo/static`](models/videomae-small/video-classification/tiny/forward/fp32/dynamo/static/models/model.json) | 40 | 0 | — |
-| [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) | 106 | 37 | `s0` |
+| [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) | 106 | 37 | `s0` |
+| [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h4`](models/whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h4/models/model.json) | 93 | 0 | — |
+| [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h8`](models/whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/static-h8/models/model.json) | 93 | 0 | — |
 | [`whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static`](models/whisper-tiny/audio-encoder-decoder/tiny/encoder/fp32/dynamo/static/models/model.json) | 43 | 0 | — |
 | [`whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static`](models/whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static/models/model.json) | 145 | 0 | — |
 | [`whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static`](models/whisper-tiny/audio-encoder-decoder/tiny/prefill/fp32/dynamo/static/models/model.json) | 105 | 0 | — |
@@ -37,43 +45,43 @@ The operator catalog in [ops-func.md](ops-func.md) describes the core forward po
 
 | Operator | Affected nodes | Model artifacts (node counts) |
 | --- | ---: | --- |
-| `_operator.add` | 12 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (9), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `_operator.eq` | 16 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (10), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (2) |
-| `_operator.ge` | 1 | [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (1) |
-| `_operator.le` | 9 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (2) |
+| `_operator.add` | 12 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (9), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `_operator.eq` | 16 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (10), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (2) |
+| `_operator.ge` | 1 | [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (1) |
+| `_operator.le` | 9 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (2) |
 | `_operator.mul` | 8 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (8) |
-| `aten.__and__.Tensor` | 8 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (2) |
-| `aten._assert_scalar.default` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (2) |
-| `aten._assert_tensor_metadata.default` | 17 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (5), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (3) |
-| `aten._to_copy.default` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (3), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
+| `aten.__and__.Tensor` | 8 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (2) |
+| `aten._assert_scalar.default` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (2) |
+| `aten._assert_tensor_metadata.default` | 17 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (5), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (3) |
+| `aten._to_copy.default` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (3), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
 | `aten._unsafe_view.default` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4) |
-| `aten.add.Tensor` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (7), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (4) |
-| `aten.arange.default` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.cat.default` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (8), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (4), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (4) |
-| `aten.clone.default` | 9 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (6), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.div.Tensor` | 2 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2) |
-| `aten.embedding.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.expand.default` | 10 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (3), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.full_like.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.index.Tensor` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.index_put.default` | 1 | [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (1) |
-| `aten.le.Tensor` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.log.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.lt.Scalar` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.matmul.default` | 10 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (2) |
-| `aten.min.other` | 2 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2) |
-| `aten.mul.Tensor` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.neg.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.permute.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.softmax.int` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.sub.Tensor` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.sym_size.int` | 19 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (6), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-11) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (4), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (4) |
-| `aten.transpose.int` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.unsqueeze.default` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (7), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (5), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (5), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (3) |
+| `aten.add.Tensor` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (7), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (4) |
+| `aten.arange.default` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.cat.default` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (8), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (4), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (4) |
+| `aten.clone.default` | 9 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (6), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.div.Tensor` | 2 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2) |
+| `aten.embedding.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.expand.default` | 10 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (5), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (3), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.full_like.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.index.Tensor` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.index_put.default` | 1 | [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (1) |
+| `aten.le.Tensor` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.log.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.lt.Scalar` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.matmul.default` | 10 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (2) |
+| `aten.min.other` | 2 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2) |
+| `aten.mul.Tensor` | 6 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (2), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.neg.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.permute.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.softmax.int` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.sub.Tensor` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.sym_size.int` | 19 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (6), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (4), [`smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static`](#artifact-13) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (4), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (4) |
+| `aten.transpose.int` | 5 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (2), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.unsqueeze.default` | 20 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (7), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (5), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (5), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (3) |
 | `aten.view.default` | 2 | [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (2) |
-| `aten.where.ScalarOther` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-19) (1) |
-| `aten.where.self` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
-| `aten.zeros_like.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-12) (1) |
+| `aten.where.ScalarOther` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (1), [`smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic`](#artifact-9) (1), [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1), [`whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-25) (1) |
+| `aten.where.self` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
+| `aten.zeros_like.default` | 1 | [`t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-14) (1) |
 | `torch.sym_min` | 4 | [`smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic`](#artifact-3) (4) |
 
 <a id="artifact-3"></a>
@@ -313,7 +321,7 @@ Graph SHA256: `042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7`
 
 </details>
 
-<a id="artifact-11"></a>
+<a id="artifact-13"></a>
 
 ## smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static
 
@@ -349,7 +357,7 @@ Graph SHA256: `e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151`
 
 </details>
 
-<a id="artifact-12"></a>
+<a id="artifact-14"></a>
 
 ## t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic
 
@@ -465,7 +473,7 @@ Graph SHA256: `4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b`
 
 </details>
 
-<a id="artifact-19"></a>
+<a id="artifact-25"></a>
 
 ## whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic
 
