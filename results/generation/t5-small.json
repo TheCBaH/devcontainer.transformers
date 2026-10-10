@@ -14,7 +14,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b",
+      "graph_sha256": "9ab3f5def57791afe87411a6d4bffcbd5922156c983a80e07db77819b5aa1fa6",
       "status": "verified"
     },
     "encoder": {
@@ -25,7 +25,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "98e0e55010272339721ba6a7af1be58a3e94a4d3e5c5e20a2b7f55ad557b970c",
+      "graph_sha256": "61f8351810f91d678b7f9b6ab24addb4ed47963f1bd6365a1d65d41eec268016",
       "status": "verified"
     },
     "prefill": {
@@ -36,7 +36,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "be6e662c9e210a54c993431d26e4f3704cac638015aaecfa48346f15f4f12f20",
+      "graph_sha256": "a258d0a9060790ddaf251e30ec65ef03256953647bd00cde0e478b578fcdd93d",
       "status": "verified"
     }
   },
@@ -48,15 +48,15 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
     "python": "3.13.12",
     "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
       "safetensors": "0.8.0",
-      "torch": "2.12.0+cpu",
-      "torchvision": "0.27.0+cpu",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
       "transformers": "5.18.0"
     }
   },
@@ -74,7 +74,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "bde52a7fab9acef7e6c30da5f4aa22261702743e30e7143d2166b225b5e2237c",
+      "graph_sha256": "a1857b4f1896af7197d5f8cc2895221aac836054c1971a4128e16e615ff49730",
       "rejected_other_histories": 9,
       "status": "verified"
     },
@@ -90,7 +90,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "70d8072feb80d48ea06fa24348573c85bce4629066d4a0b6bf1c55893a71d2ef",
+      "graph_sha256": "0d71ced03abefa8092560ad2a73042ac0053ffe1d4c84771b9bdcf256dc89ce8",
       "rejected_other_histories": 9,
       "status": "verified"
     }

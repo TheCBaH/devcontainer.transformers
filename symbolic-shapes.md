@@ -90,7 +90,7 @@ The operator catalog in [ops-func.md](ops-func.md) describes the core forward po
 
 [Saved graph](models/smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic/models/model.json) · [Contract](models/smollm2-135m/text-decoder/tiny/decode/fp32/dynamo/dynamic/contract.json)
 
-Graph SHA256: `ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba`.
+Graph SHA256: `abab6bf77e817556de2fdf448a0a461879c5141d793bbfd02ecb3a283bf9ae29`.
 
 | Symbol or expression | Minimum | Maximum |
 | --- | ---: | ---: |
@@ -238,7 +238,7 @@ Graph SHA256: `ee740087bf4063f92367ed976825a87c2a1ff5abd432a75f173b8b2fb36827ba`
 
 [Saved graph](models/smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic/models/model.json) · [Contract](models/smolvlm-256m/image-text-generation/tiny/decode/fp32/dynamo/dynamic/contract.json)
 
-Graph SHA256: `042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7`.
+Graph SHA256: `bc7975c1d180fdeae3e1dd9c2639dc8886581d10800a556814652775a6d87ea7`.
 
 | Symbol or expression | Minimum | Maximum |
 | --- | ---: | ---: |
@@ -327,7 +327,7 @@ Graph SHA256: `042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7`
 
 [Saved graph](models/smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static/models/model.json) · [Contract](models/smolvlm-256m/image-text-generation/tiny/vision/fp32/dynamo/static/contract.json)
 
-Graph SHA256: `e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151`.
+Graph SHA256: `b6fc97120051a5253d28f957db699d17aec10676f927f033b7f577e25c7874c4`.
 
 | Symbol or expression | Minimum | Maximum |
 | --- | ---: | ---: |
@@ -363,7 +363,7 @@ Graph SHA256: `e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151`
 
 [Saved graph](models/t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic/models/model.json) · [Contract](models/t5-small/text-encoder-decoder/tiny/decode/fp32/dynamo/dynamic/contract.json)
 
-Graph SHA256: `4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b`.
+Graph SHA256: `9ab3f5def57791afe87411a6d4bffcbd5922156c983a80e07db77819b5aa1fa6`.
 
 | Symbol or expression | Minimum | Maximum |
 | --- | ---: | ---: |
@@ -479,7 +479,7 @@ Graph SHA256: `4e8f5f02393df7ebb6000aa9f96fc8dcb9ac8925b21db9c0c6c0901622ee7b7b`
 
 [Saved graph](models/whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic/models/model.json) · [Contract](models/whisper-tiny/audio-encoder-decoder/tiny/decode/fp32/dynamo/dynamic/contract.json)
 
-Graph SHA256: `ccdccd7ab23829b838d81e8a1b9ac70a98f9e24cdf68c830dafdc1b9894088bc`.
+Graph SHA256: `7be52731bbfeb6fe88eef7e4f2c0f6b8a556500e416f40651c8a879505bc60f6`.
 
 | Symbol or expression | Minimum | Maximum |
 | --- | ---: | ---: |

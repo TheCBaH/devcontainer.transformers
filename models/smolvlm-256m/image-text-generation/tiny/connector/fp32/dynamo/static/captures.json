@@ -25,7 +25,7 @@
     "CONSTANT_TENSOR": 0,
     "PARAMETER": 1
   },
-  "graph_sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+  "graph_sha256": "652baef0166302ffb851c740364a021ba5f89d2b5fcbca05839d4e694880e6c1",
   "module_prefixes": {
     "connector.": "model.connector."
   },

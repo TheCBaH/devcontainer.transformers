@@ -19,13 +19,13 @@
     "strict": false
   },
   "files": {
-    "captures.json": "f4b8ac779213c8b15708aa017c504b605526591d282c38a5567851952e629d41",
+    "captures.json": "ff40b875daf58ef7730f2d532911dc02e12efed7dd642ad19778a32ebfd85eee",
     "cases.json": "33ccfa604e552236f1fa1c536b731392cba97a950046a99671fc12d484c37a47",
     "data/constants/model_constants_config.json": "2ba1fb421cb35a9425f57dbf29537d221791fb2962c4ac692e5b35042007971a",
     "data/weights/model_weights_config.json": "2f8aeb5d33021d2f61412014e1756536a079fdcdac6667a85fda1a916ef296f0",
-    "models/model.json": "33fa23b49124ca4534969c90253505c144cdb68a1d7d79826fbadd4d5149ec62"
+    "models/model.json": "2f049ce0eb2414c9635d08f2d7eb273b2ede828651c1b7791e2c0b96d5e4b077"
   },
-  "graph_sha256": "33fa23b49124ca4534969c90253505c144cdb68a1d7d79826fbadd4d5149ec62",
+  "graph_sha256": "2f049ce0eb2414c9635d08f2d7eb273b2ede828651c1b7791e2c0b96d5e4b077",
   "inputs": [
     {
       "dtype": "int64",
@@ -68,15 +68,15 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
     "python": "3.13.12",
     "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
       "safetensors": "0.8.0",
-      "torch": "2.12.0+cpu",
-      "torchvision": "0.27.0+cpu",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
       "transformers": "5.18.0"
     }
   },

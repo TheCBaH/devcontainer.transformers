@@ -8,13 +8,13 @@
         "attention_mask",
         "image_features"
       ],
-      "inputs_sha256": "35af8c2c531fd04f63c315b2fffb92a368314b43162a3e5bd2fbbdbb1df6c177",
+      "inputs_sha256": "dd7b84c2bed5d3f6a59a4a6b3bd4a2c95258b02813123692b62f0e99ad0d769b",
       "outputs": [
         "logits",
         "present_0_key",
         "present_0_value"
       ],
-      "outputs_sha256": "d9de3a4611bb0d2f83633e451b5570189e49e14baca9645403c215805ea6a230"
+      "outputs_sha256": "f825b753315dc5453c62ac829f2d00faf1da1be454355d08e70659e2f4ee98e4"
     },
     {
       "id": "case-01",
@@ -23,13 +23,13 @@
         "attention_mask",
         "image_features"
       ],
-      "inputs_sha256": "509c2a8bd7de36aea1927bd9ddbc49078f283fa5aa457c1e16ca53cc7a2e993d",
+      "inputs_sha256": "ea7c0df3c0df30ac9ac55c6be3a94e4811c592edd40c30f6f058d025c32fcfa1",
       "outputs": [
         "logits",
         "present_0_key",
         "present_0_value"
       ],
-      "outputs_sha256": "7d219dfca5b915704932c91b9cb15dec85bab93b240779aeecd698dd2b20edaa"
+      "outputs_sha256": "4bb47680f4d73451d99f3f51e22cd8ea69c4ee1e6f2391e916869d2014548605"
     }
   ],
   "schema_version": 1,

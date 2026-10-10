@@ -389,7 +389,7 @@
     "CONSTANT_TENSOR": 1,
     "PARAMETER": 21
   },
-  "graph_sha256": "e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151",
+  "graph_sha256": "b6fc97120051a5253d28f957db699d17aec10676f927f033b7f577e25c7874c4",
   "module_prefixes": {
     "encoder.": "model.vision_model."
   },

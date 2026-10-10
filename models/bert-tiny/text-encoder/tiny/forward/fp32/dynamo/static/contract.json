@@ -20,13 +20,13 @@
     "strict": false
   },
   "files": {
-    "captures.json": "2d7b3e6bdc6e0ccef010e6e09b1b59af5945e54b278759cf423768b562ec01ba",
+    "captures.json": "acbccd7f30d8e7de99934e01a977df3675feea25044a7d9072ec2ec09f80ad39",
     "cases.json": "59a4e9444358d841a64bf20cba4f196dd65f88a3efbcc9ff40b626339868ea92",
     "data/constants/model_constants_config.json": "fe88b14c21395fffce5c0d62d0c0b7717ab5636db3156a694bba953202d9a241",
     "data/weights/model_weights_config.json": "e8e73c65c500c90ac3b6c0f7c69e7be133a1efb7a662e1d66bf3fdcc098da525",
-    "models/model.json": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e"
+    "models/model.json": "c8853bdf6339c35e70b4983c30682e3e4a163537a48f8db5809bc191c763f585"
   },
-  "graph_sha256": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e",
+  "graph_sha256": "c8853bdf6339c35e70b4983c30682e3e4a163537a48f8db5809bc191c763f585",
   "inputs": [
     {
       "dtype": "int64",
@@ -85,15 +85,15 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
     "python": "3.13.12",
     "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
       "safetensors": "0.8.0",
-      "torch": "2.12.0+cpu",
-      "torchvision": "0.27.0+cpu",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
       "transformers": "5.18.0"
     }
   },

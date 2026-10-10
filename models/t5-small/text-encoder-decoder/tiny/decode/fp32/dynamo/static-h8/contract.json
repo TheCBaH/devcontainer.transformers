@@ -25,13 +25,13 @@
     "strict": false
   },
   "files": {
-    "captures.json": "24cb0dbdb648b870c1305c4f0abce42b7cb5afdbe01058b8bd9ec06c4b75bcfb",
-    "cases.json": "e7a1f0a0c84f3e692558e53eb60e16fd650caf8e7b94257d60b78703c14cd0b3",
+    "captures.json": "1bcd0877a6e49ed252d44392b37ab16e9fec0ba21fd4cb54723ea0a1e24c83c4",
+    "cases.json": "aacfa9db9fcb3373d467f6e92ee23b23d41c08279f9d18579b711b9d9ee28468",
     "data/constants/model_constants_config.json": "fdeff38ca206dae76e970eeea2add5e439e8fd432865ce40b58d72fc6821669e",
     "data/weights/model_weights_config.json": "c4872d4200d63f8f365907c7560319afda8648bd33c4aa7376e80ef9d34be1f3",
-    "models/model.json": "70d8072feb80d48ea06fa24348573c85bce4629066d4a0b6bf1c55893a71d2ef"
+    "models/model.json": "0d71ced03abefa8092560ad2a73042ac0053ffe1d4c84771b9bdcf256dc89ce8"
   },
-  "graph_sha256": "70d8072feb80d48ea06fa24348573c85bce4629066d4a0b6bf1c55893a71d2ef",
+  "graph_sha256": "0d71ced03abefa8092560ad2a73042ac0053ffe1d4c84771b9bdcf256dc89ce8",
   "inputs": [
     {
       "dtype": "int64",
@@ -171,15 +171,15 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
     "python": "3.13.12",
     "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
       "safetensors": "0.8.0",
-      "torch": "2.12.0+cpu",
-      "torchvision": "0.27.0+cpu",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
       "transformers": "5.18.0"
     }
   },

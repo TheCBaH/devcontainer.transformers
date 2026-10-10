@@ -14,7 +14,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "b4442bb86a7cb62325825bd8cae583fcdf5ade29f11dd9e05c03e8161e61772e",
+      "graph_sha256": "c8853bdf6339c35e70b4983c30682e3e4a163537a48f8db5809bc191c763f585",
       "name": "bert-tiny",
       "ops": {
         "aten": [
@@ -1354,20 +1354,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "bc9b8b4c18c149d4db72437ff52c9f02d642f482e0f1a8092bb903e92f0af03d",
-      "resume_key": "d97bfe6adf1bb74dc4cff7331e899483bb038d99dc97fc75499aaf8f2d2fa289",
+      "resume_key": "271381d3ecc548ba05a95fca85c7d5ff0b2d90111c6e232e8fc84953e365f6a7",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -1411,7 +1411,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "baa2927be7021a63118e33921cef6e2a9ccebaa4b19265aeeed5892de0addb1d",
+      "source_key": "c8ae0e70d2c543f9d1ef1283d6666d83a129c129d5a80647cd043de9abaf3c80",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -1473,7 +1473,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "7b46299a1d7d23b4d1837bfe3362020518735abeab56065002aa7ef8927fb8be",
+      "graph_sha256": "4b71f8b68f299acb12eec9c6e8d7a9ac111a2dee2121572a55f13d0a8061d4c8",
       "name": "mobilevit-xxs",
       "ops": {
         "aten": [
@@ -4286,20 +4286,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "ae4d5ad167d2c4034a2b447d36f99ed35f7ac5fa36bb5fd555293aaba52837cc",
-      "resume_key": "22d2f1d8c015b8a271d0fafcaefa089bbbc615790398e145e71fd2c7d8c1988e",
+      "resume_key": "fe7bca64aca56474a5f8652d0fe62a4ef07810c5bc820e931b2f7b195f46920f",
       "schemas": {
         "aten._native_batch_norm_legit_no_training.default": "_native_batch_norm_legit_no_training(Tensor input, Tensor? weight, Tensor? bias, Tensor running_mean, Tensor running_var, float momentum, float eps) -> (Tensor, Tensor, Tensor)",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -4332,7 +4332,7 @@
         "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)"
       },
       "shape_policy": "static",
-      "source_key": "2abe78385c17653d84a1ecfbbe86c29d7f84c6c5c6cee2dd4311b80b01222e75",
+      "source_key": "7104c92f03de3a9ff605dc68e6422ca5b2a7812434965e2da88ed348652db291",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -4394,7 +4394,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "33fa23b49124ca4534969c90253505c144cdb68a1d7d79826fbadd4d5149ec62",
+      "graph_sha256": "2f049ce0eb2414c9635d08f2d7eb273b2ede828651c1b7791e2c0b96d5e4b077",
       "name": "smollm2-135m",
       "ops": {
         "aten": [
@@ -6231,20 +6231,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "984f17128a9188df717221259b8555427bf60805bc5f563722a3cd41f90596e1",
-      "resume_key": "ba05607f6bd846f705f3aa7282ea26aba1a4bf0026389a72b6d893a890e560df",
+      "resume_key": "fa881e9066f8206d72dd02d6a4bc65d3a9747ef22cc1953b2c0845a63e180d62",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -6295,7 +6295,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "cec3a9d2a0419a7a36ffbfc73b0a8e677cf2d52872bd46d6a0066f91d145daae",
+      "source_key": "a816d8228053b600a0171fc14990dc06f9a76789626ff65e74fd131124efa252",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -6357,7 +6357,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "0bd4aeb209ef8e1828fd55de9e2c7fd20d0efd1fa97267fd87f346da9bb73e62",
+      "graph_sha256": "7c916b844022b335367674e3549ce06caa268730d579030b41c02e3e7e164bcd",
       "name": "t5-small",
       "ops": {
         "aten": [
@@ -8762,20 +8762,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "59c652d7ac5a6e45392efd800c3f4b7ef7cd89f5ef2e7d9b2a4b4fd8c935ba05",
-      "resume_key": "2e67e85c012e6d2e183381f64121653e9c66e90ca6cf00b385c49d4311b92c99",
+      "resume_key": "d0ec8e2df63a9d1a865156424bd0f036a38966a1d6485bb060f12674461f5e58",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -8832,7 +8832,7 @@
         "aten.zeros_like.default": "zeros_like(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "57f4007a8587782d73a7f508b1ffeeca812f26f934a7fd6b7b009d0b6b06c47f",
+      "source_key": "024ebc0f9ecd9463632913b271bad25a597043f703c61472a650054912be67f4",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -8894,7 +8894,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "e6781d654e896bf3bdf56651ba92cba56e6446d697527f925c26f0e5df675674",
+      "graph_sha256": "ecad6c547c097fd4dfb65cc7635585232daaaf4ac96e7134dbfcfd92aab4aa19",
       "name": "time-series-small",
       "ops": {
         "aten": [
@@ -11802,20 +11802,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "f7021159aa174a06d6b618cc7cffe71f9109c8cca4837951165b20bfc7f7071d",
-      "resume_key": "66c75a0da49b25110c25d7d5ea415c25d593535d63616fdb991d0ac7071a518a",
+      "resume_key": "3c8fef2f7845bc7fab8eef954c82c85d640b1bd590793ca7014184769ad383fa",
       "schemas": {
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
         "aten.abs.default": "abs(Tensor self) -> Tensor",
@@ -11870,7 +11870,7 @@
         "aten.zeros_like.default": "zeros_like(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "c3a7c1cf4434a5c65257822d4deff112b30ebef5818ddcf3bee5e5b8a4864d93",
+      "source_key": "65f469c4068f60d8e798628913cec8a668b2891eb58e8fcad89c0c9a5a73aae1",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -11932,7 +11932,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "46c80aaaa1bc3b3911293da89ee934a62a5e63d6d571f55bf91ed596f5d3942d",
+      "graph_sha256": "b011845e3650b8340344b85aa0845f298f89669526af751aa047b590e79b85ff",
       "name": "tinyclip",
       "ops": {
         "aten": [
@@ -14072,20 +14072,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "f3f7de23a9d5ecffcf1f58ab0c6cecec6eeecfd4a558d215946a1d6381d795dd",
-      "resume_key": "96b146489172174f415380836e513c8718e20280d4d00ea186a2ff083ad4ca16",
+      "resume_key": "1996d1d55458fb5be6857f0cfcd33dc1b0bb2a2ba1127e48eb46898a3fb406bf",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -14140,7 +14140,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "82c1e376eebdce3130dcbbac7c545771cc7576741838660d8aebca518de112eb",
+      "source_key": "dede684b4b01a6c99e332729fe9d43bd4bab660360e788260ee392f00ca81792",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -14202,7 +14202,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "edb3ff323163f47d7bcdd4109425189d18658539556e260b2836a16d41325d6b",
+      "graph_sha256": "2c552325aa261ec59e73b5a551ed7720a8a1aabdc1e903f7cab60bf1e88aa5e9",
       "name": "videomae-small",
       "ops": {
         "aten": [
@@ -15195,20 +15195,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "a8f529afd086cba239791c461be95e6f64a8d484a34cad1b508b01370547fe30",
-      "resume_key": "bb2a3d13b5202fa1d0af0b2c5b8ebc3ad0a875dd37b8c9420989916750e32647",
+      "resume_key": "8589b25fd374d518aa196a9c4dd3467f261158b4bb07faea5a236bf6ed58f9a1",
       "schemas": {
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
         "aten._to_copy.default": "_to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor",
@@ -15241,7 +15241,7 @@
         "aten.view.default": "view(Tensor(a) self, SymInt[] size) -> Tensor(a)"
       },
       "shape_policy": "static",
-      "source_key": "f14525d23a6bad4eabbea7e8529c4fe8a609edbe220655488fe3487ac87c06c6",
+      "source_key": "4d11da3cf2f3906d35df3b76d3d19019d8351f7403ef0c7a63cc71b005b08327",
       "stages": {
         "aten_facts": {
           "status": "ok"
@@ -15303,7 +15303,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "8c5b8e909228f6e20856215aaf71e299ad628b2b03c1812fa70aa86117bafd9f",
+      "graph_sha256": "987a723d0d2b7e17bb26850fc763097476bcc4ae9cf5c956d2bf3c41d947798a",
       "name": "whisper-tiny",
       "ops": {
         "aten": [
@@ -17352,20 +17352,20 @@
         "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
         "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
         "device": "cpu",
-        "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+        "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
         "python": "3.13.12",
         "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
         "versions": {
           "numpy": "2.5.3",
           "pt2-export-core": "0.1.0",
           "safetensors": "0.8.0",
-          "torch": "2.12.0+cpu",
-          "torchvision": "0.27.0+cpu",
+          "torch": "2.13.0+cpu",
+          "torchvision": "0.28.0+cpu",
           "transformers": "5.18.0"
         }
       },
       "recipe_sha256": "7d10f7fb603898becbeed17427c54a0caede38e12fdd9914a279bc792f6f86c7",
-      "resume_key": "c592ad45237e10f6096771f5574a089851c966950db6b199c224c3d0c5cd01e7",
+      "resume_key": "109c801c67a58b8610cae67e3b4d512e6b3854a351207f60175176609f1bcf99",
       "schemas": {
         "aten.__and__.Tensor": "__and__.Tensor(Tensor self, Tensor other) -> Tensor",
         "aten._softmax.default": "_softmax(Tensor self, int dim, bool half_to_float) -> Tensor",
@@ -17415,7 +17415,7 @@
         "aten.where.self": "where.self(Tensor condition, Tensor self, Tensor other) -> Tensor"
       },
       "shape_policy": "static",
-      "source_key": "a8c116c55df3ae456e9009db3c2305bd284737dd93ef494b632f20450b6bcbe0",
+      "source_key": "a775fbfc110b8ff947c92d035b7500d0f7f29c970db86aa6ff5433c6d71896b4",
       "stages": {
         "aten_facts": {
           "status": "ok"

@@ -27,7 +27,7 @@ tolerances and failures; producer success does not certify consumer execution.
   The default `make` runs only the small offline BERT check.
 
 The frozen baseline is Python 3.13.12, uv 0.12.23, Transformers 5.18.0,
-torch 2.12.0+cpu and torchvision 0.27.0+cpu. CPU wheels exist for ARM64 and
+torch 2.13.0+cpu and torchvision 0.28.0+cpu. CPU wheels exist for ARM64 and
 x86-64. Committed graphs use ARM64 CPU; both uv and devcontainer CI regenerate
 them on `ubuntu-24.04-arm`. The x86 job verifies its own BERT execution.
 The shared `pt2-export-core` is an editable path dependency on the

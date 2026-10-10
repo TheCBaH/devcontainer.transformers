@@ -11,7 +11,7 @@
       "outputs": [
         "vision_hidden_states"
       ],
-      "outputs_sha256": "566ab474f5e446d6e3bd1e88f09c42be74ea627888c68e0586b6560187c4f732"
+      "outputs_sha256": "4c5cfc5932ccbe01c11d961c4b2c9508ea7a743610b9087744b9daf5458e1ff9"
     },
     {
       "id": "case-01",
@@ -23,7 +23,7 @@
       "outputs": [
         "vision_hidden_states"
       ],
-      "outputs_sha256": "b5bbe5e51b3702334d816786b52a37ecf5ab3537f46b89fbb8851e62451ec3b5"
+      "outputs_sha256": "32e4a49d14a28212dac2e76c3a3109d8a9cb228f0ad13cac44f471964e4d2245"
     }
   ],
   "schema_version": 1,

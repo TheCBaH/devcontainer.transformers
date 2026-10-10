@@ -15,7 +15,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "21868ab6523a87a0ec4cacc1072b8861a3ad61d5758a29269b82dce70c64914e",
+      "graph_sha256": "652baef0166302ffb851c740364a021ba5f89d2b5fcbca05839d4e694880e6c1",
       "status": "verified"
     },
     "decode": {
@@ -26,7 +26,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "042090360336664dd899e2b42255c5cf68d0aa9e5e993bcb1355297e91cea8a7",
+      "graph_sha256": "bc7975c1d180fdeae3e1dd9c2639dc8886581d10800a556814652775a6d87ea7",
       "status": "verified"
     },
     "prefill": {
@@ -37,7 +37,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "276f33b6cd07aa5c184bd8c30b94d3d8adfbae3fb7f7ac85943456e13923caaa",
+      "graph_sha256": "f87bd02001fcb2620f4f40157a73fa248bc0ae42195dea2c766208a1e39d843a",
       "status": "verified"
     },
     "vision": {
@@ -48,7 +48,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "e075d8233be0fcb21b2150a06449a9b9f2a6a78e7b16b525260fefdb1e426151",
+      "graph_sha256": "b6fc97120051a5253d28f957db699d17aec10676f927f033b7f577e25c7874c4",
       "status": "verified"
     }
   },
@@ -60,15 +60,15 @@
     "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
     "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
     "device": "cpu",
-    "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
     "python": "3.13.12",
     "tools_sha256": "d0fccadcd4d8862038e5d18e23227d78fd6de583b6c6ae4e7a9b7e99439dc0a4",
     "versions": {
       "numpy": "2.5.3",
       "pt2-export-core": "0.1.0",
       "safetensors": "0.8.0",
-      "torch": "2.12.0+cpu",
-      "torchvision": "0.27.0+cpu",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
       "transformers": "5.18.0"
     }
   },
@@ -86,7 +86,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "ee255dad8486e335f417c56a40e37e59b065861f55e07e3b8a74c5a0a38a3617",
+      "graph_sha256": "952e5058bb67e8becceb146dde52f483ff2d02db4fcb5823f18e2160d84a407f",
       "rejected_other_histories": 11,
       "status": "verified"
     },
@@ -102,7 +102,7 @@
         "status": "ok",
         "transformers_imported": false
       },
-      "graph_sha256": "057f9320987b7f3f2317e709c23608515b34faced54e9fd8adab911cd7c14be9",
+      "graph_sha256": "725f43cc785e652e1bd3923c14d717b5169057114ba9a4fffed7111dd8c47de4",
       "rejected_other_histories": 11,
       "status": "verified"
     }

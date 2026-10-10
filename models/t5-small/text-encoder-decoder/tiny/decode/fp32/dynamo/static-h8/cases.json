@@ -21,7 +21,7 @@
         "present_0_cross_key",
         "present_0_cross_value"
       ],
-      "outputs_sha256": "904fc699e76dd4edbb583bd4244334bf108bd24a69e923738c3bf628ac869b89"
+      "outputs_sha256": "4a08d1d1641dbd9a0087325bf62b9a2af2a62ec0da52d254ea839260af4e8fd8"
     },
     {
       "id": "case-01",
@@ -43,7 +43,7 @@
         "present_0_cross_key",
         "present_0_cross_value"
       ],
-      "outputs_sha256": "dee57742e363d07910152c1d0144b5239e2a2334bbae3dcf139928d46e31b09e"
+      "outputs_sha256": "5960e4a5725d3880e84f1552edc70b21b9a2c06d626659dccafdf422406662d4"
     }
   ],
   "schema_version": 1,
