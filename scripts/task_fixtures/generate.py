@@ -72,6 +72,8 @@ def load_references(root, request, task, work):
                 raise ValueError('reference package version differs from generator')
         if contract['producer']['architecture'] != platform.machine():
             raise ValueError('reference architecture differs from generator')
+        if contract['producer']['python'] != platform.python_version():
+            raise ValueError('reference Python version differs from generator')
         refs = {key: row[key] for key in ('artifact_id', 'model_id', 'component', 'graph_sha256', 'producer_commit', 'weight_source')}
         refs.update({'population': contract['population'], 'assets': row['assets'], 'tolerances': contract['tolerances'],
                      'contract': file_pin(folder / 'contract.json'), 'graph': file_pin(folder / 'models/model.json'),
@@ -113,7 +115,7 @@ def load_model(root, task, references, work):
     for name, pin in task['recipe']['assets'].items():
         download(pin, assets, name)
     verify_file(assets / 'config.json', references[0]['config'])
-    return model, assets, info
+    return model, assets, {key: sorted(value) if isinstance(value, set) else value for key, value in info.items()}
 
 
 def named(outputs, fields):
