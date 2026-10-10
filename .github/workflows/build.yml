@@ -20,7 +20,22 @@ jobs:
           version: '0.12.23'
           python-version: '3.13.12'
           enable-cache: true
-      - run: make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.encoders COMPONENT_OUTPUT=. report.symbolic catalogue models.verify bundles bundles.verify check-tree-clean
+      - name: Test
+        run: make test
+      - name: Report
+        run: make report.ci
+      - name: Models
+        run: make models.select models
+      - name: Generation
+        run: make models.generation.all GENERATION_OUTPUT=.
+      - name: Encoders
+        run: make models.encoders COMPONENT_OUTPUT=.
+      - name: Catalogue
+        run: make report.symbolic catalogue models.verify
+      - name: Bundles
+        run: make bundles bundles.verify
+      - name: Check tree clean
+        run: make check-tree-clean
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -59,7 +74,22 @@ jobs:
         id: devcontainer
         with:
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: ${{ steps.devcontainer.outputs.exec }} make test report.ci models.select models models.generation.all GENERATION_OUTPUT=. models.encoders COMPONENT_OUTPUT=. report.symbolic catalogue models.verify bundles bundles.verify check-tree-clean
+      - name: Test
+        run: ${{ steps.devcontainer.outputs.exec }} make test
+      - name: Report
+        run: ${{ steps.devcontainer.outputs.exec }} make report.ci
+      - name: Models
+        run: ${{ steps.devcontainer.outputs.exec }} make models.select models
+      - name: Generation
+        run: ${{ steps.devcontainer.outputs.exec }} make models.generation.all GENERATION_OUTPUT=.
+      - name: Encoders
+        run: ${{ steps.devcontainer.outputs.exec }} make models.encoders COMPONENT_OUTPUT=.
+      - name: Catalogue
+        run: ${{ steps.devcontainer.outputs.exec }} make report.symbolic catalogue models.verify
+      - name: Bundles
+        run: ${{ steps.devcontainer.outputs.exec }} make bundles bundles.verify
+      - name: Check tree clean
+        run: ${{ steps.devcontainer.outputs.exec }} make check-tree-clean
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
