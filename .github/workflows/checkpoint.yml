@@ -1,7 +1,9 @@
 name: checkpoint
 on:
   push:
+    branches: ['**']
     paths: [checkpoint-request.json, task-fixture-request.json]
+    tags: [publish-checkpoint-*, publish-tasks-*]
   workflow_dispatch:
     inputs:
       task_fixtures:
@@ -55,9 +57,13 @@ jobs:
         env:
           DISPATCH_TASKS: ${{ inputs.task_fixtures }}
           EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
           tasks=false
-          if [ "$DISPATCH_TASKS" = true ] || { [ "$EVENT_NAME" = push ] && git diff --name-only HEAD^ HEAD | grep -qx task-fixture-request.json; }; then tasks=true; fi
+          if [ "$DISPATCH_TASKS" = true ]; then tasks=true
+          elif [ "$REF_TYPE" = tag ]; then case "$REF_NAME" in publish-tasks-*) tasks=true;; esac
+          elif [ "$EVENT_NAME" = push ] && git diff --name-only HEAD^ HEAD | grep -qx task-fixture-request.json; then tasks=true; fi
           echo "tasks=$tasks" >> "$GITHUB_OUTPUT"
       - name: Plan pinned task fixtures
         id: tasks
@@ -67,7 +73,7 @@ jobs:
         id: request
         run: |
           echo "tasks=${{ steps.mode.outputs.tasks }}" >> "$GITHUB_OUTPUT"
-          # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
+          # inputs on dispatch; checkpoint-request.json on push. Branch pushes build and verify only; publish jobs need a publish-* tag or a dispatch
           if [ -n "${{ inputs.subset }}" ]; then
             subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.release_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'
           else
@@ -252,7 +258,7 @@ jobs:
           if-no-files-found: error
   publish:
     needs: [plan, components, collect]
-    if: ${{ !cancelled() && needs.plan.outputs.publish == 'true' && needs.collect.result == 'success' && needs.components.result != 'failure' }}
+    if: ${{ !cancelled() && (github.event_name != 'push' || github.ref_type == 'tag') && needs.plan.outputs.publish == 'true' && needs.collect.result == 'success' && needs.components.result != 'failure' }}
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -352,7 +358,7 @@ jobs:
           if-no-files-found: error
   task-publish:
     needs: [plan, task-index]
-    if: needs.plan.outputs.fixture_publish == 'true'
+    if: ${{ (github.event_name != 'push' || github.ref_type == 'tag') && needs.plan.outputs.fixture_publish == 'true' }}
     runs-on: ubuntu-24.04
     permissions:
       contents: write

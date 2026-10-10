@@ -116,7 +116,10 @@ prune them, which would change the graph.
 Original-size and checkpoint-backed runs are heavy: dispatch the `checkpoint`
 workflow by editing `checkpoint-request.json` (push to `devel`), which exports,
 binds, maps and bundles the requested models in parallel jobs and uploads the evidence.
-With `publish` (a request field or dispatch input) a final job uploads bundles,
+Pushing a request file only builds and verifies. To publish, set `publish` in the
+request and push a `publish-checkpoint-*` (or `publish-tasks-*` for
+`task-fixture-request.json`) tag on that commit, or dispatch with the `publish` input.
+Then a final job uploads bundles,
 manifests, hosted files and `publication.json` (`hf-pt2 index`: exact URLs, SHA-256 and
 sizes, with producer commit, upstream checkpoint and release tag kept as
 separate facts) to the release `release_tag` (default `checkpoint-<sha12>`),
