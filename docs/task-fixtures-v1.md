@@ -1,5 +1,29 @@
 # Task fixtures v1
 
+Verified publication:
+[task-fixtures-b6daf1af4152-c564bb4b0d83](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-b6daf1af4152-c564bb4b0d83)
+has nine bundles and 41 cases (568,358,848 bytes of archives/manifests).
+[`task-fixtures.pin.json`](../task-fixtures.pin.json) pins its 15,262-byte index:
+SHA-256 `19649ac9b543aa506302ea6b297f39976d489090f2d9dc9135e56d05bc02ac7a`.
+The generator is `b6daf1af4152d7d14f0764de1d580dc26aa73d98`; the checkpoint
+release producer remains `003207ae59ed0555599da190d70cc3d2f15ad705`.
+
+| Recipe | Kind | Cases |
+| --- | --- | ---: |
+| bert-wordpiece-v1 | Acceptance | 6 |
+| tinyclip-pillow-v1 | Acceptance | 4 |
+| tinyclip-torchvision-v1 | Acceptance | 4 |
+| mobilevit-xxs-pillow-v1 | Acceptance | 4 |
+| mobilevit-xxs-torchvision-v1 | Acceptance | 4 |
+| smollm2-static-h4-v1 | Acceptance | 4 |
+| smollm2-135m-prefill-diagnostic-v1 | Diagnostic | 2 |
+| whisper-tiny-decode-diagnostic-v1 | Diagnostic | 6 |
+| smolvlm-256m-decode-diagnostic-v1 | Diagnostic | 7 |
+
+Every published diagnostic named output is within its original tolerance against
+the pinned producer outputs in this controlled ARM64/locked-environment run.
+This is producer evidence; the historical consumer failures remain open.
+
 The producer computes references in its frozen CPU environment. Consumers read
 JSON, raw bytes and flat tensor maps; they do not install or execute this
 repository's Python, torch, Transformers, tokenizers, Pillow or NumPy. Upstream

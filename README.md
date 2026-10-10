@@ -12,8 +12,11 @@ Pretrained components are published separately in the immutable
 [checkpoint-003207ae59ed release](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/checkpoint-003207ae59ed):
 35 checkpoint-backed graphs with slim bundles, v2 maps, replay cases and a
 [pinned publication index](https://github.com/TheCBaH/devcontainer.transformers/releases/download/checkpoint-003207ae59ed/publication.json).
-Raw-input task references use companion releases and the separate
-[`task-fixtures.json` contract](docs/task-fixtures-v1.md). They let OCaml consumers
+Raw-input task references are published in
+[task-fixtures-b6daf1af4152-c564bb4b0d83](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-b6daf1af4152-c564bb4b0d83):
+nine bundles, 41 cases, about 542 MiB. The source
+[`task-fixtures.pin.json`](task-fixtures.pin.json) pins its immutable index;
+[`task-fixtures.json` contract](docs/task-fixtures-v1.md) documents consumption. They let OCaml consumers
 test tokenization, image preprocessing, complete task outputs and bounded K/V
 transitions without running Python ML code. Diagnostic bundles retain original
 tolerances and failures; producer success does not certify consumer execution.
