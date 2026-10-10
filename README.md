@@ -1,6 +1,6 @@
 # Devcontainer for HuggingFace Transformers library
 
-[![Transformers devcontainer](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml)
+[![Transformers devcontainer](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml)
 
 Offline architecture research for [Transformers](https://github.com/huggingface/transformers),
 with reproducible CPU environments and verified functional PT2 graphs. Eight tiny
@@ -8,8 +8,21 @@ random-weight probes cover BERT, Llama, T5, MobileViT, Whisper, CLIP, VideoMAE a
 time-series states. Original checkpoint configurations have separate identities;
 these graphs do not contain pretrained checkpoint weights or establish accuracy.
 
+Pretrained components are published separately in the immutable
+[checkpoint-003207ae59ed release](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/checkpoint-003207ae59ed):
+35 checkpoint-backed graphs with slim bundles, v2 maps, replay cases and a
+[pinned publication index](https://github.com/TheCBaH/devcontainer.transformers/releases/download/checkpoint-003207ae59ed/publication.json).
+Raw-input task references are published in
+[task-fixtures-b6daf1af4152-c564bb4b0d83](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-b6daf1af4152-c564bb4b0d83):
+nine bundles, 41 cases, about 542 MiB. The source
+[`task-fixtures.pin.json`](task-fixtures.pin.json) pins its immutable index;
+[`task-fixtures.json` contract](docs/task-fixtures-v1.md) documents consumption. They let OCaml consumers
+test tokenization, image preprocessing, complete task outputs and bounded K/V
+transitions without running Python ML code. Diagnostic bundles retain original
+tolerances and failures; producer success does not certify consumer execution.
+
 ## Get started
-* [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=master&repo=950664099)
+* [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=950664099)
 * Open this repository in its devcontainer, then run `make setup` and `make smoke`.
   The default `make` runs only the small offline BERT check.
 
@@ -175,9 +188,9 @@ default decomposition has a version-scoped numeric exclusion at the fixed FP32
 tolerance. The tiny SmolLM2 probe passes all stages.
 
 `checkpoint-maps/` records exact source-file and loaded-value hashes, key
-renaming, shard indices, tied aliases and explicit FP32 conversion. Ten source
+renaming, shard indices, tied aliases and explicit FP32 conversion. All thirteen source
 checkpoints have verified mappings. BERT, MobileViT and VideoMAE lack upstream
-safetensors at their pins. Wav2Vec2's missing training-only mask embedding is
+safetensors at their pins and use separately verified, pinned conversions. Wav2Vec2's missing training-only mask embedding is
 recorded as an unused graph input; it is never assigned a fabricated binding.
 Maps bind original-config graphs and do not turn the tiny random corpus into
 pretrained models or establish accuracy.
@@ -192,5 +205,7 @@ does not imply whole-library or cross-architecture precision support.
 exact package/core versions, with a reason. New stage failures and stale
 exclusions fail the command while preserving any successful functional graph.
 The manual `research` workflow uploads reference/extended evidence and diagnostics
-without changing the committed tiny population. Archives are research work
-files; this repository does not publish a release payload yet.
+without changing the committed tiny population. Temporary Actions evidence is
+separate from immutable checkpoint and task-fixture release assets. The committed
+checkpoint request controls its own subset/static histories/publication; task
+requests select independent full artifact IDs and versioned recipes.
