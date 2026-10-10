@@ -248,6 +248,7 @@ def image_case(assets, recipe, case_id, writer):
         from transformers.models.clip.image_processing_pil_clip import CLIPImageProcessorPil
         cls = CLIPImageProcessorPil if recipe['backend'] == 'pillow' else transformers.CLIPImageProcessor
     processor = cls.from_pretrained(assets, local_files_only=True)
+    processor_config = processor.to_dict()
     for name in ('resize', 'center_crop'):
         original = getattr(processor, name)
         def trace(*args, _method=original, _name=name, **kwargs):
@@ -258,7 +259,7 @@ def image_case(assets, recipe, case_id, writer):
     pixels = processor(images=image, return_tensors='pt')['pixel_values']
     preprocessing['pixel_values'] = pixels
     raw = [{'path': str(p.relative_to(writer.directory)), **file_pin(p)} for p in (source, path)]
-    return pixels, preprocessing, raw, processor.to_dict()
+    return pixels, preprocessing, raw, processor_config
 
 
 def image_cases(model, assets, task, selected, writer):

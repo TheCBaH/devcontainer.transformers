@@ -222,9 +222,7 @@ def check_named_cases(contract):
                 if [tensor['name'] for tensor in tensors] != [spec['name'] for spec in expected]:
                     raise ValueError('incomplete named inputs or outputs')
                 for tensor, spec in zip(tensors, expected, strict=True):
-                    if tensor['dtype'] != spec['dtype'] or len(tensor['shape']) != len(spec['shape']) or any(
-                            type(size) is int and size != actual for size, actual in zip(spec['shape'], tensor['shape'], strict=True)):
-                        raise ValueError('case tensor differs from selected component contract')
+                    check_tensor_shape(tensor, spec, reference, role == 'inputs')
         if 'transition' in case:
             transition = case['transition']
             inputs = {tensor['name']: tensor for tensor in roles['inputs']}
@@ -258,6 +256,23 @@ def check_named_cases(contract):
             if transition['stop'] not in (None, 'eos', 'max_new_tokens'):
                 raise ValueError('unknown stopping scope')
         previous_cases[case['id']] = case
+
+
+def check_tensor_shape(tensor, spec, reference, is_input):
+    if tensor['dtype'] != spec['dtype'] or len(tensor['shape']) != len(spec['shape']):
+        raise ValueError(f'case tensor differs from selected component contract: {tensor["name"]}')
+    dynamic = reference.get('exporter', {}).get('shape_policy') == 'dynamic'
+    for axis, (expected, actual) in enumerate(zip(spec['shape'], tensor['shape'], strict=True)):
+        name = tensor['name']
+        cache_axis = axis == 2 and name.startswith(('past_', 'present_')) and '_cross_' not in name
+        mask_axis = is_input and axis == 1 and name in ('attention_mask', 'decoder_attention_mask')
+        if dynamic and (cache_axis or mask_axis):
+            low, high = reference['dynamic_constraints']['history']
+            offset = 1 if mask_axis or not is_input else 0
+            if not low + offset <= actual <= high + offset:
+                raise ValueError('case tensor exceeds the declared dynamic history bound')
+        elif type(expected) is int and expected != actual:
+            raise ValueError(f'case tensor differs from selected component contract: {name}, axis {axis}, {actual} != {expected}')
 
 
 def tensor_records(tensors):

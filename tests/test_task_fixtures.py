@@ -12,7 +12,7 @@ import torch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from task_fixtures.integrity import (build_index, check_contract, check_request, digest, extract,
-                                     file_pin, pack, read_json, tensor_records, verify_bundle,
+                                     check_tensor_shape, file_pin, pack, read_json, tensor_records, verify_bundle,
                                      verify_index, write_json)
 
 
@@ -111,6 +111,17 @@ def test_complete_named_routes_are_required(tmp_path, mutation):
         files['outputs.pt']['tensors'][0]['shape'] = [1, 3]
     with pytest.raises(ValueError, match='incomplete|component contract'):
         check_contract(value)
+
+
+def test_dynamic_history_is_bounded_and_cross_state_stays_static():
+    reference = {'exporter': {'shape_policy': 'dynamic'}, 'dynamic_constraints': {'history': [1, 8]}}
+    spec = {'name': 'past_0_key', 'dtype': 'float32', 'shape': [1, 3, 4, 64]}
+    check_tensor_shape({**spec, 'shape': [1, 3, 8, 64]}, spec, reference, True)
+    with pytest.raises(ValueError, match='dynamic history bound'):
+        check_tensor_shape({**spec, 'shape': [1, 3, 9, 64]}, spec, reference, True)
+    cross = {**spec, 'name': 'past_0_cross_key'}
+    with pytest.raises(ValueError, match='component contract'):
+        check_tensor_shape({**cross, 'shape': [1, 3, 8, 64]}, cross, reference, True)
 
 
 @pytest.mark.parametrize('name,kind', [('../escape', 'file'), ('x', 'symlink'), ('x', 'duplicate'), ('y', 'file'), ('x', 'missing')])
