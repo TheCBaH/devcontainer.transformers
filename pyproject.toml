@@ -5,8 +5,8 @@ description = "Offline Transformers architecture research and verified PT2 graph
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "transformers==5.18.0",
-    "torch==2.12.0",
-    "torchvision==0.27.0",
+    "torch==2.13.0",
+    "torchvision==0.28.0",
     "pt2-export-core",
     "huggingface-hub",
     "safetensors",
