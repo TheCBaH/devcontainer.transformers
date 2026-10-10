@@ -1,0 +1,403 @@
+{
+  "cases": [
+    {
+      "id": "case-00",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            7592,
+            1010,
+            2088,
+            999,
+            102,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": "Hello, world!"
+    },
+    {
+      "id": "case-01",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            1996,
+            4248,
+            2829,
+            4419,
+            14523,
+            2058,
+            1996,
+            13971,
+            3899,
+            1012,
+            102,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": "The quick brown fox jumps over the lazy dog."
+    },
+    {
+      "id": "case-02",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            102,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": ""
+    },
+    {
+      "id": "case-03",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            7668,
+            15743,
+            13746,
+            1517,
+            1879,
+            1755,
+            1012,
+            102,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": "Caf\u00e9 na\u00efve r\u00e9sum\u00e9 \u2014 \u6771\u4eac."
+    },
+    {
+      "id": "case-04",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            11687,
+            4667,
+            1012,
+            102,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": "Padding."
+    },
+    {
+      "id": "case-05",
+      "tensors": {
+        "attention_mask": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "input_ids": [
+          [
+            101,
+            1996,
+            4248,
+            2829,
+            4419,
+            14523,
+            2058,
+            1996,
+            13971,
+            3899,
+            1012,
+            1996,
+            4248,
+            2829,
+            4419,
+            102
+          ]
+        ],
+        "token_type_ids": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "text": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."
+    }
+  ],
+  "fixture_id": "bert-tiny/text-encoder/reference/forward/fp32/dynamo/static/ckpt-6f75de8b60a9/task/bert-wordpiece-v1/80a26dfbab996f1bc8e21e8635258e76682c972629375e1c1b0ddc9a7b48a046/generator/f50e2d2edb87e38305841d443521357aee8dc33c/request/46c01cb3ac5fcb20463ecf017e313164f2623b88201701b42558cfb3ccb0d9ca",
+  "recipe_sha256": "80a26dfbab996f1bc8e21e8635258e76682c972629375e1c1b0ddc9a7b48a046",
+  "schema_version": 1
+}

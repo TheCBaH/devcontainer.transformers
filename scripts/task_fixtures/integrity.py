@@ -197,6 +197,67 @@ def check_contract(contract):
                     raise ValueError('invalid tensor metadata')
                 if any(type(size) is not int or size < 0 for size in tensor['shape']):
                     raise ValueError('invalid tensor shape')
+    check_named_cases(contract)
+
+
+def check_named_cases(contract):
+    references = {reference['artifact_id']: reference for reference in contract['references']}
+    previous_cases = {}
+    sequences = set()
+    for case in contract['cases']:
+        identity = case.get('artifact_id', contract['artifact_id'])
+        if identity not in references:
+            raise ValueError('case selects an undeclared component')
+        reference = references[identity]
+        roles = {PurePosixPath(path).stem: data['tensors'] for path, data in case['files'].items()}
+        if len(roles) != len(case['files']):
+            raise ValueError('duplicate tensor file role')
+        if 'inputs' in reference:
+            required = ('inputs', 'published', 'eager', 'exported') if contract['kind'] == 'diagnostic' else ('inputs', 'outputs', 'exported')
+            if any(role not in roles for role in required):
+                raise ValueError('incomplete reference routes')
+            for role in required:
+                expected = reference['inputs'] if role == 'inputs' else reference['outputs']
+                tensors = roles[role]
+                if [tensor['name'] for tensor in tensors] != [spec['name'] for spec in expected]:
+                    raise ValueError('incomplete named inputs or outputs')
+                for tensor, spec in zip(tensors, expected, strict=True):
+                    if tensor['dtype'] != spec['dtype'] or len(tensor['shape']) != len(spec['shape']) or any(
+                            type(size) is int and size != actual for size, actual in zip(spec['shape'], tensor['shape'], strict=True)):
+                        raise ValueError('case tensor differs from selected component contract')
+        if 'transition' in case:
+            transition = case['transition']
+            inputs = {tensor['name']: tensor for tensor in roles['inputs']}
+            outputs = {tensor['name']: tensor for tensor in roles['outputs']}
+            cache_edges = {name: name.replace('present_', 'past_', 1) for name in outputs if name.startswith('present_')}
+            if not cache_edges or transition['cache_edges'] != cache_edges:
+                raise ValueError('incomplete K/V transition')
+            if any(outputs[name]['shape'][2] != transition['history_out'] for name in cache_edges):
+                raise ValueError('inconsistent output history')
+            if transition['reset']:
+                if transition['previous_case'] is not None or transition['sequence'] in sequences or any(name.startswith('past_') for name in inputs):
+                    raise ValueError('invalid cache reset')
+                sequences.add(transition['sequence'])
+            else:
+                previous = previous_cases.get(transition['previous_case'])
+                if previous is None or previous['transition']['sequence'] != transition['sequence'] or previous['transition']['stop'] is not None:
+                    raise ValueError('missing, cross-sequence or stopped transition')
+                previous_roles = {PurePosixPath(path).stem: data['tensors'] for path, data in previous['files'].items()}
+                state = {tensor['name']: tensor for tensor in previous_roles['outputs']}
+                for name, destination in cache_edges.items():
+                    expected = {**state[name], 'name': destination}
+                    if inputs.get(destination) != expected:
+                        raise ValueError('cache transition bytes or dtype differ')
+                token = next(tensor for tensor in previous_roles['host'] if tensor['name'] == 'generated_token')
+                if inputs['input_ids'] != {**token, 'name': 'input_ids'}:
+                    raise ValueError('generated token differs from next input')
+            if transition['history_out'] != transition['history_in'] + inputs['input_ids']['shape'][1]:
+                raise ValueError('invalid history advancement')
+            if inputs['attention_mask']['shape'][1] != transition['history_out']:
+                raise ValueError('generation mask length differs from state')
+            if transition['stop'] not in (None, 'eos', 'max_new_tokens'):
+                raise ValueError('unknown stopping scope')
+        previous_cases[case['id']] = case
 
 
 def tensor_records(tensors):
@@ -213,7 +274,7 @@ def verify_bundle(manifest_path, assets, expected=None, tensors=False):
     manifest = read_json(manifest_path)
     contract = {key: value for key, value in manifest.items() if key not in ('archive', 'members')}
     check_contract(contract)
-    if expected and any(contract[key] != expected[key] for key in ('fixture_id', 'artifact_id', 'recipe_sha256', 'expected_cases', 'kind')):
+    if expected and any(contract[key] != expected[key] for key in ('fixture_id', 'artifact_id', 'recipe_id', 'recipe_sha256', 'expected_cases', 'kind')):
         raise ValueError('selected fixture differs from index')
     if not SAFE.fullmatch(manifest['archive']['name']):
         raise ValueError('unsafe archive name')

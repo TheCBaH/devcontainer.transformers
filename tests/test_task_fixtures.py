@@ -20,12 +20,17 @@ def contract(directory):
     value = torch.tensor([[1, 2]], dtype=torch.int64)
     (directory / 'inputs.pt').parent.mkdir(parents=True, exist_ok=True)
     torch.save({'input_ids': value}, directory / 'inputs.pt')
+    output = torch.tensor([[0.125, -0.25]])
+    for role in ('outputs', 'exported'):
+        torch.save({'hidden': output}, directory / (role + '.pt'))
     (directory / 'text.txt').write_bytes(b'hello')
     reference = {'artifact_id': 'bert-tiny/text-encoder/reference/forward/fp32/dynamo/static/ckpt-123456789abc',
                  'weight_source': {'revision': '1' * 40}, 'producer_commit': '2' * 40,
                  'graph_sha256': '3' * 64, 'tolerances': {'atol': 1e-5, 'rtol': 1e-4},
                  'contract': {'sha256': '4' * 64, 'size': 10}, 'graph': {'sha256': '3' * 64, 'size': 10},
-                 'map': {'sha256': '5' * 64, 'size': 10}, 'config': {'sha256': '6' * 64, 'size': 10}}
+                 'map': {'sha256': '5' * 64, 'size': 10}, 'config': {'sha256': '6' * 64, 'size': 10},
+                 'inputs': [{'name': 'input_ids', 'dtype': 'int64', 'shape': [1, 2]}],
+                 'outputs': [{'name': 'hidden', 'dtype': 'float32', 'shape': [1, 2]}]}
     recipe = {'text': 'hello'}
     result = {'schema_version': 1, 'tensor_format': 'torch-flat-tensor-map-v1', 'kind': 'acceptance',
               'artifact_id': reference['artifact_id'], 'references': [reference], 'recipe_id': 'text-v1',
@@ -33,7 +38,9 @@ def contract(directory):
               'request_sha256': '9' * 64, 'tolerances': reference['tolerances'],
               'expected_cases': ['case-00'], 'reference_publication': {'sha256': 'a' * 64, 'size': 10},
               'cases': [{'id': 'case-00', 'raw': [{'path': 'text.txt', **file_pin(directory / 'text.txt')}],
-                         'files': {'inputs.pt': {'tensors': tensor_records({'input_ids': value})}}}]}
+                         'files': {'inputs.pt': {'tensors': tensor_records({'input_ids': value})},
+                                   'outputs.pt': {'tensors': tensor_records({'hidden': output})},
+                                   'exported.pt': {'tensors': tensor_records({'hidden': output})}}}]}
     result['fixture_id'] = f"{result['artifact_id']}/task/text-v1/{digest(recipe)}/generator/{'7' * 40}/request/{'9' * 64}"
     return result
 
@@ -90,6 +97,20 @@ def test_missing_corrupt_and_tensor_content_fail(tmp_path):
     document['cases'][0]['files']['inputs.pt']['tensors'][0]['sha256'] = 'b' * 64
     with pytest.raises(ValueError, match='tensor names, content'):
         pack(payload, output, document)
+
+
+@pytest.mark.parametrize('mutation', ['route', 'output_name', 'shape'])
+def test_complete_named_routes_are_required(tmp_path, mutation):
+    value = contract(tmp_path)
+    files = value['cases'][0]['files']
+    if mutation == 'route':
+        del files['exported.pt']
+    elif mutation == 'output_name':
+        files['outputs.pt']['tensors'][0]['name'] = 'missing-hidden'
+    else:
+        files['outputs.pt']['tensors'][0]['shape'] = [1, 3]
+    with pytest.raises(ValueError, match='incomplete|component contract'):
+        check_contract(value)
 
 
 @pytest.mark.parametrize('name,kind', [('../escape', 'file'), ('x', 'symlink'), ('x', 'duplicate'), ('y', 'file'), ('x', 'missing')])

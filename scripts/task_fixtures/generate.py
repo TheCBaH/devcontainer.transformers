@@ -76,6 +76,9 @@ def load_references(root, request, task, work):
             raise ValueError('reference Python version differs from generator')
         refs = {key: row[key] for key in ('artifact_id', 'model_id', 'component', 'graph_sha256', 'producer_commit', 'weight_source')}
         refs.update({'population': contract['population'], 'assets': row['assets'], 'tolerances': contract['tolerances'],
+                     'inputs': contract['inputs'], 'outputs': contract['outputs'],
+                     'state': contract.get('state'), 'variant': contract.get('variant'),
+                     'dynamic_constraints': contract['dynamic_constraints'], 'exporter': contract['exporter'],
                      'contract': file_pin(folder / 'contract.json'), 'graph': file_pin(folder / 'models/model.json'),
                      'map': file_pin(folder / 'models/safetensors.v2.json'),
                      'config': {'sha256': row['weight_source']['config_sha256'],

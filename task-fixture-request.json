@@ -55,7 +55,614 @@
         "case-04",
         "case-05"
       ]
+    },
+    {
+      "recipe_id": "tinyclip-torchvision-v1",
+      "model_id": "tinyclip",
+      "kind": "acceptance",
+      "artifacts": [
+        "tinyclip/image-text-embeddings/reference/forward/fp32/dynamo/static/ckpt-a2a8c6eaa254",
+        "tinyclip/image-text-embeddings/reference/image-encoder/fp32/dynamo/static/ckpt-a2a8c6eaa254",
+        "tinyclip/image-text-embeddings/reference/text-encoder/fp32/dynamo/static/ckpt-a2a8c6eaa254"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "c586d856dbd5589b67525db9e791ee0917402405672c7773aead373efb7d7bca",
+            "size": 4602,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/config.json"
+          },
+          "preprocessor_config.json": {
+            "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+            "size": 316,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/preprocessor_config.json"
+          },
+          "tokenizer.json": {
+            "sha256": "b556ac8c99757ffb677208af34bc8c6721572114111a6e0aaf5fa69ff0b8d842",
+            "size": 2224041,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/tokenizer.json"
+          }
+        },
+        "processor": "clip",
+        "backend": "torchvision",
+        "image": {
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/a906d3c4b65095f2308b6a6a193e934d03b8eb5d/tests/fixtures/tests_samples/COCO/000000039769.png",
+          "sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+          "size": 694498,
+          "attribution": "COCO image 39769, distributed in the pinned Transformers test fixtures (two cats)."
+        },
+        "image_cases": [
+          {
+            "crop": null,
+            "text": "Two cats resting on a sofa."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              160,
+              480
+            ],
+            "text": "A cat by a remote control."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              640,
+              160
+            ],
+            "text": "A wide picture of cats."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              320,
+              320
+            ],
+            "size": [
+              17,
+              13
+            ],
+            "text": "A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat."
+          }
+        ],
+        "output_semantics": "CLIP projected features are unnormalized; normalize by L2 norm, exp(logit_scale), then dot for similarity.",
+        "tokenizer": "bpe",
+        "length": 16,
+        "pad_id": 49407,
+        "pad_token": "<|endoftext|>",
+        "add_special_tokens": true,
+        "padding": "right to 16",
+        "truncation": "right, including start/end tokens"
+      },
+      "expected_cases": [
+        "case-00",
+        "case-01",
+        "case-02",
+        "case-03"
+      ]
+    },
+    {
+      "recipe_id": "tinyclip-pillow-v1",
+      "model_id": "tinyclip",
+      "kind": "acceptance",
+      "artifacts": [
+        "tinyclip/image-text-embeddings/reference/forward/fp32/dynamo/static/ckpt-a2a8c6eaa254",
+        "tinyclip/image-text-embeddings/reference/image-encoder/fp32/dynamo/static/ckpt-a2a8c6eaa254",
+        "tinyclip/image-text-embeddings/reference/text-encoder/fp32/dynamo/static/ckpt-a2a8c6eaa254"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "c586d856dbd5589b67525db9e791ee0917402405672c7773aead373efb7d7bca",
+            "size": 4602,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/config.json"
+          },
+          "preprocessor_config.json": {
+            "sha256": "910e70b3956ac9879ebc90b22fb3bc8a75b6a0677814500101a4c072bd7857bd",
+            "size": 316,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/preprocessor_config.json"
+          },
+          "tokenizer.json": {
+            "sha256": "b556ac8c99757ffb677208af34bc8c6721572114111a6e0aaf5fa69ff0b8d842",
+            "size": 2224041,
+            "url": "https://huggingface.co/wkcn/TinyCLIP-ViT-8M-16-Text-3M-YFCC15M/resolve/a2a8c6eaa2549ad66eb7c31b85022bf58273a26c/tokenizer.json"
+          }
+        },
+        "processor": "clip",
+        "backend": "pillow",
+        "image": {
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/a906d3c4b65095f2308b6a6a193e934d03b8eb5d/tests/fixtures/tests_samples/COCO/000000039769.png",
+          "sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+          "size": 694498,
+          "attribution": "COCO image 39769, distributed in the pinned Transformers test fixtures (two cats)."
+        },
+        "image_cases": [
+          {
+            "crop": null,
+            "text": "Two cats resting on a sofa."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              160,
+              480
+            ],
+            "text": "A cat by a remote control."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              640,
+              160
+            ],
+            "text": "A wide picture of cats."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              320,
+              320
+            ],
+            "size": [
+              17,
+              13
+            ],
+            "text": "A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat."
+          }
+        ],
+        "output_semantics": "CLIP projected features are unnormalized; normalize by L2 norm, exp(logit_scale), then dot for similarity.",
+        "tokenizer": "bpe",
+        "length": 16,
+        "pad_id": 49407,
+        "pad_token": "<|endoftext|>",
+        "add_special_tokens": true,
+        "padding": "right to 16",
+        "truncation": "right, including start/end tokens"
+      },
+      "expected_cases": [
+        "case-00",
+        "case-01",
+        "case-02",
+        "case-03"
+      ]
+    },
+    {
+      "recipe_id": "mobilevit-xxs-torchvision-v1",
+      "model_id": "mobilevit-xxs",
+      "kind": "acceptance",
+      "artifacts": [
+        "mobilevit-xxs/image-classification/reference/forward/fp32/dynamo/static/ckpt-6703997f9e94"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "6f1b7c93da05058a62efcd10266079bbf1e6b430babd9367c8e20fdb21726f22",
+            "size": 69975,
+            "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/config.json"
+          },
+          "preprocessor_config.json": {
+            "sha256": "ac69eb9624defabf01056e9dee3c68eb9d5f528a550007033c7574d7179249ec",
+            "size": 187,
+            "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/preprocessor_config.json"
+          }
+        },
+        "processor": "mobilevit",
+        "backend": "torchvision",
+        "image": {
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/a906d3c4b65095f2308b6a6a193e934d03b8eb5d/tests/fixtures/tests_samples/COCO/000000039769.png",
+          "sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+          "size": 694498,
+          "attribution": "COCO image 39769, distributed in the pinned Transformers test fixtures (two cats)."
+        },
+        "image_cases": [
+          {
+            "crop": null,
+            "text": "Two cats resting on a sofa."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              160,
+              480
+            ],
+            "text": "A cat by a remote control."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              640,
+              160
+            ],
+            "text": "A wide picture of cats."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              320,
+              320
+            ],
+            "size": [
+              17,
+              13
+            ],
+            "text": "A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat."
+          }
+        ],
+        "output_semantics": "All 1000 logits with pinned config id2label and top5; input is 256x256 BGR after the declared processor."
+      },
+      "expected_cases": [
+        "case-00",
+        "case-01",
+        "case-02",
+        "case-03"
+      ]
+    },
+    {
+      "recipe_id": "mobilevit-xxs-pillow-v1",
+      "model_id": "mobilevit-xxs",
+      "kind": "acceptance",
+      "artifacts": [
+        "mobilevit-xxs/image-classification/reference/forward/fp32/dynamo/static/ckpt-6703997f9e94"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "6f1b7c93da05058a62efcd10266079bbf1e6b430babd9367c8e20fdb21726f22",
+            "size": 69975,
+            "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/config.json"
+          },
+          "preprocessor_config.json": {
+            "sha256": "ac69eb9624defabf01056e9dee3c68eb9d5f528a550007033c7574d7179249ec",
+            "size": 187,
+            "url": "https://huggingface.co/apple/mobilevit-xx-small/resolve/6703997f9e940e312a04b8b7c26463d631c0d1f8/preprocessor_config.json"
+          }
+        },
+        "processor": "mobilevit",
+        "backend": "pillow",
+        "image": {
+          "url": "https://raw.githubusercontent.com/huggingface/transformers/a906d3c4b65095f2308b6a6a193e934d03b8eb5d/tests/fixtures/tests_samples/COCO/000000039769.png",
+          "sha256": "cf6f3c4befa148732c7453e0de5afab00f682427435fead2d88b07a9615cdac2",
+          "size": 694498,
+          "attribution": "COCO image 39769, distributed in the pinned Transformers test fixtures (two cats)."
+        },
+        "image_cases": [
+          {
+            "crop": null,
+            "text": "Two cats resting on a sofa."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              160,
+              480
+            ],
+            "text": "A cat by a remote control."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              640,
+              160
+            ],
+            "text": "A wide picture of cats."
+          },
+          {
+            "crop": [
+              0,
+              0,
+              320,
+              320
+            ],
+            "size": [
+              17,
+              13
+            ],
+            "text": "A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat. A small image of a cat."
+          }
+        ],
+        "output_semantics": "All 1000 logits with pinned config id2label and top5; input is 256x256 BGR after the declared processor."
+      },
+      "expected_cases": [
+        "case-00",
+        "case-01",
+        "case-02",
+        "case-03"
+      ]
+    },
+    {
+      "recipe_id": "smollm2-static-h4-v1",
+      "model_id": "smollm2-135m",
+      "kind": "acceptance",
+      "artifacts": [
+        "smollm2-135m/text-decoder/reference/prefill/fp32/dynamo/static/ckpt-12fd25f77366",
+        "smollm2-135m/text-decoder/reference/decode/fp32/dynamo/static-h4/ckpt-12fd25f77366"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+            "size": 861,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/config.json"
+          },
+          "generation_config.json": {
+            "sha256": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+            "size": 132,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/generation_config.json"
+          },
+          "merges.txt": {
+            "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+            "size": 466391,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/merges.txt"
+          },
+          "special_tokens_map.json": {
+            "sha256": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+            "size": 655,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/special_tokens_map.json"
+          },
+          "tokenizer.json": {
+            "sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+            "size": 2104556,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer.json"
+          },
+          "tokenizer_config.json": {
+            "sha256": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+            "size": 3764,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer_config.json"
+          },
+          "vocab.json": {
+            "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+            "size": 800662,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/vocab.json"
+          }
+        },
+        "tokenizer": "bpe",
+        "length": 4,
+        "pad_id": 2,
+        "pad_token": "</s>",
+        "add_special_tokens": false,
+        "texts": [
+          "The capital of France is Paris.",
+          "Once upon a time there was a cat."
+        ],
+        "max_new_tokens": 2,
+        "eos_token_ids": [
+          2
+        ],
+        "sampling": "greedy argmax, first index on ties",
+        "state_dtype": "float32",
+        "reset": "Each prompt starts with an empty cache; no previous prompt state is reused.",
+        "capacity": {
+          "prefill_input_tokens": 4,
+          "accepted_decode_histories": [
+            4
+          ],
+          "decode_output_history": 5,
+          "unsupported_next_decode_history": 5
+        },
+        "positions": "Absolute arange(history_in, attention_length), no padded prompts",
+        "stop": "EOS or two emitted tokens; no third token/component is authorized."
+      },
+      "expected_cases": [
+        "sequence-00-step-00",
+        "sequence-00-step-01",
+        "sequence-01-step-00",
+        "sequence-01-step-01"
+      ]
+    },
+    {
+      "recipe_id": "smollm2-135m-prefill-diagnostic-v1",
+      "model_id": "smollm2-135m",
+      "kind": "diagnostic",
+      "artifacts": [
+        "smollm2-135m/text-decoder/reference/prefill/fp32/dynamo/static/ckpt-12fd25f77366"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+            "size": 861,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/config.json"
+          },
+          "generation_config.json": {
+            "sha256": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+            "size": 132,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/generation_config.json"
+          },
+          "merges.txt": {
+            "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+            "size": 466391,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/merges.txt"
+          },
+          "special_tokens_map.json": {
+            "sha256": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+            "size": 655,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/special_tokens_map.json"
+          },
+          "tokenizer.json": {
+            "sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+            "size": 2104556,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer.json"
+          },
+          "tokenizer_config.json": {
+            "sha256": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+            "size": 3764,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/tokenizer_config.json"
+          },
+          "vocab.json": {
+            "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+            "size": 800662,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct/resolve/12fd25f77366fa6b3b4b768ec3050bf629380bac/vocab.json"
+          }
+        },
+        "scope": "Every case from the pinned published component, all named logits and self/cross K/V. Eager and controlled re-export are compared independently with original outputs.",
+        "acceptance": "Diagnostics never mark consumer admission or default-policy numeric failures passing."
+      },
+      "expected_cases": [
+        "reference-00-case-00",
+        "reference-00-case-01"
+      ]
+    },
+    {
+      "recipe_id": "whisper-tiny-decode-diagnostic-v1",
+      "model_id": "whisper-tiny",
+      "kind": "diagnostic",
+      "artifacts": [
+        "whisper-tiny/audio-encoder-decoder/reference/decode/fp32/dynamo/dynamic/ckpt-169d4a4341b3"
+      ],
+      "recipe": {
+        "assets": {
+          "added_tokens.json": {
+            "sha256": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1",
+            "size": 34604,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/added_tokens.json"
+          },
+          "config.json": {
+            "sha256": "ffdccec4f3211f4c63310f2b7098f309fe70f3952cedc5e4d11e43f5b2379b98",
+            "size": 1983,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/config.json"
+          },
+          "generation_config.json": {
+            "sha256": "a5d5325911f16e74001a72fa13d6e208eee51548f994646de1f4b4cc8b35b512",
+            "size": 3747,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/generation_config.json"
+          },
+          "merges.txt": {
+            "sha256": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+            "size": 493869,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/merges.txt"
+          },
+          "normalizer.json": {
+            "sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+            "size": 52666,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/normalizer.json"
+          },
+          "preprocessor_config.json": {
+            "sha256": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666",
+            "size": 184990,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/preprocessor_config.json"
+          },
+          "special_tokens_map.json": {
+            "sha256": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691",
+            "size": 2194,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/special_tokens_map.json"
+          },
+          "tokenizer.json": {
+            "sha256": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+            "size": 2480466,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/tokenizer.json"
+          },
+          "tokenizer_config.json": {
+            "sha256": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce",
+            "size": 282683,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/tokenizer_config.json"
+          },
+          "vocab.json": {
+            "sha256": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9",
+            "size": 835550,
+            "url": "https://huggingface.co/openai/whisper-tiny/resolve/169d4a4341b33bc18d8881c4b69c2e104e1cc0af/vocab.json"
+          }
+        },
+        "scope": "Every case from the pinned published component, all named logits and self/cross K/V. Eager and controlled re-export are compared independently with original outputs.",
+        "acceptance": "Diagnostics never mark consumer admission or default-policy numeric failures passing."
+      },
+      "expected_cases": [
+        "reference-00-case-00",
+        "reference-00-case-01",
+        "reference-00-case-02",
+        "reference-00-case-03",
+        "reference-00-case-04",
+        "reference-00-case-05"
+      ]
+    },
+    {
+      "recipe_id": "smolvlm-256m-decode-diagnostic-v1",
+      "model_id": "smolvlm-256m",
+      "kind": "diagnostic",
+      "artifacts": [
+        "smolvlm-256m/image-text-generation/reference/decode/fp32/dynamo/dynamic/ckpt-7e3e67edbbed"
+      ],
+      "recipe": {
+        "assets": {
+          "added_tokens.json": {
+            "sha256": "74135b8664b56088c0006f1c8e848d79a8eba003411f72ebf1dc2ee96227be3a",
+            "size": 4739,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/added_tokens.json"
+          },
+          "chat_template.json": {
+            "sha256": "a68ad1a42681ae44eacd109ff8dd56a840f761c03d72f4ff4c515d092f882168",
+            "size": 429,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/chat_template.json"
+          },
+          "config.json": {
+            "sha256": "b70fb4bfde88df9eeebc9d8ff523733b8bf70d6c9b06c610325960e06ae9db52",
+            "size": 7353,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/config.json"
+          },
+          "generation_config.json": {
+            "sha256": "067a2a54e5f87162ecac6e0e911cc4665fc8f7f3324794ecbac0f76badb56636",
+            "size": 136,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/generation_config.json"
+          },
+          "merges.txt": {
+            "sha256": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+            "size": 466391,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/merges.txt"
+          },
+          "preprocessor_config.json": {
+            "sha256": "6cb6e36d6fcb88ca1502c4a26750715dc3e7dedddc9a8f17b27d8d167d1457e7",
+            "size": 486,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/preprocessor_config.json"
+          },
+          "processor_config.json": {
+            "sha256": "e7bff42da73ae9eec9042ef20e066e11f1ee20f025358ff79131e3c0fb549b46",
+            "size": 68,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/processor_config.json"
+          },
+          "special_tokens_map.json": {
+            "sha256": "aa0ff906077086dfa9734a7f97f68c825877a48f9468807be65504495cdeef09",
+            "size": 1069,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/special_tokens_map.json"
+          },
+          "tokenizer.json": {
+            "sha256": "5ece781dc8d2b2f3e2f289ca0ae50b17cfc27dd27bfe7971bb8241e0b964331a",
+            "size": 3548256,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/tokenizer.json"
+          },
+          "tokenizer_config.json": {
+            "sha256": "36c6fd44d07d10fd8180ee6b46dcccf69fb7c06753968ff0d7e17b8bfe17b777",
+            "size": 28249,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/tokenizer_config.json"
+          },
+          "vocab.json": {
+            "sha256": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79",
+            "size": 800662,
+            "url": "https://huggingface.co/HuggingFaceTB/SmolVLM-256M-Instruct/resolve/7e3e67edbbed1bf9888184d9df282b700a323964/vocab.json"
+          }
+        },
+        "scope": "Every case from the pinned published component, all named logits and self/cross K/V. Eager and controlled re-export are compared independently with original outputs.",
+        "acceptance": "Diagnostics never mark consumer admission or default-policy numeric failures passing."
+      },
+      "expected_cases": [
+        "reference-00-case-00",
+        "reference-00-case-01",
+        "reference-00-case-02",
+        "reference-00-case-03",
+        "reference-00-case-04",
+        "reference-00-case-05",
+        "reference-00-case-06"
+      ]
     }
   ],
-  "request_id": "bert-03"
+  "request_id": "all-01"
 }

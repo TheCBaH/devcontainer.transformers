@@ -43,6 +43,13 @@ original graph/contract/v2 map pins and release environment remain in
 `references`. Checkpoint weights are referenced, never included in task bundles.
 All selected component references must use the same checkpoint and FP32 dtype.
 
+The first end-to-end BERT publication is
+[task-fixtures-f50e2d2edb87-46c01cb3ac5f](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-f50e2d2edb87-46c01cb3ac5f).
+Its index SHA-256 is
+`56702527be5d1e1e4f7f3dd9fadab62693b80cf1b49c6eef67e576343125a31b`.
+The six verified small WordPiece examples are also committed in
+[`fixtures/task-examples/bert-wordpiece-v1.json`](../fixtures/task-examples/bert-wordpiece-v1.json).
+
 ## Archive and tensor format
 
 Each archive contains `task-contract.json`, `environment.json`, the exact
