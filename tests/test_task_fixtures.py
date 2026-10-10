@@ -139,6 +139,14 @@ def test_source_request_selects_exact_nonrecursive_metadata():
     assert read_json(ROOT / 'catalogue.json')['artifacts']
 
 
+def test_task_schemas_join_shared_registry():
+    from pt2_export_core.schema_validate import _registry
+    registry = _registry(str(ROOT / 'schemas'))
+    for name in ('task-contract', 'task-manifest', 'task-index'):
+        schema = read_json(ROOT / 'schemas' / (name + '.schema.json'))
+        assert registry.contents(schema['$id']) == schema
+
+
 def test_flat_map_refuses_custom_objects():
     with pytest.raises(ValueError, match='flat named'):
         tensor_records({'output': {'nested': torch.tensor(1)}})
