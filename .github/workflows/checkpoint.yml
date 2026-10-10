@@ -1,9 +1,13 @@
 name: checkpoint
 on:
   push:
-    paths: [checkpoint-request.json]
+    paths: [checkpoint-request.json, task-fixture-request.json]
   workflow_dispatch:
     inputs:
+      task_fixtures:
+        description: 'Generate the pinned task-fixture request as a companion release'
+        type: boolean
+        default: false
       subset:
         description: 'Comma-separated model IDs with upstream safetensors'
         default: 't5-small,whisper-tiny'
@@ -38,11 +42,31 @@ jobs:
       tag: ${{ steps.request.outputs.tag }}
       publish: ${{ steps.request.outputs.publish }}
       components: ${{ steps.request.outputs.components }}
+      tasks: ${{ steps.request.outputs.tasks }}
+      recipes: ${{ steps.tasks.outputs.recipes }}
+      fixture_tag: ${{ steps.tasks.outputs.fixture_tag }}
+      fixture_publish: ${{ steps.tasks.outputs.publish }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+      - name: Select task request
+        id: mode
+        env:
+          DISPATCH_TASKS: ${{ inputs.task_fixtures }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          tasks=false
+          if [ "$DISPATCH_TASKS" = true ] || { [ "$EVENT_NAME" = push ] && git diff --name-only HEAD^ HEAD | grep -qx task-fixture-request.json; }; then tasks=true; fi
+          echo "tasks=$tasks" >> "$GITHUB_OUTPUT"
+      - name: Plan pinned task fixtures
+        id: tasks
+        if: steps.mode.outputs.tasks == 'true'
+        run: python3 scripts/task-fixtures.py plan
       - name: Read request
         id: request
         run: |
+          echo "tasks=${{ steps.mode.outputs.tasks }}" >> "$GITHUB_OUTPUT"
           # inputs on dispatch; checkpoint-request.json on push (workflow_dispatch needs the file on the default branch)
           if [ -n "${{ inputs.subset }}" ]; then
             subset='${{ inputs.subset }}'; generation='${{ inputs.generation }}'; tag='${{ inputs.release_tag }}'; publish='${{ inputs.publish }}'; static='${{ inputs.static_history }}'
@@ -59,6 +83,7 @@ jobs:
           { echo "subset=$subset"; echo "static=$static"; echo "tag=$tag"; echo "publish=$publish"; echo "components=$components"; } >> "$GITHUB_OUTPUT"
   forward:
     needs: plan
+    if: needs.plan.outputs.tasks != 'true'
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 345
     env:
@@ -117,7 +142,7 @@ jobs:
           if-no-files-found: error
   components:
     needs: plan
-    if: needs.plan.outputs.components != '[]'
+    if: needs.plan.outputs.tasks != 'true' && needs.plan.outputs.components != '[]'
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 345
     strategy:
@@ -235,17 +260,14 @@ jobs:
       TAG: ${{ needs.plan.outputs.tag }}
       GH_TOKEN: ${{ github.token }}
     steps:
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v8
         with:
           name: checkpoint-bundles
           path: bundles
-      - name: Upload release assets
+      - name: Verify and publish a new immutable release
         run: |
-          set -euo pipefail
-          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || \
-            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease \
-              --title "Checkpoint bundles $TAG" --notes "Producer commit $GITHUB_SHA. See publication.json for digests and provenance."
-          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" bundles/*
+          python3 scripts/publish-release.py --directory bundles --repository "$GITHUB_REPOSITORY" --tag "$TAG" --commit "$GITHUB_SHA"
       - name: Verify clean downloads against the index
         run: |
           set -euo pipefail
@@ -255,4 +277,100 @@ jobs:
             [ "$(sha256sum fresh/asset | cut -d' ' -f1)" = "$sha" ] && [ "$(stat -c %s fresh/asset)" = "$size" ] \
               || { echo "MISMATCH $url"; exit 1; }
             echo "ok $url"
+          done
+  task-generate:
+    needs: plan
+    if: needs.plan.outputs.tasks == 'true'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.plan.outputs.recipes) }}
+    env:
+      RECIPE: ${{ matrix.recipe }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/cache/restore@v6
+        with:
+          path: .hf-cache
+          key: hf-ckpt-${{ runner.arch }}-${{ hashFiles('model-candidates.yaml') }}
+          restore-keys: hf-ckpt-${{ runner.arch }}-
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - name: Generate and verify frozen producer references
+        run: uv run --frozen python scripts/task-fixtures.py generate --recipe "$RECIPE"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: task-${{ matrix.recipe }}
+          path: |
+            .build/task-fixtures/*.tar.gz
+            .build/task-fixtures/*.manifest.json
+            .build/task-fixtures/*.example.json
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: failed-task-${{ matrix.recipe }}
+          path: .build/task-fixtures/.work
+          include-hidden-files: true
+          if-no-files-found: ignore
+  task-index:
+    needs: [plan, task-generate]
+    runs-on: ubuntu-24.04-arm
+    env:
+      TAG: ${{ needs.plan.outputs.fixture_tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: task-*
+          path: .build/task-fixtures
+          merge-multiple: true
+      - name: Verify complete requested case coverage and write the pinned index
+        run: |
+          uv run --frozen python scripts/task-fixtures.py index --repository "$GITHUB_REPOSITORY" --tag "$TAG"
+          uv run --frozen python scripts/task-fixtures.py verify --index-pin .build/task-fixtures/task-fixtures.pin.json --tensors
+      - uses: actions/upload-artifact@v7
+        with:
+          name: task-fixture-bundles
+          path: .build/task-fixtures/*
+          if-no-files-found: error
+  task-publish:
+    needs: [plan, task-index]
+    if: needs.plan.outputs.fixture_publish == 'true'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ needs.plan.outputs.fixture_tag }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: task-fixture-bundles
+          path: bundles
+      - name: Publish verified companion release
+        run: python3 scripts/publish-release.py --directory bundles --repository "$GITHUB_REPOSITORY" --tag "$TAG" --commit "$GITHUB_SHA" --index task-fixtures.json
+      - name: Verify published downloads independently
+        run: |
+          mkdir -p fresh
+          jq -r '.fixtures[].assets[] | [.url, .sha256, .size] | @tsv' bundles/task-fixtures.json | while IFS=$'\t' read -r url sha size; do
+            curl -fsSL --retry 3 -o fresh/asset "$url"
+            [ "$(sha256sum fresh/asset | cut -d' ' -f1)" = "$sha" ] && [ "$(stat -c %s fresh/asset)" = "$size" ] || exit 1
           done

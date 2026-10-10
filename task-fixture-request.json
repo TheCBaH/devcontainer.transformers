@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "architecture": "aarch64",
+  "lock_sha256": "986239ffc87ed7f0036011eeb814fc99bb59bb2732418a3f33ccd441a1d134a5",
+  "reference_producer": "003207ae59ed0555599da190d70cc3d2f15ad705",
+  "reference_publication": {
+    "url": "https://github.com/TheCBaH/devcontainer.transformers/releases/download/checkpoint-003207ae59ed/publication.json",
+    "sha256": "2b67e6aabe4ceb319af7709a5b1e87656ea501288e10500299320cbe36676b4b",
+    "size": 71174
+  },
+  "publish": true,
+  "tasks": [
+    {
+      "recipe_id": "bert-wordpiece-v1",
+      "model_id": "bert-tiny",
+      "kind": "acceptance",
+      "artifacts": [
+        "bert-tiny/text-encoder/reference/forward/fp32/dynamo/static/ckpt-6f75de8b60a9"
+      ],
+      "recipe": {
+        "assets": {
+          "config.json": {
+            "sha256": "cf3179684f7c360dd6185962d480e7d426ceb8fe49f5db7b64bdc15dba0b8798",
+            "size": 285,
+            "url": "https://huggingface.co/prajjwal1/bert-tiny/resolve/6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837/config.json"
+          },
+          "vocab.txt": {
+            "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+            "size": 231508,
+            "url": "https://huggingface.co/prajjwal1/bert-tiny/resolve/6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837/vocab.txt"
+          }
+        },
+        "tokenizer": "wordpiece",
+        "length": 16,
+        "pad_id": 0,
+        "pad_token": "[PAD]",
+        "lowercase": true,
+        "add_special_tokens": true,
+        "padding": "right to 16",
+        "truncation": "right, including CLS/SEP",
+        "texts": [
+          "Hello, world!",
+          "The quick brown fox jumps over the lazy dog.",
+          "",
+          "Caf\u00e9 na\u00efve r\u00e9sum\u00e9 \u2014 \u6771\u4eac.",
+          "Padding.",
+          "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."
+        ]
+      },
+      "expected_cases": [
+        "case-00",
+        "case-01",
+        "case-02",
+        "case-03",
+        "case-04",
+        "case-05"
+      ]
+    }
+  ]
+}
