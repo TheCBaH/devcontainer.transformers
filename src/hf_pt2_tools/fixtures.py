@@ -27,6 +27,42 @@ def tensor_digest(named):
     return digest.hexdigest()
 
 
+def reference_outputs(root, entry, row, inputs, actual):
+    reference = entry.get('golden_outputs')
+    if not reference:
+        return actual
+    path = Path(root) / reference['path']
+    if file_hash(path) != reference['sha256']:
+        raise ValueError('golden output fixture hash mismatch')
+    document = json.loads(path.read_text())
+    if (document['artifact_id'] != row['artifact_id'] or
+            document['architecture'] != row['producer']['architecture']):
+        return actual
+    for key in ('config_sha256', 'recipe_sha256'):
+        if document[key] != row[key]:
+            raise ValueError(f'golden output fixture {key} mismatch')
+    if document['model_class'] != entry['model_class'] or document['weight_source'] != row['weights']:
+        raise ValueError('golden output fixture model/weight source mismatch')
+    if any(row['producer']['versions'][name] != version for name, version in document['versions'].items()):
+        raise ValueError('golden output fixture version mismatch')
+    if len(document['cases']) != len(inputs) or len(actual) != len(inputs):
+        raise ValueError('golden output fixture case count mismatch')
+    from .recipes import compare
+    expected = []
+    for case, observed_inputs, observed_outputs in zip(document['cases'], inputs, actual, strict=True):
+        if tensor_digest(observed_inputs) != case['inputs_sha256']:
+            raise ValueError('golden output fixture inputs mismatch')
+        tensors = {name: torch.tensor(case['outputs'][name]['values'],
+                                     dtype=getattr(torch, case['outputs'][name]['dtype'])).reshape(
+                                         case['outputs'][name]['shape']) for name in entry['output_fields']}
+        if tensor_digest(tensors) != case['outputs_sha256']:
+            raise ValueError('golden output fixture tensor digest mismatch')
+        values = tuple(tensors.values())
+        compare(observed_outputs, values, row['dtype'])
+        expected.append(values)
+    return expected
+
+
 def write_cases(directory, output_names, cases):
     """Write flat dict[str, Tensor] case files; names keep call and output order."""
     entries = []

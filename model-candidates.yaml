@@ -564,6 +564,10 @@
         "source": "existing reviewed extended cohort",
         "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
         "hub_type": "automatic-speech-recognition"
+      },
+      "golden_outputs": {
+        "path": "fixtures/golden/wav2vec2-base.json",
+        "sha256": "c467c04938bba8650ce8049dc2c4f28bb627b7e2b00b40b9ce360cf38408a04c"
       }
     },
     {

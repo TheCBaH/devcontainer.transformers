@@ -15,7 +15,7 @@ from pt2_export_core.archive import assert_portable, extract, graph_op_counts, m
 from pt2_export_core.opgraph import collect_ops, time_budget
 
 from .artifacts import file_hash, publish, verify_artifact, write_json
-from .fixtures import cases_document, write_cases
+from .fixtures import cases_document, reference_outputs, write_cases
 from .inventory import captures_document, inventory, load_graph, program_values
 from .recipes import AutocastTensorOutputs, TensorOutputs, compare, make_inputs, tensor_metadata
 from .registry import artifact_id, build_model, digest, read_manifest, weight_provenance
@@ -110,6 +110,7 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             stage = 'eager'
             expected = [wrapper(**copy.deepcopy(case)) for case in cases]
             compare(expected[0], expected[0], dtype)
+            expected = reference_outputs(root, entry, row, cases, expected)
             success(stage)
             stage = 'export'
             prepared = copy.deepcopy(cases[0])

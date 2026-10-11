@@ -62,6 +62,9 @@ accepts comma-separated reviewed model IDs. The CLI supports separate output
 roots, populations and experimental BERT/Llama dynamic shapes. Resume is opt-in
 and invalidates on configuration, recipe, dependency, code or policy changes.
 Workers pin Python's hash seed to zero for reproducible upstream set iteration.
+Wav2Vec2's ARM64 tiny probe uses pinned reference output tensors. Regeneration
+checks eager and saved-graph outputs against these at the declared numeric
+tolerances, preserving stable fixture hashes across floating-point kernels.
 Random workers forbid network connections. `models.fetch` explicitly enables
 downloads for one immutable checkpoint; binding then uses the local cache only.
 
