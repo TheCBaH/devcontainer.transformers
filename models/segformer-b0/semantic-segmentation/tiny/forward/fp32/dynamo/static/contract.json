@@ -1,0 +1,88 @@
+{
+  "artifact_id": "segformer-b0/semantic-segmentation/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "pixel_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "d50165f9d6767701a1ab15838789a04749a3806a3c5e8560eeac503bae1fa918",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "ffad2bb618c0671f5a3c440465050588a21ecfba51f3ec30a305eca4baface15",
+    "cases.json": "499fbcf8ac97b593f0ec7e46806867f860382a7f74c75337584d4b291e97060d",
+    "data/constants/model_constants_config.json": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+    "data/weights/model_weights_config.json": "bb15a890c92484a13bab625280ea897a4cec0c3f821a7c5178385ffb5702fc2c",
+    "models/model.json": "c36736ed45fc6a9dde8827b8521a9bc5c66e32a8e4aa588f0cb723f9a9e92a71"
+  },
+  "graph_sha256": "c36736ed45fc6a9dde8827b8521a9bc5c66e32a8e4aa588f0cb723f9a9e92a71",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "pixel_values",
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "SegformerForSemanticSegmentation",
+  "model_id": "segformer-b0",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        5,
+        56,
+        56
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "d52471c7614603596fed646bd4986779671ef990895bbf5bce454dcba7cef12d",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

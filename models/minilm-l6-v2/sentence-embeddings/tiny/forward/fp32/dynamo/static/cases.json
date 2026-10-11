@@ -1,0 +1,40 @@
+{
+  "artifact_id": "minilm-l6-v2/sentence-embeddings/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "0903772cd04c678c7cbe73515234f4a3f14505cc56e6743b47f8fe8fad516aec",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "4878e084aae669190def3eee5a104cec0f4d9ae7a7e7f56ee8138be4d51faaab"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "420707a1a207c48d0c4ac9655b1eb6f68f246452a8ccb377a368d70d3b711537",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "fb4f7137651bfd3a6aac5caae030c9970cd60a10a5d5518deddf5c25759ac6ba"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

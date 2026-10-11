@@ -1,0 +1,503 @@
+{
+  "artifact_id": "ast-audioset/audio-classification/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_embeddings_cls_token",
+      "target": "model.audio_spectrogram_transformer.embeddings.cls_token"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_embeddings_distillation_token",
+      "target": "model.audio_spectrogram_transformer.embeddings.distillation_token"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        47,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "002063c14601acddd812149fb44ffc886f67af5c2fffa46554135a640e494bdc"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_embeddings_position_embeddings",
+      "target": "model.audio_spectrogram_transformer.embeddings.position_embeddings"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        1,
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "70c90e5217550f539b19653aa4f9c49b55ef11389e73179f581366fc7db77fd6"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_embeddings_patch_embeddings_projection_weight",
+      "target": "model.audio_spectrogram_transformer.embeddings.patch_embeddings.projection.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_embeddings_patch_embeddings_projection_bias",
+      "target": "model.audio_spectrogram_transformer.embeddings.patch_embeddings.projection.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5d05eb47974411d4d77118e1dc249982d0ccddf6af00af6099ea391cce86fcfc"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_q_proj_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_q_proj_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7c62a804d1fdf4117d084f6f8950d7806c9d0e94c1f38a52faa16edda508df66"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_k_proj_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_k_proj_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7eee1721b88db8b93f016b489c920e7ae01ff7c31e99c663b72a8de968e183d9"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_v_proj_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_v_proj_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d1df26149c03dbe66b84cef7bb2d8e28141899b6b25a7043cfd1c23791b9ed1b"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_o_proj_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_attention_o_proj_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_layernorm_before_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_layernorm_before_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_layernorm_after_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_layernorm_after_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ceef1e6af29c261f5c9ae1426987b31e143393f9cd14e31572de60f4762b17bc"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_mlp_fc1_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_mlp_fc1_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3787cc0e2780875547d41a92d020d1f8d71ad48e93d146f5b175d4dfa1cf6e49"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_mlp_fc2_weight",
+      "target": "model.audio_spectrogram_transformer.layers.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layers_0_mlp_fc2_bias",
+      "target": "model.audio_spectrogram_transformer.layers.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layernorm_weight",
+      "target": "model.audio_spectrogram_transformer.layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_spectrogram_transformer_layernorm_bias",
+      "target": "model.audio_spectrogram_transformer.layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_classifier_layernorm_weight",
+      "target": "model.classifier.layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_classifier_layernorm_bias",
+      "target": "model.classifier.layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        5,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ab094c9f917fd962115a7ac96164f6be034739f6a7de9607dc7d8386c58a1f6c"
+      },
+      "ssa_name": "p_model_classifier_dense_weight",
+      "target": "model.classifier.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        5
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "de47c9b27eb8d300dbb5f2c353e632c393262cf06340c4fa7f1b40c4cbd36f90"
+      },
+      "ssa_name": "p_model_classifier_dense_bias",
+      "target": "model.classifier.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_audio_spectrogram_transformer_lifted_tensor_0",
+      "target": "model.audio_spectrogram_transformer.lifted_tensor_0"
+    }
+  ],
+  "counts": {
+    "BUFFER": 0,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 27
+  },
+  "graph_sha256": "a2d505756303486a931ac7b06427ad728f67901796b2e19476a2cc6a8155795b",
+  "module_prefixes": {},
+  "schema_version": 1
+}

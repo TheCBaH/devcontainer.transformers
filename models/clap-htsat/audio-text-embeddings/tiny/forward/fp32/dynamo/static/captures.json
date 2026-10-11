@@ -1,0 +1,2244 @@
+{
+  "artifact_id": "clap-htsat/audio-text-embeddings/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e4ba018bb7df07be0fb18695b80d385bf1757555b9b4955f11ade937af60bea4"
+      },
+      "ssa_name": "p_model_logit_scale_a",
+      "target": "model.logit_scale_a"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e4ba018bb7df07be0fb18695b80d385bf1757555b9b4955f11ade937af60bea4"
+      },
+      "ssa_name": "p_model_logit_scale_t",
+      "target": "model.logit_scale_t"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2d15b3f6849fa40759a1302d0e9cc5d9b2bbd19fe993decb24da79bb7fecec2a"
+      },
+      "ssa_name": "p_model_text_model_embeddings_word_embeddings_weight",
+      "target": "model.text_model.embeddings.word_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6a5f7ba09a5982d02fbccbd0a4efdb84ab6f55046eee9a76d82e258007d9b13c"
+      },
+      "ssa_name": "p_model_text_model_embeddings_token_type_embeddings_weight",
+      "target": "model.text_model.embeddings.token_type_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_text_model_embeddings_layernorm_weight",
+      "target": "model.text_model.embeddings.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_embeddings_layernorm_bias",
+      "target": "model.text_model.embeddings.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "191e1e078cf09026f0d4e77ae6dce971295ff2dc978f7d32b0a4a793eea0dfe0"
+      },
+      "ssa_name": "p_model_text_model_embeddings_position_embeddings_weight",
+      "target": "model.text_model.embeddings.position_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4e9e72aef7b45c8871cd0ccd46f5e6bdbaf0790674fb457c60b4385ac29f11be"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_query_weight",
+      "target": "model.text_model.encoder.layer.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_query_bias",
+      "target": "model.text_model.encoder.layer.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "eb0ccab2a3187186cf230fe1580db713f72c3268d96496462be27be46bf27703"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_key_weight",
+      "target": "model.text_model.encoder.layer.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_key_bias",
+      "target": "model.text_model.encoder.layer.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9cedc88e60579b56702e281e9fd040f55716ea5bbd863f613396bafa31913e74"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_value_weight",
+      "target": "model.text_model.encoder.layer.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_self_value_bias",
+      "target": "model.text_model.encoder.layer.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cd95ed70038ac60e71ec649a824edc617392a5a3066598b4bf2b668e2713becb"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_output_dense_weight",
+      "target": "model.text_model.encoder.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_output_dense_bias",
+      "target": "model.text_model.encoder.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_output_layernorm_weight",
+      "target": "model.text_model.encoder.layer.0.attention.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_attention_output_layernorm_bias",
+      "target": "model.text_model.encoder.layer.0.attention.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e9067b9bc6cea20935e711b2e27879642e962f4223fc606c5abf0889f43750e9"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_intermediate_dense_weight",
+      "target": "model.text_model.encoder.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_intermediate_dense_bias",
+      "target": "model.text_model.encoder.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "89b9c5e8d5a2475777a7cfa23d0497efd338bfa2a526c1c8e938f83393c08c2d"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_output_dense_weight",
+      "target": "model.text_model.encoder.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_output_dense_bias",
+      "target": "model.text_model.encoder.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_output_layernorm_weight",
+      "target": "model.text_model.encoder.layer.0.output.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_encoder_layer_0_output_layernorm_bias",
+      "target": "model.text_model.encoder.layer.0.output.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c1059d4f513ca512b455efa21da2d889f6b8b0edfbc40b4fd507857bdcebade1"
+      },
+      "ssa_name": "p_model_text_model_pooler_dense_weight",
+      "target": "model.text_model.pooler.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_model_pooler_dense_bias",
+      "target": "model.text_model.pooler.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a73ba86525d6d3f78e033ea25775739b2de155627cf01da50ea951af132f33d2"
+      },
+      "ssa_name": "p_model_text_projection_linear1_weight",
+      "target": "model.text_projection.linear1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_projection_linear1_bias",
+      "target": "model.text_projection.linear1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fea8bb9a23a719b0293938888c7624079b8688303ff5184e7aac6b0b41306d3a"
+      },
+      "ssa_name": "p_model_text_projection_linear2_weight",
+      "target": "model.text_projection.linear2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_text_projection_linear2_bias",
+      "target": "model.text_projection.linear2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        1,
+        4,
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "20570621ec9a0a5fccf681bfc760bc767828b80ea770aac5d11768f291a7a9d2"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_patch_embed_proj_weight",
+      "target": "model.audio_model.audio_encoder.patch_embed.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_patch_embed_proj_bias",
+      "target": "model.audio_model.audio_encoder.patch_embed.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_patch_embed_norm_weight",
+      "target": "model.audio_model.audio_encoder.patch_embed.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_patch_embed_norm_bias",
+      "target": "model.audio_model.audio_encoder.patch_embed.norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_layernorm_before_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_layernorm_before_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        49,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d904e1f1e028ba9058a128a6fd724f0f9892ae8fe49c8f7dc2613183f7f8bbca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_relative_position_bias_table",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.relative_position_bias_table"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "baf7ea48611c1505fa87f2c0f5316d48583472e6c0464b81e531949a2d1ef9fb"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_query_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_query_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a38ddd45755d851a6bc6899cc91154f772698fc9ec6eca3000fd6b96ed5c7b2e"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_key_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_39",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_key_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_40",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b080c0445edb9d5eac1ceab3d156714ce2740ec9629febd326dbc6bd857ddfef"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_value_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_41",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_value_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_42",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "22b1f6716e2c737c6ef747072fafa1c958a8cf256da196a4fc983ec57d71ec37"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_43",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_attention_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_44",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_layernorm_after_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_45",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_layernorm_after_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_46",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6ff8b607241ec1aaac10457f00581d8c7a314e4311c3400797be3a2881919d6a"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_intermediate_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_47",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_intermediate_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_48",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "46d40203f55ab46b474df5824f96a52a0fe70e6a25d4e91be3db696bc263ca9e"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_49",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_blocks_0_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_50",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "722fdd842d0b2c772ac8f5e546d0c98a99b5e5200315ad369c39fbf6aaaa96e0"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_downsample_reduction_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.downsample.reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_51",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_downsample_norm_weight",
+      "target": "model.audio_model.audio_encoder.layers.0.downsample.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_52",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_0_downsample_norm_bias",
+      "target": "model.audio_model.audio_encoder.layers.0.downsample.norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_53",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_layernorm_before_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_54",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_layernorm_before_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_55",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        49,
+        2
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3eefc4790b52024832ea4c03c6e7a781f3ef9416866a959b2777fce101ad9d61"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_relative_position_bias_table",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.relative_position_bias_table"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_56",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "275c603029cb722c4c339f063c6279b21e4ea483a16616eaafb3f2994066a670"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_query_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_57",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_query_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_58",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a6675d95516325a62770087568ce4a66c9e78bdd184ab1c87549656c4b85f2f4"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_key_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_59",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_key_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_60",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "63c0a027c4f96496da1e3703c5a7376c7d299e0415a70b2524c68ff26b01e7ff"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_value_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_61",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_value_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_62",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "15bfa5d92ccada808468d307c10bedfd12773b9a609d2da014178f854dea5973"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_63",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_attention_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_64",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_layernorm_after_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_65",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_layernorm_after_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_66",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fe47fbbc433072e49821869a7cf7c00a0c2c4c87bdb61dae1592c2cb05edd5a0"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_intermediate_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_67",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_intermediate_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_68",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "489950dc25ca047fd3178607fc97fb3e35ee80cc63e362e2c78e3aa0040a0e61"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_69",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_blocks_0_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_70",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b9520176fb323ff770954ab9252410962a0910a76e27d8908b2470d2c34df45b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_downsample_reduction_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.downsample.reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_71",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_downsample_norm_weight",
+      "target": "model.audio_model.audio_encoder.layers.1.downsample.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_72",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_1_downsample_norm_bias",
+      "target": "model.audio_model.audio_encoder.layers.1.downsample.norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_73",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_layernorm_before_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_74",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_layernorm_before_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_75",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        49,
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0c37ddc45244523ca3b841e3ea85e147a1d35c6ae1cd767e8c30dabf057516fd"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_relative_position_bias_table",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.relative_position_bias_table"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_76",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b35fc601de658be9b6626a1e9c1e2277fce96ff5dc2adeb7c3e0201d74495fa4"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_query_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_77",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_query_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_78",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f7d73af30f9f009dca9208ad60d0c8d34b4a56aca4652698fb12390210d2089e"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_key_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_79",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_key_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_80",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "62600018910d5077e647b90285e31903fdf383adc7256cb60bb8f8d2b2dadb7f"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_value_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_81",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_value_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_82",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "25d6e5f82b5d16dd6d984da565afc1ab6800d2522a48df0fea30052192c0d8d2"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_83",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_attention_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_84",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_layernorm_after_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_85",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_layernorm_after_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_86",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "1ca7023c4fe3bc27fc6fead9b3888fa1d9b6501557b972b4eb5a1efb0967fc9c"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_intermediate_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_87",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_intermediate_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_88",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        256
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "114e7ab5dea112637c6ae7d81e7ec6607d31bd38205aecc86e4b35fa72d1a70b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_89",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_blocks_0_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_90",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        256
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "34a8199353f8e90963f8ed813b80f486308cd1ea60b7892026e3b855983f91ef"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_downsample_reduction_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.downsample.reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_91",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "893a106828fbdb9521e1d868c985aab7ad2ae2f606edc55329265a5e7676006c"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_downsample_norm_weight",
+      "target": "model.audio_model.audio_encoder.layers.2.downsample.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_92",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        256
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_2_downsample_norm_bias",
+      "target": "model.audio_model.audio_encoder.layers.2.downsample.norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_93",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_layernorm_before_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_94",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_layernorm_before_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_95",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        49,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7fbcfcd86bdfa943dbd68f67c3fcba6e7ab86fda2d14d28862c176bf18579fca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_relative_position_bias_table",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.relative_position_bias_table"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_96",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8dfd9306c371c3fbbf1df2e22d9b6ed70a67ad3cf181258ff0b52d26fc37a93b"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_query_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_97",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_query_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_98",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "48752d8ebfd0790c144576698a4c0b23d6e501c080a30b90336b01383efdd338"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_key_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_99",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_key_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_100",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "64959a6237ade71163ce9f3e2d9757429ccc93d587d9f3f8be2c7de6e7fe0c4c"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_value_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_101",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_value_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_102",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "61bda9c7346d9cda68bc2d6b081c1b1fde72ce772c0427364e3359af68b0d175"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_103",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_attention_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_104",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_layernorm_after_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_105",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_layernorm_after_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_106",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3bdfa8d6309d704fc26fcee6cb7df162f779e6cbb0b5136ca47c8a210c44af0f"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_intermediate_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_107",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        512
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_intermediate_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_108",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        512
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7bd0ebfb3fa638d3d699ed14d81a9f6920b94b4ea679cb8f277d30ad8b595107"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_output_dense_weight",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_109",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_layers_3_blocks_0_output_dense_bias",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_110",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_batch_norm_weight",
+      "target": "model.audio_model.audio_encoder.batch_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_111",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_batch_norm_bias",
+      "target": "model.audio_model.audio_encoder.batch_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_112",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "02722f124d0f1736a9dd7c4ddcd05630dcf16ee1ce3454e9a876005ce005d4ac"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_norm_weight",
+      "target": "model.audio_model.audio_encoder.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_113",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_audio_model_audio_encoder_norm_bias",
+      "target": "model.audio_model.audio_encoder.norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_114",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9e724503b0abdb74ac7f41b4c1ba74162f11da48af901869857238a5f8a8a031"
+      },
+      "ssa_name": "p_model_audio_projection_linear1_weight",
+      "target": "model.audio_projection.linear1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_115",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_projection_linear1_bias",
+      "target": "model.audio_projection.linear1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_116",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3784dd281c5b95ba9f68d92cae638697a227e8b26da5cae097b220b071c2bf7c"
+      },
+      "ssa_name": "p_model_audio_projection_linear2_weight",
+      "target": "model.audio_projection.linear2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_117",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_audio_projection_linear2_bias",
+      "target": "model.audio_projection.linear2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_text_model_lifted_tensor_0",
+      "target": "model.text_model.lifted_tensor_0"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_118",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        1,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a4644928f3a08db905254fd7e5e53ef19a46d932a2ecd372b45462413a82619"
+      },
+      "ssa_name": "b_model_text_model_embeddings_position_ids",
+      "target": "model.text_model.embeddings.position_ids"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_119",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "b_model_text_model_embeddings_token_type_ids",
+      "target": "model.text_model.embeddings.token_type_ids"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_120",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d70d80e8eaaa65ced452a6476afa38d0da171783470ad8077f6f71d3c1751f5d"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_layers_0_blocks_0_attention_self_relative_position_index",
+      "target": "model.audio_model.audio_encoder.layers.0.blocks.0.attention.self.relative_position_index"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_121",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d70d80e8eaaa65ced452a6476afa38d0da171783470ad8077f6f71d3c1751f5d"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_layers_1_blocks_0_attention_self_relative_position_index",
+      "target": "model.audio_model.audio_encoder.layers.1.blocks.0.attention.self.relative_position_index"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_122",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d70d80e8eaaa65ced452a6476afa38d0da171783470ad8077f6f71d3c1751f5d"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_layers_2_blocks_0_attention_self_relative_position_index",
+      "target": "model.audio_model.audio_encoder.layers.2.blocks.0.attention.self.relative_position_index"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_123",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d70d80e8eaaa65ced452a6476afa38d0da171783470ad8077f6f71d3c1751f5d"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_layers_3_blocks_0_attention_self_relative_position_index",
+      "target": "model.audio_model.audio_encoder.layers.3.blocks.0.attention.self.relative_position_index"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_124",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_batch_norm_running_mean",
+      "target": "model.audio_model.audio_encoder.batch_norm.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_125",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_batch_norm_running_var",
+      "target": "model.audio_model.audio_encoder.batch_norm.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_126",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_audio_model_audio_encoder_batch_norm_num_batches_tracked",
+      "target": "model.audio_model.audio_encoder.batch_norm.num_batches_tracked"
+    }
+  ],
+  "counts": {
+    "BUFFER": 9,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 118
+  },
+  "graph_sha256": "d2f30a5191cd38352aa4254ec1e06876c4b14e5edb6a2f8030c29b847ae1f8c5",
+  "module_prefixes": {},
+  "schema_version": 1
+}

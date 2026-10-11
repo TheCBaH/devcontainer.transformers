@@ -1,0 +1,85 @@
+{
+  "artifact_id": "wav2vec2-base/audio-ctc/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "ae0f4fdde9bee024b1ef430d4c9c3e947680a5e059533d6faeb380c146f3b728",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "5a4aad5c83c6d9746da26eeb9543c99b98ecb5ee4a09b9779410141aa21ff10b",
+    "cases.json": "56a08ae29553a39e3b26e0838329b6f46856baf435057f25eb795ba4060acd86",
+    "data/constants/model_constants_config.json": "497c7d70479d0abf7856454ecf154715f68be4bef003f11f034f240a828f9250",
+    "data/weights/model_weights_config.json": "40a60a780bcbbd7df5a168d9e52001c083af9404ca444124f0b878d2def168a4",
+    "models/model.json": "fa5875e47c8369690f167c4a8d3c6d6e9431efa057486c8506a05298f6ca8303"
+  },
+  "graph_sha256": "fa5875e47c8369690f167c4a8d3c6d6e9431efa057486c8506a05298f6ca8303",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "input_values",
+      "shape": [
+        1,
+        1024
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "Wav2Vec2ForCTC",
+  "model_id": "wav2vec2-base",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        50,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "bd9792938a8e5f8e4ddf45f1768eb37033f6daa72e9d73723e0ba21ba27b978f",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

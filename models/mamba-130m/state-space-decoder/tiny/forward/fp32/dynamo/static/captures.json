@@ -1,0 +1,243 @@
+{
+  "artifact_id": "mamba-130m/state-space-decoder/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": false,
+      "payload_name": "weight_0",
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "86f1c85eb18032853c3e6363f2c23e50adcb7b4ec428855f55db5dbeee5c1cda"
+      },
+      "ssa_name": "p_model_backbone_embeddings_weight",
+      "target": "model.backbone.embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_backbone_layers_0_norm_weight",
+      "target": "model.backbone.layers.0.norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c854d0cf0f14e85117fbdca7f92247478ee2994e4086f8d086f638540973d1f6"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_a_log",
+      "target": "model.backbone.layers.0.mixer.A_log"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4fcbec4ade9b5fcfda8422bf0b5f41c5b79645bf5e47e7af4a947470a1822770"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_d",
+      "target": "model.backbone.layers.0.mixer.D"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536,
+        1,
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a47bc15b97948419cb8dc8ba68c76feed5fd2fc71b02a9d8264e11e77691a309"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_conv1d_weight",
+      "target": "model.backbone.layers.0.mixer.conv1d.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fd9243e1ba57263ed469c3bdbd7ade6ec5254e7ed924a9f5737fa44749933cc0"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_conv1d_bias",
+      "target": "model.backbone.layers.0.mixer.conv1d.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        3072,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ca85a9ee212d141d9964493f389446121ace2849e933058e745c231db78b5951"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_in_proj_weight",
+      "target": "model.backbone.layers.0.mixer.in_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        24,
+        1536
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e8fd390d35c637f4c161a08cfe0baf80c01a42e987752e5076d9fc9959356014"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_x_proj_weight",
+      "target": "model.backbone.layers.0.mixer.x_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3af9478a968328a14f3f2c5a076243c101421e5e970533b49463422db4a72b69"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_dt_proj_weight",
+      "target": "model.backbone.layers.0.mixer.dt_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1536
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cbe28ecb2543a74e423fa2166a7b31aa3dd189e34410a64e317b2ff50f57033d"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_dt_proj_bias",
+      "target": "model.backbone.layers.0.mixer.dt_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        1536
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a595e7435a690f47cc1ed93f426c6a696766f4da5da8f37af82ea4afe2e03668"
+      },
+      "ssa_name": "p_model_backbone_layers_0_mixer_out_proj_weight",
+      "target": "model.backbone.layers.0.mixer.out_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_backbone_norm_f_weight",
+      "target": "model.backbone.norm_f.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "86f1c85eb18032853c3e6363f2c23e50adcb7b4ec428855f55db5dbeee5c1cda"
+      },
+      "ssa_name": "p_model_lm_head_weight",
+      "target": "model.lm_head.weight"
+    }
+  ],
+  "counts": {
+    "BUFFER": 0,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 13
+  },
+  "graph_sha256": "86ff963c2613a8698f40b44f574b1192c940da82c6c43278f8901e7469258fed",
+  "module_prefixes": {},
+  "schema_version": 1
+}

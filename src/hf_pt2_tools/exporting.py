@@ -101,6 +101,9 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             row['recipe_sha256'] = digest(recipe)
             row['parameter_count'] = sum(p.numel() for p in model.parameters())
             row['weight_bytes'] = sum(p.numel() * p.element_size() for p in model.parameters())
+            cap_mb = 64 if population == 'tiny' else entry.get('reference_max_weight_mb', manifest['selection']['max_weight_mb'])
+            if row['weight_bytes'] > cap_mb * 2**20:
+                raise ValueError('artifact exceeds the declared weight cap')
             row['resume_key'] = digest({'config': row['config_sha256'], 'recipe': row['recipe_sha256'],
                                        'producer': row['producer'], 'id': identity, 'weights': weights})
             success(stage)
@@ -167,9 +170,6 @@ def run(root, name, output_root, population='tiny', dtype='fp32', policy='dynamo
             stage = 'save'
             archive = work / 'model.pt2'
             torch.export.save(functional, archive)
-            cap_mb = 64 if population == 'tiny' else entry.get('reference_max_weight_mb', manifest['selection']['max_weight_mb'])
-            if row['weight_bytes'] > cap_mb * 2**20:
-                raise ValueError('artifact exceeds the declared weight cap')
             caps = work / 'caps.yaml'
             write_json(caps, {'selection': {'max_weight_mb': cap_mb, 'release_max_weight_mb': cap_mb},
                              'models': {name: {'weight_mb': row['weight_bytes'] / 2**20}}})

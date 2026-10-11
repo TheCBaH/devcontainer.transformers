@@ -379,7 +379,7 @@
     {
       "id": "yolos-tiny",
       "category": "object-detection",
-      "tier": "extended",
+      "tier": "core",
       "model_class": "YolosForObjectDetection",
       "reference": {
         "repo": "hustvl/yolos-tiny",
@@ -391,7 +391,15 @@
           "model.safetensors"
         ],
         "reference_size_million": 6.488736,
-        "size_basis": "Hub safetensors stored tensor count"
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 25978888,
+            "sha256": "5a6a017a20cb522dd347271fa5bd670467e456176aaccd940090e50985ac6e74",
+            "git_oid": "7c2cd33f92ed36cafda16b4b85a88dee26cb4710"
+          }
+        },
+        "safetensors_total_bytes": 25978888
       },
       "reference_inputs": {
         "pixel_values": {
@@ -408,12 +416,17 @@
         "logits",
         "pred_boxes"
       ],
-      "notes": "224px is proposed structural probe size; processor-derived pretrained size must be recorded separately."
+      "notes": "224px is proposed structural probe size; processor-derived pretrained size must be recorded separately.",
+      "selection_basis": {
+        "source": "existing reviewed extended cohort",
+        "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
+        "hub_type": "object-detection"
+      }
     },
     {
       "id": "segformer-b0",
       "category": "semantic-segmentation",
-      "tier": "extended",
+      "tier": "core",
       "model_class": "SegformerForSemanticSegmentation",
       "reference": {
         "repo": "nvidia/segformer-b0-finetuned-ade-512-512",
@@ -425,7 +438,15 @@
           "model.safetensors"
         ],
         "reference_size_million": 3.753206,
-        "size_basis": "Hub safetensors stored tensor count"
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 15036944,
+            "sha256": "6ae39addd01de6b1b8bde2cf677d43a5cd733424b8d186de3f95d1c51fee23f9",
+            "git_oid": "e8eea9ca9eb20b59313a1ee43662b50b42430078"
+          }
+        },
+        "safetensors_total_bytes": 15036944
       },
       "reference_inputs": {
         "pixel_values": {
@@ -441,12 +462,17 @@
       "output_fields": [
         "logits"
       ],
-      "notes": "224px is proposed structural probe size; pretrained processor normally targets 512."
+      "notes": "224px is proposed structural probe size; pretrained processor normally targets 512.",
+      "selection_basis": {
+        "source": "existing reviewed extended cohort",
+        "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
+        "hub_type": "image-segmentation"
+      }
     },
     {
       "id": "depth-anything-small",
       "category": "depth-estimation",
-      "tier": "extended",
+      "tier": "core",
       "model_class": "DepthAnythingForDepthEstimation",
       "reference": {
         "repo": "depth-anything/Depth-Anything-V2-Small-hf",
@@ -458,7 +484,15 @@
           "model.safetensors"
         ],
         "reference_size_million": 24.785089,
-        "size_basis": "Hub safetensors stored tensor count"
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 99173660,
+            "sha256": "3152477ce0d8d6978d76b995120de97cb5b928701fd0f817769f59e249a16b70",
+            "git_oid": "94c4baf1f543643f97b56508cd2b9d03b2529c6b"
+          }
+        },
+        "safetensors_total_bytes": 99173660
       },
       "reference_inputs": {
         "pixel_values": {
@@ -474,12 +508,17 @@
       "output_fields": [
         "predicted_depth"
       ],
-      "notes": "224 is divisible by 14; default backbone image size is 518. Smaller probe resolution needs export and numerical verification."
+      "notes": "224 is divisible by 14; default backbone image size is 518. Smaller probe resolution needs export and numerical verification.",
+      "selection_basis": {
+        "source": "existing reviewed extended cohort",
+        "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
+        "hub_type": "depth-estimation"
+      }
     },
     {
       "id": "wav2vec2-base",
       "category": "audio-ctc",
-      "tier": "extended",
+      "tier": "core",
       "model_class": "Wav2Vec2ForCTC",
       "reference": {
         "repo": "facebook/wav2vec2-base-960h",
@@ -491,7 +530,15 @@
           "model.safetensors"
         ],
         "reference_size_million": 94.395552,
-        "size_basis": "Hub safetensors stored tensor count"
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 377607901,
+            "sha256": "8aa76ab2243c81747a1f832954586bc566090c83a0ac167df6f31f0fa917d74a",
+            "git_oid": "942562678fb28df86c055027c18216fa2a7cb5dd"
+          }
+        },
+        "safetensors_total_bytes": 377607901
       },
       "reference_inputs": {
         "input_values": {
@@ -512,12 +559,17 @@
       "output_fields": [
         "logits"
       ],
-      "notes": "Base is the size compromise here; tiny config for CI. CTC decoding is outside graph."
+      "notes": "Base is the size compromise here; tiny config for CI. CTC decoding is outside graph.",
+      "selection_basis": {
+        "source": "existing reviewed extended cohort",
+        "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
+        "hub_type": "automatic-speech-recognition"
+      }
     },
     {
       "id": "smolvlm-256m",
       "category": "image-text-generation",
-      "tier": "extended",
+      "tier": "core",
       "model_class": "Idefics3ForConditionalGeneration",
       "reference": {
         "repo": "HuggingFaceTB/SmolVLM-256M-Instruct",
@@ -529,7 +581,15 @@
           "model.safetensors"
         ],
         "reference_size_million": 256.484928,
-        "size_basis": "Hub safetensors stored tensor count"
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 513028808,
+            "sha256": "74dea5904032e5ae99a2e0eef5179e6ac0f1dedc3ab0c7c2a5d4d387c843203e",
+            "git_oid": "78287ef1548dfe243932903a67750122b2e7cf2c"
+          }
+        },
+        "safetensors_total_bytes": 513028808
       },
       "reference_inputs": null,
       "output_fields": [
@@ -538,7 +598,12 @@
       "notes": "Use pinned AutoProcessor to derive images, crops, masks and image-token IDs. Tiny nested config first; pretrained model is opt-in.",
       "processor_fixture": "fixtures/processors/smolvlm-tiny-recipe.json",
       "reference_processor_fixture": "fixtures/processors/smolvlm-reference-recipe.json",
-      "reference_max_weight_mb": 1536
+      "reference_max_weight_mb": 1536,
+      "selection_basis": {
+        "source": "existing reviewed extended cohort",
+        "reason": "Promote a distinct tensor workflow into the regular processed corpus.",
+        "hub_type": "image-text-to-text"
+      }
     },
     {
       "id": "bert-tiny-sequence-classification",
@@ -716,6 +781,939 @@
       ],
       "notes": "Random task head over the reviewed BERT config; no pretrained downstream checkpoint or accuracy claim.",
       "config_model_id": "bert-tiny"
+    },
+    {
+      "id": "distilbert-base",
+      "category": "text-encoder",
+      "tier": "core",
+      "model_class": "DistilBertModel",
+      "reference": {
+        "repo": "distilbert/distilbert-base-uncased",
+        "revision": "12040accade4e8a0f71eabdb258fecc2e7e948be",
+        "config_sha256": "69c94b0222d5d1f4b0ad027ca7416cdafb98378cbbb8305d0bf47c9365c60c83",
+        "config_file": "distilbert--distilbert-base-uncased.config.json",
+        "model_type": "distilbert",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 66.98553,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 267954768,
+            "sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063"
+          }
+        },
+        "safetensors_total_bytes": 267954768
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "roberta-base",
+      "category": "text-encoder",
+      "tier": "core",
+      "model_class": "RobertaModel",
+      "reference": {
+        "repo": "FacebookAI/roberta-base",
+        "revision": "e2da8e2f811d1448a5b465c236feacd80ffbac7b",
+        "config_sha256": "ef0185e2aae6e06c5f105a285006952c340e20c7dbf43c86ec82601b13fc45e9",
+        "config_file": "FacebookAI--roberta-base.config.json",
+        "model_type": "roberta",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 124.697947,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 498818054,
+            "sha256": "5bde1d28afb363d0103324efeb5afc8b2b397fe5e04beabb9b1ef355255ade81"
+          }
+        },
+        "safetensors_total_bytes": 498818054
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "albert-base",
+      "category": "text-encoder",
+      "tier": "core",
+      "model_class": "AlbertModel",
+      "reference": {
+        "repo": "albert/albert-base-v2",
+        "revision": "8e2f239c5f8a2c0f253781ca60135db913e5c80c",
+        "config_sha256": "f5b7ef285a15ebbc7043b23284e60ac6f6de8d0a6051e282dfdf81da9351dc03",
+        "config_file": "albert--albert-base-v2.config.json",
+        "model_type": "albert",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 11.842272,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 47372894,
+            "sha256": "d24c30ec641e40087eed68adf958afe2dab0432790ec3ffa88b31ce773ae33eb"
+          }
+        },
+        "safetensors_total_bytes": 47372894
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "token_type_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "gpt2",
+      "category": "text-decoder",
+      "tier": "core",
+      "model_class": "GPT2LMHeadModel",
+      "reference": {
+        "repo": "openai-community/gpt2",
+        "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+        "config_sha256": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
+        "config_file": "openai-community--gpt2.config.json",
+        "model_type": "gpt2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 137.02272,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 548105171,
+            "sha256": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707"
+          }
+        },
+        "safetensors_total_bytes": 548105171
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "bart-base",
+      "category": "text-encoder-decoder",
+      "tier": "core",
+      "model_class": "BartForConditionalGeneration",
+      "reference": {
+        "repo": "facebook/bart-base",
+        "revision": "aadd2ab0ae0c8268c7c9693540e9904811f36177",
+        "config_sha256": "c4022c931216afcb778991477332e5312aca8be478027ee3a8bf34b7004c44e2",
+        "config_file": "facebook--bart-base.config.json",
+        "model_type": "bart",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 139.420416,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 557709915,
+            "sha256": "1bd3ac8e5b3ac71c77cf18fbcd8b113e0bfceced94c5cfbbb9a2b4bb4781190b"
+          }
+        },
+        "safetensors_total_bytes": 557709915
+      },
+      "reference_inputs": {
+        "input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            16
+          ]
+        },
+        "decoder_input_ids": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            4
+          ]
+        },
+        "decoder_attention_mask": {
+          "dtype": "int64",
+          "shape": [
+            1,
+            4
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "vit-base",
+      "category": "image-classification",
+      "tier": "core",
+      "model_class": "ViTForImageClassification",
+      "reference": {
+        "repo": "google/vit-base-patch16-224",
+        "revision": "3f49326eb077187dfe1c2a2bb15fbd74e6ab91e3",
+        "config_sha256": "abdf73cc4ce79495a83f32a8c9265daa7a1363f5a3efa4704c88a6e7f45ad19d",
+        "config_file": "google--vit-base-patch16-224.config.json",
+        "model_type": "vit",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 86.567656,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 346293852,
+            "sha256": "1cea07110a4a47edc51420b2dda6f3b8b58e7256e8f44b4ea6aa9696162ccb5d"
+          }
+        },
+        "safetensors_total_bytes": 346293852
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "swin-tiny",
+      "category": "image-classification",
+      "tier": "core",
+      "model_class": "SwinForImageClassification",
+      "reference": {
+        "repo": "microsoft/swin-tiny-patch4-window7-224",
+        "revision": "d00d478bfaf1f417d34a1186673ad4b4be264c51",
+        "config_sha256": "b99b2d1d80b05ff592979047b4a34fb459dd53b82c8036bae1c2a9d1ea2c5ed3",
+        "config_file": "microsoft--swin-tiny-patch4-window7-224.config.json",
+        "model_type": "swin",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 28.317166,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 113412768,
+            "sha256": "a941acf68a76b365d67738d6c6dce4f0db3ea5224b7cff856d3f8f3753502d29"
+          }
+        },
+        "safetensors_total_bytes": 113412768
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "dinov2-small",
+      "category": "image-embeddings",
+      "tier": "core",
+      "model_class": "Dinov2Model",
+      "reference": {
+        "repo": "facebook/dinov2-small",
+        "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+        "config_sha256": "1809f83e3bdb1609a501a610ad4a742f4fd8ae44d72ca4aa0df52d1f2ac8628d",
+        "config_file": "facebook--dinov2-small.config.json",
+        "model_type": "dinov2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 22.056576,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 88249960,
+            "sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1"
+          }
+        },
+        "safetensors_total_bytes": 88249960
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "resnet-18",
+      "category": "image-classification",
+      "tier": "core",
+      "model_class": "ResNetForImageClassification",
+      "reference": {
+        "repo": "microsoft/resnet-18",
+        "revision": "65a5785d9156231087c481e0c7dd33a5ff6f7e3e",
+        "config_sha256": "11a01bcc873444bb433140e5f30f3687356641ed923266d738eef1c3438f6d22",
+        "config_file": "microsoft--resnet-18.config.json",
+        "model_type": "resnet",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 11.699112,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 46812324,
+            "sha256": "1cf00ee468998c23d084361b02cffadabacb5074105564c596b8079f77ecb126"
+          }
+        },
+        "safetensors_total_bytes": 46812324
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "convnextv2-tiny",
+      "category": "image-classification",
+      "tier": "core",
+      "model_class": "ConvNextV2ForImageClassification",
+      "reference": {
+        "repo": "facebook/convnextv2-tiny-1k-224",
+        "revision": "f4db009e63145e02b3c075aa64d90ce41bcca4b1",
+        "config_sha256": "f7674180aaa6ff41308f448cc06a252e7f95a959b4f93d2b57c721d473e64069",
+        "config_file": "facebook--convnextv2-tiny-1k-224.config.json",
+        "model_type": "convnextv2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "reference_size_million": 28.635496,
+        "size_basis": "Hub safetensors stored tensor count",
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "size": 114565784,
+            "sha256": "ac05396e9e8b222e43be9fff080b464c3cccaa54800923d04a7d20182d2fdf5f"
+          }
+        },
+        "safetensors_total_bytes": 114565784
+      },
+      "reference_inputs": {
+        "pixel_values": {
+          "dtype": "float32",
+          "shape": [
+            1,
+            3,
+            224,
+            224
+          ]
+        }
+      },
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Offline random-weight architecture probe; all safetensors at the pinned Hub revision total less than 1 GB."
+    },
+    {
+      "id": "minilm-l6-v2",
+      "model_class": "BertModel",
+      "category": "sentence-embeddings",
+      "output_fields": [
+        "sentence_embedding"
+      ],
+      "notes": "Most-downloaded eligible checkpoint; masked mean pooling and L2-normalized sentence embeddings.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 225633601,
+        "hub_type": "sentence-similarity",
+        "source": "hub-catalogue.json",
+        "reason": "Most-downloaded eligible checkpoint; masked mean pooling and L2-normalized sentence embeddings."
+      },
+      "reference": {
+        "repo": "sentence-transformers/all-MiniLM-L6-v2",
+        "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "config_sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+        "config_file": "minilm-l6-v2.json",
+        "model_type": "bert",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "d49eff1e4a6f0e3ba5069f21c6d20aad156dd2c9",
+            "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+            "size": 90868376
+          }
+        },
+        "safetensors_total_bytes": 90868376
+      }
+    },
+    {
+      "id": "mpnet-base",
+      "model_class": "MPNetModel",
+      "category": "sentence-embeddings",
+      "output_fields": [
+        "sentence_embedding"
+      ],
+      "notes": "Popular sentence embedding family with relative-position attention and normalized pooling.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 18381804,
+        "hub_type": "sentence-similarity",
+        "source": "hub-catalogue.json",
+        "reason": "Popular sentence embedding family with relative-position attention and normalized pooling."
+      },
+      "reference": {
+        "repo": "sentence-transformers/all-mpnet-base-v2",
+        "revision": "e8c3b32edf5434bc2275fc9bab85f82640a19130",
+        "config_sha256": "d46a3e04ded82bba22528424480697d394eeda6a27484e08c5bb2bdf5906cfa0",
+        "config_file": "mpnet-base.json",
+        "model_type": "mpnet",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "8a4d902ecd2fe30af6f3ccb0d37b7e280992d8ad",
+            "sha256": "78c0197b6159d92658e319bc1d72e4c73a9a03dd03815e70e555c5ef05615658",
+            "size": 437971872
+          }
+        },
+        "safetensors_total_bytes": 437971872
+      }
+    },
+    {
+      "id": "nomic-embed",
+      "model_class": "NomicBertModel",
+      "category": "sentence-embeddings",
+      "output_fields": [
+        "sentence_embedding"
+      ],
+      "notes": "Popular rotary text embeddings; tensor encoder and normalized pooling only.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 12877830,
+        "hub_type": "sentence-similarity",
+        "source": "hub-catalogue.json",
+        "reason": "Popular rotary text embeddings; tensor encoder and normalized pooling only."
+      },
+      "reference": {
+        "repo": "nomic-ai/nomic-embed-text-v1.5",
+        "revision": "e9b6763023c676ca8431644204f50c2b100d9aab",
+        "config_sha256": "9ab00bd92cee80a569f708140b7b6c1661a65891ff3765b1519e181ba2f2c92b",
+        "config_file": "nomic-embed.json",
+        "model_type": "nomic_bert",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "53bd15b2337c643bb64c7c9976cd0e9cc09d3746",
+            "sha256": "9e7d262b1fe5ea350782829496efa831901b77486bbde1cea54a4c822d010d5c",
+            "size": 546938168
+          }
+        },
+        "safetensors_total_bytes": 546938168
+      }
+    },
+    {
+      "id": "qwen2-05b",
+      "model_class": "Qwen2ForCausalLM",
+      "category": "text-decoder",
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Popular Qwen2.5 checkpoint; grouped-query rotary decoder, no cache.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 7302712,
+        "hub_type": "text-generation",
+        "source": "hub-catalogue.json",
+        "reason": "Popular Qwen2.5 checkpoint; grouped-query rotary decoder, no cache."
+      },
+      "reference": {
+        "repo": "Qwen/Qwen2.5-0.5B-Instruct",
+        "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+        "config_sha256": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+        "config_file": "qwen2-05b.json",
+        "model_type": "qwen2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "d7db405a3f0d9bf1ba5bdd4e4211db8022ebe4eb",
+            "sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+            "size": 988097824
+          }
+        },
+        "safetensors_total_bytes": 988097824
+      },
+      "reference_max_weight_mb": 2048
+    },
+    {
+      "id": "modernbert-embed",
+      "model_class": "ModernBertModel",
+      "category": "sentence-embeddings",
+      "output_fields": [
+        "sentence_embedding"
+      ],
+      "notes": "Popular ModernBERT embedding checkpoint; alternating local/global attention and normalized pooling.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 5141679,
+        "hub_type": "feature-extraction",
+        "source": "hub-catalogue.json",
+        "reason": "Popular ModernBERT embedding checkpoint; alternating local/global attention and normalized pooling."
+      },
+      "reference": {
+        "repo": "ibm-granite/granite-embedding-small-english-r2",
+        "revision": "2ab6fa8ea2d674564defd37171ae19079b864b33",
+        "config_sha256": "154518e6452854eb11123ce433d165f2773437aa0f36935d2204249b2c327198",
+        "config_file": "modernbert-embed.json",
+        "model_type": "modernbert",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "d26c30a97f1c181338c87704d785c5d139dee26a",
+            "sha256": "dcbfaf2ee50d358763cbc0c08e5b045ecbf6aeb02dc0e86ffb910029bf9ebb5f",
+            "size": 95332048
+          }
+        },
+        "safetensors_total_bytes": 95332048
+      }
+    },
+    {
+      "id": "pythia-160m",
+      "model_class": "GPTNeoXForCausalLM",
+      "category": "text-decoder",
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Popular Pythia checkpoint; parallel-residual rotary decoder, no cache.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 3461088,
+        "hub_type": "text-generation",
+        "source": "hub-catalogue.json",
+        "reason": "Popular Pythia checkpoint; parallel-residual rotary decoder, no cache."
+      },
+      "reference": {
+        "repo": "EleutherAI/pythia-160m",
+        "revision": "50f5173d932e8e61f858120bcb800b97af589f46",
+        "config_sha256": "76eb275107220e450d31258f792a2efcbee109d8b62ae0088260057dec06362f",
+        "config_file": "pythia-160m.json",
+        "model_type": "gpt_neox",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "681c808e9bf6584885528a34c52d5204bcc78d25",
+            "sha256": "29d2e457a664e41c12c735f20a36dc0956a665f614a54ce5db21a32e75965270",
+            "size": 374998696
+          }
+        },
+        "safetensors_total_bytes": 374998696
+      }
+    },
+    {
+      "id": "ast-audioset",
+      "model_class": "ASTForAudioClassification",
+      "category": "audio-classification",
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Spectrogram-patch audio classification with two special tokens.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 1091207,
+        "hub_type": "audio-classification",
+        "source": "hub-catalogue.json",
+        "reason": "Spectrogram-patch audio classification with two special tokens."
+      },
+      "reference": {
+        "repo": "MIT/ast-finetuned-audioset-10-10-0.4593",
+        "revision": "f826b80d28226b62986cc218e5cec390b1096902",
+        "config_sha256": "a93d525511d77e8ecc933d09674b85099815bbbb417c228a4edd655e252fb9ff",
+        "config_file": "ast-audioset.json",
+        "model_type": "audio-spectrogram-transformer",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "a6e9d047f6cfa26e74738362a75d97ee5e5fde0e",
+            "sha256": "ae0c1e2ad4e1381d851fa9bf298ba13ebc9c5a914cdee2dbe427a6583869924d",
+            "size": 346404948
+          }
+        },
+        "safetensors_total_bytes": 346404948
+      }
+    },
+    {
+      "id": "layoutlmv3-base",
+      "model_class": "LayoutLMv3Model",
+      "category": "document-layout",
+      "output_fields": [
+        "last_hidden_state"
+      ],
+      "notes": "Joint document tokens, integer bounding boxes and image patches; OCR remains host preprocessing.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 938370,
+        "hub_type": "unspecified",
+        "source": "hub-catalogue.json",
+        "reason": "Joint document tokens, integer bounding boxes and image patches; OCR remains host preprocessing."
+      },
+      "reference": {
+        "repo": "microsoft/layoutlmv3-base",
+        "revision": "cfbbbff0762e6aab37086fdd4739ad14fe7d5db4",
+        "config_sha256": "2b044b1aeff1cfc9fb2fb0bf5259debff2e4b771f89482deaa0119ee452c22f7",
+        "config_file": "layoutlmv3-base.json",
+        "model_type": "layoutlmv3",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "238a161ff077294bf55a4b39b6d802804d96b50e",
+            "sha256": "3c6bd09290e28867c32adf634a6b36574ff43a9e53539633f5ac540015ac2baf",
+            "size": 501338056
+          }
+        },
+        "safetensors_total_bytes": 501338056
+      }
+    },
+    {
+      "id": "sam-vit-base",
+      "model_class": "SamModel",
+      "category": "prompted-segmentation",
+      "output_fields": [
+        "iou_scores",
+        "pred_masks"
+      ],
+      "notes": "Image plus labeled point prompts; exports mask logits and mask-quality scores.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 239626,
+        "hub_type": "mask-generation",
+        "source": "hub-catalogue.json",
+        "reason": "Image plus labeled point prompts; exports mask logits and mask-quality scores."
+      },
+      "reference": {
+        "repo": "facebook/sam-vit-base",
+        "revision": "70c1a07f894ebb5b307fd9eaaee97b9dfc16068f",
+        "config_sha256": "5ebd0d8643b486f3a716bf17c2a15531eb818b2b96ff0c6c5dcc88fa015161af",
+        "config_file": "sam-vit-base.json",
+        "model_type": "sam",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "e95d92b9eb82fb7a6030b63a08211e05f94d441d",
+            "sha256": "892c410e496344e527255ccdcb2cb7244a609acb5389c7c4fdba1288f861c579",
+            "size": 374979480
+          }
+        },
+        "safetensors_total_bytes": 374979480
+      }
+    },
+    {
+      "id": "owlv2-base",
+      "model_class": "Owlv2ForObjectDetection",
+      "category": "text-conditioned-detection",
+      "output_fields": [
+        "logits",
+        "pred_boxes",
+        "objectness_logits"
+      ],
+      "notes": "Text-conditioned object detection with per-patch boxes and objectness scores.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 2009909,
+        "hub_type": "zero-shot-object-detection",
+        "source": "hub-catalogue.json",
+        "reason": "Text-conditioned object detection with per-patch boxes and objectness scores."
+      },
+      "reference": {
+        "repo": "google/owlv2-base-patch16-ensemble",
+        "revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+        "config_sha256": "ba9df8c25a4b8461887dd0a93d9252c9cd84697fe8d49a9d8794ce409af9acb2",
+        "config_file": "owlv2-base.json",
+        "model_type": "owlv2",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "e8643bcae4afdfa3a3019a6c271d19090b2e2fc6",
+            "sha256": "e1e130b9e404cf91a75ad45644c1da9d7fa5284085eecc864266a6923efb99e7",
+            "size": 619918824
+          }
+        },
+        "safetensors_total_bytes": 619918824
+      }
+    },
+    {
+      "id": "marian-fr-en",
+      "model_class": "MarianMTModel",
+      "category": "text-encoder-decoder",
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Popular French-English translation with sinusoidal positions and teacher-forced decoder tensors.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 839480,
+        "hub_type": "translation",
+        "source": "hub-catalogue.json",
+        "reason": "Popular French-English translation with sinusoidal positions and teacher-forced decoder tensors."
+      },
+      "reference": {
+        "repo": "Helsinki-NLP/opus-mt-fr-en",
+        "revision": "c4aed37b318c763fd177aa449b44e3b783cc6c02",
+        "config_sha256": "b3be13d046d9899d7aab8cf4ed624d9a79f5776038ba793f6b4d2ce3e02192f7",
+        "config_file": "marian-fr-en.json",
+        "model_type": "marian",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "8650c3da1444f36426b5f2cf747841f5d3843658",
+            "sha256": "6e3837f34b903802c3d0d670362b997cee6e87584a1108eb3fa89e4625e4424a",
+            "size": 300803608
+          }
+        },
+        "safetensors_total_bytes": 300803608
+      }
+    },
+    {
+      "id": "esm2-8m",
+      "model_class": "EsmModel",
+      "category": "protein-encoder",
+      "output_fields": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "notes": "Protein token encoder with rotary positions and mask-dependent token rescaling.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 462375,
+        "hub_type": "fill-mask",
+        "source": "hub-catalogue.json",
+        "reason": "Protein token encoder with rotary positions and mask-dependent token rescaling."
+      },
+      "reference": {
+        "repo": "facebook/esm2_t6_8M_UR50D",
+        "revision": "c731040fcd8d73dceaa04b0a8e6329b345b0f5df",
+        "config_sha256": "facb9355e8252149f6f99dff5fd1e32e890c3c655362b261d0c81cd6b5839c85",
+        "config_file": "esm2-8m.json",
+        "model_type": "esm",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "c1cb7ba1caea0812b34cc09d7e1653633babb4a7",
+            "sha256": "24c5fa474c48f3b754b86efe752d5f189d2bcd88190fa2270fc92b2ef3034189",
+            "size": 31384292
+          }
+        },
+        "safetensors_total_bytes": 31384292
+      }
+    },
+    {
+      "id": "mamba-130m",
+      "model_class": "MambaForCausalLM",
+      "category": "state-space-decoder",
+      "output_fields": [
+        "logits"
+      ],
+      "notes": "Selective state-space recurrence and causal convolution, full-sequence forward without cache.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 273923,
+        "hub_type": "text-generation",
+        "source": "hub-catalogue.json",
+        "reason": "Selective state-space recurrence and causal convolution, full-sequence forward without cache."
+      },
+      "reference": {
+        "repo": "state-spaces/mamba-130m-hf",
+        "revision": "1e76775f628fbf1350fbe4dbb3d971ba64af25a1",
+        "config_sha256": "784825b6b6cdde47a1602278db0e66d6764169af4a8e662404701bc636a2686a",
+        "config_file": "mamba-130m.json",
+        "model_type": "mamba",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "f652b6e7947683de2606285211b9bb0e160c6d51",
+            "sha256": "1a5ed29c492ef4d485df3b7c2c8109771696589855b2162ad1ba618b6067cbea",
+            "size": 516567560
+          }
+        },
+        "safetensors_total_bytes": 516567560
+      }
+    },
+    {
+      "id": "clap-htsat",
+      "model_class": "ClapModel",
+      "category": "audio-text-embeddings",
+      "output_fields": [
+        "logits_per_audio",
+        "logits_per_text",
+        "text_embeds",
+        "audio_embeds"
+      ],
+      "notes": "Contrastive text/audio embeddings from a single normalized mel spectrogram; reviewed tiny config disables the original checkpoint's audio fusion.",
+      "tier": "core",
+      "selection_basis": {
+        "hub_downloads": 8185193,
+        "hub_type": "audio-classification",
+        "source": "hub-catalogue.json",
+        "reason": "Popular CLAP family adds joint audio/text embeddings and contrastive similarities; tiny audio fusion is disabled."
+      },
+      "reference": {
+        "repo": "laion/clap-htsat-fused",
+        "revision": "365dea6ef167def6676140ed93bbc43f84dabb28",
+        "config_sha256": "b1d63489dc5061da229c23d2b11e9ca731639574449f82319fabb01da7fcf480",
+        "config_file": "clap-htsat.json",
+        "model_type": "clap",
+        "safetensors_files": [
+          "model.safetensors"
+        ],
+        "safetensors_metadata": {
+          "model.safetensors": {
+            "git_oid": "b6fbd3afa6946824a22fb9506145f43912f60423",
+            "sha256": "3f648de6d030e17494be455d323b8d191233fbae0c7ce0ba745fd21a926a63a6",
+            "size": 614496152
+          }
+        },
+        "safetensors_total_bytes": 614496152
+      }
     }
   ]
 }

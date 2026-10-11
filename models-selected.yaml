@@ -3,32 +3,82 @@ population: tiny
 selection:
   max_weight_mb: 64
   release_max_weight_mb: 64
-  candidate_count: 8
-  selected_count: 8
-  covered_units: 476
-  total_units: 476
+  candidate_count: 37
+  selected_count: 35
+  covered_units: 1480
+  total_units: 1480
   uncovered_units: []
   mandatory_categories:
+  - audio-classification
+  - audio-ctc
   - audio-encoder-decoder
+  - audio-text-embeddings
+  - depth-estimation
+  - document-layout
   - image-classification
+  - image-embeddings
   - image-text-embeddings
+  - image-text-generation
+  - object-detection
+  - prompted-segmentation
+  - protein-encoder
+  - semantic-segmentation
+  - sentence-embeddings
+  - state-space-decoder
+  - text-conditioned-detection
   - text-decoder
   - text-encoder
   - text-encoder-decoder
   - time-series
   - video-classification
 models:
+  ast-audioset:
+    artifact_id: ast-audioset/audio-classification/tiny/forward/fp32/dynamo/static
+    category: audio-classification
+    nodes: 55
+    weight_bytes: 49940
+    phase: include
+  wav2vec2-base:
+    artifact_id: wav2vec2-base/audio-ctc/tiny/forward/fp32/dynamo/static
+    category: audio-ctc
+    nodes: 62
+    weight_bytes: 80832
+    phase: include
   whisper-tiny:
     artifact_id: whisper-tiny/audio-encoder-decoder/tiny/forward/fp32/dynamo/static
     category: audio-encoder-decoder
     nodes: 142
     weight_bytes: 169856
     phase: include
-  mobilevit-xxs:
-    artifact_id: mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static
+  clap-htsat:
+    artifact_id: clap-htsat/audio-text-embeddings/tiny/forward/fp32/dynamo/static
+    category: audio-text-embeddings
+    nodes: 340
+    weight_bytes: 1330564
+    phase: include
+  depth-anything-small:
+    artifact_id: depth-anything-small/depth-estimation/tiny/forward/fp32/dynamo/static
+    category: depth-estimation
+    nodes: 217
+    weight_bytes: 1981444
+    phase: include
+  layoutlmv3-base:
+    artifact_id: layoutlmv3-base/document-layout/tiny/forward/fp32/dynamo/static
+    category: document-layout
+    nodes: 191
+    weight_bytes: 259712
+    phase: include
+  resnet-18:
+    artifact_id: resnet-18/image-classification/tiny/forward/fp32/dynamo/static
     category: image-classification
-    nodes: 394
-    weight_bytes: 5088096
+    nodes: 41
+    weight_bytes: 314028
+    phase: include
+  dinov2-small:
+    artifact_id: dinov2-small/image-embeddings/tiny/forward/fp32/dynamo/static
+    category: image-embeddings
+    nodes: 76
+    weight_bytes: 178688
     phase: include
   tinyclip:
     artifact_id: tinyclip/image-text-embeddings/tiny/forward/fp32/dynamo/static
@@ -36,17 +86,65 @@ models:
     nodes: 115
     weight_bytes: 573956
     phase: include
-  smollm2-135m:
-    artifact_id: smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static
-    category: text-decoder
-    nodes: 173
-    weight_bytes: 361728
+  smolvlm-256m:
+    artifact_id: smolvlm-256m/image-text-generation/tiny/forward/fp32/dynamo/static
+    category: image-text-generation
+    nodes: 225
+    weight_bytes: 373248
     phase: include
-  bert-tiny:
-    artifact_id: bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static
+  yolos-tiny:
+    artifact_id: yolos-tiny/object-detection/tiny/forward/fp32/dynamo/static
+    category: object-detection
+    nodes: 59
+    weight_bytes: 456232
+    phase: include
+  sam-vit-base:
+    artifact_id: sam-vit-base/prompted-segmentation/tiny/forward/fp32/dynamo/static
+    category: prompted-segmentation
+    nodes: 433
+    weight_bytes: 378032
+    phase: include
+  esm2-8m:
+    artifact_id: esm2-8m/protein-encoder/tiny/forward/fp32/dynamo/static
+    category: protein-encoder
+    nodes: 162
+    weight_bytes: 77092
+    phase: include
+  segformer-b0:
+    artifact_id: segformer-b0/semantic-segmentation/tiny/forward/fp32/dynamo/static
+    category: semantic-segmentation
+    nodes: 214
+    weight_bytes: 375828
+    phase: include
+  minilm-l6-v2:
+    artifact_id: minilm-l6-v2/sentence-embeddings/tiny/forward/fp32/dynamo/static
+    category: sentence-embeddings
+    nodes: 100
+    weight_bytes: 97664
+    phase: include
+  mamba-130m:
+    artifact_id: mamba-130m/state-space-decoder/tiny/forward/fp32/dynamo/static
+    category: state-space-decoder
+    nodes: 191
+    weight_bytes: 895232
+    phase: include
+  owlv2-base:
+    artifact_id: owlv2-base/text-conditioned-detection/tiny/forward/fp32/dynamo/static
+    category: text-conditioned-detection
+    nodes: 145
+    weight_bytes: 224800
+    phase: include
+  gpt2:
+    artifact_id: gpt2/text-decoder/tiny/forward/fp32/dynamo/static
+    category: text-decoder
+    nodes: 122
+    weight_bytes: 126464
+    phase: include
+  distilbert-base:
+    artifact_id: distilbert-base/text-encoder/tiny/forward/fp32/dynamo/static
     category: text-encoder
-    nodes: 92
-    weight_bytes: 1324544
+    nodes: 85
+    weight_bytes: 93184
     phase: include
   t5-small:
     artifact_id: t5-small/text-encoder-decoder/tiny/forward/fp32/dynamo/static
@@ -66,3 +164,81 @@ models:
     nodes: 39
     weight_bytes: 530216
     phase: include
+  convnextv2-tiny:
+    artifact_id: convnextv2-tiny/image-classification/tiny/forward/fp32/dynamo/static
+    category: image-classification
+    nodes: 83
+    weight_bytes: 252108
+    phase: ops
+  swin-tiny:
+    artifact_id: swin-tiny/image-classification/tiny/forward/fp32/dynamo/static
+    category: image-classification
+    nodes: 233
+    weight_bytes: 1238952
+    phase: ops
+  mobilevit-xxs:
+    artifact_id: mobilevit-xxs/image-classification/tiny/forward/fp32/dynamo/static
+    category: image-classification
+    nodes: 394
+    weight_bytes: 5088096
+    phase: ops
+  bert-tiny:
+    artifact_id: bert-tiny/text-encoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder
+    nodes: 92
+    weight_bytes: 1324544
+    phase: ops
+  modernbert-embed:
+    artifact_id: modernbert-embed/sentence-embeddings/tiny/forward/fp32/dynamo/static
+    category: sentence-embeddings
+    nodes: 178
+    weight_bytes: 98944
+    phase: ops
+  pythia-160m:
+    artifact_id: pythia-160m/text-decoder/tiny/forward/fp32/dynamo/static
+    category: text-decoder
+    nodes: 135
+    weight_bytes: 101376
+    phase: ops
+  vit-base:
+    artifact_id: vit-base/image-classification/tiny/forward/fp32/dynamo/static
+    category: image-classification
+    nodes: 77
+    weight_bytes: 96012
+    phase: ops
+  smollm2-135m:
+    artifact_id: smollm2-135m/text-decoder/tiny/forward/fp32/dynamo/static
+    category: text-decoder
+    nodes: 173
+    weight_bytes: 361728
+    phase: ops
+  qwen2-05b:
+    artifact_id: qwen2-05b/text-decoder/tiny/forward/fp32/dynamo/static
+    category: text-decoder
+    nodes: 173
+    weight_bytes: 91264
+    phase: ops
+  albert-base:
+    artifact_id: albert-base/text-encoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder
+    nodes: 105
+    weight_bytes: 53120
+    phase: ops
+  marian-fr-en:
+    artifact_id: marian-fr-en/text-encoder-decoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder-decoder
+    nodes: 317
+    weight_bytes: 289152
+    phase: ops
+  mpnet-base:
+    artifact_id: mpnet-base/sentence-embeddings/tiny/forward/fp32/dynamo/static
+    category: sentence-embeddings
+    nodes: 134
+    weight_bytes: 97920
+    phase: ops
+  bart-base:
+    artifact_id: bart-base/text-encoder-decoder/tiny/forward/fp32/dynamo/static
+    category: text-encoder-decoder
+    nodes: 376
+    weight_bytes: 341504
+    phase: ops

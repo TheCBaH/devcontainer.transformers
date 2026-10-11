@@ -1,0 +1,42 @@
+{
+  "artifact_id": "sam-vit-base/prompted-segmentation/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values",
+        "input_points",
+        "input_labels"
+      ],
+      "inputs_sha256": "76130679f5f0ed824c12f631103943db655690844d68612c95228ffdd4be8213",
+      "outputs": [
+        "iou_scores",
+        "pred_masks"
+      ],
+      "outputs_sha256": "9efc78b38ffc924c098cefe270a97aba4a2e319c2dc8999815f7142fd89b12fb"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values",
+        "input_points",
+        "input_labels"
+      ],
+      "inputs_sha256": "84161c6db4ab53da9b212f28433d8c0f4248c586611da6dc6a2bbc145980a25b",
+      "outputs": [
+        "iou_scores",
+        "pred_masks"
+      ],
+      "outputs_sha256": "bc045d96a4a931a95fbcffcc793384eae3d72efc0e11af5d97db5634fa2484e6"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

@@ -112,7 +112,7 @@ def sweep(args):
     write_json(result_path, document)
     if args.command == 'report':
         from .reporting import render
-        render(output, document)
+        render(output, document, entries.values())
     return int(bool(outcomes['unexpected_failures'] or outcomes['stale_exclusions']))
 
 

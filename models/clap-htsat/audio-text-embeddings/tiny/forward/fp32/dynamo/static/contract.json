@@ -1,0 +1,128 @@
+{
+  "artifact_id": "clap-htsat/audio-text-embeddings/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "input_features"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "d7ee0e1b753820130e4f3122cb9030cd5957acc0863ed8b556b2391d519653a9",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "d3e44fd47594587094c7283cfd581c1a931996001d3c7bc84e00651b39850384",
+    "cases.json": "5d75f558df7b90a3950eeebc6aa4d84d14eb85cf3037ac832a55322ab3b5141f",
+    "data/constants/model_constants_config.json": "e0cdede8ec29c74d7a4b36206d15a51ec4f7a22c9e07f2708e15faca3cf6ebe9",
+    "data/weights/model_weights_config.json": "4738aeec7842af153ce62aef821d64dc54da80e2c4f5368fb4d51fdb779cb0cf",
+    "models/model.json": "d2f30a5191cd38352aa4254ec1e06876c4b14e5edb6a2f8030c29b847ae1f8c5"
+  },
+  "graph_sha256": "d2f30a5191cd38352aa4254ec1e06876c4b14e5edb6a2f8030c29b847ae1f8c5",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "input_features",
+      "shape": [
+        1,
+        1,
+        128,
+        32
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "ClapModel",
+  "model_id": "clap-htsat",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits_per_audio",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "logits_per_text",
+      "shape": [
+        1,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "text_embeds",
+      "shape": [
+        1,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "audio_embeds",
+      "shape": [
+        1,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "fd6b8e228ec057622a9bf812b4b14ca7a13d3a03435f99d727d299d573aba755",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "artifact_id": "clap-htsat/audio-text-embeddings/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "input_features"
+      ],
+      "inputs_sha256": "e8ecc59676137faa4f036a90e29a1f6b174bb1f3e4976897962d0bf07abbc0fd",
+      "outputs": [
+        "logits_per_audio",
+        "logits_per_text",
+        "text_embeds",
+        "audio_embeds"
+      ],
+      "outputs_sha256": "131c0914aa012cc6c78f15510d8afbf06e9e602651b6f2b956ea6858642d6928"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "input_features"
+      ],
+      "inputs_sha256": "77c74f2880d7a7f57a73068996f96ce5926d9e9b73adf2e6a952d58609a8acbc",
+      "outputs": [
+        "logits_per_audio",
+        "logits_per_text",
+        "text_embeds",
+        "audio_embeds"
+      ],
+      "outputs_sha256": "4cddc24015cecefda973358d09d93bd2b4dcf68de9f66f2db6df637badf44153"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

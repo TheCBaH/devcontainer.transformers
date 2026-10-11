@@ -19,6 +19,14 @@
 # Configuration ids are positional within an op, so
 # they can shift between runs when a newly seen configuration sorts ahead of an old one.
 ops:
+  _assert_scalar.default:
+    schema: _assert_scalar(Scalar self, str assert_msg) -> ()
+    configs:
+      1: {self: sym_not_1, assert_msg: 'Runtime assertion failed for expression Ne(u0, 0) on node ''sym_not_1'''}
+      2: {self: le_3, assert_msg: Runtime assertion failed for expression u0 <= 1 on node 'le_3'}
+      3: {self: ge_9, assert_msg: Runtime assertion failed for expression u0 >= 0 on node 'ge_9'}
+      4: {self: le_4, assert_msg: Runtime assertion failed for expression u1 <= 16 on node 'le_4'}
+      5: {self: ge_10, assert_msg: Runtime assertion failed for expression u1 >= 0 on node 'ge_10'}
   _native_batch_norm_legit_no_training.default:
     schema: _native_batch_norm_legit_no_training(Tensor input, Tensor? weight, Tensor? bias, Tensor running_mean, Tensor running_var, float momentum, float eps) -> (Tensor, Tensor, Tensor)
     configs:
@@ -26,27 +34,38 @@ ops:
   _softmax.default:
     schema: _softmax(Tensor self, int dim, bool half_to_float) -> Tensor
     configs:
-      1: {dim: -1, half_to_float: false, out_dtype: f32, out_rank: 4}
+      1: {dim: -1, half_to_float: false, out_dtype: f32, out_rank: 3}
+      2: {dim: -1, half_to_float: false, out_dtype: f32, out_rank: 4}
   _to_copy.default:
     schema: _to_copy(Tensor self, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, bool non_blocking=False, MemoryFormat? memory_format=None) -> Tensor
     configs:
       1: {dtype: torch.bool, non_blocking: false, memory_format: null, out_dtype: bool, out_rank: 2}
-      2: {dtype: torch.float32, non_blocking: false, memory_format: null, out_dtype: f32, out_rank: 2}
-      3: {dtype: torch.float32, non_blocking: false, memory_format: null, out_dtype: f32, out_rank: 3}
-      4: {dtype: torch.int32, non_blocking: false, memory_format: null, out_dtype: i32, out_rank: 2}
-      5: {dtype: torch.int64, non_blocking: false, memory_format: null, out_dtype: i64, out_rank: 2}
+      2: {dtype: torch.float32, non_blocking: false, memory_format: null, out_dtype: f32, out_rank: 1}
+      3: {dtype: torch.float32, non_blocking: false, memory_format: null, out_dtype: f32, out_rank: 2}
+      4: {dtype: torch.float32, non_blocking: false, memory_format: null, out_dtype: f32, out_rank: 3}
+      5: {dtype: torch.int32, non_blocking: false, memory_format: null, out_dtype: i32, out_rank: 2}
+      6: {dtype: torch.int64, non_blocking: false, memory_format: null, out_dtype: i64, out_rank: 1}
+      7: {dtype: torch.int64, non_blocking: false, memory_format: null, out_dtype: i64, out_rank: 2}
+      8: {dtype: torch.int64, non_blocking: false, memory_format: null, out_dtype: i64, out_rank: 3}
   abs.default:
     schema: abs(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 2}
       2: {out_dtype: i64, out_rank: 2}
+      3: {out_dtype: i64, out_rank: 3}
+      4: {out_dtype: i64, out_rank: 4}
   add.Tensor:
     schema: add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor
     configs:
-      1: {alpha: 1, out_dtype: f32, out_rank: 3}
-      2: {alpha: 1, out_dtype: f32, out_rank: 4}
-      3: {alpha: 1, out_dtype: i64, out_rank: 1}
-      4: {alpha: 1, out_dtype: i64, out_rank: 2}
+      1: {alpha: 1, out_dtype: f32, out_rank: 1}
+      2: {alpha: 1, out_dtype: f32, out_rank: 2}
+      3: {alpha: 1, out_dtype: f32, out_rank: 3}
+      4: {alpha: 1, out_dtype: f32, out_rank: 4}
+      5: {alpha: 1, out_dtype: f32, out_rank: 5}
+      6: {alpha: 1, out_dtype: i32, out_rank: 2}
+      7: {alpha: 1, out_dtype: i64, out_rank: 1}
+      8: {alpha: 1, out_dtype: i64, out_rank: 2}
+      9: {alpha: 1, out_dtype: i64, out_rank: 3}
   addmm.default:
     schema: addmm(Tensor self, Tensor mat1, Tensor mat2, *, Scalar beta=1, Scalar alpha=1) -> Tensor
     configs:
@@ -55,22 +74,46 @@ ops:
     schema: alias(Tensor(a) self) -> Tensor(a)
     configs:
       1: {out_dtype: f32, out_rank: 3}
+      2: {out_dtype: f32, out_rank: 4}
+  amax.default:
+    schema: amax(Tensor self, int[1] dim=[], bool keepdim=False) -> Tensor
+    configs:
+      1: {dim: [-1], keepdim: false, out_dtype: f32, out_rank: 3}
   arange.start_step:
     schema: arange.start_step(Scalar start, Scalar end, Scalar step=1, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
     configs:
-      1: {start: 0, end: 16, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
-      2: {start: 0, end: 24, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
-      3: {start: 24, end: 25, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
-      4: {start: 0, end: 4, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
-      5: {start: 0, end: 1, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
-      6: {start: 0, end: 16, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
-      7: {start: 0, end: 24, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
-      8: {start: 0, end: 32, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
-      9: {start: 0, end: 4, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      1: {start: 0, end: 4, step: 1, dtype: torch.float32, out_dtype: f32, out_rank: 1}
+      2: {start: 0, end: 16, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
+      3: {start: 0, end: 24, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
+      4: {start: 24, end: 25, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
+      5: {start: 0, end: 4, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
+      6: {start: 0, end: 5, step: 1, dtype: torch.int64, out_dtype: i64, out_rank: 1}
+      7: {start: 0, end: sym_size_int_3, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      8: {start: 0, end: 1, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      9: {start: 0.25, end: 1.0, step: 0.25, dtype: null, out_dtype: f32, out_rank: 1}
+      10: {start: 0, end: 11, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      11: {start: 0, end: 14, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      12: {start: 0, end: 16, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      13: {start: 0, end: 17, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      14: {start: 0, end: 2, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      15: {start: 0, end: 21, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      16: {start: 0, end: 24, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      17: {start: 0, end: 257, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      18: {start: 0, end: 32, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      19: {start: 0, end: 4, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      20: {start: 0, end: 47, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      21: {start: 0, end: 5, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      22: {start: 0, end: 50, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      23: {start: 0, end: 512, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
+      24: {start: 0, end: 7, step: 1, dtype: null, out_dtype: i64, out_rank: 1}
   argmax.default:
     schema: argmax(Tensor self, int? dim=None, bool keepdim=False) -> Tensor
     configs:
       1: {dim: -1, keepdim: false, out_dtype: i64, out_rank: 1}
+  as_strided.default:
+    schema: as_strided(Tensor(a) self, SymInt[] size, SymInt[] stride, SymInt? storage_offset=None) -> Tensor(a)
+    configs:
+      1: {size: [1, 128, 1, 1], stride: [128, 1, 128, 128], storage_offset: null, out_dtype: f32, out_rank: 4}
   bitwise_and.Tensor:
     schema: bitwise_and.Tensor(Tensor self, Tensor other) -> Tensor
     configs:
@@ -79,6 +122,10 @@ ops:
     schema: bmm(Tensor self, Tensor mat2) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 3}
+  bucketize.Tensor:
+    schema: bucketize.Tensor(Tensor self, Tensor boundaries, *, bool out_int32=False, bool right=False) -> Tensor
+    configs:
+      1: {out_int32: false, right: true, out_dtype: i64, out_rank: 2}
   cat.default:
     schema: cat(Tensor[] tensors, int dim=0) -> Tensor
     configs:
@@ -86,129 +133,330 @@ ops:
       2: {dim: -1, out_dtype: f32, out_rank: 3}
       3: {dim: -1, out_dtype: f32, out_rank: 4}
       4: {dim: -1, out_dtype: i64, out_rank: 2}
-      5: {dim: 1, out_dtype: f32, out_rank: 2}
-      6: {dim: 1, out_dtype: f32, out_rank: 3}
-      7: {dim: 1, out_dtype: f32, out_rank: 4}
+      5: {dim: 0, out_dtype: f32, out_rank: 1}
+      6: {dim: 0, out_dtype: f32, out_rank: 2}
+      7: {dim: 1, out_dtype: f32, out_rank: 2}
+      8: {dim: 1, out_dtype: f32, out_rank: 3}
+      9: {dim: 1, out_dtype: f32, out_rank: 4}
+      10: {dim: 1, out_dtype: i64, out_rank: 2}
+      11: {dim: 1, out_dtype: i64, out_rank: 3}
+      12: {dim: 2, out_dtype: f32, out_rank: 3}
+      13: {dim: 2, out_dtype: f32, out_rank: 4}
   clamp.default:
     schema: clamp(Tensor self, Scalar? min=None, Scalar? max=None) -> Tensor
     configs:
-      1: {min: 1, max: null, out_dtype: f32, out_rank: 1}
-      2: {min: 1, max: null, out_dtype: f32, out_rank: 2}
-      3: {min: 1.0e-10, max: null, out_dtype: f32, out_rank: 2}
+      1: {min: null, max: 0.999999, out_dtype: f32, out_rank: 2}
+      2: {min: 0.0, max: 1.0, out_dtype: f32, out_rank: 1}
+      3: {min: 0.0, max: 1.0, out_dtype: f32, out_rank: 2}
+      4: {min: 0, max: 1023, out_dtype: i64, out_rank: 2}
+      5: {min: 0, max: 127, out_dtype: i64, out_rank: 2}
+      6: {min: 0, max: 13, out_dtype: i64, out_rank: 1}
+      7: {min: 0, max: 13, out_dtype: i64, out_rank: 2}
+      8: {min: 0, max: 31, out_dtype: i64, out_rank: 1}
+      9: {min: null, max: 6, out_dtype: i64, out_rank: 1}
+      10: {min: 0.0, max: null, out_dtype: f32, out_rank: 1}
+      11: {min: 1, max: null, out_dtype: f32, out_rank: 1}
+      12: {min: 1, max: null, out_dtype: f32, out_rank: 2}
+      13: {min: 1.0e-10, max: null, out_dtype: f32, out_rank: 2}
+      14: {min: 1.0e-12, max: null, out_dtype: f32, out_rank: 2}
   clone.default:
     schema: clone(Tensor self, *, MemoryFormat? memory_format=None) -> Tensor
     configs:
-      1: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 4}
-      2: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 5}
-      3: {memory_format: null, out_dtype: f32, out_rank: 0}
-      4: {memory_format: null, out_dtype: f32, out_rank: 3}
-      5: {memory_format: null, out_dtype: f32, out_rank: 4}
+      1: {memory_format: torch.channels_last, out_dtype: f32, out_rank: 4}
+      2: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 3}
+      3: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 4}
+      4: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 5}
+      5: {memory_format: torch.contiguous_format, out_dtype: f32, out_rank: 6}
+      6: {memory_format: null, out_dtype: f32, out_rank: 0}
+      7: {memory_format: null, out_dtype: f32, out_rank: 3}
+      8: {memory_format: null, out_dtype: f32, out_rank: 4}
+  constant_pad_nd.default:
+    schema: constant_pad_nd(Tensor self, SymInt[] pad, Scalar value=0) -> Tensor
+    configs:
+      1: {pad: [0, 0, 0, 0, 0, 0], value: 0.0, out_dtype: f32, out_rank: 4}
   convolution.default:
     schema: convolution(Tensor input, Tensor weight, Tensor? bias, SymInt[] stride, SymInt[] padding, SymInt[] dilation, bool transposed, SymInt[] output_padding, SymInt groups) -> Tensor
     configs:
       1: {stride: [2, 16, 16], padding: [0, 0, 0], dilation: [1, 1, 1], transposed: false, output_padding: [0, 0, 0], groups: 1, out_dtype: f32, out_rank: 5, kernel: [2, 16, 16], depthwise: false}
       2: {stride: [1, 1], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [1, 1], depthwise: false}
-      3: {stride: [16, 16], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [16, 16], depthwise: false}
-      4: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: false}
-      5: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: false}
-      6: {stride: [1], padding: [1], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [3], depthwise: false}
-      7: {stride: [2], padding: [1], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [3], depthwise: false}
-      8: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 128, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
-      9: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 32, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
-      10: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 32, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
-      11: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 48, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
-      12: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 48, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
-      13: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 96, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      3: {stride: [2, 2], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [1, 1], depthwise: false}
+      4: {stride: [14, 14], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [14, 14], depthwise: false}
+      5: {stride: [16, 16], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [16, 16], depthwise: false}
+      6: {stride: [2, 2], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [2, 2], depthwise: false}
+      7: {stride: [2, 2], padding: [0, 0], dilation: [1, 1], transposed: true, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [2, 2], depthwise: false}
+      8: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: false}
+      9: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: false}
+      10: {stride: [4, 4], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [4, 4], depthwise: false}
+      11: {stride: [4, 4], padding: [0, 0], dilation: [1, 1], transposed: true, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [4, 4], depthwise: false}
+      12: {stride: [2, 2], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: false}
+      13: {stride: [4, 4], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: false}
+      14: {stride: [4, 4], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [8, 8], depthwise: false}
+      15: {stride: [8, 8], padding: [0, 0], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [8, 8], depthwise: false}
+      16: {stride: [5], padding: [0], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [10], depthwise: false}
+      17: {stride: [2], padding: [0], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [3], depthwise: false}
+      18: {stride: [1], padding: [1], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [3], depthwise: false}
+      19: {stride: [2], padding: [1], dilation: [1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 3, kernel: [3], depthwise: false}
+      20: {stride: [1], padding: [8], dilation: [1], transposed: false, output_padding: [0], groups: 2, out_dtype: f32, out_rank: 3, kernel: [16], depthwise: false}
+      21: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 128, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      22: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 128, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      23: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 16, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      24: {stride: [1, 1], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 16, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: true}
+      25: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 32, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      26: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 32, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      27: {stride: [1, 1], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 32, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: true}
+      28: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 48, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      29: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 48, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      30: {stride: [1, 1], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 64, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      31: {stride: [1, 1], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 64, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: true}
+      32: {stride: [1, 1], padding: [3, 3], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 8, out_dtype: f32, out_rank: 4, kernel: [7, 7], depthwise: true}
+      33: {stride: [2, 2], padding: [1, 1], dilation: [1, 1], transposed: false, output_padding: [0, 0], groups: 96, out_dtype: f32, out_rank: 4, kernel: [3, 3], depthwise: true}
+      34: {stride: [1], padding: [3], dilation: [1], transposed: false, output_padding: [0], groups: 1536, out_dtype: f32, out_rank: 3, kernel: [4], depthwise: true}
+      35: {stride: [8, 8], padding: [0], dilation: [1, 1], transposed: false, output_padding: [0], groups: 1, out_dtype: f32, out_rank: 4, kernel: [8, 8]}
+  copy.default:
+    schema: copy(Tensor self, Tensor src, bool non_blocking=False) -> Tensor
+    configs:
+      1: {non_blocking: false, out_dtype: f32, out_rank: 3}
   cos.default:
     schema: cos(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 3}
+      2: {out_dtype: f32, out_rank: 4}
   cumsum.default:
     schema: cumsum(Tensor self, int dim, *, ScalarType? dtype=None) -> Tensor
     configs:
       1: {dim: -1, dtype: null, out_dtype: i64, out_rank: 2}
+      2: {dim: 0, dtype: null, out_dtype: f32, out_rank: 2}
+      3: {dim: 1, dtype: null, out_dtype: f32, out_rank: 2}
+      4: {dim: 1, dtype: null, out_dtype: i64, out_rank: 2}
   div.Tensor:
     schema: div.Tensor(Tensor self, Tensor other) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 1}
       2: {out_dtype: f32, out_rank: 2}
-      3: {out_dtype: f32, out_rank: 4}
+      3: {out_dtype: f32, out_rank: 3}
+      4: {out_dtype: f32, out_rank: 4}
+  elu.default:
+    schema: elu(Tensor self, Scalar alpha=1, Scalar scale=1, Scalar input_scale=1) -> Tensor
+    configs:
+      1: {alpha: 1.0, scale: 1, input_scale: 1, out_dtype: f32, out_rank: 3}
   embedding.default:
     schema: embedding(Tensor weight, Tensor indices, SymInt padding_idx=-1, bool scale_grad_by_freq=False, bool sparse=False) -> Tensor
     configs:
       1: {padding_idx: -1, scale_grad_by_freq: false, sparse: false, out_dtype: f32, out_rank: 2}
       2: {padding_idx: -1, scale_grad_by_freq: false, sparse: false, out_dtype: f32, out_rank: 3}
       3: {padding_idx: 0, scale_grad_by_freq: false, sparse: false, out_dtype: f32, out_rank: 3}
+      4: {padding_idx: 1, scale_grad_by_freq: false, sparse: false, out_dtype: f32, out_rank: 3}
+  eq.Scalar:
+    schema: eq.Scalar(Tensor self, Scalar other) -> Tensor
+    configs:
+      1: {other: -1, out_dtype: bool, out_rank: 4}
+      2: {other: 0, out_dtype: bool, out_rank: 3}
+      3: {other: 0, out_dtype: bool, out_rank: 4}
+      4: {other: 0.0, out_dtype: bool, out_rank: 4}
+      5: {other: 1, out_dtype: bool, out_rank: 3}
+      6: {other: 1, out_dtype: bool, out_rank: 4}
+      7: {other: 128, out_dtype: bool, out_rank: 2}
+      8: {other: 32, out_dtype: bool, out_rank: 2}
   eq.Tensor:
     schema: eq.Tensor(Tensor self, Tensor other) -> Tensor
     configs:
       1: {out_dtype: bool, out_rank: 4}
+  erf.default:
+    schema: erf(Tensor self) -> Tensor
+    configs:
+      1: {out_dtype: f32, out_rank: 3}
   exp.default:
     schema: exp(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 0}
+      2: {out_dtype: f32, out_rank: 2}
+      3: {out_dtype: f32, out_rank: 3}
+      4: {out_dtype: f32, out_rank: 4}
   expand.default:
     schema: expand(Tensor(a) self, SymInt[] size, *, bool implicit=False) -> Tensor(a)
     configs:
       1: {size: [1, -1, 1, 1], implicit: false, out_dtype: bool, out_rank: 4}
       2: {size: [1, -1, 1, 24], implicit: false, out_dtype: bool, out_rank: 4}
-      3: {size: [1, -1, 16, 16], implicit: false, out_dtype: bool, out_rank: 4}
-      4: {size: [1, -1, 24, 24], implicit: false, out_dtype: bool, out_rank: 4}
-      5: {size: [1, -1, 4, 16], implicit: false, out_dtype: bool, out_rank: 4}
-      6: {size: [1, -1, 4, 4], implicit: false, out_dtype: bool, out_rank: 4}
-      7: {size: [-1, 24, -1], implicit: false, out_dtype: f32, out_rank: 3}
-      8: {size: [1, -1, 1], implicit: false, out_dtype: f32, out_rank: 3}
-      9: {size: [1, 1, -1], implicit: false, out_dtype: f32, out_rank: 3}
-      10: {size: [1, 1, 16], implicit: false, out_dtype: f32, out_rank: 3}
-      11: {size: [1, 8, 1], implicit: false, out_dtype: f32, out_rank: 3}
-      12: {size: [1, 2, 1, 13], implicit: false, out_dtype: f32, out_rank: 4}
-      13: {size: [1, 2, 1, 1], implicit: false, out_dtype: f32, out_rank: 4}
-      14: {size: [1, 2, 1, 24], implicit: false, out_dtype: f32, out_rank: 4}
-      15: {size: [1, 2, 13, 1], implicit: false, out_dtype: f32, out_rank: 4}
-      16: {size: [1, 2, 13, 24], implicit: false, out_dtype: f32, out_rank: 4}
-      17: {size: [1, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      18: {size: [1, 2, 16, 32], implicit: false, out_dtype: f32, out_rank: 4}
-      19: {size: [1, 2, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
-      20: {size: [1, 2, 16, 64], implicit: false, out_dtype: f32, out_rank: 4}
-      21: {size: [1, 2, 24, 13], implicit: false, out_dtype: f32, out_rank: 4}
-      22: {size: [1, 2, 24, 24], implicit: false, out_dtype: f32, out_rank: 4}
-      23: {size: [1, 2, 32, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      24: {size: [1, 2, 32, 32], implicit: false, out_dtype: f32, out_rank: 4}
-      25: {size: [1, 2, 32, 4], implicit: false, out_dtype: f32, out_rank: 4}
-      26: {size: [1, 2, 32, 5], implicit: false, out_dtype: f32, out_rank: 4}
-      27: {size: [1, 2, 32, 8], implicit: false, out_dtype: f32, out_rank: 4}
-      28: {size: [1, 2, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      29: {size: [1, 2, 4, 32], implicit: false, out_dtype: f32, out_rank: 4}
-      30: {size: [1, 2, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
-      31: {size: [1, 2, 5, 32], implicit: false, out_dtype: f32, out_rank: 4}
-      32: {size: [1, 2, 5, 5], implicit: false, out_dtype: f32, out_rank: 4}
-      33: {size: [1, 2, 64, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      34: {size: [1, 2, 8, 32], implicit: false, out_dtype: f32, out_rank: 4}
-      35: {size: [1, 2, 8, 8], implicit: false, out_dtype: f32, out_rank: 4}
-      36: {size: [1, 4, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      37: {size: [4, 4, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      38: {size: [4, 4, 16, 24], implicit: false, out_dtype: f32, out_rank: 4}
-      39: {size: [4, 4, 16, 256], implicit: false, out_dtype: f32, out_rank: 4}
-      40: {size: [4, 4, 20, 64], implicit: false, out_dtype: f32, out_rank: 4}
-      41: {size: [4, 4, 24, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      42: {size: [4, 4, 256, 16], implicit: false, out_dtype: f32, out_rank: 4}
-      43: {size: [4, 4, 256, 256], implicit: false, out_dtype: f32, out_rank: 4}
-      44: {size: [4, 4, 64, 20], implicit: false, out_dtype: f32, out_rank: 4}
-      45: {size: [4, 4, 64, 64], implicit: false, out_dtype: f32, out_rank: 4}
-      46: {size: [1, 2, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 5}
+      3: {size: [1, -1, 11, 11], implicit: false, out_dtype: bool, out_rank: 4}
+      4: {size: [1, -1, 16, 16], implicit: false, out_dtype: bool, out_rank: 4}
+      5: {size: [1, -1, 17, 17], implicit: false, out_dtype: bool, out_rank: 4}
+      6: {size: [1, -1, 21, 21], implicit: false, out_dtype: bool, out_rank: 4}
+      7: {size: [1, -1, 24, 24], implicit: false, out_dtype: bool, out_rank: 4}
+      8: {size: [1, -1, 257, 257], implicit: false, out_dtype: bool, out_rank: 4}
+      9: {size: [1, -1, 4, 16], implicit: false, out_dtype: bool, out_rank: 4}
+      10: {size: [1, -1, 4, 4], implicit: false, out_dtype: bool, out_rank: 4}
+      11: {size: [1, -1, 47, 47], implicit: false, out_dtype: bool, out_rank: 4}
+      12: {size: [1, -1, 5, 5], implicit: false, out_dtype: bool, out_rank: 4}
+      13: {size: [1, -1, 50, 50], implicit: false, out_dtype: bool, out_rank: 4}
+      14: {size: [{$symint: true}, -1, 16, 16], implicit: false, out_dtype: bool, out_rank: 4}
+      15: {size: [1, 32], implicit: false, out_dtype: f32, out_rank: 2}
+      16: {size: [-1, 24, -1], implicit: false, out_dtype: f32, out_rank: 3}
+      17: {size: [1, -1, -1], implicit: false, out_dtype: f32, out_rank: 3}
+      18: {size: [1, -1, 1], implicit: false, out_dtype: f32, out_rank: 3}
+      19: {size: [1, 1, -1], implicit: false, out_dtype: f32, out_rank: 3}
+      20: {size: [1, 1, 11], implicit: false, out_dtype: f32, out_rank: 3}
+      21: {size: [1, 1, 16], implicit: false, out_dtype: f32, out_rank: 3}
+      22: {size: [1, 1536, 24], implicit: false, out_dtype: f32, out_rank: 3}
+      23: {size: [1, 1536, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      24: {size: [1, 1536, 8], implicit: false, out_dtype: f32, out_rank: 3}
+      25: {size: [1, 16, 1536], implicit: false, out_dtype: f32, out_rank: 3}
+      26: {size: [1, 16, 1], implicit: false, out_dtype: f32, out_rank: 3}
+      27: {size: [1, 16, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      28: {size: [1, 196, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      29: {size: [1, 2, 1], implicit: false, out_dtype: f32, out_rank: 3}
+      30: {size: [1, 3136, 8], implicit: false, out_dtype: f32, out_rank: 3}
+      31: {size: [1, 32, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      32: {size: [1, 4, 1], implicit: false, out_dtype: f32, out_rank: 3}
+      33: {size: [1, 49, 64], implicit: false, out_dtype: f32, out_rank: 3}
+      34: {size: [1, 64, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      35: {size: [1, 784, 16], implicit: false, out_dtype: f32, out_rank: 3}
+      36: {size: [1, 8, 1], implicit: false, out_dtype: f32, out_rank: 3}
+      37: {size: [1, 8, 32], implicit: false, out_dtype: f32, out_rank: 3}
+      38: {size: [4, 16, 16], implicit: false, out_dtype: f32, out_rank: 3}
+      39: {size: [4, 16, 8], implicit: false, out_dtype: f32, out_rank: 3}
+      40: {size: [4, 8, 16], implicit: false, out_dtype: f32, out_rank: 3}
+      41: {size: [1, -1, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      42: {size: [1, -1, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      43: {size: [1, 1, 16, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      44: {size: [1, 1, 16, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      45: {size: [1, 1, 3, 2], implicit: false, out_dtype: f32, out_rank: 4}
+      46: {size: [1, 1, 3136, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      47: {size: [1, 1, 3136, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      48: {size: [1, 1, 32, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      49: {size: [1, 1, 4, 256], implicit: false, out_dtype: f32, out_rank: 4}
+      50: {size: [1, 1, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      51: {size: [1, 1, 49, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      52: {size: [1, 1, 49, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      53: {size: [1, 1, 784, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      54: {size: [1, 1, 784, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      55: {size: [1, 1, 8, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      56: {size: [1, 2, 1, 13], implicit: false, out_dtype: f32, out_rank: 4}
+      57: {size: [1, 2, 1, 1], implicit: false, out_dtype: f32, out_rank: 4}
+      58: {size: [1, 2, 1, 24], implicit: false, out_dtype: f32, out_rank: 4}
+      59: {size: [1, 2, 11, 11], implicit: false, out_dtype: f32, out_rank: 4}
+      60: {size: [1, 2, 11, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      61: {size: [1, 2, 13, 1], implicit: false, out_dtype: f32, out_rank: 4}
+      62: {size: [1, 2, 13, 24], implicit: false, out_dtype: f32, out_rank: 4}
+      63: {size: [1, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      64: {size: [1, 2, 16, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      65: {size: [1, 2, 16, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      66: {size: [1, 2, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      67: {size: [1, 2, 16, 50], implicit: false, out_dtype: f32, out_rank: 4}
+      68: {size: [1, 2, 16, 64], implicit: false, out_dtype: f32, out_rank: 4}
+      69: {size: [1, 2, 196, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      70: {size: [1, 2, 196, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      71: {size: [1, 2, 207, 207], implicit: false, out_dtype: f32, out_rank: 4}
+      72: {size: [1, 2, 207, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      73: {size: [1, 2, 24, 13], implicit: false, out_dtype: f32, out_rank: 4}
+      74: {size: [1, 2, 24, 24], implicit: false, out_dtype: f32, out_rank: 4}
+      75: {size: [1, 2, 32, 11], implicit: false, out_dtype: f32, out_rank: 4}
+      76: {size: [1, 2, 32, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      77: {size: [1, 2, 32, 207], implicit: false, out_dtype: f32, out_rank: 4}
+      78: {size: [1, 2, 32, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      79: {size: [1, 2, 32, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      80: {size: [1, 2, 32, 5], implicit: false, out_dtype: f32, out_rank: 4}
+      81: {size: [1, 2, 32, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      82: {size: [1, 2, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      83: {size: [1, 2, 4, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      84: {size: [1, 2, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      85: {size: [1, 2, 49, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      86: {size: [1, 2, 5, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      87: {size: [1, 2, 5, 5], implicit: false, out_dtype: f32, out_rank: 4}
+      88: {size: [1, 2, 50, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      89: {size: [1, 2, 50, 50], implicit: false, out_dtype: f32, out_rank: 4}
+      90: {size: [1, 2, 64, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      91: {size: [1, 2, 8, 32], implicit: false, out_dtype: f32, out_rank: 4}
+      92: {size: [1, 2, 8, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      93: {size: [1, 4, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      94: {size: [1, 4, 16, 257], implicit: false, out_dtype: f32, out_rank: 4}
+      95: {size: [1, 4, 16, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      96: {size: [1, 4, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      97: {size: [1, 4, 16, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      98: {size: [1, 4, 17, 17], implicit: false, out_dtype: f32, out_rank: 4}
+      99: {size: [1, 4, 17, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      100: {size: [1, 4, 21, 21], implicit: false, out_dtype: f32, out_rank: 4}
+      101: {size: [1, 4, 21, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      102: {size: [1, 4, 257, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      103: {size: [1, 4, 257, 257], implicit: false, out_dtype: f32, out_rank: 4}
+      104: {size: [1, 4, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      105: {size: [1, 4, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      106: {size: [1, 4, 4, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      107: {size: [1, 4, 47, 47], implicit: false, out_dtype: f32, out_rank: 4}
+      108: {size: [1, 4, 47, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      109: {size: [1, 4, 49, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      110: {size: [1, 4, 49, 49], implicit: false, out_dtype: f32, out_rank: 4}
+      111: {size: [1, 4, 5, 5], implicit: false, out_dtype: f32, out_rank: 4}
+      112: {size: [1, 4, 5, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      113: {size: [1, 4, 8, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      114: {size: [1, 4, 8, 17], implicit: false, out_dtype: f32, out_rank: 4}
+      115: {size: [1, 4, 8, 21], implicit: false, out_dtype: f32, out_rank: 4}
+      116: {size: [1, 4, 8, 47], implicit: false, out_dtype: f32, out_rank: 4}
+      117: {size: [1, 4, 8, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      118: {size: [1, 4, 8, 5], implicit: false, out_dtype: f32, out_rank: 4}
+      119: {size: [1, 4, 8, 8], implicit: false, out_dtype: f32, out_rank: 4}
+      120: {size: [1, 8, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      121: {size: [1, 8, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      122: {size: [1, 8, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      123: {size: [1, 8, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      124: {size: [16, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      125: {size: [16, 2, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      126: {size: [16, 2, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      127: {size: [16, 2, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      128: {size: [4, 4, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      129: {size: [4, 4, 16, 24], implicit: false, out_dtype: f32, out_rank: 4}
+      130: {size: [4, 4, 16, 256], implicit: false, out_dtype: f32, out_rank: 4}
+      131: {size: [4, 4, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      132: {size: [4, 4, 20, 64], implicit: false, out_dtype: f32, out_rank: 4}
+      133: {size: [4, 4, 24, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      134: {size: [4, 4, 256, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      135: {size: [4, 4, 256, 256], implicit: false, out_dtype: f32, out_rank: 4}
+      136: {size: [4, 4, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      137: {size: [4, 4, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      138: {size: [4, 4, 64, 20], implicit: false, out_dtype: f32, out_rank: 4}
+      139: {size: [4, 4, 64, 64], implicit: false, out_dtype: f32, out_rank: 4}
+      140: {size: [64, 1, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      141: {size: [64, 1, 16, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      142: {size: [64, 1, 4, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      143: {size: [64, 1, 4, 4], implicit: false, out_dtype: f32, out_rank: 4}
+      144: {size: [{$symint: true}, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 4}
+      145: {size: [1, 1, 2, 11, 32], implicit: false, out_dtype: f32, out_rank: 5}
+      146: {size: [1, 1, 32, 4, 4], implicit: false, out_dtype: f32, out_rank: 5}
+      147: {size: [1, 2, 2, 16, 16], implicit: false, out_dtype: f32, out_rank: 5}
+      148: {size: [1, 2, 2, 16, 8], implicit: false, out_dtype: f32, out_rank: 5}
+      149: {size: [1, -1], implicit: false, out_dtype: i64, out_rank: 2}
+      150: {size: [1, 16], implicit: false, out_dtype: i64, out_rank: 2}
+  floor.default:
+    schema: floor(Tensor self) -> Tensor
+    configs:
+      1: {out_dtype: f32, out_rank: 1}
+      2: {out_dtype: f32, out_rank: 2}
   full.default:
     schema: full(SymInt[] size, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
     configs:
       1: {size: [], fill_value: true, dtype: torch.bool, out_dtype: bool, out_rank: 0}
       2: {size: [1, 1, 27], fill_value: 0, dtype: torch.float32, out_dtype: f32, out_rank: 3}
-      3: {size: [1, 2, 4, 16], fill_value: 0, dtype: torch.float32, out_dtype: f32, out_rank: 4}
+      3: {size: [1, 1536, 8], fill_value: 0, dtype: torch.float32, out_dtype: f32, out_rank: 3}
+      4: {size: [1, 1, 1, 2], fill_value: 0, dtype: torch.float32, out_dtype: f32, out_rank: 4}
+      5: {size: [1, 2, 4, 16], fill_value: 0, dtype: torch.float32, out_dtype: f32, out_rank: 4}
+      6: {size: [4, 4], fill_value: 1, dtype: torch.float32, out_dtype: f32, out_rank: 2}
+      7: {size: [1, 1, 1], fill_value: 1, dtype: torch.float32, out_dtype: f32, out_rank: 3}
+      8: {size: [1, 16], fill_value: 0, dtype: torch.int64, out_dtype: i64, out_rank: 2}
+      9: {size: [1, 5], fill_value: 1, dtype: torch.int64, out_dtype: i64, out_rank: 2}
+      10: {size: [{$symint: true}, 16], fill_value: 0, dtype: null, out_dtype: i64, out_rank: 2}
   full_like.default:
     schema: full_like(Tensor self, Scalar fill_value, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor
     configs:
       1: {fill_value: 0, dtype: null, memory_format: torch.preserve_format, out_dtype: f32, out_rank: 2}
-      2: {fill_value: 0, dtype: null, memory_format: torch.preserve_format, out_dtype: i64, out_rank: 2}
-      3: {fill_value: 15, dtype: null, memory_format: null, out_dtype: i64, out_rank: 2}
-      4: {fill_value: 31, dtype: null, memory_format: null, out_dtype: i64, out_rank: 2}
+      2: {fill_value: 0, dtype: null, memory_format: torch.preserve_format, out_dtype: f32, out_rank: 4}
+      3: {fill_value: 0, dtype: null, memory_format: torch.preserve_format, out_dtype: i64, out_rank: 2}
+      4: {fill_value: 15, dtype: null, memory_format: null, out_dtype: i64, out_rank: 2}
+      5: {fill_value: 15, dtype: null, memory_format: null, out_dtype: i64, out_rank: 3}
+      6: {fill_value: 31, dtype: null, memory_format: null, out_dtype: i64, out_rank: 2}
+      7: {fill_value: 31, dtype: null, memory_format: null, out_dtype: i64, out_rank: 3}
+  gather.default:
+    schema: gather(Tensor self, int dim, Tensor index, *, bool sparse_grad=False) -> Tensor
+    configs:
+      1: {dim: 1, sparse_grad: false, out_dtype: i64, out_rank: 2}
   ge.Scalar:
     schema: ge.Scalar(Tensor self, Scalar other) -> Tensor
     configs:
@@ -217,44 +465,83 @@ ops:
     schema: gelu(Tensor self, *, str approximate="none") -> Tensor
     configs:
       1: {approximate: none, out_dtype: f32, out_rank: 3}
+      2: {approximate: none, out_dtype: f32, out_rank: 4}
+      3: {approximate: tanh, out_dtype: f32, out_rank: 3}
   gt.Scalar:
     schema: gt.Scalar(Tensor self, Scalar other) -> Tensor
     configs:
       1: {other: 0, out_dtype: bool, out_rank: 2}
+      2: {other: 0, out_dtype: bool, out_rank: 3}
+      3: {other: 20, out_dtype: bool, out_rank: 3}
   index.Tensor:
     schema: index.Tensor(Tensor self, Tensor?[] indices) -> Tensor
     configs:
       1: {out_dtype: bool, out_rank: 4}
       2: {out_dtype: f32, out_rank: 2}
       3: {out_dtype: f32, out_rank: 3}
-      4: {out_dtype: i64, out_rank: 4}
+      4: {out_dtype: f32, out_rank: 4}
+      5: {out_dtype: i64, out_rank: 1}
+      6: {out_dtype: i64, out_rank: 3}
+      7: {out_dtype: i64, out_rank: 4}
+  index_put.default:
+    schema: index_put(Tensor self, Tensor?[] indices, Tensor values, bool accumulate=False) -> Tensor
+    configs:
+      1: {accumulate: false, out_dtype: i64, out_rank: 2}
+  le.Scalar:
+    schema: le.Scalar(Tensor self, Scalar other) -> Tensor
+    configs:
+      1: {other: 8, out_dtype: bool, out_rank: 4}
   le.Tensor:
     schema: le.Tensor(Tensor self, Tensor other) -> Tensor
     configs:
       1: {out_dtype: bool, out_rank: 4}
+  linalg_vector_norm.default:
+    schema: linalg_vector_norm(Tensor self, Scalar ord=2, int[1]? dim=None, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
+    configs:
+      1: {ord: 2, dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
+      2: {ord: 2.0, dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
+      3: {ord: 2.0, dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 3}
+      4: {ord: 2, dim: [0, 1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 3}
+      5: {ord: 2, dim: [1, 2], keepdim: true, dtype: null, out_dtype: f32, out_rank: 4}
   log.default:
     schema: log(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 2}
+      2: {out_dtype: f32, out_rank: 3}
   log1p.default:
     schema: log1p(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 2}
+      2: {out_dtype: f32, out_rank: 3}
   lt.Scalar:
     schema: lt.Scalar(Tensor self, Scalar other) -> Tensor
     configs:
-      1: {other: 16, out_dtype: bool, out_rank: 2}
-      2: {other: 8, out_dtype: bool, out_rank: 2}
+      1: {other: 0, out_dtype: bool, out_rank: 2}
+      2: {other: 16, out_dtype: bool, out_rank: 2}
+      3: {other: 16, out_dtype: bool, out_rank: 3}
+      4: {other: 8, out_dtype: bool, out_rank: 2}
+      5: {other: 8, out_dtype: bool, out_rank: 3}
+  masked_scatter.default:
+    schema: masked_scatter(Tensor self, Tensor mask, Tensor source) -> Tensor
+    configs:
+      1: {out_dtype: f32, out_rank: 3}
+  max_pool2d_with_indices.default:
+    schema: max_pool2d_with_indices(Tensor self, int[2] kernel_size, int[2] stride=[], int[2] padding=0, int[2] dilation=1, bool ceil_mode=False) -> (Tensor, Tensor)
+    configs:
+      1: {kernel_size: [3, 3], stride: [2, 2], padding: [1, 1], dilation: [1, 1], ceil_mode: false, out_dtype: f32, out_rank: 4}
   mean.dim:
     schema: mean.dim(Tensor self, int[1]? dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
     configs:
-      1: {dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 3}
-      2: {dim: [-2, -1], keepdim: false, dtype: null, out_dtype: f32, out_rank: 2}
-      3: {dim: [1], keepdim: false, dtype: null, out_dtype: f32, out_rank: 2}
+      1: {dim: [-1, -2], keepdim: true, dtype: null, out_dtype: f32, out_rank: 4}
+      2: {dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 3}
+      3: {dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 4}
+      4: {dim: [-2, -1], keepdim: false, dtype: null, out_dtype: f32, out_rank: 2}
+      5: {dim: [1], keepdim: false, dtype: null, out_dtype: f32, out_rank: 2}
   minimum.default:
     schema: minimum(Tensor self, Tensor other) -> Tensor
     configs:
       1: {out_dtype: i64, out_rank: 2}
+      2: {out_dtype: i64, out_rank: 3}
   mm.default:
     schema: mm(Tensor self, Tensor mat2) -> Tensor
     configs:
@@ -262,54 +549,107 @@ ops:
   mul.Tensor:
     schema: mul.Tensor(Tensor self, Tensor other) -> Tensor
     configs:
+      1: {out_dtype: f32, out_rank: 1}
+      2: {out_dtype: f32, out_rank: 2}
+      3: {out_dtype: f32, out_rank: 3}
+      4: {out_dtype: f32, out_rank: 4}
+      5: {out_dtype: i32, out_rank: 2}
+      6: {out_dtype: i64, out_rank: 2}
+      7: {out_dtype: i64, out_rank: 3}
+  native_group_norm.default:
+    schema: native_group_norm(Tensor input, Tensor? weight, Tensor? bias, SymInt N, SymInt C, SymInt HxW, int group, float eps) -> (Tensor, Tensor, Tensor)
+    configs:
+      1: {N: 1, C: 16, HxW: 203, group: 16, eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+  native_layer_norm.default:
+    schema: native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)
+    configs:
+      1: {normalized_shape: [128], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      2: {normalized_shape: [16], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      3: {normalized_shape: [256], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      4: {normalized_shape: [26], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      5: {normalized_shape: [32], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      6: {normalized_shape: [32], eps: 1.0e-05, out_dtype: f32, out_rank: 4}
+      7: {normalized_shape: [64], eps: 1.0e-05, out_dtype: f32, out_rank: 2}
+      8: {normalized_shape: [64], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      9: {normalized_shape: [80], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      10: {normalized_shape: [8], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      11: {normalized_shape: [96], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
+      12: {normalized_shape: [16], eps: 1.0e-06, out_dtype: f32, out_rank: 4}
+      13: {normalized_shape: [32], eps: 1.0e-06, out_dtype: f32, out_rank: 3}
+      14: {normalized_shape: [32], eps: 1.0e-06, out_dtype: f32, out_rank: 4}
+      15: {normalized_shape: [64], eps: 1.0e-06, out_dtype: f32, out_rank: 3}
+      16: {normalized_shape: [64], eps: 1.0e-06, out_dtype: f32, out_rank: 4}
+      17: {normalized_shape: [8], eps: 1.0e-06, out_dtype: f32, out_rank: 4}
+      18: {normalized_shape: [128], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
+      19: {normalized_shape: [16], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
+      20: {normalized_shape: [32], eps: 1.0e-12, out_dtype: f32, out_rank: 2}
+      21: {normalized_shape: [32], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
+      22: {normalized_shape: [64], eps: 1.0e-12, out_dtype: f32, out_rank: 2}
+      23: {normalized_shape: [64], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
+  ne.Scalar:
+    schema: ne.Scalar(Tensor self, Scalar other) -> Tensor
+    configs:
+      1: {other: -10, out_dtype: bool, out_rank: 4}
+      2: {other: 0, out_dtype: bool, out_rank: 2}
+      3: {other: 1, out_dtype: bool, out_rank: 2}
+      4: {other: 3072, out_dtype: bool, out_rank: 1}
+  neg.default:
+    schema: neg(Tensor self) -> Tensor
+    configs:
       1: {out_dtype: f32, out_rank: 2}
       2: {out_dtype: f32, out_rank: 3}
       3: {out_dtype: f32, out_rank: 4}
       4: {out_dtype: i64, out_rank: 2}
-  native_layer_norm.default:
-    schema: native_layer_norm(Tensor input, SymInt[] normalized_shape, Tensor? weight, Tensor? bias, float eps) -> (Tensor, Tensor, Tensor)
-    configs:
-      1: {normalized_shape: [26], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
-      2: {normalized_shape: [32], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
-      3: {normalized_shape: [64], eps: 1.0e-05, out_dtype: f32, out_rank: 2}
-      4: {normalized_shape: [64], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
-      5: {normalized_shape: [80], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
-      6: {normalized_shape: [96], eps: 1.0e-05, out_dtype: f32, out_rank: 3}
-      7: {normalized_shape: [128], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
-      8: {normalized_shape: [64], eps: 1.0e-12, out_dtype: f32, out_rank: 3}
-  ne.Scalar:
-    schema: ne.Scalar(Tensor self, Scalar other) -> Tensor
-    configs:
-      1: {other: 1, out_dtype: bool, out_rank: 2}
-  neg.default:
-    schema: neg(Tensor self) -> Tensor
-    configs:
-      1: {out_dtype: f32, out_rank: 4}
-      2: {out_dtype: i64, out_rank: 2}
   permute.default:
     schema: permute(Tensor(a) self, int[] dims) -> Tensor(a)
     configs:
-      1: {dims: [0, 1, 3, 2], out_dtype: f32, out_rank: 4}
-      2: {dims: [0, 2, 1, 3, 4], out_dtype: f32, out_rank: 5}
-      3: {dims: [0, 2, 1, 3], out_dtype: f32, out_rank: 4}
-      4: {dims: [0, 2, 1], out_dtype: f32, out_rank: 3}
-      5: {dims: [0, 3, 2, 1], out_dtype: f32, out_rank: 4}
-      6: {dims: [1, 0], out_dtype: f32, out_rank: 2}
-      7: {dims: [2, 0, 1], out_dtype: f32, out_rank: 3}
+      1: {dims: [0, 1, 2, 4, 3], out_dtype: f32, out_rank: 5}
+      2: {dims: [0, 1, 3, 2, 4, 5], out_dtype: f32, out_rank: 6}
+      3: {dims: [0, 1, 3, 2, 4], out_dtype: f32, out_rank: 5}
+      4: {dims: [0, 1, 3, 2], out_dtype: f32, out_rank: 4}
+      5: {dims: [0, 2, 1, 3, 4], out_dtype: f32, out_rank: 5}
+      6: {dims: [0, 2, 1, 3], out_dtype: f32, out_rank: 4}
+      7: {dims: [0, 2, 1], out_dtype: f32, out_rank: 3}
+      8: {dims: [0, 2, 3, 1, 4], out_dtype: f32, out_rank: 5}
+      9: {dims: [0, 2, 3, 1], out_dtype: f32, out_rank: 4}
+      10: {dims: [0, 3, 1, 2], out_dtype: f32, out_rank: 4}
+      11: {dims: [0, 3, 2, 1], out_dtype: f32, out_rank: 4}
+      12: {dims: [1, 0, 2, 4, 3], out_dtype: f32, out_rank: 5}
+      13: {dims: [1, 0], out_dtype: f32, out_rank: 2}
+      14: {dims: [1, 2, 0, 4, 3], out_dtype: f32, out_rank: 5}
+      15: {dims: [1, 3, 0, 2], out_dtype: f32, out_rank: 4}
+      16: {dims: [1, 4, 3, 0, 2], out_dtype: f32, out_rank: 5}
+      17: {dims: [2, 0, 1, 4, 3], out_dtype: f32, out_rank: 5}
+      18: {dims: [2, 0, 1], out_dtype: f32, out_rank: 3}
+      19: {dims: [2, 0, 3, 1, 4], out_dtype: f32, out_rank: 5}
+      20: {dims: [2, 0, 3, 1], out_dtype: f32, out_rank: 4}
+      21: {dims: [2, 4, 3, 0, 1], out_dtype: f32, out_rank: 5}
+      22: {dims: [3, 0, 2, 1], out_dtype: f32, out_rank: 4}
+      23: {dims: [3, 0, 4, 1, 2], out_dtype: f32, out_rank: 5}
+      24: {dims: [3, 4, 0, 1, 2], out_dtype: f32, out_rank: 5}
   pow.Tensor_Scalar:
     schema: pow.Tensor_Scalar(Tensor self, Scalar exponent) -> Tensor
     configs:
       1: {exponent: 0.5, out_dtype: f32, out_rank: 2}
       2: {exponent: 2, out_dtype: f32, out_rank: 2}
       3: {exponent: 2, out_dtype: f32, out_rank: 3}
+      4: {exponent: 3.0, out_dtype: f32, out_rank: 3}
+  reciprocal.default:
+    schema: reciprocal(Tensor self) -> Tensor
+    configs:
+      1: {out_dtype: f32, out_rank: 1}
   relu.default:
     schema: relu(Tensor self) -> Tensor
     configs:
-      1: {out_dtype: f32, out_rank: 3}
+      1: {out_dtype: f32, out_rank: 2}
+      2: {out_dtype: f32, out_rank: 3}
+      3: {out_dtype: f32, out_rank: 4}
   repeat.default:
     schema: repeat(Tensor self, SymInt[] repeats) -> Tensor
     configs:
-      1: {repeats: [1, 1], out_dtype: i64, out_rank: 2}
+      1: {repeats: [1, 1, 1, 1], out_dtype: f32, out_rank: 4}
+      2: {repeats: [1, 1], out_dtype: i64, out_rank: 2}
+      3: {repeats: [1, 1, 1], out_dtype: i64, out_rank: 3}
   rsqrt.default:
     schema: rsqrt(Tensor self) -> Tensor
     configs:
@@ -318,10 +658,51 @@ ops:
     schema: scalar_tensor(Scalar s, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
     configs:
       1: {s: -3.4028234663852886e+38, dtype: torch.float32, out_dtype: f32, out_rank: 0}
+      2: {s: 0.0, dtype: torch.float32, out_dtype: f32, out_rank: 0}
   select.int:
     schema: select.int(Tensor(a) self, int dim, SymInt index) -> Tensor(a)
     configs:
-      1: {dim: 1, index: 0, out_dtype: f32, out_rank: 2}
+      1: {dim: 1, index: 0, out_dtype: bool, out_rank: 2}
+      2: {dim: 1, index: 0, out_dtype: f32, out_rank: 2}
+      3: {dim: 1, index: 1, out_dtype: f32, out_rank: 2}
+      4: {dim: 1, index: 10, out_dtype: f32, out_rank: 2}
+      5: {dim: 1, index: 11, out_dtype: f32, out_rank: 2}
+      6: {dim: 1, index: 12, out_dtype: f32, out_rank: 2}
+      7: {dim: 1, index: 13, out_dtype: f32, out_rank: 2}
+      8: {dim: 1, index: 14, out_dtype: f32, out_rank: 2}
+      9: {dim: 1, index: 15, out_dtype: f32, out_rank: 2}
+      10: {dim: 1, index: 2, out_dtype: f32, out_rank: 2}
+      11: {dim: 1, index: 3, out_dtype: f32, out_rank: 2}
+      12: {dim: 1, index: 4, out_dtype: f32, out_rank: 2}
+      13: {dim: 1, index: 5, out_dtype: f32, out_rank: 2}
+      14: {dim: 1, index: 6, out_dtype: f32, out_rank: 2}
+      15: {dim: 1, index: 7, out_dtype: f32, out_rank: 2}
+      16: {dim: 1, index: 8, out_dtype: f32, out_rank: 2}
+      17: {dim: 1, index: 9, out_dtype: f32, out_rank: 2}
+      18: {dim: 2, index: 0, out_dtype: bool, out_rank: 2}
+      19: {dim: 2, index: 0, out_dtype: f32, out_rank: 2}
+      20: {dim: 2, index: 0, out_dtype: f32, out_rank: 3}
+      21: {dim: 2, index: 0, out_dtype: i64, out_rank: 2}
+      22: {dim: 2, index: 1, out_dtype: f32, out_rank: 3}
+      23: {dim: 2, index: 1, out_dtype: i64, out_rank: 2}
+      24: {dim: 2, index: 10, out_dtype: f32, out_rank: 3}
+      25: {dim: 2, index: 11, out_dtype: f32, out_rank: 3}
+      26: {dim: 2, index: 12, out_dtype: f32, out_rank: 3}
+      27: {dim: 2, index: 13, out_dtype: f32, out_rank: 3}
+      28: {dim: 2, index: 14, out_dtype: f32, out_rank: 3}
+      29: {dim: 2, index: 15, out_dtype: f32, out_rank: 3}
+      30: {dim: 2, index: 2, out_dtype: f32, out_rank: 3}
+      31: {dim: 2, index: 2, out_dtype: i64, out_rank: 2}
+      32: {dim: 2, index: 3, out_dtype: f32, out_rank: 3}
+      33: {dim: 2, index: 3, out_dtype: i64, out_rank: 2}
+      34: {dim: 2, index: 4, out_dtype: f32, out_rank: 3}
+      35: {dim: 2, index: 5, out_dtype: f32, out_rank: 3}
+      36: {dim: 2, index: 6, out_dtype: f32, out_rank: 3}
+      37: {dim: 2, index: 7, out_dtype: f32, out_rank: 3}
+      38: {dim: 2, index: 8, out_dtype: f32, out_rank: 3}
+      39: {dim: 2, index: 9, out_dtype: f32, out_rank: 3}
+      40: {dim: 3, index: 0, out_dtype: f32, out_rank: 3}
+      41: {dim: 3, index: 1, out_dtype: f32, out_rank: 3}
   sigmoid.default:
     schema: sigmoid(Tensor self) -> Tensor
     configs:
@@ -331,345 +712,1567 @@ ops:
     schema: sin(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 3}
+      2: {out_dtype: f32, out_rank: 4}
   slice.Tensor:
     schema: slice.Tensor(Tensor(a) self, int dim=0, SymInt? start=None, SymInt? end=None, SymInt step=1) -> Tensor(a)
     configs:
       1: {dim: -1, start: 0, end: 4, step: 1, out_dtype: i64, out_rank: 2}
       2: {dim: -1, start: 1, end: 5, step: 1, out_dtype: i64, out_rank: 2}
-      3: {dim: 1, start: -25, end: -1, step: 1, out_dtype: f32, out_rank: 2}
-      4: {dim: 1, start: -35, end: -11, step: 1, out_dtype: f32, out_rank: 2}
-      5: {dim: 1, start: -36, end: -12, step: 1, out_dtype: f32, out_rank: 2}
-      6: {dim: 1, start: -37, end: -13, step: 1, out_dtype: f32, out_rank: 2}
-      7: {dim: 1, start: -26, end: -2, step: 1, out_dtype: f32, out_rank: 2}
-      8: {dim: 1, start: -47, end: -23, step: 1, out_dtype: f32, out_rank: 2}
-      9: {dim: 1, start: -48, end: -24, step: 1, out_dtype: f32, out_rank: 2}
-      10: {dim: 1, start: -49, end: -25, step: 1, out_dtype: f32, out_rank: 2}
-      11: {dim: 1, start: -27, end: -3, step: 1, out_dtype: f32, out_rank: 2}
-      12: {dim: 1, start: -59, end: -35, step: 1, out_dtype: f32, out_rank: 2}
-      13: {dim: 1, start: -60, end: -36, step: 1, out_dtype: f32, out_rank: 2}
-      14: {dim: 1, start: -61, end: -37, step: 1, out_dtype: f32, out_rank: 2}
-      15: {dim: 1, start: -28, end: -4, step: 1, out_dtype: f32, out_rank: 2}
-      16: {dim: 1, start: -29, end: -5, step: 1, out_dtype: f32, out_rank: 2}
-      17: {dim: 1, start: -30, end: -6, step: 1, out_dtype: f32, out_rank: 2}
-      18: {dim: 1, start: -31, end: -7, step: 1, out_dtype: f32, out_rank: 2}
-      19: {dim: 1, start: 0, end: 1, step: 1, out_dtype: i64, out_rank: 2}
-      20: {dim: 1, start: 0, end: 16, step: 1, out_dtype: i64, out_rank: 2}
-      21: {dim: 1, start: -24, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 2}
-      22: {dim: 1, start: 37, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 3}
-      23: {dim: 3, start: 0, end: 8, step: 1, out_dtype: f32, out_rank: 4}
-      24: {dim: 3, start: 8, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 4}
+      3: {dim: 0, start: 0, end: 1, step: 1, out_dtype: f32, out_rank: 2}
+      4: {dim: 0, start: 0, end: 1, step: 1, out_dtype: f32, out_rank: 3}
+      5: {dim: 0, start: 0, end: 1, step: 1, out_dtype: f32, out_rank: 4}
+      6: {dim: 0, start: 1, end: 2, step: 1, out_dtype: f32, out_rank: 2}
+      7: {dim: 0, start: 1, end: 2, step: 1, out_dtype: f32, out_rank: 3}
+      8: {dim: 0, start: 1, end: 2, step: 1, out_dtype: f32, out_rank: 4}
+      9: {dim: 0, start: 2, end: 3, step: 1, out_dtype: f32, out_rank: 4}
+      10: {dim: 1, start: -25, end: -1, step: 1, out_dtype: f32, out_rank: 2}
+      11: {dim: 1, start: 1, end: -10, step: 1, out_dtype: f32, out_rank: 3}
+      12: {dim: 1, start: -35, end: -11, step: 1, out_dtype: f32, out_rank: 2}
+      13: {dim: 1, start: -36, end: -12, step: 1, out_dtype: f32, out_rank: 2}
+      14: {dim: 1, start: -37, end: -13, step: 1, out_dtype: f32, out_rank: 2}
+      15: {dim: 1, start: -26, end: -2, step: 1, out_dtype: f32, out_rank: 2}
+      16: {dim: 1, start: -47, end: -23, step: 1, out_dtype: f32, out_rank: 2}
+      17: {dim: 1, start: -48, end: -24, step: 1, out_dtype: f32, out_rank: 2}
+      18: {dim: 1, start: -49, end: -25, step: 1, out_dtype: f32, out_rank: 2}
+      19: {dim: 1, start: -27, end: -3, step: 1, out_dtype: f32, out_rank: 2}
+      20: {dim: 1, start: -59, end: -35, step: 1, out_dtype: f32, out_rank: 2}
+      21: {dim: 1, start: -60, end: -36, step: 1, out_dtype: f32, out_rank: 2}
+      22: {dim: 1, start: -61, end: -37, step: 1, out_dtype: f32, out_rank: 2}
+      23: {dim: 1, start: -28, end: -4, step: 1, out_dtype: f32, out_rank: 2}
+      24: {dim: 1, start: -29, end: -5, step: 1, out_dtype: f32, out_rank: 2}
+      25: {dim: 1, start: -30, end: -6, step: 1, out_dtype: f32, out_rank: 2}
+      26: {dim: 1, start: -31, end: -7, step: 1, out_dtype: f32, out_rank: 2}
+      27: {dim: 1, start: 0, end: 1, step: 1, out_dtype: f32, out_rank: 3}
+      28: {dim: 1, start: 0, end: 1, step: 1, out_dtype: i64, out_rank: 2}
+      29: {dim: 1, start: 0, end: 16, step: 1, out_dtype: i64, out_rank: 2}
+      30: {dim: 1, start: -24, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 2}
+      31: {dim: 1, start: -10, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 3}
+      32: {dim: 1, start: 1, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 3}
+      33: {dim: 1, start: 37, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 3}
+      34: {dim: 1, start: 0, end: 9223372036854775807, step: 2, out_dtype: f32, out_rank: 4}
+      35: {dim: 1, start: 1, end: 9223372036854775807, step: 2, out_dtype: f32, out_rank: 4}
+      36: {dim: 2, start: 0, end: -1, step: 1, out_dtype: f32, out_rank: 3}
+      37: {dim: 2, start: 0, end: 1, step: 1, out_dtype: f32, out_rank: 5}
+      38: {dim: 2, start: 0, end: 16, step: 1, out_dtype: f32, out_rank: 3}
+      39: {dim: 2, start: 1, end: 2, step: 1, out_dtype: f32, out_rank: 5}
+      40: {dim: 2, start: 2, end: 3, step: 1, out_dtype: f32, out_rank: 5}
+      41: {dim: 2, start: 1, end: 5, step: 1, out_dtype: f32, out_rank: 4}
+      42: {dim: 2, start: 1, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 3}
+      43: {dim: 2, start: 0, end: 9223372036854775807, step: 2, out_dtype: f32, out_rank: 4}
+      44: {dim: 2, start: 1, end: 9223372036854775807, step: 2, out_dtype: f32, out_rank: 4}
+      45: {dim: 2, start: 1, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 5}
+      46: {dim: 3, start: 0, end: 16, step: 1, out_dtype: f32, out_rank: 4}
+      47: {dim: 3, start: 0, end: 2, step: 1, out_dtype: f32, out_rank: 4}
+      48: {dim: 3, start: 0, end: 4, step: 1, out_dtype: f32, out_rank: 4}
+      49: {dim: 3, start: 0, end: 8, step: 1, out_dtype: f32, out_rank: 4}
+      50: {dim: 3, start: 16, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 4}
+      51: {dim: 3, start: 2, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 4}
+      52: {dim: 3, start: 4, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 4}
+      53: {dim: 3, start: 8, end: 9223372036854775807, step: 1, out_dtype: f32, out_rank: 4}
+  split_with_sizes.default:
+    schema: split_with_sizes(Tensor(a -> *) self, SymInt[] split_sizes, int dim=0) -> Tensor(a)[]
+    configs:
+      1: {split_sizes: [64, 64], dim: -1, out_dtype: f32, out_rank: 3}
+      2: {split_sizes: [8, 8, 8], dim: -1, out_dtype: f32, out_rank: 3}
+      3: {split_sizes: [8, 8, 8], dim: -1, out_dtype: f32, out_rank: 4}
+      4: {split_sizes: [1536, 1536], dim: 1, out_dtype: f32, out_rank: 3}
+      5: {split_sizes: [32, 32, 32], dim: 2, out_dtype: f32, out_rank: 3}
   squeeze.dims:
     schema: squeeze.dims(Tensor(a) self, int[] dim) -> Tensor(a)
     configs:
       1: {dim: [-1], out_dtype: i64, out_rank: 1}
-      2: {dim: [0], out_dtype: f32, out_rank: 0}
+      2: {dim: [-2], out_dtype: f32, out_rank: 3}
+      3: {dim: [0], out_dtype: f32, out_rank: 0}
+      4: {dim: [0], out_dtype: f32, out_rank: 1}
+      5: {dim: [0], out_dtype: f32, out_rank: 2}
+      6: {dim: [0], out_dtype: f32, out_rank: 3}
+      7: {dim: [1], out_dtype: f32, out_rank: 2}
+      8: {dim: [1], out_dtype: f32, out_rank: 3}
+      9: {dim: [2], out_dtype: f32, out_rank: 4}
   sub.Tensor:
     schema: sub.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor
     configs:
-      1: {alpha: 1, out_dtype: f32, out_rank: 2}
-      2: {alpha: 1, out_dtype: i64, out_rank: 2}
+      1: {alpha: 1, out_dtype: f32, out_rank: 1}
+      2: {alpha: 1, out_dtype: f32, out_rank: 2}
+      3: {alpha: 1, out_dtype: f32, out_rank: 3}
+      4: {alpha: 1, out_dtype: f32, out_rank: 4}
+      5: {alpha: 1, out_dtype: i64, out_rank: 1}
+      6: {alpha: 1, out_dtype: i64, out_rank: 2}
+      7: {alpha: 1, out_dtype: i64, out_rank: 3}
+      8: {alpha: 1, out_dtype: i64, out_rank: 4}
   sum.dim_IntList:
     schema: sum.dim_IntList(Tensor self, int[1]? dim, bool keepdim=False, *, ScalarType? dtype=None) -> Tensor
     configs:
-      1: {dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
-      2: {dim: [0], keepdim: false, dtype: null, out_dtype: f32, out_rank: 1}
-      3: {dim: [1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
+      1: {dim: [-1, -2, -3], keepdim: false, dtype: null, out_dtype: i64, out_rank: 1}
+      2: {dim: [-1, -2], keepdim: false, dtype: null, out_dtype: i64, out_rank: 3}
+      3: {dim: [-1], keepdim: false, dtype: null, out_dtype: i64, out_rank: 1}
+      4: {dim: [-1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
+      5: {dim: [0], keepdim: false, dtype: null, out_dtype: f32, out_rank: 1}
+      6: {dim: [1], keepdim: false, dtype: null, out_dtype: f32, out_rank: 2}
+      7: {dim: [1], keepdim: false, dtype: null, out_dtype: i64, out_rank: 1}
+      8: {dim: [1], keepdim: true, dtype: null, out_dtype: f32, out_rank: 2}
+  sym_size.int:
+    schema: sym_size.int(Tensor self, int dim) -> SymInt
+    configs:
+      1: {dim: 0}
   tanh.default:
     schema: tanh(Tensor self) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 2}
+      2: {out_dtype: f32, out_rank: 3}
+  unfold.default:
+    schema: unfold(Tensor(a) self, int dimension, int size, int step) -> Tensor(a)
+    configs:
+      1: {dimension: 1, size: 8, step: 8, out_dtype: i64, out_rank: 4}
+      2: {dimension: 2, size: 8, step: 8, out_dtype: i64, out_rank: 5}
   unsqueeze.default:
     schema: unsqueeze(Tensor(a) self, int dim) -> Tensor(a)
     configs:
-      1: {dim: 0, out_dtype: f32, out_rank: 2}
-      2: {dim: 0, out_dtype: f32, out_rank: 4}
-      3: {dim: 0, out_dtype: i64, out_rank: 2}
-      4: {dim: 1, out_dtype: f32, out_rank: 3}
-      5: {dim: 1, out_dtype: f32, out_rank: 4}
-      6: {dim: 1, out_dtype: i64, out_rank: 2}
-      7: {dim: 1, out_dtype: i64, out_rank: 3}
-      8: {dim: 2, out_dtype: f32, out_rank: 3}
-      9: {dim: 2, out_dtype: f32, out_rank: 5}
-      10: {dim: 2, out_dtype: i64, out_rank: 3}
-      11: {dim: 2, out_dtype: i64, out_rank: 4}
-      12: {dim: 3, out_dtype: i64, out_rank: 4}
+      1: {dim: -1, out_dtype: bool, out_rank: 3}
+      2: {dim: -1, out_dtype: f32, out_rank: 2}
+      3: {dim: -1, out_dtype: f32, out_rank: 3}
+      4: {dim: -1, out_dtype: f32, out_rank: 4}
+      5: {dim: -1, out_dtype: i64, out_rank: 3}
+      6: {dim: -2, out_dtype: bool, out_rank: 3}
+      7: {dim: -2, out_dtype: f32, out_rank: 4}
+      8: {dim: -2, out_dtype: i64, out_rank: 3}
+      9: {dim: 0, out_dtype: f32, out_rank: 2}
+      10: {dim: 0, out_dtype: f32, out_rank: 3}
+      11: {dim: 0, out_dtype: f32, out_rank: 4}
+      12: {dim: 0, out_dtype: i64, out_rank: 2}
+      13: {dim: 1, out_dtype: f32, out_rank: 2}
+      14: {dim: 1, out_dtype: f32, out_rank: 3}
+      15: {dim: 1, out_dtype: f32, out_rank: 4}
+      16: {dim: 1, out_dtype: f32, out_rank: 5}
+      17: {dim: 1, out_dtype: i64, out_rank: 2}
+      18: {dim: 1, out_dtype: i64, out_rank: 3}
+      19: {dim: 2, out_dtype: f32, out_rank: 3}
+      20: {dim: 2, out_dtype: f32, out_rank: 4}
+      21: {dim: 2, out_dtype: f32, out_rank: 5}
+      22: {dim: 2, out_dtype: i64, out_rank: 3}
+      23: {dim: 2, out_dtype: i64, out_rank: 4}
+      24: {dim: 3, out_dtype: bool, out_rank: 4}
+      25: {dim: 3, out_dtype: f32, out_rank: 4}
+      26: {dim: 3, out_dtype: f32, out_rank: 5}
+      27: {dim: 3, out_dtype: i64, out_rank: 4}
+      28: {dim: 4, out_dtype: f32, out_rank: 5}
+  upsample_bilinear2d.vec:
+    schema: upsample_bilinear2d.vec(Tensor input, SymInt[]? output_size, bool align_corners, float[]? scale_factors) -> Tensor
+    configs:
+      1: {output_size: [56, 56], align_corners: false, scale_factors: null, out_dtype: f32, out_rank: 4}
+      2: {output_size: [16, 16], align_corners: true, scale_factors: null, out_dtype: f32, out_rank: 4}
+      3: {output_size: [224, 224], align_corners: true, scale_factors: null, out_dtype: f32, out_rank: 4}
+      4: {output_size: [32, 32], align_corners: true, scale_factors: null, out_dtype: f32, out_rank: 4}
+      5: {output_size: [64, 64], align_corners: true, scale_factors: null, out_dtype: f32, out_rank: 4}
+      6: {output_size: null, align_corners: true, scale_factors: [2.0, 2.0], out_dtype: f32, out_rank: 4}
   view.default:
     schema: view(Tensor(a) self, SymInt[] size) -> Tensor(a)
     configs:
-      1: {size: [1, 26], out_dtype: f32, out_rank: 2}
-      2: {size: [1, 27], out_dtype: f32, out_rank: 2}
-      3: {size: [1, 32], out_dtype: f32, out_rank: 2}
-      4: {size: [1024, 128], out_dtype: f32, out_rank: 2}
-      5: {size: [1024, 64], out_dtype: f32, out_rank: 2}
-      6: {size: [16, 128], out_dtype: f32, out_rank: 2}
-      7: {size: [16, 256], out_dtype: f32, out_rank: 2}
-      8: {size: [16, 64], out_dtype: f32, out_rank: 2}
-      9: {size: [24, 26], out_dtype: f32, out_rank: 2}
-      10: {size: [24, 27], out_dtype: f32, out_rank: 2}
-      11: {size: [24, 32], out_dtype: f32, out_rank: 2}
-      12: {size: [256, 160], out_dtype: f32, out_rank: 2}
-      13: {size: [256, 80], out_dtype: f32, out_rank: 2}
-      14: {size: [32, 32], out_dtype: f32, out_rank: 2}
-      15: {size: [32, 64], out_dtype: f32, out_rank: 2}
-      16: {size: [4, 128], out_dtype: f32, out_rank: 2}
-      17: {size: [4, 32], out_dtype: f32, out_rank: 2}
-      18: {size: [4, 64], out_dtype: f32, out_rank: 2}
-      19: {size: [5, 128], out_dtype: f32, out_rank: 2}
-      20: {size: [5, 64], out_dtype: f32, out_rank: 2}
-      21: {size: [64, 192], out_dtype: f32, out_rank: 2}
-      22: {size: [64, 96], out_dtype: f32, out_rank: 2}
-      23: {size: [8, 128], out_dtype: f32, out_rank: 2}
-      24: {size: [8, 64], out_dtype: f32, out_rank: 2}
-      25: {size: [1, 1, -1], out_dtype: f32, out_rank: 3}
-      26: {size: [1, 1, 16], out_dtype: f32, out_rank: 3}
-      27: {size: [1, 1, 26], out_dtype: f32, out_rank: 3}
-      28: {size: [1, 1, 32], out_dtype: f32, out_rank: 3}
-      29: {size: [1, 16, -1], out_dtype: f32, out_rank: 3}
-      30: {size: [1, 16, 128], out_dtype: f32, out_rank: 3}
-      31: {size: [1, 16, 256], out_dtype: f32, out_rank: 3}
-      32: {size: [1, 16, 32], out_dtype: f32, out_rank: 3}
-      33: {size: [1, 16, 64], out_dtype: f32, out_rank: 3}
-      34: {size: [1, 24, -1], out_dtype: f32, out_rank: 3}
-      35: {size: [1, 24, 26], out_dtype: f32, out_rank: 3}
-      36: {size: [1, 24, 32], out_dtype: f32, out_rank: 3}
-      37: {size: [1, 32, -1], out_dtype: f32, out_rank: 3}
-      38: {size: [1, 32, 32], out_dtype: f32, out_rank: 3}
-      39: {size: [1, 32, 64], out_dtype: f32, out_rank: 3}
-      40: {size: [1, 4, -1], out_dtype: f32, out_rank: 3}
-      41: {size: [1, 4, 128], out_dtype: f32, out_rank: 3}
-      42: {size: [1, 4, 256], out_dtype: f32, out_rank: 3}
-      43: {size: [1, 4, 32], out_dtype: f32, out_rank: 3}
-      44: {size: [1, 4, 64], out_dtype: f32, out_rank: 3}
-      45: {size: [1, 5, -1], out_dtype: f32, out_rank: 3}
-      46: {size: [1, 5, 128], out_dtype: f32, out_rank: 3}
-      47: {size: [1, 5, 64], out_dtype: f32, out_rank: 3}
-      48: {size: [1, 64, 4], out_dtype: f32, out_rank: 3}
-      49: {size: [1, 64, 8], out_dtype: f32, out_rank: 3}
-      50: {size: [1, 8, 128], out_dtype: f32, out_rank: 3}
-      51: {size: [1, 8, 16], out_dtype: f32, out_rank: 3}
-      52: {size: [1, 8, 1], out_dtype: f32, out_rank: 3}
-      53: {size: [1, 8, 64], out_dtype: f32, out_rank: 3}
-      54: {size: [16, 16, 16], out_dtype: f32, out_rank: 3}
-      55: {size: [16, 16, 24], out_dtype: f32, out_rank: 3}
-      56: {size: [16, 16, 256], out_dtype: f32, out_rank: 3}
-      57: {size: [16, 20, 64], out_dtype: f32, out_rank: 3}
-      58: {size: [16, 24, 16], out_dtype: f32, out_rank: 3}
-      59: {size: [16, 256, 16], out_dtype: f32, out_rank: 3}
-      60: {size: [16, 256, 256], out_dtype: f32, out_rank: 3}
-      61: {size: [16, 64, 20], out_dtype: f32, out_rank: 3}
-      62: {size: [16, 64, 64], out_dtype: f32, out_rank: 3}
-      63: {size: [2, 1, 13], out_dtype: f32, out_rank: 3}
-      64: {size: [2, 1, 1], out_dtype: f32, out_rank: 3}
-      65: {size: [2, 1, 24], out_dtype: f32, out_rank: 3}
-      66: {size: [2, 13, 1], out_dtype: f32, out_rank: 3}
-      67: {size: [2, 13, 24], out_dtype: f32, out_rank: 3}
-      68: {size: [2, 16, 16], out_dtype: f32, out_rank: 3}
-      69: {size: [2, 16, 32], out_dtype: f32, out_rank: 3}
-      70: {size: [2, 16, 4], out_dtype: f32, out_rank: 3}
-      71: {size: [2, 16, 64], out_dtype: f32, out_rank: 3}
-      72: {size: [2, 24, 13], out_dtype: f32, out_rank: 3}
-      73: {size: [2, 24, 24], out_dtype: f32, out_rank: 3}
-      74: {size: [2, 32, 16], out_dtype: f32, out_rank: 3}
-      75: {size: [2, 32, 32], out_dtype: f32, out_rank: 3}
-      76: {size: [2, 32, 4], out_dtype: f32, out_rank: 3}
-      77: {size: [2, 32, 5], out_dtype: f32, out_rank: 3}
-      78: {size: [2, 32, 8], out_dtype: f32, out_rank: 3}
-      79: {size: [2, 4, 16], out_dtype: f32, out_rank: 3}
-      80: {size: [2, 4, 32], out_dtype: f32, out_rank: 3}
-      81: {size: [2, 4, 4], out_dtype: f32, out_rank: 3}
-      82: {size: [2, 5, 32], out_dtype: f32, out_rank: 3}
-      83: {size: [2, 5, 5], out_dtype: f32, out_rank: 3}
-      84: {size: [2, 64, 16], out_dtype: f32, out_rank: 3}
-      85: {size: [2, 8, 32], out_dtype: f32, out_rank: 3}
-      86: {size: [2, 8, 8], out_dtype: f32, out_rank: 3}
-      87: {size: [4, 16, 16], out_dtype: f32, out_rank: 3}
-      88: {size: [4, 16, 192], out_dtype: f32, out_rank: 3}
-      89: {size: [4, 16, 96], out_dtype: f32, out_rank: 3}
-      90: {size: [4, 256, 128], out_dtype: f32, out_rank: 3}
-      91: {size: [4, 256, 64], out_dtype: f32, out_rank: 3}
-      92: {size: [4, 64, 160], out_dtype: f32, out_rank: 3}
-      93: {size: [4, 64, 80], out_dtype: f32, out_rank: 3}
-      94: {size: [1, -1, 2, 16], out_dtype: f32, out_rank: 4}
-      95: {size: [1, 1, -1, 13], out_dtype: f32, out_rank: 4}
-      96: {size: [1, 16, -1, 16], out_dtype: f32, out_rank: 4}
-      97: {size: [1, 16, -1, 32], out_dtype: f32, out_rank: 4}
-      98: {size: [1, 16, -1, 64], out_dtype: f32, out_rank: 4}
-      99: {size: [1, 2, 1, 13], out_dtype: f32, out_rank: 4}
-      100: {size: [1, 2, 1, 1], out_dtype: f32, out_rank: 4}
-      101: {size: [1, 2, 1, 24], out_dtype: f32, out_rank: 4}
-      102: {size: [1, 2, 16, 16], out_dtype: f32, out_rank: 4}
-      103: {size: [1, 2, 16, 32], out_dtype: f32, out_rank: 4}
-      104: {size: [1, 2, 16, 64], out_dtype: f32, out_rank: 4}
-      105: {size: [1, 2, 24, 13], out_dtype: f32, out_rank: 4}
-      106: {size: [1, 2, 24, 24], out_dtype: f32, out_rank: 4}
-      107: {size: [1, 2, 32, 16], out_dtype: f32, out_rank: 4}
-      108: {size: [1, 2, 32, 32], out_dtype: f32, out_rank: 4}
-      109: {size: [1, 2, 4, 16], out_dtype: f32, out_rank: 4}
-      110: {size: [1, 2, 4, 32], out_dtype: f32, out_rank: 4}
-      111: {size: [1, 2, 4, 4], out_dtype: f32, out_rank: 4}
-      112: {size: [1, 2, 5, 32], out_dtype: f32, out_rank: 4}
-      113: {size: [1, 2, 5, 5], out_dtype: f32, out_rank: 4}
-      114: {size: [1, 2, 8, 32], out_dtype: f32, out_rank: 4}
-      115: {size: [1, 2, 8, 8], out_dtype: f32, out_rank: 4}
-      116: {size: [1, 24, -1, 13], out_dtype: f32, out_rank: 4}
-      117: {size: [1, 32, -1, 16], out_dtype: f32, out_rank: 4}
-      118: {size: [1, 4, -1, 16], out_dtype: f32, out_rank: 4}
-      119: {size: [1, 4, -1, 32], out_dtype: f32, out_rank: 4}
-      120: {size: [1, 4, 16, -1], out_dtype: f32, out_rank: 4}
-      121: {size: [1, 4, 16, 16], out_dtype: f32, out_rank: 4}
-      122: {size: [1, 4, 256, -1], out_dtype: f32, out_rank: 4}
-      123: {size: [1, 4, 64, -1], out_dtype: f32, out_rank: 4}
-      124: {size: [1, 5, -1, 32], out_dtype: f32, out_rank: 4}
-      125: {size: [1, 64, 256, 4], out_dtype: f32, out_rank: 4}
-      126: {size: [1, 64, 32, 32], out_dtype: f32, out_rank: 4}
-      127: {size: [1, 8, -1, 32], out_dtype: f32, out_rank: 4}
-      128: {size: [1, 80, 16, 16], out_dtype: f32, out_rank: 4}
-      129: {size: [1, 80, 64, 4], out_dtype: f32, out_rank: 4}
-      130: {size: [1, 96, 16, 4], out_dtype: f32, out_rank: 4}
-      131: {size: [1, 96, 8, 8], out_dtype: f32, out_rank: 4}
-      132: {size: [1024, 16, 2, 2], out_dtype: f32, out_rank: 4}
-      133: {size: [1024, 2, 16, 2], out_dtype: f32, out_rank: 4}
-      134: {size: [384, 2, 4, 2], out_dtype: f32, out_rank: 4}
-      135: {size: [384, 4, 2, 2], out_dtype: f32, out_rank: 4}
-      136: {size: [4, 16, -1, 24], out_dtype: f32, out_rank: 4}
-      137: {size: [4, 256, -1, 16], out_dtype: f32, out_rank: 4}
-      138: {size: [4, 4, 16, 16], out_dtype: f32, out_rank: 4}
-      139: {size: [4, 4, 16, 24], out_dtype: f32, out_rank: 4}
-      140: {size: [4, 4, 256, 16], out_dtype: f32, out_rank: 4}
-      141: {size: [4, 4, 256, 256], out_dtype: f32, out_rank: 4}
-      142: {size: [4, 4, 64, 20], out_dtype: f32, out_rank: 4}
-      143: {size: [4, 4, 64, 64], out_dtype: f32, out_rank: 4}
-      144: {size: [4, 64, -1, 20], out_dtype: f32, out_rank: 4}
-      145: {size: [640, 2, 8, 2], out_dtype: f32, out_rank: 4}
-      146: {size: [640, 8, 2, 2], out_dtype: f32, out_rank: 4}
-      147: {size: [-1, 16], out_dtype: i64, out_rank: 2}
+      1: {size: [{$symint: true}, -1], out_dtype: bool, out_rank: 2}
+      2: {size: [7], out_dtype: f32, out_rank: 1}
+      3: {size: [-1, 128], out_dtype: f32, out_rank: 2}
+      4: {size: [-1, 32], out_dtype: f32, out_rank: 2}
+      5: {size: [-1, 7], out_dtype: f32, out_rank: 2}
+      6: {size: [1, 128], out_dtype: f32, out_rank: 2}
+      7: {size: [1, 256], out_dtype: f32, out_rank: 2}
+      8: {size: [1, 26], out_dtype: f32, out_rank: 2}
+      9: {size: [1, 27], out_dtype: f32, out_rank: 2}
+      10: {size: [1, 32], out_dtype: f32, out_rank: 2}
+      11: {size: [1, 64], out_dtype: f32, out_rank: 2}
+      12: {size: [10, 64], out_dtype: f32, out_rank: 2}
+      13: {size: [1024, 128], out_dtype: f32, out_rank: 2}
+      14: {size: [1024, 16], out_dtype: f32, out_rank: 2}
+      15: {size: [1024, 64], out_dtype: f32, out_rank: 2}
+      16: {size: [11, 128], out_dtype: f32, out_rank: 2}
+      17: {size: [11, 64], out_dtype: f32, out_rank: 2}
+      18: {size: [16, 128], out_dtype: f32, out_rank: 2}
+      19: {size: [16, 16], out_dtype: f32, out_rank: 2}
+      20: {size: [16, 256], out_dtype: f32, out_rank: 2}
+      21: {size: [16, 2], out_dtype: f32, out_rank: 2}
+      22: {size: [16, 32], out_dtype: f32, out_rank: 2}
+      23: {size: [16, 4], out_dtype: f32, out_rank: 2}
+      24: {size: [16, 512], out_dtype: f32, out_rank: 2}
+      25: {size: [16, 64], out_dtype: f32, out_rank: 2}
+      26: {size: [16, 8], out_dtype: f32, out_rank: 2}
+      27: {size: [17, 32], out_dtype: f32, out_rank: 2}
+      28: {size: [17, 64], out_dtype: f32, out_rank: 2}
+      29: {size: [196, 32], out_dtype: f32, out_rank: 2}
+      30: {size: [196, 64], out_dtype: f32, out_rank: 2}
+      31: {size: [2, 14], out_dtype: f32, out_rank: 2}
+      32: {size: [2, 32], out_dtype: f32, out_rank: 2}
+      33: {size: [207, 128], out_dtype: f32, out_rank: 2}
+      34: {size: [207, 64], out_dtype: f32, out_rank: 2}
+      35: {size: [21, 32], out_dtype: f32, out_rank: 2}
+      36: {size: [21, 64], out_dtype: f32, out_rank: 2}
+      37: {size: [24, 26], out_dtype: f32, out_rank: 2}
+      38: {size: [24, 27], out_dtype: f32, out_rank: 2}
+      39: {size: [24, 32], out_dtype: f32, out_rank: 2}
+      40: {size: [256, 128], out_dtype: f32, out_rank: 2}
+      41: {size: [256, 160], out_dtype: f32, out_rank: 2}
+      42: {size: [256, 16], out_dtype: f32, out_rank: 2}
+      43: {size: [256, 32], out_dtype: f32, out_rank: 2}
+      44: {size: [256, 64], out_dtype: f32, out_rank: 2}
+      45: {size: [256, 80], out_dtype: f32, out_rank: 2}
+      46: {size: [257, 256], out_dtype: f32, out_rank: 2}
+      47: {size: [257, 64], out_dtype: f32, out_rank: 2}
+      48: {size: [3, 2], out_dtype: f32, out_rank: 2}
+      49: {size: [3136, 16], out_dtype: f32, out_rank: 2}
+      50: {size: [3136, 8], out_dtype: f32, out_rank: 2}
+      51: {size: [32, 32], out_dtype: f32, out_rank: 2}
+      52: {size: [32, 64], out_dtype: f32, out_rank: 2}
+      53: {size: [4, 128], out_dtype: f32, out_rank: 2}
+      54: {size: [4, 256], out_dtype: f32, out_rank: 2}
+      55: {size: [4, 32], out_dtype: f32, out_rank: 2}
+      56: {size: [4, 512], out_dtype: f32, out_rank: 2}
+      57: {size: [4, 64], out_dtype: f32, out_rank: 2}
+      58: {size: [47, 32], out_dtype: f32, out_rank: 2}
+      59: {size: [47, 64], out_dtype: f32, out_rank: 2}
+      60: {size: [49, 128], out_dtype: f32, out_rank: 2}
+      61: {size: [49, 16], out_dtype: f32, out_rank: 2}
+      62: {size: [49, 32], out_dtype: f32, out_rank: 2}
+      63: {size: [49, 64], out_dtype: f32, out_rank: 2}
+      64: {size: [49, 8], out_dtype: f32, out_rank: 2}
+      65: {size: [5, 128], out_dtype: f32, out_rank: 2}
+      66: {size: [5, 32], out_dtype: f32, out_rank: 2}
+      67: {size: [5, 64], out_dtype: f32, out_rank: 2}
+      68: {size: [50, 16], out_dtype: f32, out_rank: 2}
+      69: {size: [50, 32], out_dtype: f32, out_rank: 2}
+      70: {size: [50, 64], out_dtype: f32, out_rank: 2}
+      71: {size: [64, 128], out_dtype: f32, out_rank: 2}
+      72: {size: [64, 192], out_dtype: f32, out_rank: 2}
+      73: {size: [64, 256], out_dtype: f32, out_rank: 2}
+      74: {size: [64, 32], out_dtype: f32, out_rank: 2}
+      75: {size: [64, 64], out_dtype: f32, out_rank: 2}
+      76: {size: [64, 8], out_dtype: f32, out_rank: 2}
+      77: {size: [64, 96], out_dtype: f32, out_rank: 2}
+      78: {size: [784, 16], out_dtype: f32, out_rank: 2}
+      79: {size: [784, 32], out_dtype: f32, out_rank: 2}
+      80: {size: [8, 128], out_dtype: f32, out_rank: 2}
+      81: {size: [8, 16], out_dtype: f32, out_rank: 2}
+      82: {size: [8, 32], out_dtype: f32, out_rank: 2}
+      83: {size: [8, 64], out_dtype: f32, out_rank: 2}
+      84: {size: [{$symint: true}, 128], out_dtype: f32, out_rank: 2}
+      85: {size: [{$symint: true}, 32], out_dtype: f32, out_rank: 2}
+      86: {size: [{$symint: true}, 64], out_dtype: f32, out_rank: 2}
+      87: {size: [-1, 16, 128], out_dtype: f32, out_rank: 3}
+      88: {size: [-1, 16, 16], out_dtype: f32, out_rank: 3}
+      89: {size: [-1, 16, 32], out_dtype: f32, out_rank: 3}
+      90: {size: [-1, 16, 64], out_dtype: f32, out_rank: 3}
+      91: {size: [-1, 4, 128], out_dtype: f32, out_rank: 3}
+      92: {size: [-1, 4, 16], out_dtype: f32, out_rank: 3}
+      93: {size: [-1, 4, 32], out_dtype: f32, out_rank: 3}
+      94: {size: [-1, 4, 64], out_dtype: f32, out_rank: 3}
+      95: {size: [1, -1, 128], out_dtype: f32, out_rank: 3}
+      96: {size: [1, -1, 256], out_dtype: f32, out_rank: 3}
+      97: {size: [1, -1, 64], out_dtype: f32, out_rank: 3}
+      98: {size: [1, 1, -1], out_dtype: f32, out_rank: 3}
+      99: {size: [1, 1, 11], out_dtype: f32, out_rank: 3}
+      100: {size: [1, 1, 16], out_dtype: f32, out_rank: 3}
+      101: {size: [1, 1, 26], out_dtype: f32, out_rank: 3}
+      102: {size: [1, 1, 32], out_dtype: f32, out_rank: 3}
+      103: {size: [1, 1, 4], out_dtype: f32, out_rank: 3}
+      104: {size: [1, 10, 4], out_dtype: f32, out_rank: 3}
+      105: {size: [1, 10, 64], out_dtype: f32, out_rank: 3}
+      106: {size: [1, 10, 6], out_dtype: f32, out_rank: 3}
+      107: {size: [1, 1024, 16], out_dtype: f32, out_rank: 3}
+      108: {size: [1, 1024, 64], out_dtype: f32, out_rank: 3}
+      109: {size: [1, 11, -1], out_dtype: f32, out_rank: 3}
+      110: {size: [1, 11, 128], out_dtype: f32, out_rank: 3}
+      111: {size: [1, 11, 256], out_dtype: f32, out_rank: 3}
+      112: {size: [1, 11, 32], out_dtype: f32, out_rank: 3}
+      113: {size: [1, 11, 64], out_dtype: f32, out_rank: 3}
+      114: {size: [1, 128, 16], out_dtype: f32, out_rank: 3}
+      115: {size: [1, 128, 49], out_dtype: f32, out_rank: 3}
+      116: {size: [1, 1536, 1], out_dtype: f32, out_rank: 3}
+      117: {size: [1, 1536, 24], out_dtype: f32, out_rank: 3}
+      118: {size: [1, 1536, 32], out_dtype: f32, out_rank: 3}
+      119: {size: [1, 1536, 8], out_dtype: f32, out_rank: 3}
+      120: {size: [1, 16, -1], out_dtype: f32, out_rank: 3}
+      121: {size: [1, 16, 1024], out_dtype: f32, out_rank: 3}
+      122: {size: [1, 16, 11], out_dtype: f32, out_rank: 3}
+      123: {size: [1, 16, 128], out_dtype: f32, out_rank: 3}
+      124: {size: [1, 16, 1536], out_dtype: f32, out_rank: 3}
+      125: {size: [1, 16, 16], out_dtype: f32, out_rank: 3}
+      126: {size: [1, 16, 1], out_dtype: f32, out_rank: 3}
+      127: {size: [1, 16, 24], out_dtype: f32, out_rank: 3}
+      128: {size: [1, 16, 256], out_dtype: f32, out_rank: 3}
+      129: {size: [1, 16, 3072], out_dtype: f32, out_rank: 3}
+      130: {size: [1, 16, 3136], out_dtype: f32, out_rank: 3}
+      131: {size: [1, 16, 32], out_dtype: f32, out_rank: 3}
+      132: {size: [1, 16, 49], out_dtype: f32, out_rank: 3}
+      133: {size: [1, 16, 4], out_dtype: f32, out_rank: 3}
+      134: {size: [1, 16, 512], out_dtype: f32, out_rank: 3}
+      135: {size: [1, 16, 64], out_dtype: f32, out_rank: 3}
+      136: {size: [1, 16, 784], out_dtype: f32, out_rank: 3}
+      137: {size: [1, 16, 96], out_dtype: f32, out_rank: 3}
+      138: {size: [1, 17, -1], out_dtype: f32, out_rank: 3}
+      139: {size: [1, 17, 32], out_dtype: f32, out_rank: 3}
+      140: {size: [1, 17, 64], out_dtype: f32, out_rank: 3}
+      141: {size: [1, 196, -1], out_dtype: f32, out_rank: 3}
+      142: {size: [1, 196, 32], out_dtype: f32, out_rank: 3}
+      143: {size: [1, 196, 64], out_dtype: f32, out_rank: 3}
+      144: {size: [1, 2, 16], out_dtype: f32, out_rank: 3}
+      145: {size: [1, 2, 1], out_dtype: f32, out_rank: 3}
+      146: {size: [1, 207, 128], out_dtype: f32, out_rank: 3}
+      147: {size: [1, 207, 64], out_dtype: f32, out_rank: 3}
+      148: {size: [1, 21, 32], out_dtype: f32, out_rank: 3}
+      149: {size: [1, 21, 64], out_dtype: f32, out_rank: 3}
+      150: {size: [1, 24, -1], out_dtype: f32, out_rank: 3}
+      151: {size: [1, 24, 26], out_dtype: f32, out_rank: 3}
+      152: {size: [1, 24, 32], out_dtype: f32, out_rank: 3}
+      153: {size: [1, 256, 128], out_dtype: f32, out_rank: 3}
+      154: {size: [1, 256, 16], out_dtype: f32, out_rank: 3}
+      155: {size: [1, 256, 32], out_dtype: f32, out_rank: 3}
+      156: {size: [1, 256, 64], out_dtype: f32, out_rank: 3}
+      157: {size: [1, 257, -1], out_dtype: f32, out_rank: 3}
+      158: {size: [1, 257, 256], out_dtype: f32, out_rank: 3}
+      159: {size: [1, 257, 64], out_dtype: f32, out_rank: 3}
+      160: {size: [1, 3136, -1], out_dtype: f32, out_rank: 3}
+      161: {size: [1, 3136, 16], out_dtype: f32, out_rank: 3}
+      162: {size: [1, 3136, 32], out_dtype: f32, out_rank: 3}
+      163: {size: [1, 3136, 49], out_dtype: f32, out_rank: 3}
+      164: {size: [1, 3136, 8], out_dtype: f32, out_rank: 3}
+      165: {size: [1, 32, -1], out_dtype: f32, out_rank: 3}
+      166: {size: [1, 32, 16], out_dtype: f32, out_rank: 3}
+      167: {size: [1, 32, 196], out_dtype: f32, out_rank: 3}
+      168: {size: [1, 32, 1], out_dtype: f32, out_rank: 3}
+      169: {size: [1, 32, 32], out_dtype: f32, out_rank: 3}
+      170: {size: [1, 32, 45], out_dtype: f32, out_rank: 3}
+      171: {size: [1, 32, 49], out_dtype: f32, out_rank: 3}
+      172: {size: [1, 32, 4], out_dtype: f32, out_rank: 3}
+      173: {size: [1, 32, 64], out_dtype: f32, out_rank: 3}
+      174: {size: [1, 32, 784], out_dtype: f32, out_rank: 3}
+      175: {size: [1, 4, -1], out_dtype: f32, out_rank: 3}
+      176: {size: [1, 4, 128], out_dtype: f32, out_rank: 3}
+      177: {size: [1, 4, 16], out_dtype: f32, out_rank: 3}
+      178: {size: [1, 4, 1], out_dtype: f32, out_rank: 3}
+      179: {size: [1, 4, 256], out_dtype: f32, out_rank: 3}
+      180: {size: [1, 4, 32], out_dtype: f32, out_rank: 3}
+      181: {size: [1, 4, 4], out_dtype: f32, out_rank: 3}
+      182: {size: [1, 4, 512], out_dtype: f32, out_rank: 3}
+      183: {size: [1, 4, 64], out_dtype: f32, out_rank: 3}
+      184: {size: [1, 47, -1], out_dtype: f32, out_rank: 3}
+      185: {size: [1, 47, 32], out_dtype: f32, out_rank: 3}
+      186: {size: [1, 47, 64], out_dtype: f32, out_rank: 3}
+      187: {size: [1, 49, -1], out_dtype: f32, out_rank: 3}
+      188: {size: [1, 49, 128], out_dtype: f32, out_rank: 3}
+      189: {size: [1, 49, 16], out_dtype: f32, out_rank: 3}
+      190: {size: [1, 49, 32], out_dtype: f32, out_rank: 3}
+      191: {size: [1, 49, 64], out_dtype: f32, out_rank: 3}
+      192: {size: [1, 49, 8], out_dtype: f32, out_rank: 3}
+      193: {size: [1, 5, -1], out_dtype: f32, out_rank: 3}
+      194: {size: [1, 5, 128], out_dtype: f32, out_rank: 3}
+      195: {size: [1, 5, 32], out_dtype: f32, out_rank: 3}
+      196: {size: [1, 5, 64], out_dtype: f32, out_rank: 3}
+      197: {size: [1, 50, -1], out_dtype: f32, out_rank: 3}
+      198: {size: [1, 50, 32], out_dtype: f32, out_rank: 3}
+      199: {size: [1, 50, 64], out_dtype: f32, out_rank: 3}
+      200: {size: [1, 64, 128], out_dtype: f32, out_rank: 3}
+      201: {size: [1, 64, 196], out_dtype: f32, out_rank: 3}
+      202: {size: [1, 64, 256], out_dtype: f32, out_rank: 3}
+      203: {size: [1, 64, 32], out_dtype: f32, out_rank: 3}
+      204: {size: [1, 64, 49], out_dtype: f32, out_rank: 3}
+      205: {size: [1, 64, 4], out_dtype: f32, out_rank: 3}
+      206: {size: [1, 64, 64], out_dtype: f32, out_rank: 3}
+      207: {size: [1, 64, 8], out_dtype: f32, out_rank: 3}
+      208: {size: [1, 7, -1], out_dtype: f32, out_rank: 3}
+      209: {size: [1, 784, -1], out_dtype: f32, out_rank: 3}
+      210: {size: [1, 784, 16], out_dtype: f32, out_rank: 3}
+      211: {size: [1, 784, 32], out_dtype: f32, out_rank: 3}
+      212: {size: [1, 784, 49], out_dtype: f32, out_rank: 3}
+      213: {size: [1, 8, 128], out_dtype: f32, out_rank: 3}
+      214: {size: [1, 8, 16], out_dtype: f32, out_rank: 3}
+      215: {size: [1, 8, 1], out_dtype: f32, out_rank: 3}
+      216: {size: [1, 8, 3136], out_dtype: f32, out_rank: 3}
+      217: {size: [1, 8, 32], out_dtype: f32, out_rank: 3}
+      218: {size: [1, 8, 49], out_dtype: f32, out_rank: 3}
+      219: {size: [1, 8, 64], out_dtype: f32, out_rank: 3}
+      220: {size: [16, 16, -1], out_dtype: f32, out_rank: 3}
+      221: {size: [16, 16, 16], out_dtype: f32, out_rank: 3}
+      222: {size: [16, 16, 24], out_dtype: f32, out_rank: 3}
+      223: {size: [16, 16, 256], out_dtype: f32, out_rank: 3}
+      224: {size: [16, 16, 32], out_dtype: f32, out_rank: 3}
+      225: {size: [16, 16, 4], out_dtype: f32, out_rank: 3}
+      226: {size: [16, 20, 64], out_dtype: f32, out_rank: 3}
+      227: {size: [16, 24, 16], out_dtype: f32, out_rank: 3}
+      228: {size: [16, 256, 16], out_dtype: f32, out_rank: 3}
+      229: {size: [16, 256, 256], out_dtype: f32, out_rank: 3}
+      230: {size: [16, 4, -1], out_dtype: f32, out_rank: 3}
+      231: {size: [16, 4, 16], out_dtype: f32, out_rank: 3}
+      232: {size: [16, 4, 32], out_dtype: f32, out_rank: 3}
+      233: {size: [16, 4, 4], out_dtype: f32, out_rank: 3}
+      234: {size: [16, 64, 20], out_dtype: f32, out_rank: 3}
+      235: {size: [16, 64, 64], out_dtype: f32, out_rank: 3}
+      236: {size: [2, 1, 13], out_dtype: f32, out_rank: 3}
+      237: {size: [2, 1, 1], out_dtype: f32, out_rank: 3}
+      238: {size: [2, 1, 24], out_dtype: f32, out_rank: 3}
+      239: {size: [2, 11, 11], out_dtype: f32, out_rank: 3}
+      240: {size: [2, 11, 32], out_dtype: f32, out_rank: 3}
+      241: {size: [2, 13, 1], out_dtype: f32, out_rank: 3}
+      242: {size: [2, 13, 24], out_dtype: f32, out_rank: 3}
+      243: {size: [2, 14, 1], out_dtype: f32, out_rank: 3}
+      244: {size: [2, 16, 16], out_dtype: f32, out_rank: 3}
+      245: {size: [2, 16, 32], out_dtype: f32, out_rank: 3}
+      246: {size: [2, 16, 49], out_dtype: f32, out_rank: 3}
+      247: {size: [2, 16, 4], out_dtype: f32, out_rank: 3}
+      248: {size: [2, 16, 50], out_dtype: f32, out_rank: 3}
+      249: {size: [2, 16, 64], out_dtype: f32, out_rank: 3}
+      250: {size: [2, 196, 16], out_dtype: f32, out_rank: 3}
+      251: {size: [2, 196, 49], out_dtype: f32, out_rank: 3}
+      252: {size: [2, 207, 207], out_dtype: f32, out_rank: 3}
+      253: {size: [2, 207, 32], out_dtype: f32, out_rank: 3}
+      254: {size: [2, 24, 13], out_dtype: f32, out_rank: 3}
+      255: {size: [2, 24, 24], out_dtype: f32, out_rank: 3}
+      256: {size: [2, 32, 11], out_dtype: f32, out_rank: 3}
+      257: {size: [2, 32, 16], out_dtype: f32, out_rank: 3}
+      258: {size: [2, 32, 207], out_dtype: f32, out_rank: 3}
+      259: {size: [2, 32, 32], out_dtype: f32, out_rank: 3}
+      260: {size: [2, 32, 4], out_dtype: f32, out_rank: 3}
+      261: {size: [2, 32, 5], out_dtype: f32, out_rank: 3}
+      262: {size: [2, 32, 8], out_dtype: f32, out_rank: 3}
+      263: {size: [2, 4, 16], out_dtype: f32, out_rank: 3}
+      264: {size: [2, 4, 32], out_dtype: f32, out_rank: 3}
+      265: {size: [2, 4, 4], out_dtype: f32, out_rank: 3}
+      266: {size: [2, 49, 16], out_dtype: f32, out_rank: 3}
+      267: {size: [2, 5, 32], out_dtype: f32, out_rank: 3}
+      268: {size: [2, 5, 5], out_dtype: f32, out_rank: 3}
+      269: {size: [2, 50, 16], out_dtype: f32, out_rank: 3}
+      270: {size: [2, 50, 50], out_dtype: f32, out_rank: 3}
+      271: {size: [2, 512, 1], out_dtype: f32, out_rank: 3}
+      272: {size: [2, 64, 16], out_dtype: f32, out_rank: 3}
+      273: {size: [2, 8, 32], out_dtype: f32, out_rank: 3}
+      274: {size: [2, 8, 8], out_dtype: f32, out_rank: 3}
+      275: {size: [32, 16, 16], out_dtype: f32, out_rank: 3}
+      276: {size: [32, 16, 4], out_dtype: f32, out_rank: 3}
+      277: {size: [32, 4, 16], out_dtype: f32, out_rank: 3}
+      278: {size: [32, 4, 4], out_dtype: f32, out_rank: 3}
+      279: {size: [4, 16, 16], out_dtype: f32, out_rank: 3}
+      280: {size: [4, 16, 192], out_dtype: f32, out_rank: 3}
+      281: {size: [4, 16, 257], out_dtype: f32, out_rank: 3}
+      282: {size: [4, 16, 49], out_dtype: f32, out_rank: 3}
+      283: {size: [4, 16, 4], out_dtype: f32, out_rank: 3}
+      284: {size: [4, 16, 64], out_dtype: f32, out_rank: 3}
+      285: {size: [4, 16, 8], out_dtype: f32, out_rank: 3}
+      286: {size: [4, 16, 96], out_dtype: f32, out_rank: 3}
+      287: {size: [4, 17, 17], out_dtype: f32, out_rank: 3}
+      288: {size: [4, 17, 8], out_dtype: f32, out_rank: 3}
+      289: {size: [4, 21, 21], out_dtype: f32, out_rank: 3}
+      290: {size: [4, 21, 8], out_dtype: f32, out_rank: 3}
+      291: {size: [4, 256, 128], out_dtype: f32, out_rank: 3}
+      292: {size: [4, 256, 64], out_dtype: f32, out_rank: 3}
+      293: {size: [4, 257, 16], out_dtype: f32, out_rank: 3}
+      294: {size: [4, 257, 257], out_dtype: f32, out_rank: 3}
+      295: {size: [4, 4, -1], out_dtype: f32, out_rank: 3}
+      296: {size: [4, 4, 16], out_dtype: f32, out_rank: 3}
+      297: {size: [4, 4, 4], out_dtype: f32, out_rank: 3}
+      298: {size: [4, 4, 64], out_dtype: f32, out_rank: 3}
+      299: {size: [4, 4, 8], out_dtype: f32, out_rank: 3}
+      300: {size: [4, 47, 47], out_dtype: f32, out_rank: 3}
+      301: {size: [4, 47, 8], out_dtype: f32, out_rank: 3}
+      302: {size: [4, 49, 16], out_dtype: f32, out_rank: 3}
+      303: {size: [4, 49, 49], out_dtype: f32, out_rank: 3}
+      304: {size: [4, 5, 5], out_dtype: f32, out_rank: 3}
+      305: {size: [4, 5, 8], out_dtype: f32, out_rank: 3}
+      306: {size: [4, 64, 160], out_dtype: f32, out_rank: 3}
+      307: {size: [4, 64, 80], out_dtype: f32, out_rank: 3}
+      308: {size: [4, 8, 16], out_dtype: f32, out_rank: 3}
+      309: {size: [4, 8, 17], out_dtype: f32, out_rank: 3}
+      310: {size: [4, 8, 21], out_dtype: f32, out_rank: 3}
+      311: {size: [4, 8, 47], out_dtype: f32, out_rank: 3}
+      312: {size: [4, 8, 4], out_dtype: f32, out_rank: 3}
+      313: {size: [4, 8, 5], out_dtype: f32, out_rank: 3}
+      314: {size: [4, 8, 8], out_dtype: f32, out_rank: 3}
+      315: {size: [64, 16, 16], out_dtype: f32, out_rank: 3}
+      316: {size: [64, 16, 4], out_dtype: f32, out_rank: 3}
+      317: {size: [64, 4, -1], out_dtype: f32, out_rank: 3}
+      318: {size: [64, 4, 16], out_dtype: f32, out_rank: 3}
+      319: {size: [64, 4, 4], out_dtype: f32, out_rank: 3}
+      320: {size: [8, 16, 16], out_dtype: f32, out_rank: 3}
+      321: {size: [8, 16, 4], out_dtype: f32, out_rank: 3}
+      322: {size: [8, 4, 16], out_dtype: f32, out_rank: 3}
+      323: {size: [8, 4, 4], out_dtype: f32, out_rank: 3}
+      324: {size: [{$symint: true}, 16, -1], out_dtype: f32, out_rank: 3}
+      325: {size: [{$symint: true}, 16, 16], out_dtype: f32, out_rank: 3}
+      326: {size: [{$symint: true}, 16, 32], out_dtype: f32, out_rank: 3}
+      327: {size: [{$symint: true}, 16, 64], out_dtype: f32, out_rank: 3}
+      328: {size: [{$symint: true}, 32, 16], out_dtype: f32, out_rank: 3}
+      329: {size: [{$symint: true}, 4, 128], out_dtype: f32, out_rank: 3}
+      330: {size: [{$symint: true}, 4, 64], out_dtype: f32, out_rank: 3}
+      331: {size: [-1, 16, 16, 16], out_dtype: f32, out_rank: 4}
+      332: {size: [-1, 16, 16, 32], out_dtype: f32, out_rank: 4}
+      333: {size: [-1, 2, 2, 128], out_dtype: f32, out_rank: 4}
+      334: {size: [-1, 2, 2, 16], out_dtype: f32, out_rank: 4}
+      335: {size: [-1, 2, 2, 32], out_dtype: f32, out_rank: 4}
+      336: {size: [-1, 2, 2, 64], out_dtype: f32, out_rank: 4}
+      337: {size: [-1, 32, 32, 16], out_dtype: f32, out_rank: 4}
+      338: {size: [-1, 4, 4, 128], out_dtype: f32, out_rank: 4}
+      339: {size: [-1, 4, 4, 16], out_dtype: f32, out_rank: 4}
+      340: {size: [-1, 4, 4, 32], out_dtype: f32, out_rank: 4}
+      341: {size: [-1, 4, 4, 64], out_dtype: f32, out_rank: 4}
+      342: {size: [-1, 8, 8, 32], out_dtype: f32, out_rank: 4}
+      343: {size: [-1, 8, 8, 64], out_dtype: f32, out_rank: 4}
+      344: {size: [1, -1, 1, 1], out_dtype: f32, out_rank: 4}
+      345: {size: [1, -1, 2, 16], out_dtype: f32, out_rank: 4}
+      346: {size: [1, -1, 2, 32], out_dtype: f32, out_rank: 4}
+      347: {size: [1, -1, 4, 8], out_dtype: f32, out_rank: 4}
+      348: {size: [1, 1, -1, 13], out_dtype: f32, out_rank: 4}
+      349: {size: [1, 1, 1, 256], out_dtype: f32, out_rank: 4}
+      350: {size: [1, 1, 1, 64], out_dtype: f32, out_rank: 4}
+      351: {size: [1, 1, 128, 128], out_dtype: f32, out_rank: 4}
+      352: {size: [1, 1, 16, 16], out_dtype: f32, out_rank: 4}
+      353: {size: [1, 1, 16, 32], out_dtype: f32, out_rank: 4}
+      354: {size: [1, 1, 3, 16], out_dtype: f32, out_rank: 4}
+      355: {size: [1, 1, 3136, 49], out_dtype: f32, out_rank: 4}
+      356: {size: [1, 1, 3136, 8], out_dtype: f32, out_rank: 4}
+      357: {size: [1, 1, 4, 256], out_dtype: f32, out_rank: 4}
+      358: {size: [1, 1, 4, 4], out_dtype: f32, out_rank: 4}
+      359: {size: [1, 1, 784, 16], out_dtype: f32, out_rank: 4}
+      360: {size: [1, 1, 784, 49], out_dtype: f32, out_rank: 4}
+      361: {size: [1, 1, 8, 16], out_dtype: f32, out_rank: 4}
+      362: {size: [1, 1, 8, 32], out_dtype: f32, out_rank: 4}
+      363: {size: [1, 1, 8, 64], out_dtype: f32, out_rank: 4}
+      364: {size: [1, 11, -1, 32], out_dtype: f32, out_rank: 4}
+      365: {size: [1, 128, 1, -1], out_dtype: f32, out_rank: 4}
+      366: {size: [1, 128, 4, 4], out_dtype: f32, out_rank: 4}
+      367: {size: [1, 128, 7, 7], out_dtype: f32, out_rank: 4}
+      368: {size: [1, 14, 14, -1], out_dtype: f32, out_rank: 4}
+      369: {size: [1, 16, -1, 16], out_dtype: f32, out_rank: 4}
+      370: {size: [1, 16, -1, 24], out_dtype: f32, out_rank: 4}
+      371: {size: [1, 16, -1, 32], out_dtype: f32, out_rank: 4}
+      372: {size: [1, 16, -1, 64], out_dtype: f32, out_rank: 4}
+      373: {size: [1, 16, -1, 8], out_dtype: f32, out_rank: 4}
+      374: {size: [1, 16, 16, 16], out_dtype: f32, out_rank: 4}
+      375: {size: [1, 16, 16, 32], out_dtype: f32, out_rank: 4}
+      376: {size: [1, 16, 16, 64], out_dtype: f32, out_rank: 4}
+      377: {size: [1, 16, 28, 28], out_dtype: f32, out_rank: 4}
+      378: {size: [1, 16, 4, 4], out_dtype: f32, out_rank: 4}
+      379: {size: [1, 16, 56, 56], out_dtype: f32, out_rank: 4}
+      380: {size: [1, 17, -1, 8], out_dtype: f32, out_rank: 4}
+      381: {size: [1, 196, -1, 16], out_dtype: f32, out_rank: 4}
+      382: {size: [1, 2, 1, 13], out_dtype: f32, out_rank: 4}
+      383: {size: [1, 2, 1, 1], out_dtype: f32, out_rank: 4}
+      384: {size: [1, 2, 1, 24], out_dtype: f32, out_rank: 4}
+      385: {size: [1, 2, 11, 11], out_dtype: f32, out_rank: 4}
+      386: {size: [1, 2, 11, 32], out_dtype: f32, out_rank: 4}
+      387: {size: [1, 2, 16, 16], out_dtype: f32, out_rank: 4}
+      388: {size: [1, 2, 16, 32], out_dtype: f32, out_rank: 4}
+      389: {size: [1, 2, 16, 64], out_dtype: f32, out_rank: 4}
+      390: {size: [1, 2, 196, 16], out_dtype: f32, out_rank: 4}
+      391: {size: [1, 2, 196, 49], out_dtype: f32, out_rank: 4}
+      392: {size: [1, 2, 2, 128], out_dtype: f32, out_rank: 4}
+      393: {size: [1, 2, 2, 32], out_dtype: f32, out_rank: 4}
+      394: {size: [1, 2, 207, 207], out_dtype: f32, out_rank: 4}
+      395: {size: [1, 2, 207, 32], out_dtype: f32, out_rank: 4}
+      396: {size: [1, 2, 24, 13], out_dtype: f32, out_rank: 4}
+      397: {size: [1, 2, 24, 24], out_dtype: f32, out_rank: 4}
+      398: {size: [1, 2, 32, 16], out_dtype: f32, out_rank: 4}
+      399: {size: [1, 2, 32, 32], out_dtype: f32, out_rank: 4}
+      400: {size: [1, 2, 4, 16], out_dtype: f32, out_rank: 4}
+      401: {size: [1, 2, 4, 32], out_dtype: f32, out_rank: 4}
+      402: {size: [1, 2, 4, 4], out_dtype: f32, out_rank: 4}
+      403: {size: [1, 2, 5, 32], out_dtype: f32, out_rank: 4}
+      404: {size: [1, 2, 5, 5], out_dtype: f32, out_rank: 4}
+      405: {size: [1, 2, 50, 16], out_dtype: f32, out_rank: 4}
+      406: {size: [1, 2, 50, 50], out_dtype: f32, out_rank: 4}
+      407: {size: [1, 2, 8, 32], out_dtype: f32, out_rank: 4}
+      408: {size: [1, 2, 8, 8], out_dtype: f32, out_rank: 4}
+      409: {size: [1, 24, -1, 13], out_dtype: f32, out_rank: 4}
+      410: {size: [1, 257, -1, 16], out_dtype: f32, out_rank: 4}
+      411: {size: [1, 28, 28, -1], out_dtype: f32, out_rank: 4}
+      412: {size: [1, 3, 32, 32], out_dtype: f32, out_rank: 4}
+      413: {size: [1, 3136, -1, 8], out_dtype: f32, out_rank: 4}
+      414: {size: [1, 32, -1, 16], out_dtype: f32, out_rank: 4}
+      415: {size: [1, 32, 14, 14], out_dtype: f32, out_rank: 4}
+      416: {size: [1, 32, 28, 28], out_dtype: f32, out_rank: 4}
+      417: {size: [1, 32, 32, 16], out_dtype: f32, out_rank: 4}
+      418: {size: [1, 32, 4, 4], out_dtype: f32, out_rank: 4}
+      419: {size: [1, 32, 56, 56], out_dtype: f32, out_rank: 4}
+      420: {size: [1, 32, 7, 7], out_dtype: f32, out_rank: 4}
+      421: {size: [1, 4, -1, 16], out_dtype: f32, out_rank: 4}
+      422: {size: [1, 4, -1, 32], out_dtype: f32, out_rank: 4}
+      423: {size: [1, 4, -1, 8], out_dtype: f32, out_rank: 4}
+      424: {size: [1, 4, 128, 32], out_dtype: f32, out_rank: 4}
+      425: {size: [1, 4, 16, -1], out_dtype: f32, out_rank: 4}
+      426: {size: [1, 4, 16, 16], out_dtype: f32, out_rank: 4}
+      427: {size: [1, 4, 16, 4], out_dtype: f32, out_rank: 4}
+      428: {size: [1, 4, 16, 8], out_dtype: f32, out_rank: 4}
+      429: {size: [1, 4, 17, 17], out_dtype: f32, out_rank: 4}
+      430: {size: [1, 4, 17, 8], out_dtype: f32, out_rank: 4}
+      431: {size: [1, 4, 21, 21], out_dtype: f32, out_rank: 4}
+      432: {size: [1, 4, 21, 8], out_dtype: f32, out_rank: 4}
+      433: {size: [1, 4, 256, -1], out_dtype: f32, out_rank: 4}
+      434: {size: [1, 4, 257, 16], out_dtype: f32, out_rank: 4}
+      435: {size: [1, 4, 257, 257], out_dtype: f32, out_rank: 4}
+      436: {size: [1, 4, 4, -1], out_dtype: f32, out_rank: 4}
+      437: {size: [1, 4, 4, 128], out_dtype: f32, out_rank: 4}
+      438: {size: [1, 4, 4, 16], out_dtype: f32, out_rank: 4}
+      439: {size: [1, 4, 4, 32], out_dtype: f32, out_rank: 4}
+      440: {size: [1, 4, 4, 4], out_dtype: f32, out_rank: 4}
+      441: {size: [1, 4, 4, 64], out_dtype: f32, out_rank: 4}
+      442: {size: [1, 4, 4, 8], out_dtype: f32, out_rank: 4}
+      443: {size: [1, 4, 4, 96], out_dtype: f32, out_rank: 4}
+      444: {size: [1, 4, 47, 47], out_dtype: f32, out_rank: 4}
+      445: {size: [1, 4, 47, 8], out_dtype: f32, out_rank: 4}
+      446: {size: [1, 4, 49, 16], out_dtype: f32, out_rank: 4}
+      447: {size: [1, 4, 49, 49], out_dtype: f32, out_rank: 4}
+      448: {size: [1, 4, 5, 5], out_dtype: f32, out_rank: 4}
+      449: {size: [1, 4, 5, 8], out_dtype: f32, out_rank: 4}
+      450: {size: [1, 4, 64, -1], out_dtype: f32, out_rank: 4}
+      451: {size: [1, 4, 8, 16], out_dtype: f32, out_rank: 4}
+      452: {size: [1, 4, 8, 4], out_dtype: f32, out_rank: 4}
+      453: {size: [1, 4, 8, 8], out_dtype: f32, out_rank: 4}
+      454: {size: [1, 47, -1, 8], out_dtype: f32, out_rank: 4}
+      455: {size: [1, 49, -1, 16], out_dtype: f32, out_rank: 4}
+      456: {size: [1, 49, -1, 8], out_dtype: f32, out_rank: 4}
+      457: {size: [1, 5, -1, 32], out_dtype: f32, out_rank: 4}
+      458: {size: [1, 5, -1, 8], out_dtype: f32, out_rank: 4}
+      459: {size: [1, 50, -1, 16], out_dtype: f32, out_rank: 4}
+      460: {size: [1, 56, 56, -1], out_dtype: f32, out_rank: 4}
+      461: {size: [1, 64, 14, 14], out_dtype: f32, out_rank: 4}
+      462: {size: [1, 64, 256, 4], out_dtype: f32, out_rank: 4}
+      463: {size: [1, 64, 32, 32], out_dtype: f32, out_rank: 4}
+      464: {size: [1, 7, 7, -1], out_dtype: f32, out_rank: 4}
+      465: {size: [1, 784, -1, 16], out_dtype: f32, out_rank: 4}
+      466: {size: [1, 8, -1, 32], out_dtype: f32, out_rank: 4}
+      467: {size: [1, 8, 16, 16], out_dtype: f32, out_rank: 4}
+      468: {size: [1, 8, 4, 16], out_dtype: f32, out_rank: 4}
+      469: {size: [1, 8, 4, 4], out_dtype: f32, out_rank: 4}
+      470: {size: [1, 8, 4, 8], out_dtype: f32, out_rank: 4}
+      471: {size: [1, 8, 56, 56], out_dtype: f32, out_rank: 4}
+      472: {size: [1, 8, 8, 32], out_dtype: f32, out_rank: 4}
+      473: {size: [1, 8, 8, 64], out_dtype: f32, out_rank: 4}
+      474: {size: [1, 8, 8, 8], out_dtype: f32, out_rank: 4}
+      475: {size: [1, 80, 16, 16], out_dtype: f32, out_rank: 4}
+      476: {size: [1, 80, 64, 4], out_dtype: f32, out_rank: 4}
+      477: {size: [1, 96, 16, 4], out_dtype: f32, out_rank: 4}
+      478: {size: [1, 96, 8, 8], out_dtype: f32, out_rank: 4}
+      479: {size: [1024, 16, 2, 2], out_dtype: f32, out_rank: 4}
+      480: {size: [1024, 2, 16, 2], out_dtype: f32, out_rank: 4}
+      481: {size: [16, 1, 1, 1], out_dtype: f32, out_rank: 4}
+      482: {size: [16, 16, -1, 16], out_dtype: f32, out_rank: 4}
+      483: {size: [16, 2, 16, 16], out_dtype: f32, out_rank: 4}
+      484: {size: [16, 2, 4, 16], out_dtype: f32, out_rank: 4}
+      485: {size: [16, 2, 4, 4], out_dtype: f32, out_rank: 4}
+      486: {size: [16, 4, -1, 16], out_dtype: f32, out_rank: 4}
+      487: {size: [3, 4, 16, 8], out_dtype: f32, out_rank: 4}
+      488: {size: [384, 2, 4, 2], out_dtype: f32, out_rank: 4}
+      489: {size: [384, 4, 2, 2], out_dtype: f32, out_rank: 4}
+      490: {size: [4, 16, -1, 16], out_dtype: f32, out_rank: 4}
+      491: {size: [4, 16, -1, 24], out_dtype: f32, out_rank: 4}
+      492: {size: [4, 256, -1, 16], out_dtype: f32, out_rank: 4}
+      493: {size: [4, 4, -1, 16], out_dtype: f32, out_rank: 4}
+      494: {size: [4, 4, 16, 16], out_dtype: f32, out_rank: 4}
+      495: {size: [4, 4, 16, 24], out_dtype: f32, out_rank: 4}
+      496: {size: [4, 4, 256, 16], out_dtype: f32, out_rank: 4}
+      497: {size: [4, 4, 256, 256], out_dtype: f32, out_rank: 4}
+      498: {size: [4, 4, 4, 16], out_dtype: f32, out_rank: 4}
+      499: {size: [4, 4, 4, 4], out_dtype: f32, out_rank: 4}
+      500: {size: [4, 4, 4, 8], out_dtype: f32, out_rank: 4}
+      501: {size: [4, 4, 64, 20], out_dtype: f32, out_rank: 4}
+      502: {size: [4, 4, 64, 64], out_dtype: f32, out_rank: 4}
+      503: {size: [4, 64, -1, 20], out_dtype: f32, out_rank: 4}
+      504: {size: [64, 1, 16, 16], out_dtype: f32, out_rank: 4}
+      505: {size: [64, 1, 4, 16], out_dtype: f32, out_rank: 4}
+      506: {size: [64, 1, 4, 4], out_dtype: f32, out_rank: 4}
+      507: {size: [64, 16, -1, 16], out_dtype: f32, out_rank: 4}
+      508: {size: [64, 4, -1, 16], out_dtype: f32, out_rank: 4}
+      509: {size: [640, 2, 8, 2], out_dtype: f32, out_rank: 4}
+      510: {size: [640, 8, 2, 2], out_dtype: f32, out_rank: 4}
+      511: {size: [{$symint: true}, 16, -1, 16], out_dtype: f32, out_rank: 4}
+      512: {size: [{$symint: true}, 2, 16, 16], out_dtype: f32, out_rank: 4}
+      513: {size: [{$symint: true}, 2, 2, 128], out_dtype: f32, out_rank: 4}
+      514: {size: [{$symint: true}, 4, 2, 64], out_dtype: f32, out_rank: 4}
+      515: {size: [{$symint: true}, 4, 4, 32], out_dtype: f32, out_rank: 4}
+      516: {size: [1, 1, -1, 16, 16], out_dtype: f32, out_rank: 5}
+      517: {size: [1, 128, 4, 1, 4], out_dtype: f32, out_rank: 5}
+      518: {size: [1, 16, 3, -1, 8], out_dtype: f32, out_rank: 5}
+      519: {size: [1, 16, 3, 4, -1], out_dtype: f32, out_rank: 5}
+      520: {size: [1, 4, 4, 4, -1], out_dtype: f32, out_rank: 5}
+      521: {size: [4, 4, 4, 1, 4], out_dtype: f32, out_rank: 5}
+      522: {size: [-1, 1, 1, 2, 2, 128], out_dtype: f32, out_rank: 6}
+      523: {size: [-1, 1, 1, 4, 4, 128], out_dtype: f32, out_rank: 6}
+      524: {size: [-1, 2, 2, 2, 2, 64], out_dtype: f32, out_rank: 6}
+      525: {size: [-1, 2, 2, 4, 4, 64], out_dtype: f32, out_rank: 6}
+      526: {size: [-1, 4, 4, 2, 2, 32], out_dtype: f32, out_rank: 6}
+      527: {size: [-1, 4, 4, 4, 4, 32], out_dtype: f32, out_rank: 6}
+      528: {size: [-1, 8, 8, 2, 2, 16], out_dtype: f32, out_rank: 6}
+      529: {size: [-1, 8, 8, 4, 4, 16], out_dtype: f32, out_rank: 6}
+      530: {size: [1, 1, 1, 4, 4, -1], out_dtype: f32, out_rank: 6}
+      531: {size: [1, 1, 2, 1, 2, 128], out_dtype: f32, out_rank: 6}
+      532: {size: [1, 1, 4, 1, 4, 128], out_dtype: f32, out_rank: 6}
+      533: {size: [1, 1, 4, 1, 4, 32], out_dtype: f32, out_rank: 6}
+      534: {size: [1, 2, 2, 2, 2, 64], out_dtype: f32, out_rank: 6}
+      535: {size: [1, 2, 4, 2, 4, 64], out_dtype: f32, out_rank: 6}
+      536: {size: [1, 4, 2, 4, 2, 32], out_dtype: f32, out_rank: 6}
+      537: {size: [1, 4, 4, 4, 4, 32], out_dtype: f32, out_rank: 6}
+      538: {size: [1, 8, 2, 8, 2, 16], out_dtype: f32, out_rank: 6}
+      539: {size: [1, 8, 4, 8, 4, 16], out_dtype: f32, out_rank: 6}
+      540: {size: [-1], out_dtype: i64, out_rank: 1}
+      541: {size: [-1, 16], out_dtype: i64, out_rank: 2}
+      542: {size: [1, -1], out_dtype: i64, out_rank: 2}
+      543: {size: [{$symint: true}, -1], out_dtype: i64, out_rank: 2}
+      544: {size: [1, 1, 16], out_dtype: i64, out_rank: 3}
+      545: {size: [1, 32, 32], out_dtype: i64, out_rank: 3}
+      546: {size: [1, 1, 1, -1], out_dtype: i64, out_rank: 4}
   where.self:
     schema: where.self(Tensor condition, Tensor self, Tensor other) -> Tensor
     configs:
       1: {out_dtype: f32, out_rank: 2}
-      2: {out_dtype: f32, out_rank: 4}
-      3: {out_dtype: i64, out_rank: 2}
+      2: {out_dtype: f32, out_rank: 3}
+      3: {out_dtype: f32, out_rank: 4}
+      4: {out_dtype: i64, out_rank: 2}
+      5: {out_dtype: i64, out_rank: 3}
 models:
-  bert-tiny:
-    _softmax.default: {1: 2}
+  albert-base:
+    _softmax.default: {2: 2}
     _to_copy.default: {1: 1}
-    add.Tensor: {1: 6, 2: 2, 3: 2}
-    addmm.default: {1: 13}
-    arange.start_step: {5: 1, 6: 2}
+    add.Tensor: {3: 10, 4: 2, 7: 2}
+    addmm.default: {1: 14}
+    arange.start_step: {8: 1, 12: 2}
     bitwise_and.Tensor: {1: 2}
     bmm.default: {1: 4}
-    clone.default: {1: 2, 3: 1, 4: 5, 5: 2}
+    clone.default: {3: 2, 6: 1, 7: 3, 8: 2}
     embedding.default: {2: 2, 3: 1}
-    expand.default: {3: 1, 17: 2, 20: 4, 33: 2}
+    expand.default: {4: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    ge.Scalar: {1: 1}
+    index.Tensor: {1: 1}
+    mul.Tensor: {3: 8, 4: 2}
+    native_layer_norm.default: {19: 1, 21: 4}
+    permute.default: {4: 2, 6: 8, 13: 14}
+    pow.Tensor_Scalar: {4: 2}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1}
+    slice.Tensor: {29: 1}
+    tanh.default: {1: 1, 2: 2}
+    unsqueeze.default: {12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {19: 1, 22: 10, 25: 2, 120: 2, 131: 11, 135: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1}
+  ast-audioset:
+    _softmax.default: {2: 1}
+    add.Tensor: {2: 1, 3: 3, 4: 1, 7: 1}
+    addmm.default: {1: 7}
+    arange.start_step: {20: 1}
+    bmm.default: {1: 2}
+    cat.default: {8: 1}
+    clone.default: {3: 1, 6: 1, 7: 3, 8: 1}
+    convolution.default: {14: 1}
+    div.Tensor: {2: 1}
+    expand.default: {11: 1, 17: 2, 107: 1, 108: 2, 116: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 1}
+    mul.Tensor: {4: 1}
+    native_layer_norm.default: {20: 1, 21: 3}
+    permute.default: {4: 2, 6: 4, 7: 1, 13: 7}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1, 3: 1}
+    unsqueeze.default: {12: 1, 15: 1, 18: 1, 27: 1}
+    view.default: {58: 5, 59: 1, 170: 1, 184: 1, 185: 5, 186: 1, 300: 1, 301: 2, 311: 1, 444: 1, 445: 1, 454: 3}
+    where.self: {3: 1}
+  bart-base:
+    _softmax.default: {2: 10}
+    _to_copy.default: {1: 3}
+    add.Tensor: {3: 21, 4: 10, 7: 7, 8: 2}
+    addmm.default: {1: 56}
+    arange.start_step: {2: 1, 8: 3, 12: 3, 19: 4}
+    bitwise_and.Tensor: {1: 6}
+    bmm.default: {1: 20}
+    clone.default: {3: 10, 6: 3, 7: 28, 8: 10}
+    embedding.default: {2: 2, 4: 2}
+    expand.default: {4: 1, 9: 1, 10: 1, 93: 6, 97: 14, 104: 2, 105: 2, 106: 6, 113: 8, 117: 2, 149: 1}
+    full.default: {1: 3}
+    ge.Scalar: {1: 2}
+    gelu.default: {1: 8}
+    index.Tensor: {1: 3}
+    le.Tensor: {1: 1}
+    mm.default: {1: 1}
+    mul.Tensor: {3: 2, 4: 10}
+    native_layer_norm.default: {5: 20}
+    permute.default: {4: 10, 6: 40, 13: 57}
+    scalar_tensor.default: {1: 3}
+    unsqueeze.default: {12: 7, 17: 3, 18: 6, 22: 3, 23: 3, 27: 6}
+    view.default: {22: 34, 25: 6, 55: 15, 57: 2, 120: 6, 131: 34, 135: 6, 175: 4, 176: 1, 180: 14, 183: 2, 279: 6, 285: 14, 296: 2, 297: 2, 299: 6, 308: 8, 312: 2, 373: 22, 423: 8, 426: 6, 428: 6, 438: 2, 440: 2, 442: 4}
+    where.self: {3: 3}
+  bert-tiny:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1}
+    add.Tensor: {3: 6, 4: 2, 7: 2}
+    addmm.default: {1: 13}
+    arange.start_step: {8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    embedding.default: {2: 2, 3: 1}
+    expand.default: {4: 1, 63: 2, 68: 4, 90: 2}
     full.default: {1: 1}
     ge.Scalar: {1: 1}
     gelu.default: {1: 2}
     index.Tensor: {1: 1}
-    mul.Tensor: {3: 2}
-    native_layer_norm.default: {7: 5}
-    permute.default: {1: 2, 3: 8, 6: 13}
+    mul.Tensor: {4: 2}
+    native_layer_norm.default: {18: 5}
+    permute.default: {4: 2, 6: 8, 13: 13}
     scalar_tensor.default: {1: 1}
-    select.int: {1: 1}
-    slice.Tensor: {20: 1}
+    select.int: {2: 1}
+    slice.Tensor: {29: 1}
     tanh.default: {1: 1}
-    unsqueeze.default: {3: 2, 6: 1, 7: 2, 10: 1, 11: 1, 12: 2}
-    view.default: {6: 10, 7: 2, 29: 2, 30: 10, 31: 2, 68: 2, 71: 4, 84: 2, 98: 6, 102: 2, 104: 2}
-    where.self: {2: 1}
-  mobilevit-xxs:
-    _native_batch_norm_legit_no_training.default: {1: 32}
-    _softmax.default: {1: 9}
-    add.Tensor: {1: 18, 2: 3}
-    addmm.default: {1: 55}
-    bmm.default: {1: 18}
-    cat.default: {7: 3}
-    clone.default: {1: 45, 4: 18, 5: 9}
-    convolution.default: {2: 21, 4: 6, 5: 1, 8: 1, 9: 1, 10: 1, 11: 2, 12: 1, 13: 1}
-    div.Tensor: {3: 9}
-    expand.default: {37: 3, 38: 6, 39: 2, 40: 4, 41: 3, 42: 4, 43: 2, 44: 8, 45: 4}
-    mean.dim: {2: 1}
-    mul.Tensor: {2: 9, 3: 25}
-    native_layer_norm.default: {4: 5, 5: 9, 6: 7}
-    permute.default: {1: 9, 3: 42, 5: 6, 6: 55}
-    sigmoid.default: {1: 9, 2: 25}
-    view.default: {4: 2, 5: 10, 12: 4, 13: 20, 21: 3, 22: 15, 54: 3, 55: 6, 56: 2, 57: 4, 58: 3, 59: 4, 60: 2, 61: 8, 62: 4, 88: 3, 89: 19, 90: 2, 91: 13, 92: 4, 93: 25, 120: 1, 122: 1, 123: 1, 125: 1, 126: 1, 128: 1, 129: 1, 130: 1, 131: 1, 132: 1, 133: 1, 134: 1, 135: 1, 136: 9, 137: 6, 138: 3, 139: 3, 140: 2, 141: 2, 142: 4, 143: 4, 144: 12, 145: 1, 146: 1}
-  smollm2-135m:
-    _softmax.default: {1: 2}
-    _to_copy.default: {1: 1, 3: 1}
-    add.Tensor: {1: 9, 2: 6, 3: 3}
-    alias.default: {1: 1}
-    arange.start_step: {5: 1, 6: 3}
+    unsqueeze.default: {12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {18: 10, 20: 2, 120: 2, 123: 10, 128: 2, 244: 2, 249: 4, 272: 2, 372: 6, 387: 2, 389: 2}
+    where.self: {3: 1}
+  clap-htsat:
+    _native_batch_norm_legit_no_training.default: {1: 1}
+    _softmax.default: {2: 5}
+    _to_copy.default: {1: 1, 2: 2, 5: 2, 6: 1, 7: 2}
+    add.Tensor: {1: 1, 2: 3, 3: 14, 4: 20, 6: 1, 7: 4, 8: 3}
+    addmm.default: {1: 35}
+    arange.start_step: {8: 1, 12: 2, 18: 1, 23: 1}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 10}
+    cat.default: {3: 3, 5: 2, 6: 2}
+    clamp.default: {2: 1, 3: 1, 5: 16, 8: 16}
+    clone.default: {2: 4, 3: 11, 5: 6, 6: 1, 7: 11, 8: 5}
+    constant_pad_nd.default: {1: 4}
+    convolution.default: {10: 1}
+    cumsum.default: {4: 1}
+    div.Tensor: {2: 2, 4: 4}
+    embedding.default: {2: 1, 3: 2}
+    exp.default: {1: 2}
+    expand.default: {4: 1, 93: 1, 97: 2, 113: 1, 120: 4, 124: 4, 128: 4, 140: 4, 149: 1, 150: 1}
+    floor.default: {1: 1, 2: 1}
+    full.default: {1: 1}
+    gather.default: {1: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 5}
+    index.Tensor: {1: 1, 2: 4, 4: 16}
+    linalg_vector_norm.default: {1: 2}
+    mean.dim: {1: 1}
+    mm.default: {1: 5}
+    mul.Tensor: {1: 2, 2: 8, 3: 6, 4: 21, 5: 1}
+    native_layer_norm.default: {1: 4, 2: 3, 3: 1, 5: 2, 8: 3, 21: 3}
+    ne.Scalar: {2: 1}
+    permute.default: {2: 8, 3: 1, 4: 6, 6: 20, 7: 2, 11: 2, 13: 40, 18: 4}
+    relu.default: {1: 2}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1}
+    slice.Tensor: {3: 2, 4: 2, 6: 2, 7: 2, 34: 6, 35: 6, 43: 6, 44: 6}
+    squeeze.dims: {2: 1, 4: 4, 5: 4}
+    sub.Tensor: {1: 3, 2: 6, 3: 3, 5: 1, 6: 1}
+    tanh.default: {1: 1}
+    unsqueeze.default: {2: 1, 7: 1, 11: 4, 12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {6: 1, 14: 5, 15: 1, 18: 5, 20: 1, 22: 5, 24: 1, 25: 1, 32: 2, 40: 1, 43: 5, 44: 1, 71: 1, 73: 1, 75: 5, 87: 1, 88: 1, 89: 1, 90: 1, 95: 1, 96: 1, 97: 1, 107: 2, 108: 1, 114: 1, 120: 1, 121: 1, 123: 8, 131: 5, 134: 1, 135: 1, 153: 1, 155: 3, 202: 1, 206: 3, 220: 4, 221: 4, 224: 5, 271: 2, 275: 4, 279: 1, 284: 5, 285: 2, 308: 1, 315: 9, 320: 4, 332: 1, 337: 1, 338: 3, 339: 2, 340: 2, 341: 2, 343: 1, 351: 1, 365: 1, 366: 1, 369: 3, 373: 3, 375: 2, 417: 2, 424: 1, 426: 1, 428: 1, 437: 1, 467: 2, 473: 2, 482: 3, 483: 2, 490: 3, 494: 2, 504: 2, 507: 3, 517: 1, 523: 1, 525: 1, 527: 1, 529: 1, 532: 1, 535: 1, 537: 1, 539: 1, 540: 4}
+    where.self: {3: 1}
+  convnextv2-tiny:
+    add.Tensor: {4: 16}
+    addmm.default: {1: 9}
+    convolution.default: {6: 3, 10: 1, 24: 1, 27: 1, 31: 1, 32: 1}
+    div.Tensor: {4: 4}
+    gelu.default: {2: 4}
+    linalg_vector_norm.default: {5: 4}
+    mean.dim: {3: 4, 4: 1}
+    mul.Tensor: {4: 8}
+    native_layer_norm.default: {12: 2, 14: 2, 16: 1, 17: 3, 22: 1}
+    permute.default: {9: 8, 10: 8, 13: 9}
+    view.default: {7: 1, 11: 1, 19: 1, 25: 1, 53: 1, 55: 1, 74: 1, 76: 1, 349: 1, 350: 1, 392: 1, 393: 1, 438: 1, 441: 1, 472: 1, 474: 1}
+  depth-anything-small:
+    _softmax.default: {2: 4}
+    add.Tensor: {3: 9, 4: 14, 7: 1}
+    addmm.default: {1: 24}
+    arange.start_step: {17: 1}
+    bmm.default: {1: 8}
+    cat.default: {8: 1}
+    clone.default: {3: 8, 6: 1, 7: 1, 8: 4}
+    convolution.default: {2: 9, 4: 1, 7: 1, 8: 20, 9: 1, 11: 1}
+    expand.default: {8: 1, 17: 1, 94: 4, 102: 8, 103: 4}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 4}
+    mul.Tensor: {3: 8, 4: 5}
+    native_layer_norm.default: {15: 12}
+    permute.default: {4: 4, 6: 16, 7: 1, 10: 4, 13: 24}
+    relu.default: {3: 16}
+    scalar_tensor.default: {1: 1}
+    slice.Tensor: {32: 4}
+    squeeze.dims: {8: 1}
+    unsqueeze.default: {12: 1, 18: 1, 27: 1}
+    upsample_bilinear2d.vec: {2: 1, 3: 1, 4: 1, 5: 1, 6: 1}
+    view.default: {46: 4, 47: 20, 157: 4, 158: 4, 159: 20, 202: 1, 281: 4, 293: 8, 294: 4, 376: 4, 410: 12, 434: 4, 435: 4}
+    where.self: {3: 1}
+  dinov2-small:
+    _softmax.default: {2: 2}
+    add.Tensor: {3: 5, 4: 2, 7: 1}
+    addmm.default: {1: 12}
+    arange.start_step: {21: 1}
+    bmm.default: {1: 4}
+    cat.default: {8: 1}
+    clone.default: {3: 2, 6: 1, 7: 1, 8: 2}
+    convolution.default: {4: 1}
+    expand.default: {12: 1, 17: 1, 111: 2, 112: 4, 118: 2}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    mul.Tensor: {3: 4, 4: 2}
+    native_layer_norm.default: {13: 5}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 12}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1}
+    unsqueeze.default: {12: 1, 18: 1, 27: 1}
+    view.default: {65: 2, 66: 10, 172: 1, 193: 2, 194: 2, 195: 10, 304: 2, 305: 4, 313: 2, 448: 2, 449: 2, 458: 6}
+    where.self: {3: 1}
+  distilbert-base:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1}
+    add.Tensor: {3: 5, 4: 2, 7: 2}
+    addmm.default: {1: 12}
+    arange.start_step: {8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clone.default: {3: 2, 6: 1, 7: 3, 8: 2}
+    embedding.default: {2: 1, 3: 1}
+    expand.default: {4: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 1}
+    mul.Tensor: {4: 2}
+    native_layer_norm.default: {21: 5}
+    permute.default: {4: 2, 6: 8, 13: 12}
+    scalar_tensor.default: {1: 1}
+    slice.Tensor: {29: 1}
+    unsqueeze.default: {12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 10, 25: 2, 120: 2, 131: 10, 135: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1}
+  esm2-8m:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 2: 1, 4: 1, 5: 2}
+    add.Tensor: {3: 6, 4: 6, 7: 2}
+    addmm.default: {1: 13}
+    arange.start_step: {8: 1, 12: 3}
     bitwise_and.Tensor: {1: 2}
     bmm.default: {1: 5}
     cat.default: {2: 1, 3: 4}
-    clone.default: {1: 2, 2: 4, 3: 1, 5: 2}
+    clone.default: {3: 2, 6: 1, 7: 4, 8: 2}
     cos.default: {1: 1}
-    embedding.default: {3: 1}
-    expand.default: {3: 1, 8: 1, 10: 1, 11: 1, 36: 8, 46: 4}
+    cumsum.default: {4: 1}
+    div.Tensor: {1: 1, 3: 3}
+    embedding.default: {4: 1}
+    eq.Scalar: {8: 2}
+    erf.default: {1: 2}
+    expand.default: {4: 1, 18: 1, 21: 1, 32: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    ge.Scalar: {1: 1}
+    index.Tensor: {1: 1}
+    mul.Tensor: {3: 8, 4: 12, 5: 1}
+    native_layer_norm.default: {5: 5}
+    ne.Scalar: {3: 1}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 13}
+    scalar_tensor.default: {1: 1, 2: 1}
+    select.int: {2: 1}
+    sin.default: {1: 1}
+    slice.Tensor: {48: 4, 52: 4}
+    sub.Tensor: {1: 1}
+    sum.dim_IntList: {3: 2}
+    tanh.default: {1: 1}
+    unsqueeze.default: {1: 1, 5: 1, 9: 1, 12: 3, 13: 1, 15: 4, 17: 1, 18: 3, 19: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 10, 25: 2, 100: 1, 120: 2, 131: 10, 135: 2, 177: 1, 178: 1, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {2: 1, 3: 1}
+  gpt2:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1}
+    add.Tensor: {3: 9, 4: 2, 7: 3}
+    addmm.default: {1: 8}
+    alias.default: {1: 1}
+    arange.start_step: {8: 1, 12: 3}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    embedding.default: {2: 2}
+    expand.default: {4: 1, 93: 2, 97: 4, 113: 2}
     full.default: {1: 1}
     index.Tensor: {1: 1}
     le.Tensor: {1: 1}
-    mean.dim: {1: 5}
-    mm.default: {1: 15}
-    mul.Tensor: {2: 16, 3: 10}
-    neg.default: {1: 4}
-    permute.default: {1: 2, 3: 8, 4: 1, 6: 15}
+    mm.default: {1: 1}
+    mul.Tensor: {3: 8, 4: 2}
+    native_layer_norm.default: {5: 5}
+    permute.default: {4: 2, 6: 8, 13: 1}
+    pow.Tensor_Scalar: {4: 2}
+    scalar_tensor.default: {1: 1}
+    split_with_sizes.default: {5: 2}
+    tanh.default: {2: 2}
+    unsqueeze.default: {12: 3, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {3: 2, 4: 6, 22: 1, 89: 1, 123: 3, 131: 6, 137: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2, 541: 1, 542: 1}
+    where.self: {3: 1}
+  layoutlmv3-base:
+    _softmax.default: {2: 1}
+    _to_copy.default: {1: 1, 4: 3, 5: 2, 7: 1, 8: 6}
+    abs.default: {3: 3}
+    add.Tensor: {3: 6, 4: 4, 7: 2, 8: 1, 9: 9}
+    addmm.default: {1: 6}
+    amax.default: {1: 1}
+    arange.start_step: {6: 1, 8: 1, 12: 1, 15: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 2}
+    cat.default: {2: 1, 8: 2, 10: 2, 11: 1}
+    clamp.default: {4: 2}
+    clone.default: {3: 4, 6: 1, 7: 5, 8: 1}
+    convolution.default: {5: 1}
+    cumsum.default: {4: 1}
+    div.Tensor: {3: 6, 4: 3}
+    embedding.default: {2: 7, 4: 2}
+    expand.default: {6: 1, 17: 1, 100: 1, 101: 2, 115: 1, 150: 1}
+    full.default: {1: 1, 8: 1, 9: 1}
+    full_like.default: {5: 1, 7: 2}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 1}
+    gt.Scalar: {2: 3}
+    index.Tensor: {1: 1, 4: 3}
+    log.default: {2: 3}
+    lt.Scalar: {3: 2, 5: 1}
+    minimum.default: {2: 3}
+    mul.Tensor: {3: 3, 4: 1, 5: 1, 7: 3}
+    native_layer_norm.default: {5: 4, 13: 1}
+    ne.Scalar: {3: 1}
+    permute.default: {4: 1, 6: 4, 7: 1, 10: 3, 13: 9}
+    repeat.default: {2: 1, 3: 1}
+    scalar_tensor.default: {1: 1}
+    select.int: {21: 3, 23: 2, 31: 2, 33: 3}
+    sub.Tensor: {4: 1, 6: 2, 7: 3}
+    unsqueeze.default: {4: 1, 5: 3, 8: 3, 12: 3, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {35: 5, 36: 1, 148: 6, 149: 1, 172: 1, 289: 2, 290: 2, 310: 1, 347: 3, 431: 2, 432: 1}
+    where.self: {3: 1, 5: 3}
+  mamba-130m:
+    add.Tensor: {3: 21}
+    alias.default: {1: 1}
+    bmm.default: {1: 18}
+    cat.default: {2: 1}
+    clone.default: {2: 1}
+    convolution.default: {34: 1}
+    embedding.default: {2: 1}
+    exp.default: {2: 1, 3: 1, 4: 1}
+    expand.default: {22: 1, 23: 1, 24: 16, 25: 2, 36: 16}
+    full.default: {3: 1}
+    gt.Scalar: {3: 1}
+    log1p.default: {2: 1}
+    mean.dim: {2: 2}
+    mm.default: {1: 3}
+    mul.Tensor: {3: 26, 4: 3}
+    neg.default: {1: 1}
+    permute.default: {7: 11, 13: 5}
+    pow.Tensor_Scalar: {3: 2}
+    rsqrt.default: {1: 2}
+    select.int: {2: 1, 3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1, 19: 16, 20: 2, 22: 2, 24: 2, 25: 2, 26: 2, 27: 2, 28: 2, 29: 2, 30: 2, 32: 2, 34: 2, 35: 2, 36: 2, 37: 2, 38: 2, 39: 2}
+    sigmoid.default: {1: 2}
+    slice.Tensor: {38: 1}
+    split_with_sizes.default: {2: 1, 4: 1}
+    squeeze.dims: {7: 1}
+    unsqueeze.default: {3: 16, 9: 1, 10: 1, 13: 1, 14: 1, 15: 1, 19: 17, 20: 1, 22: 2, 25: 3}
+    view.default: {22: 2, 26: 1, 116: 16, 117: 1, 118: 1, 119: 16, 123: 1, 124: 3, 127: 1, 129: 1, 131: 1, 215: 16}
+    where.self: {2: 1}
+  marian-fr-en:
+    _softmax.default: {2: 8}
+    _to_copy.default: {1: 3}
+    add.Tensor: {3: 18, 4: 8, 7: 7}
+    addmm.default: {1: 46}
+    arange.start_step: {2: 1, 8: 3, 12: 3, 19: 4}
+    bitwise_and.Tensor: {1: 6}
+    bmm.default: {1: 16}
+    clone.default: {3: 8, 6: 3, 7: 24, 8: 8}
+    embedding.default: {1: 2, 3: 2}
+    expand.default: {4: 1, 9: 1, 10: 1, 93: 6, 97: 13, 104: 1, 105: 1, 106: 3, 113: 7, 117: 1}
+    full.default: {1: 3}
+    ge.Scalar: {1: 2}
+    index.Tensor: {1: 3}
+    le.Tensor: {1: 1}
+    mm.default: {1: 1}
+    mul.Tensor: {3: 9, 4: 8}
+    native_layer_norm.default: {5: 15}
+    permute.default: {4: 8, 6: 32, 13: 47}
+    scalar_tensor.default: {1: 3}
+    sigmoid.default: {1: 7}
+    unsqueeze.default: {12: 6, 17: 3, 18: 6, 22: 3, 23: 3, 27: 6}
+    view.default: {22: 32, 25: 6, 55: 8, 57: 1, 120: 6, 131: 32, 135: 6, 175: 2, 176: 1, 180: 7, 183: 1, 279: 6, 285: 13, 296: 1, 297: 1, 299: 3, 308: 7, 312: 1, 373: 20, 423: 4, 426: 6, 428: 6, 438: 1, 440: 1, 442: 2}
+    where.self: {3: 3}
+  minilm-l6-v2:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 1}
+    add.Tensor: {3: 6, 4: 2, 7: 2}
+    addmm.default: {1: 12}
+    arange.start_step: {8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clamp.default: {12: 1, 14: 1}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    div.Tensor: {2: 2}
+    embedding.default: {2: 2, 3: 1}
+    expand.default: {4: 1, 15: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 1}
+    linalg_vector_norm.default: {2: 1}
+    mul.Tensor: {3: 1, 4: 2}
+    native_layer_norm.default: {21: 5}
+    permute.default: {4: 2, 6: 8, 13: 12}
+    scalar_tensor.default: {1: 1}
+    slice.Tensor: {29: 1}
+    sum.dim_IntList: {6: 2}
+    unsqueeze.default: {5: 1, 12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 10, 25: 2, 120: 2, 131: 10, 135: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1}
+  mobilevit-xxs:
+    _native_batch_norm_legit_no_training.default: {1: 32}
+    _softmax.default: {2: 9}
+    add.Tensor: {3: 18, 4: 3}
+    addmm.default: {1: 55}
+    bmm.default: {1: 18}
+    cat.default: {9: 3}
+    clone.default: {3: 45, 7: 18, 8: 9}
+    convolution.default: {2: 21, 8: 6, 9: 1, 22: 1, 25: 1, 26: 1, 28: 2, 29: 1, 33: 1}
+    div.Tensor: {4: 9}
+    expand.default: {128: 3, 129: 6, 130: 2, 132: 4, 133: 3, 134: 4, 135: 2, 138: 8, 139: 4}
+    mean.dim: {4: 1}
+    mul.Tensor: {3: 9, 4: 25}
+    native_layer_norm.default: {8: 5, 9: 9, 11: 7}
+    permute.default: {4: 9, 6: 42, 11: 6, 13: 55}
+    sigmoid.default: {1: 9, 2: 25}
+    view.default: {13: 2, 15: 10, 41: 4, 45: 20, 72: 3, 77: 15, 221: 3, 222: 6, 223: 2, 226: 4, 227: 3, 228: 4, 229: 2, 234: 8, 235: 4, 280: 3, 286: 19, 291: 2, 292: 13, 306: 4, 307: 25, 425: 1, 433: 1, 450: 1, 462: 1, 463: 1, 475: 1, 476: 1, 477: 1, 478: 1, 479: 1, 480: 1, 488: 1, 489: 1, 491: 9, 492: 6, 494: 3, 495: 3, 496: 2, 497: 2, 501: 4, 502: 4, 503: 12, 509: 1, 510: 1}
+  modernbert-embed:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 2, 4: 3}
+    abs.default: {4: 1}
+    add.Tensor: {3: 4, 4: 6, 7: 4}
+    arange.start_step: {8: 2, 12: 5}
+    bitwise_and.Tensor: {1: 6}
+    bmm.default: {1: 6}
+    cat.default: {2: 2, 3: 4}
+    clamp.default: {12: 1, 14: 1}
+    clone.default: {3: 2, 6: 2, 7: 3, 8: 2}
+    cos.default: {1: 2}
+    div.Tensor: {2: 2}
+    embedding.default: {3: 1}
+    expand.default: {4: 2, 15: 1, 18: 2, 21: 2, 32: 2, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 3}
+    ge.Scalar: {1: 2}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 2}
+    le.Scalar: {1: 1}
+    linalg_vector_norm.default: {2: 1}
+    mm.default: {1: 8}
+    mul.Tensor: {3: 7, 4: 10}
+    native_layer_norm.default: {5: 5}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 8, 7: 2, 13: 8}
+    scalar_tensor.default: {1: 2}
+    sin.default: {1: 2}
+    slice.Tensor: {37: 2, 39: 2, 40: 2, 48: 4, 52: 4}
+    split_with_sizes.default: {1: 2}
+    squeeze.dims: {9: 6}
+    sub.Tensor: {8: 1}
+    sum.dim_IntList: {6: 2}
+    unsqueeze.default: {5: 1, 9: 2, 12: 5, 15: 4, 17: 2, 18: 6, 19: 2, 22: 2, 23: 2, 27: 4}
+    view.default: {22: 6, 25: 2, 100: 2, 120: 2, 123: 2, 131: 4, 137: 2, 177: 2, 178: 2, 279: 2, 285: 4, 308: 2, 426: 2, 428: 2, 518: 2}
+    where.self: {3: 2}
+  mpnet-base:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 3: 1, 4: 1, 5: 2, 7: 3}
+    abs.default: {2: 1}
+    add.Tensor: {3: 5, 4: 4, 7: 2, 8: 4}
+    addmm.default: {1: 12}
+    arange.start_step: {2: 2, 8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clamp.default: {12: 1, 14: 1}
+    clone.default: {3: 3, 6: 1, 7: 5, 8: 2}
+    cumsum.default: {4: 1}
+    div.Tensor: {2: 4, 4: 2}
+    embedding.default: {2: 1, 4: 2}
+    expand.default: {4: 1, 15: 1, 41: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    full_like.default: {4: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 1}
+    linalg_vector_norm.default: {2: 1}
+    log.default: {1: 1}
+    lt.Scalar: {1: 1, 4: 1}
+    minimum.default: {1: 1}
+    mul.Tensor: {2: 1, 3: 1, 5: 1, 6: 1}
+    native_layer_norm.default: {5: 5}
+    ne.Scalar: {3: 1}
+    neg.default: {4: 1}
+    permute.default: {4: 2, 6: 8, 13: 12, 18: 1}
+    scalar_tensor.default: {1: 1}
+    sub.Tensor: {6: 1}
+    sum.dim_IntList: {6: 2}
+    unsqueeze.default: {5: 1, 11: 1, 12: 3, 17: 2, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 10, 25: 2, 131: 12, 135: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1, 4: 1}
+  nomic-embed:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 2}
+    add.Tensor: {3: 5, 4: 6, 7: 2}
+    arange.start_step: {2: 1, 8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 5}
+    cat.default: {2: 1, 3: 4}
+    clamp.default: {12: 1, 14: 1}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    cos.default: {1: 1}
+    div.Tensor: {2: 2}
+    embedding.default: {2: 1, 3: 1}
+    expand.default: {4: 1, 15: 1, 18: 1, 21: 1, 32: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1, 8: 1}
+    ge.Scalar: {1: 1}
+    index.Tensor: {1: 1}
+    linalg_vector_norm.default: {2: 1}
+    mm.default: {1: 14}
+    mul.Tensor: {3: 7, 4: 10}
+    native_layer_norm.default: {21: 5}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 14}
+    scalar_tensor.default: {1: 1}
+    sigmoid.default: {1: 2}
+    sin.default: {1: 1}
+    slice.Tensor: {48: 4, 52: 4}
+    sum.dim_IntList: {6: 2}
+    unsqueeze.default: {5: 1, 9: 1, 12: 3, 15: 4, 17: 1, 18: 3, 19: 1, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 12, 25: 2, 100: 1, 120: 2, 131: 10, 135: 4, 177: 1, 178: 1, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1}
+  owlv2-base:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 5: 1}
+    add.Tensor: {3: 11, 4: 1, 7: 2}
+    addmm.default: {1: 21}
+    alias.default: {1: 1}
+    arange.start_step: {8: 2, 12: 2}
+    argmax.default: {1: 1}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 5}
+    cat.default: {8: 1}
+    clone.default: {3: 2, 6: 1, 8: 2}
+    convolution.default: {5: 1}
+    div.Tensor: {2: 1, 3: 2}
+    elu.default: {1: 1}
+    embedding.default: {2: 3}
+    eq.Scalar: {2: 1}
+    exp.default: {1: 1}
+    expand.default: {4: 1, 19: 1, 27: 1, 93: 1, 97: 2, 98: 1, 99: 2, 113: 1, 114: 1}
+    full.default: {1: 1}
+    gelu.default: {1: 4}
+    gt.Scalar: {1: 1}
+    index.Tensor: {1: 1, 2: 1}
+    le.Tensor: {1: 1}
+    linalg_vector_norm.default: {1: 1, 3: 2}
+    mm.default: {1: 1}
+    mul.Tensor: {3: 6, 4: 2}
+    native_layer_norm.default: {5: 8}
+    permute.default: {4: 3, 6: 8, 7: 1, 10: 1, 13: 22, 15: 1, 20: 1, 22: 1}
+    scalar_tensor.default: {1: 2}
+    select.int: {19: 1, 21: 1}
+    sigmoid.default: {1: 3}
+    slice.Tensor: {27: 1, 29: 1, 32: 1}
+    unsqueeze.default: {6: 1, 12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 25: 2, 27: 2}
+    view.default: {22: 14, 23: 1, 25: 1, 27: 5, 28: 1, 102: 1, 120: 1, 126: 4, 131: 12, 133: 2, 135: 1, 138: 1, 139: 5, 140: 1, 166: 1, 168: 1, 279: 1, 285: 2, 287: 1, 288: 2, 308: 1, 309: 1, 373: 3, 380: 3, 426: 1, 428: 1, 429: 1, 430: 1, 439: 1, 481: 1, 541: 1, 544: 1}
+    where.self: {2: 1, 3: 1}
+  pythia-160m:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 1}
+    add.Tensor: {3: 4, 4: 6, 7: 3}
+    addmm.default: {1: 8}
+    alias.default: {1: 1}
+    arange.start_step: {8: 1, 12: 3}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 5}
+    cat.default: {2: 1, 3: 8}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    cos.default: {1: 1}
+    embedding.default: {2: 1}
+    expand.default: {4: 1, 18: 1, 21: 1, 29: 1, 93: 2, 97: 4, 113: 2}
+    full.default: {1: 1}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 1}
+    le.Tensor: {1: 1}
+    mm.default: {1: 1}
+    mul.Tensor: {3: 2, 4: 10}
+    native_layer_norm.default: {5: 5}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 4, 7: 1, 13: 9}
+    scalar_tensor.default: {1: 1}
+    sin.default: {1: 1}
+    slice.Tensor: {47: 4, 48: 4, 51: 4, 52: 4}
+    split_with_sizes.default: {3: 2}
+    unsqueeze.default: {9: 1, 12: 3, 15: 4, 17: 1, 18: 3, 19: 1, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 7, 25: 2, 100: 1, 120: 2, 123: 1, 131: 4, 135: 2, 137: 2, 144: 1, 145: 1, 279: 2, 285: 4, 308: 2, 370: 2, 426: 2, 428: 2}
+    where.self: {3: 1}
+  qwen2-05b:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 1}
+    add.Tensor: {3: 9, 4: 6, 7: 3}
+    addmm.default: {1: 6}
+    alias.default: {1: 1}
+    arange.start_step: {8: 1, 12: 3}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 5}
+    cat.default: {2: 1, 3: 4}
+    clone.default: {3: 2, 4: 4, 6: 1, 8: 2}
+    cos.default: {1: 1}
+    embedding.default: {3: 1}
+    expand.default: {4: 1, 18: 1, 21: 1, 32: 1, 93: 2, 97: 4, 113: 2, 148: 4}
+    full.default: {1: 1}
+    index.Tensor: {1: 1}
+    le.Tensor: {1: 1}
+    mean.dim: {2: 5}
+    mm.default: {1: 9}
+    mul.Tensor: {3: 16, 4: 10}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 15}
     pow.Tensor_Scalar: {3: 5}
     rsqrt.default: {1: 5}
     scalar_tensor.default: {1: 1}
     sigmoid.default: {1: 2}
     sin.default: {1: 1}
-    slice.Tensor: {23: 4, 24: 4}
-    unsqueeze.default: {1: 1, 3: 3, 5: 4, 6: 1, 7: 3, 8: 1, 9: 4, 10: 1, 11: 1, 12: 2}
-    view.default: {6: 2, 8: 13, 26: 1, 29: 2, 30: 4, 31: 1, 32: 4, 33: 6, 51: 1, 52: 1, 87: 8, 96: 6, 121: 8}
-    where.self: {2: 1}
+    slice.Tensor: {48: 4, 52: 4}
+    unsqueeze.default: {9: 1, 12: 3, 15: 4, 17: 1, 18: 3, 19: 1, 21: 4, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 13, 25: 2, 100: 1, 120: 2, 123: 1, 125: 4, 131: 6, 135: 4, 177: 1, 178: 1, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 6}
+    where.self: {3: 1}
+  resnet-18:
+    _native_batch_norm_legit_no_training.default: {1: 12}
+    add.Tensor: {4: 4}
+    addmm.default: {1: 1}
+    convolution.default: {3: 3, 8: 5, 9: 3, 12: 1}
+    max_pool2d_with_indices.default: {1: 1}
+    mean.dim: {1: 1}
+    permute.default: {13: 1}
+    relu.default: {3: 9}
+    view.default: {11: 1}
+  roberta-base:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 5: 2, 7: 1}
+    add.Tensor: {3: 6, 4: 2, 6: 1, 7: 2, 8: 1}
+    addmm.default: {1: 13}
+    arange.start_step: {8: 1, 12: 2}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 4}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    cumsum.default: {4: 1}
+    embedding.default: {2: 1, 4: 2}
+    expand.default: {4: 1, 93: 2, 97: 4, 113: 2, 149: 1, 150: 1}
+    full.default: {1: 1}
+    gather.default: {1: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    index.Tensor: {1: 1}
+    mul.Tensor: {4: 2, 5: 1}
+    native_layer_norm.default: {5: 5}
+    ne.Scalar: {3: 1}
+    permute.default: {4: 2, 6: 8, 13: 13}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1}
+    tanh.default: {1: 1}
+    unsqueeze.default: {12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {22: 10, 25: 2, 120: 2, 131: 10, 135: 2, 279: 2, 285: 4, 308: 2, 373: 6, 426: 2, 428: 2}
+    where.self: {3: 1}
+  sam-vit-base:
+    _softmax.default: {1: 2, 2: 7}
+    _to_copy.default: {2: 4, 6: 4, 7: 4}
+    add.Tensor: {1: 4, 2: 4, 3: 6, 4: 31, 5: 2, 7: 4}
+    addmm.default: {1: 52}
+    alias.default: {2: 1}
+    arange.start_step: {14: 2, 19: 8, 24: 4}
+    bmm.default: {1: 26}
+    cat.default: {2: 2, 3: 1, 6: 1, 12: 2, 13: 2}
+    clamp.default: {2: 4, 9: 4, 10: 4}
+    clone.default: {3: 7, 4: 10, 7: 3, 8: 8}
+    constant_pad_nd.default: {1: 1}
+    convolution.default: {2: 1, 5: 1, 7: 2, 8: 1}
+    copy.default: {1: 2}
+    cos.default: {1: 1, 2: 1}
+    cumsum.default: {2: 1, 3: 1}
+    div.Tensor: {2: 2, 3: 2}
+    eq.Scalar: {1: 1, 2: 1, 3: 1, 5: 1, 6: 1}
+    expand.default: {38: 2, 39: 4, 40: 2, 42: 1, 43: 3, 45: 2, 48: 3, 49: 1, 50: 1, 96: 5, 97: 2, 104: 3, 106: 2, 113: 3, 117: 5, 119: 8, 146: 2}
+    full.default: {4: 1, 6: 1, 7: 1}
+    full_like.default: {2: 1}
+    gelu.default: {2: 4}
+    index.Tensor: {3: 12}
+    mm.default: {1: 2}
+    mul.Tensor: {1: 4, 2: 8, 3: 8, 4: 9}
+    native_layer_norm.default: {6: 1, 14: 14, 17: 1}
+    ne.Scalar: {1: 1}
+    neg.default: {2: 1}
+    permute.default: {1: 4, 2: 2, 4: 8, 6: 28, 7: 8, 8: 2, 9: 4, 10: 4, 12: 4, 13: 59, 14: 2, 16: 2, 17: 2, 18: 1, 19: 2, 21: 2, 23: 2, 24: 2}
+    relu.default: {2: 10, 3: 2}
+    repeat.default: {1: 2}
+    select.int: {20: 2, 22: 1, 30: 1, 32: 1, 40: 2, 41: 2}
+    sin.default: {1: 1, 2: 1}
+    slice.Tensor: {5: 2, 8: 2, 9: 2, 41: 1, 42: 1, 45: 1}
+    squeeze.dims: {6: 6}
+    sub.Tensor: {1: 8, 2: 6, 3: 5, 4: 1}
+    unsqueeze.default: {10: 2, 11: 1, 12: 4, 15: 4, 16: 2, 17: 4, 19: 2, 24: 2, 25: 8, 26: 2, 28: 10}
+    view.default: {2: 4, 5: 4, 10: 15, 19: 2, 21: 1, 22: 11, 25: 2, 48: 1, 81: 3, 82: 17, 83: 2, 102: 10, 103: 5, 131: 3, 166: 5, 179: 1, 181: 1, 208: 4, 279: 6, 283: 5, 285: 12, 296: 4, 299: 2, 308: 5, 312: 9, 314: 8, 340: 1, 344: 1, 352: 10, 353: 2, 354: 1, 357: 2, 358: 1, 361: 10, 362: 15, 363: 2, 378: 8, 418: 3, 427: 2, 428: 2, 436: 1, 439: 6, 441: 2, 443: 2, 451: 3, 452: 3, 453: 4, 469: 7, 470: 6, 487: 2, 499: 4, 500: 2, 516: 1, 519: 2, 520: 2, 521: 4, 530: 1, 533: 1, 546: 2}
+    where.self: {3: 6}
+  segformer-b0:
+    _native_batch_norm_legit_no_training.default: {1: 1}
+    _softmax.default: {2: 4}
+    add.Tensor: {3: 12}
+    addmm.default: {1: 24}
+    bmm.default: {1: 12}
+    cat.default: {9: 1}
+    clone.default: {3: 6, 7: 12, 8: 5}
+    convolution.default: {2: 2, 6: 1, 9: 3, 10: 1, 13: 1, 15: 1, 21: 1, 23: 1, 25: 1, 30: 1}
+    expand.default: {27: 1, 28: 1, 30: 1, 31: 1, 33: 1, 34: 1, 35: 1, 37: 1, 44: 1, 46: 1, 47: 1, 51: 1, 52: 1, 53: 1, 54: 1, 55: 1, 65: 1, 69: 1, 70: 1, 85: 1, 95: 1, 109: 2, 110: 1}
+    gelu.default: {1: 4}
+    mul.Tensor: {4: 4}
+    native_layer_norm.default: {2: 5, 5: 5, 8: 4, 10: 5}
+    permute.default: {4: 4, 6: 16, 7: 26, 10: 4, 13: 28}
+    relu.default: {3: 1}
+    upsample_bilinear2d.vec: {1: 4}
+    view.default: {29: 3, 30: 1, 49: 1, 50: 3, 60: 1, 61: 2, 62: 2, 63: 5, 64: 2, 78: 3, 79: 1, 115: 1, 130: 1, 131: 1, 132: 2, 136: 2, 141: 1, 142: 5, 143: 1, 160: 1, 161: 1, 162: 1, 163: 1, 164: 5, 167: 2, 169: 1, 171: 1, 174: 1, 187: 1, 188: 1, 189: 3, 190: 3, 191: 6, 192: 3, 201: 1, 203: 1, 204: 2, 209: 1, 210: 5, 211: 2, 212: 1, 216: 2, 217: 1, 218: 2, 246: 1, 250: 1, 251: 1, 266: 1, 282: 1, 302: 2, 303: 1, 355: 1, 356: 1, 359: 1, 360: 1, 367: 1, 368: 1, 377: 1, 379: 1, 381: 1, 390: 1, 391: 1, 411: 1, 413: 1, 415: 2, 416: 2, 419: 1, 420: 1, 446: 1, 447: 1, 455: 7, 456: 2, 460: 1, 461: 1, 464: 1, 465: 1, 471: 1}
+  smollm2-135m:
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 1}
+    add.Tensor: {3: 9, 4: 6, 7: 3}
+    alias.default: {1: 1}
+    arange.start_step: {8: 1, 12: 3}
+    bitwise_and.Tensor: {1: 2}
+    bmm.default: {1: 5}
+    cat.default: {2: 1, 3: 4}
+    clone.default: {3: 2, 4: 4, 6: 1, 8: 2}
+    cos.default: {1: 1}
+    embedding.default: {3: 1}
+    expand.default: {4: 1, 18: 1, 21: 1, 36: 1, 93: 8, 147: 4}
+    full.default: {1: 1}
+    index.Tensor: {1: 1}
+    le.Tensor: {1: 1}
+    mean.dim: {2: 5}
+    mm.default: {1: 15}
+    mul.Tensor: {3: 16, 4: 10}
+    neg.default: {3: 4}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 15}
+    pow.Tensor_Scalar: {3: 5}
+    rsqrt.default: {1: 5}
+    scalar_tensor.default: {1: 1}
+    sigmoid.default: {1: 2}
+    sin.default: {1: 1}
+    slice.Tensor: {49: 4, 53: 4}
+    unsqueeze.default: {9: 1, 12: 3, 15: 4, 17: 1, 18: 3, 19: 1, 21: 4, 22: 1, 23: 1, 27: 2}
+    view.default: {18: 2, 25: 13, 100: 1, 120: 2, 123: 4, 128: 1, 131: 4, 135: 6, 214: 1, 215: 1, 279: 8, 369: 6, 426: 8}
+    where.self: {3: 1}
+  smolvlm-256m:
+    _assert_scalar.default: {1: 1, 2: 1, 3: 1, 4: 1, 5: 1}
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 4: 1}
+    add.Tensor: {3: 8, 4: 4, 7: 5, 9: 1}
+    addmm.default: {1: 6}
+    alias.default: {1: 1}
+    arange.start_step: {1: 2, 7: 1, 8: 1, 9: 1, 10: 3, 12: 2}
+    bitwise_and.Tensor: {1: 4}
+    bmm.default: {1: 5}
+    bucketize.Tensor: {1: 2}
+    cat.default: {2: 1, 3: 2}
+    clamp.default: {1: 2}
+    clone.default: {3: 7, 6: 2, 8: 2}
+    convolution.default: {35: 1}
+    cos.default: {1: 1}
+    embedding.default: {2: 1, 3: 1}
+    eq.Scalar: {4: 1, 7: 1}
+    expand.default: {3: 1, 14: 1, 18: 1, 20: 1, 26: 1, 59: 1, 60: 2, 75: 1, 144: 4, 145: 2}
+    full.default: {1: 2, 10: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {3: 1}
+    gt.Scalar: {2: 1}
+    index.Tensor: {1: 2, 4: 1, 5: 1, 6: 1}
+    index_put.default: {1: 1}
+    le.Tensor: {1: 1}
+    masked_scatter.default: {1: 1}
+    mean.dim: {2: 3}
+    mm.default: {1: 9}
+    mul.Tensor: {1: 2, 2: 2, 3: 10, 4: 6, 7: 1}
+    native_layer_norm.default: {13: 3}
+    ne.Scalar: {4: 1}
+    neg.default: {3: 2}
+    permute.default: {4: 2, 6: 10, 7: 2, 13: 15}
+    pow.Tensor_Scalar: {3: 3}
+    reciprocal.default: {1: 2}
+    rsqrt.default: {1: 3}
+    scalar_tensor.default: {1: 2}
+    select.int: {1: 1, 18: 1}
+    sigmoid.default: {1: 1}
+    sin.default: {1: 1}
+    slice.Tensor: {46: 2, 50: 2}
+    sum.dim_IntList: {1: 1, 2: 1, 7: 2}
+    sym_size.int: {1: 2}
+    unfold.default: {1: 1, 2: 1}
+    unsqueeze.default: {1: 1, 9: 3, 12: 5, 13: 2, 15: 2, 17: 2, 18: 6, 19: 1, 21: 2, 22: 3, 23: 2, 27: 4}
+    view.default: {1: 3, 16: 1, 17: 7, 84: 1, 85: 5, 86: 1, 99: 1, 109: 1, 110: 2, 111: 1, 112: 2, 113: 3, 122: 1, 126: 1, 239: 1, 240: 2, 256: 1, 324: 1, 325: 4, 326: 5, 327: 1, 328: 1, 329: 1, 330: 1, 364: 3, 385: 1, 386: 3, 412: 1, 511: 3, 512: 2, 513: 1, 514: 1, 515: 1, 543: 1, 545: 1}
+    where.self: {3: 2}
+  swin-tiny:
+    _softmax.default: {2: 4}
+    add.Tensor: {3: 8, 4: 4}
+    addmm.default: {1: 25}
+    as_strided.default: {1: 1}
+    bmm.default: {1: 8}
+    cat.default: {3: 3}
+    clone.default: {2: 3, 3: 9, 5: 6, 7: 9, 8: 4}
+    constant_pad_nd.default: {1: 4}
+    convolution.default: {10: 1}
+    expand.default: {121: 1, 122: 2, 123: 1, 125: 1, 126: 2, 127: 1, 131: 1, 136: 2, 137: 1, 141: 1, 142: 2, 143: 1}
+    gelu.default: {1: 4}
+    index.Tensor: {2: 4}
+    mean.dim: {1: 1}
+    mm.default: {1: 3}
+    mul.Tensor: {4: 4}
+    native_layer_norm.default: {1: 4, 2: 3, 3: 1, 5: 2, 8: 3}
+    permute.default: {2: 8, 4: 4, 6: 16, 7: 2, 13: 28, 18: 4}
+    slice.Tensor: {34: 6, 35: 6, 43: 6, 44: 6}
+    squeeze.dims: {2: 1}
+    unsqueeze.default: {7: 1, 11: 4}
+    view.default: {6: 1, 18: 1, 20: 1, 25: 5, 42: 5, 44: 1, 53: 5, 54: 1, 56: 1, 71: 1, 74: 5, 75: 1, 91: 1, 92: 1, 93: 1, 94: 1, 95: 1, 96: 1, 97: 1, 128: 2, 135: 3, 154: 2, 156: 1, 175: 1, 176: 7, 182: 1, 200: 1, 203: 3, 225: 1, 230: 1, 231: 2, 232: 4, 233: 1, 276: 1, 277: 2, 278: 1, 295: 5, 298: 4, 316: 1, 317: 1, 318: 6, 319: 1, 321: 1, 322: 2, 323: 1, 331: 1, 333: 3, 334: 2, 335: 2, 336: 2, 341: 1, 342: 1, 374: 2, 392: 1, 421: 3, 441: 2, 468: 1, 469: 1, 472: 2, 484: 1, 485: 1, 486: 3, 493: 3, 498: 1, 499: 1, 505: 1, 506: 1, 508: 3, 522: 1, 524: 1, 526: 1, 528: 1, 531: 1, 534: 1, 536: 1, 538: 1}
   t5-small:
-    _softmax.default: {1: 3}
-    _to_copy.default: {1: 3, 2: 2, 5: 3}
+    _softmax.default: {2: 3}
+    _to_copy.default: {1: 3, 3: 2, 7: 3}
     abs.default: {2: 1}
-    add.Tensor: {1: 12, 2: 6, 3: 6, 4: 7}
-    arange.start_step: {1: 2, 4: 2, 5: 3, 6: 3, 9: 3}
+    add.Tensor: {3: 12, 4: 6, 7: 6, 8: 7}
+    arange.start_step: {2: 2, 5: 2, 8: 3, 12: 3, 19: 3}
     bitwise_and.Tensor: {1: 6}
     bmm.default: {1: 6}
-    clone.default: {1: 3, 3: 3, 4: 11, 5: 3}
+    clone.default: {3: 3, 6: 3, 7: 11, 8: 3}
     div.Tensor: {2: 4}
     embedding.default: {2: 4}
-    expand.default: {3: 1, 5: 1, 6: 1, 17: 1, 18: 3, 23: 2, 25: 1, 28: 1, 29: 3, 30: 1}
-    full.default: {1: 3, 3: 1}
-    full_like.default: {2: 1, 3: 1, 4: 1}
+    expand.default: {4: 1, 9: 1, 10: 1, 63: 1, 64: 3, 76: 2, 79: 1, 82: 1, 83: 3, 84: 1}
+    full.default: {1: 3, 5: 1}
+    full_like.default: {3: 1, 4: 1, 6: 1}
     ge.Scalar: {1: 2}
     gt.Scalar: {1: 1}
     index.Tensor: {1: 3}
     le.Tensor: {1: 1}
     log.default: {1: 2}
-    lt.Scalar: {1: 1, 2: 1}
-    mean.dim: {1: 7}
+    lt.Scalar: {2: 1, 4: 1}
+    mean.dim: {2: 7}
     minimum.default: {1: 3}
     mm.default: {1: 17}
-    mul.Tensor: {1: 2, 2: 15, 3: 3, 4: 1}
-    neg.default: {2: 1}
-    permute.default: {1: 3, 3: 12, 6: 17, 7: 2}
+    mul.Tensor: {2: 2, 3: 15, 4: 3, 6: 1}
+    neg.default: {4: 1}
+    permute.default: {4: 3, 6: 12, 13: 17, 18: 2}
     pow.Tensor_Scalar: {3: 7}
-    relu.default: {1: 2}
+    relu.default: {2: 2}
     rsqrt.default: {1: 7}
     scalar_tensor.default: {1: 3}
-    sub.Tensor: {2: 2}
-    unsqueeze.default: {2: 2, 3: 8, 6: 5, 7: 6, 10: 3, 11: 3, 12: 6}
-    view.default: {6: 1, 8: 7, 16: 1, 18: 8, 29: 1, 30: 1, 33: 7, 40: 2, 41: 1, 42: 1, 44: 7, 68: 1, 69: 3, 74: 2, 76: 1, 79: 1, 80: 3, 81: 1, 97: 5, 102: 1, 103: 1, 109: 1, 110: 2, 111: 1, 119: 4}
-    where.self: {2: 3, 3: 2}
+    sub.Tensor: {6: 2}
+    unsqueeze.default: {11: 2, 12: 8, 17: 5, 18: 6, 22: 3, 23: 3, 27: 6}
+    view.default: {18: 1, 25: 7, 53: 1, 57: 8, 120: 1, 123: 1, 135: 7, 175: 2, 176: 1, 179: 1, 183: 7, 244: 1, 245: 3, 257: 2, 260: 1, 263: 1, 264: 3, 265: 1, 371: 5, 387: 1, 388: 1, 400: 1, 401: 2, 402: 1, 422: 4}
+    where.self: {3: 3, 4: 2}
   time-series-small:
-    _softmax.default: {1: 6}
+    _softmax.default: {2: 6}
     abs.default: {1: 2}
-    add.Tensor: {1: 12, 2: 6, 3: 4}
+    add.Tensor: {3: 12, 4: 6, 7: 4}
     addmm.default: {1: 32}
     alias.default: {1: 1}
-    arange.start_step: {2: 1, 3: 1, 5: 3, 7: 1}
+    arange.start_step: {3: 1, 4: 1, 8: 3, 16: 1}
     bmm.default: {1: 12}
-    cat.default: {1: 1, 2: 3, 5: 3}
-    clamp.default: {1: 1, 2: 1, 3: 1}
-    clone.default: {1: 2, 3: 3, 4: 16, 5: 6}
+    cat.default: {1: 1, 2: 3, 7: 3}
+    clamp.default: {11: 1, 12: 1, 13: 1}
+    clone.default: {3: 2, 6: 3, 7: 16, 8: 6}
     div.Tensor: {1: 1, 2: 2}
     embedding.default: {1: 3}
-    expand.default: {1: 1, 2: 1, 4: 1, 7: 1, 12: 6, 13: 2, 14: 2, 15: 2, 16: 4, 21: 6, 22: 2}
+    expand.default: {1: 1, 2: 1, 7: 1, 16: 1, 56: 6, 57: 2, 58: 2, 61: 2, 62: 4, 73: 6, 74: 2}
     full.default: {2: 1}
     full_like.default: {1: 1}
     ge.Scalar: {1: 2}
@@ -679,93 +2282,161 @@ models:
     log.default: {1: 1}
     log1p.default: {1: 1}
     mm.default: {1: 2}
-    mul.Tensor: {1: 1, 3: 6}
-    native_layer_norm.default: {1: 12}
-    permute.default: {1: 6, 3: 24, 6: 34}
+    mul.Tensor: {2: 1, 4: 6}
+    native_layer_norm.default: {4: 12}
+    permute.default: {4: 6, 6: 24, 13: 34}
     scalar_tensor.default: {1: 3}
-    slice.Tensor: {3: 1, 4: 1, 5: 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1, 18: 1, 21: 2, 22: 1}
-    squeeze.dims: {1: 1, 2: 1}
-    sub.Tensor: {1: 1}
-    sum.dim_IntList: {2: 2, 3: 2}
-    unsqueeze.default: {3: 4, 4: 1, 7: 4, 8: 16, 11: 1, 12: 3}
-    view.default: {1: 14, 2: 1, 3: 2, 9: 14, 10: 1, 11: 2, 25: 4, 27: 15, 28: 2, 34: 3, 35: 15, 36: 2, 63: 6, 64: 2, 65: 2, 66: 2, 67: 4, 72: 6, 73: 2, 95: 8, 99: 4, 100: 2, 101: 2, 105: 2, 106: 2, 116: 10}
-    where.self: {1: 1, 2: 3}
+    slice.Tensor: {10: 1, 12: 1, 13: 1, 14: 1, 15: 1, 16: 1, 17: 1, 18: 1, 19: 1, 20: 1, 21: 1, 22: 1, 23: 1, 24: 1, 25: 1, 26: 1, 30: 2, 33: 1}
+    squeeze.dims: {1: 1, 3: 1}
+    sub.Tensor: {2: 1}
+    sum.dim_IntList: {5: 2, 8: 2}
+    unsqueeze.default: {12: 4, 14: 1, 18: 4, 19: 16, 23: 1, 27: 3}
+    view.default: {8: 14, 9: 1, 10: 2, 37: 14, 38: 1, 39: 2, 98: 4, 101: 15, 102: 2, 150: 3, 151: 15, 152: 2, 236: 6, 237: 2, 238: 2, 241: 2, 242: 4, 254: 6, 255: 2, 348: 8, 382: 4, 383: 2, 384: 2, 396: 2, 397: 2, 409: 10}
+    where.self: {1: 1, 3: 3}
   tinyclip:
-    _softmax.default: {1: 2}
-    _to_copy.default: {1: 1, 4: 1}
-    add.Tensor: {1: 6, 2: 1, 3: 2}
+    _softmax.default: {2: 2}
+    _to_copy.default: {1: 1, 5: 1}
+    add.Tensor: {3: 6, 4: 1, 7: 2}
     addmm.default: {1: 12}
-    arange.start_step: {5: 2, 6: 2}
+    arange.start_step: {8: 2, 12: 2}
     argmax.default: {1: 1}
     bitwise_and.Tensor: {1: 2}
     bmm.default: {1: 4}
-    cat.default: {6: 1}
-    clone.default: {1: 2, 3: 1, 5: 2}
-    convolution.default: {3: 1}
+    cat.default: {8: 1}
+    clone.default: {3: 2, 6: 1, 8: 2}
+    convolution.default: {5: 1}
     div.Tensor: {2: 2}
     embedding.default: {2: 3}
     exp.default: {1: 1}
-    expand.default: {3: 1, 9: 1, 17: 1, 18: 2, 23: 1, 26: 1, 31: 2, 32: 1}
+    expand.default: {4: 1, 19: 1, 63: 1, 64: 2, 76: 1, 80: 1, 86: 2, 87: 1}
     full.default: {1: 1}
     index.Tensor: {1: 1, 2: 1}
     le.Tensor: {1: 1}
     mm.default: {1: 3}
-    mul.Tensor: {1: 1, 2: 4, 3: 2}
-    native_layer_norm.default: {3: 1, 4: 6}
-    permute.default: {1: 2, 3: 8, 4: 1, 6: 16}
+    mul.Tensor: {2: 1, 3: 4, 4: 2}
+    native_layer_norm.default: {7: 1, 8: 6}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 16}
     pow.Tensor_Scalar: {1: 2, 2: 2}
     scalar_tensor.default: {1: 1}
-    select.int: {1: 1}
+    select.int: {2: 1}
     sigmoid.default: {1: 2}
-    slice.Tensor: {20: 1}
-    sum.dim_IntList: {1: 2}
-    unsqueeze.default: {3: 2, 6: 1, 7: 2, 10: 1, 11: 1, 12: 2}
-    view.default: {6: 1, 8: 5, 19: 1, 20: 5, 29: 1, 30: 1, 33: 5, 45: 1, 46: 1, 47: 5, 48: 1, 68: 1, 69: 2, 74: 1, 77: 1, 82: 2, 83: 1, 97: 3, 102: 1, 103: 1, 112: 1, 113: 1, 124: 3, 147: 1}
-    where.self: {2: 1}
+    slice.Tensor: {29: 1}
+    sum.dim_IntList: {4: 2}
+    unsqueeze.default: {12: 2, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {18: 1, 25: 5, 65: 1, 67: 5, 120: 1, 123: 1, 135: 5, 193: 1, 194: 1, 196: 5, 205: 1, 244: 1, 245: 2, 257: 1, 261: 1, 267: 2, 268: 1, 371: 3, 387: 1, 388: 1, 403: 1, 404: 1, 457: 3, 541: 1}
+    where.self: {3: 1}
   videomae-small:
-    _softmax.default: {1: 1}
-    _to_copy.default: {3: 1}
-    add.Tensor: {1: 3}
+    _softmax.default: {2: 1}
+    _to_copy.default: {4: 1}
+    add.Tensor: {3: 3}
     addmm.default: {1: 6}
     alias.default: {1: 1}
     bmm.default: {1: 2}
-    clone.default: {1: 1, 4: 2, 5: 1}
+    clone.default: {3: 1, 7: 2, 8: 1}
     convolution.default: {1: 1}
-    expand.default: {27: 1, 34: 2, 35: 1}
+    expand.default: {81: 1, 91: 2, 92: 1}
     gelu.default: {1: 1}
-    mean.dim: {3: 1}
+    mean.dim: {5: 1}
     mm.default: {1: 1}
-    mul.Tensor: {3: 1}
-    native_layer_norm.default: {3: 1, 8: 2}
-    permute.default: {1: 1, 2: 1, 3: 4, 4: 1, 6: 7}
-    view.default: {23: 1, 24: 5, 49: 1, 50: 1, 53: 6, 78: 1, 85: 2, 86: 1, 114: 1, 115: 1, 127: 3}
-  whisper-tiny:
-    _softmax.default: {1: 3}
-    add.Tensor: {1: 7, 2: 1, 3: 3}
+    mul.Tensor: {4: 1}
+    native_layer_norm.default: {7: 1, 23: 2}
+    permute.default: {4: 1, 5: 1, 6: 4, 7: 1, 13: 7}
+    view.default: {80: 1, 83: 5, 207: 1, 213: 1, 219: 6, 262: 1, 273: 2, 274: 1, 407: 1, 408: 1, 466: 3}
+  vit-base:
+    _softmax.default: {2: 2}
+    add.Tensor: {3: 5, 4: 2, 7: 1}
     addmm.default: {1: 13}
-    arange.start_step: {5: 1, 8: 1, 9: 3}
+    arange.start_step: {13: 1}
+    bmm.default: {1: 4}
+    cat.default: {8: 1}
+    clone.default: {3: 2, 6: 1, 7: 5, 8: 2}
+    convolution.default: {15: 1}
+    expand.default: {5: 1, 17: 1, 98: 2, 99: 4, 114: 2}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 2}
+    mul.Tensor: {4: 2}
+    native_layer_norm.default: {21: 5}
+    permute.default: {4: 2, 6: 8, 7: 1, 13: 13}
+    scalar_tensor.default: {1: 1}
+    select.int: {2: 1}
+    unsqueeze.default: {12: 1, 18: 1, 27: 1}
+    view.default: {27: 10, 28: 2, 138: 2, 139: 10, 140: 2, 166: 1, 287: 2, 288: 4, 309: 2, 380: 6, 429: 2, 430: 2}
+    where.self: {3: 1}
+  wav2vec2-base:
+    _softmax.default: {2: 1}
+    add.Tensor: {3: 3, 4: 1, 7: 1}
+    addmm.default: {1: 8}
+    arange.start_step: {22: 1}
+    bmm.default: {1: 2}
+    clone.default: {3: 1, 6: 1, 7: 6, 8: 1}
+    convolution.default: {16: 1, 17: 2, 20: 1}
+    div.Tensor: {3: 1}
+    expand.default: {13: 1, 67: 1, 88: 2, 89: 1}
+    ge.Scalar: {1: 1}
+    gelu.default: {1: 5}
+    linalg_vector_norm.default: {4: 1}
+    mul.Tensor: {3: 1, 4: 1}
+    native_group_norm.default: {1: 1}
+    native_layer_norm.default: {2: 1, 5: 3}
+    permute.default: {4: 1, 6: 4, 7: 3, 13: 8}
+    scalar_tensor.default: {1: 1}
+    slice.Tensor: {36: 1}
+    unsqueeze.default: {12: 1, 14: 1, 18: 1, 27: 1}
+    view.default: {68: 1, 69: 6, 70: 1, 197: 1, 198: 7, 199: 1, 248: 1, 269: 2, 270: 1, 405: 1, 406: 1, 459: 3}
+    where.self: {3: 1}
+  whisper-tiny:
+    _softmax.default: {2: 3}
+    add.Tensor: {3: 7, 4: 1, 7: 3}
+    addmm.default: {1: 13}
+    arange.start_step: {8: 1, 18: 1, 19: 3}
     bitwise_and.Tensor: {1: 2}
     bmm.default: {1: 6}
     cat.default: {4: 1}
-    clone.default: {1: 12, 3: 1, 4: 9, 5: 3}
-    convolution.default: {6: 1, 7: 1}
+    clone.default: {3: 12, 6: 1, 7: 9, 8: 3}
+    convolution.default: {18: 1, 19: 1}
     cumsum.default: {1: 1}
     embedding.default: {1: 1, 3: 1}
     eq.Tensor: {1: 1}
-    expand.default: {6: 1, 18: 2, 19: 1, 23: 3, 24: 1, 28: 3, 29: 1, 30: 1}
+    expand.default: {10: 1, 64: 2, 66: 1, 76: 3, 78: 1, 82: 3, 83: 1, 84: 1}
     full.default: {1: 1}
     gelu.default: {1: 4}
-    index.Tensor: {3: 1, 4: 2}
+    index.Tensor: {3: 1, 7: 2}
     le.Tensor: {1: 1}
     mm.default: {1: 4}
-    mul.Tensor: {2: 3, 3: 3}
-    native_layer_norm.default: {2: 7}
-    ne.Scalar: {1: 1}
-    permute.default: {1: 3, 3: 12, 4: 1, 6: 17}
-    repeat.default: {1: 1}
+    mul.Tensor: {3: 3, 4: 3}
+    native_layer_norm.default: {5: 7}
+    ne.Scalar: {3: 1}
+    permute.default: {4: 3, 6: 12, 7: 1, 13: 17}
+    repeat.default: {2: 1}
     scalar_tensor.default: {1: 1}
-    slice.Tensor: {1: 1, 2: 1, 19: 1}
-    sub.Tensor: {2: 2}
-    unsqueeze.default: {3: 3, 6: 1, 7: 2, 10: 1, 11: 1, 12: 2}
-    view.default: {14: 7, 15: 1, 17: 8, 18: 1, 37: 1, 38: 7, 39: 1, 40: 2, 42: 1, 43: 7, 44: 1, 69: 2, 70: 1, 74: 3, 75: 1, 79: 3, 80: 1, 81: 1, 94: 6, 107: 1, 108: 1, 109: 2, 110: 1, 111: 1, 117: 1, 118: 2}
-    where.self: {2: 1}
+    slice.Tensor: {1: 1, 2: 1, 28: 1}
+    sub.Tensor: {6: 2}
+    unsqueeze.default: {12: 3, 17: 1, 18: 2, 22: 1, 23: 1, 27: 2}
+    view.default: {51: 7, 52: 1, 55: 8, 57: 1, 165: 1, 169: 7, 173: 1, 175: 2, 179: 1, 180: 7, 183: 1, 245: 2, 247: 1, 257: 3, 259: 1, 263: 3, 264: 1, 265: 1, 345: 6, 398: 1, 399: 1, 400: 2, 401: 1, 402: 1, 414: 1, 421: 2}
+    where.self: {3: 1}
+  yolos-tiny:
+    _softmax.default: {2: 1}
+    _to_copy.default: {2: 2, 6: 1, 7: 1}
+    add.Tensor: {1: 3, 2: 3, 3: 5, 4: 15, 7: 2, 8: 2}
+    addmm.default: {1: 12}
+    arange.start_step: {11: 2}
+    bmm.default: {1: 2}
+    cat.default: {5: 2, 6: 2, 8: 2}
+    clamp.default: {2: 1, 3: 1, 6: 16, 7: 16}
+    clone.default: {1: 1, 3: 1, 7: 3, 8: 1}
+    convolution.default: {5: 1}
+    expand.default: {17: 2, 71: 1, 72: 2, 77: 1}
+    floor.default: {1: 1, 2: 1}
+    gelu.default: {1: 1}
+    index.Tensor: {4: 16}
+    mul.Tensor: {1: 2, 2: 6, 3: 6, 4: 21}
+    native_layer_norm.default: {23: 3}
+    permute.default: {4: 1, 6: 4, 7: 3, 13: 12}
+    relu.default: {2: 4}
+    select.int: {2: 1}
+    sigmoid.default: {1: 1}
+    slice.Tensor: {3: 2, 4: 2, 6: 2, 7: 2, 11: 1, 31: 2}
+    squeeze.dims: {4: 4, 5: 4}
+    sub.Tensor: {1: 5, 2: 6, 3: 3, 5: 1, 6: 1}
+    unsqueeze.default: {2: 1, 14: 1}
+    view.default: {12: 6, 31: 2, 33: 1, 34: 5, 104: 1, 105: 4, 106: 1, 146: 1, 147: 6, 201: 2, 243: 2, 252: 1, 253: 2, 258: 1, 346: 3, 394: 1, 395: 1, 461: 1}

@@ -1,0 +1,38 @@
+{
+  "artifact_id": "yolos-tiny/object-detection/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "b946c9e4f2dfa8e576abb5f8d507c71a5b495828dee69b9115221328edfd2a25",
+      "outputs": [
+        "logits",
+        "pred_boxes"
+      ],
+      "outputs_sha256": "d8a09cfc78293ab269765a117a2a933be4ed9dabd1f5baddb7f6b6d51434f874"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "52b36ab7d6a22866462727c269c6461a2e62ef0cb2c81b8242b1a1eee5622253",
+      "outputs": [
+        "logits",
+        "pred_boxes"
+      ],
+      "outputs_sha256": "a3a6b0c91fc0370f3f9f5378d47c9319c62bdc07b9f9f9a92b5e2674410b588f"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

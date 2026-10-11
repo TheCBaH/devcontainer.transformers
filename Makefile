@@ -36,7 +36,7 @@ research.reference: setup
 clean:
 	rm -rf .build .pytest_cache
 
-.PHONY: assets models.encoders catalogue bundles bundles.verify models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
+.PHONY: assets models.encoders catalogue catalogue.hub catalogue.popular bundles bundles.verify models.fetch models.weights.verify models.generation models.generation.all models.heads research.extended models.precision.fp16 models.precision.bf16
 GENERATION_OUTPUT ?= .build/generation
 COMPONENT_OUTPUT ?= .build/components
 BUNDLE_OUTPUT ?= .build/bundles
@@ -63,6 +63,10 @@ models.precision.fp16 models.precision.bf16: setup
 	$(RUN) hf-pt2 research --dtype $(lastword $(subst ., ,$@)) --policy autocast --subset bert-tiny,mobilevit-xxs,smollm2-135m --output .build/precision/$(lastword $(subst ., ,$@))-autocast $(OPTIONS)
 catalogue: setup
 	$(RUN) hf-pt2 catalogue
+catalogue.hub: setup
+	$(RUN) python scripts/catalogue_hub.py
+catalogue.popular: setup
+	$(RUN) python scripts/rank_hub.py
 bundles: setup
 	$(RUN) hf-pt2 bundle $(if $(SUBSET),--subset $(SUBSET),) --output $(BUNDLE_OUTPUT)
 bundles.verify: setup

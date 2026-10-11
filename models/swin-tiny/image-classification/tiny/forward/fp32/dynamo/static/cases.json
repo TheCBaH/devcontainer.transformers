@@ -1,0 +1,36 @@
+{
+  "artifact_id": "swin-tiny/image-classification/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "ac5bdf840bc8113d794a0f470ac0c7c59068612d136c3652f4067724cec18898",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "2dc122667ddacd3655f58b52f56532f8138eb6f9d4d7f7c87f3ef5d126287f52"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "2a55fde6fdd7c872ac584d0a59e5236068d80f7c9607095f1f44af2254d2b3b3",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "45dce2e6091074c87a8a529af91ed54d4e8b3992fcc7cc646336cf28fb947573"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

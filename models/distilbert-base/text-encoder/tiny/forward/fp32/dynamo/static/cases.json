@@ -1,0 +1,38 @@
+{
+  "artifact_id": "distilbert-base/text-encoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "a6846d499cccd2ab5d447df7da71ce0a63111fdb6e4b75ffa789df4334d82f3f",
+      "outputs": [
+        "last_hidden_state"
+      ],
+      "outputs_sha256": "5babfc517072564ae528056827c7f792e90e5f65afc38f48761b6f3d9b62351e"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "1124161b6a6fd9d6f56106a68ab4c8f146117f178774625cd15a17fe2897f0fb",
+      "outputs": [
+        "last_hidden_state"
+      ],
+      "outputs_sha256": "adf4e4ff5b558b4817e0255b679eccccfde9185ee8a6e2bead87f60b2baf4985"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "artifact_id": "dinov2-small/image-embeddings/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "bb0d4c98e9621cc5ce77c9b75d53129a5e2c97a266c7bede0774ff9d0d64a086",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "d1143fb0372a187f2bce01401378b8c68d7ed056c8718d4190030475d9263104"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "96ec9756938a3456ffac26d920ceaf88ad198ead6917628c5787b7f35409069e",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "9539817508929bb893de70518b8580fe00420dfff75f54e81510c79abd8575e4"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

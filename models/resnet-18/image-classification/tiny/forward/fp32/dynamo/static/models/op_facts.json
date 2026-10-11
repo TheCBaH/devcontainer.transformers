@@ -1,0 +1,205 @@
+{
+  "counts": {
+    "aten._native_batch_norm_legit_no_training.default": 12,
+    "aten.adaptive_avg_pool2d.default": 1,
+    "aten.add.Tensor": 4,
+    "aten.conv2d.default": 12,
+    "aten.linear.default": 1,
+    "aten.max_pool2d.default": 1,
+    "aten.relu.default": 9,
+    "aten.view.default": 1
+  },
+  "dialect": "functional",
+  "graph_sha256": "16f40a6d408d1f43a832c97855b613582d55ce655d68cbdc4849466a14a8be1a",
+  "ops": [
+    [
+      "aten._native_batch_norm_legit_no_training.default",
+      {
+        "eps": 1e-05,
+        "momentum": 0.1,
+        "out_dtype": "f32",
+        "out_rank": 4
+      },
+      12
+    ],
+    [
+      "aten.adaptive_avg_pool2d.default",
+      {
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "output_size": [
+          1,
+          1
+        ]
+      },
+      1
+    ],
+    [
+      "aten.add.Tensor",
+      {
+        "alpha": 1,
+        "out_dtype": "f32",
+        "out_rank": 4
+      },
+      4
+    ],
+    [
+      "aten.conv2d.default",
+      {
+        "depthwise": false,
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "kernel": [
+          1,
+          1
+        ],
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "padding": [
+          0,
+          0
+        ],
+        "stride": [
+          2,
+          2
+        ]
+      },
+      3
+    ],
+    [
+      "aten.conv2d.default",
+      {
+        "depthwise": false,
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "kernel": [
+          3,
+          3
+        ],
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "padding": [
+          1,
+          1
+        ],
+        "stride": [
+          1,
+          1
+        ]
+      },
+      5
+    ],
+    [
+      "aten.conv2d.default",
+      {
+        "depthwise": false,
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "kernel": [
+          3,
+          3
+        ],
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "padding": [
+          1,
+          1
+        ],
+        "stride": [
+          2,
+          2
+        ]
+      },
+      3
+    ],
+    [
+      "aten.conv2d.default",
+      {
+        "depthwise": false,
+        "dilation": [
+          1,
+          1
+        ],
+        "groups": 1,
+        "kernel": [
+          7,
+          7
+        ],
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "padding": [
+          3,
+          3
+        ],
+        "stride": [
+          2,
+          2
+        ]
+      },
+      1
+    ],
+    [
+      "aten.linear.default",
+      {
+        "out_dtype": "f32",
+        "out_rank": 2
+      },
+      1
+    ],
+    [
+      "aten.max_pool2d.default",
+      {
+        "ceil_mode": false,
+        "dilation": [
+          1,
+          1
+        ],
+        "kernel_size": [
+          3,
+          3
+        ],
+        "out_dtype": "f32",
+        "out_rank": 4,
+        "padding": [
+          1,
+          1
+        ],
+        "stride": [
+          2,
+          2
+        ]
+      },
+      1
+    ],
+    [
+      "aten.relu.default",
+      {
+        "out_dtype": "f32",
+        "out_rank": 4
+      },
+      9
+    ],
+    [
+      "aten.view.default",
+      {
+        "out_dtype": "f32",
+        "out_rank": 2,
+        "size": [
+          1,
+          64
+        ]
+      },
+      1
+    ]
+  ],
+  "schema_version": 1
+}

@@ -8,11 +8,13 @@ def specs(entry, config, population='tiny', batch=1, length=16):
     name = entry['id']
     tokens = {'input_ids': ('int64', [batch, length]),
               'attention_mask': ('int64', [batch, length])}
-    if entry['model_class'].startswith('Bert'):
+    if entry['model_class'].startswith(('Bert', 'Albert')):
         return {**tokens, 'token_type_ids': ('int64', [batch, length])}
-    if name == 'smollm2-135m':
+    if name in ('smollm2-135m', 'distilbert-base', 'roberta-base', 'gpt2',
+                'mpnet-base', 'nomic-embed', 'qwen2-05b', 'modernbert-embed',
+                'pythia-160m', 'esm2-8m', 'mamba-130m'):
         return tokens
-    if name == 't5-small':
+    if name in ('t5-small', 'bart-base', 'marian-fr-en'):
         return {**tokens, 'decoder_input_ids': ('int64', [batch, 4]),
                 'decoder_attention_mask': ('int64', [batch, 4])}
     if name == 'mobilevit-xxs':
@@ -35,8 +37,34 @@ def specs(entry, config, population='tiny', batch=1, length=16):
                 'future_time_features': ('float32', [batch, config.prediction_length, config.num_time_features])}
     if name in ('yolos-tiny', 'segformer-b0', 'depth-anything-small'):
         return {'pixel_values': ('float32', [batch, 3, 224, 224])}
+    if name in ('vit-base', 'swin-tiny', 'dinov2-small', 'resnet-18', 'convnextv2-tiny'):
+        size = getattr(config, 'image_size', 224)
+        if name == 'dinov2-small' and population == 'reference':
+            size = 224
+        return {'pixel_values': ('float32', [batch, config.num_channels, size, size])}
     if name == 'wav2vec2-base':
         return {'input_values': ('float32', [batch, 1024])}
+    if name == 'ast-audioset':
+        return {'input_values': ('float32', [batch, config.max_length, config.num_mel_bins])}
+    if name == 'layoutlmv3-base':
+        return {**tokens, 'bbox': ('int64', [batch, length, 4]),
+                'pixel_values': ('float32', [batch, 3, config.input_size, config.input_size])}
+    if name == 'sam-vit-base':
+        size = config.vision_config.image_size
+        return {'pixel_values': ('float32', [batch, 3, size, size]),
+                'input_points': ('float32', [batch, 1, 2, 2]),
+                'input_labels': ('int64', [batch, 1, 2])}
+    if name == 'owlv2-base':
+        size = config.vision_config.image_size
+        return {**tokens, 'pixel_values': ('float32', [batch, 3, size, size])}
+    if name == 'clap-htsat':
+        fusion = config.audio_config.enable_fusion
+        features = {'input_features': ('float32', [batch, 4 if fusion else 1,
+                                                 config.audio_config.spec_size,
+                                                 config.audio_config.num_mel_bins])}
+        if fusion:
+            features['is_longer'] = ('bool', [batch, 1])
+        return {**tokens, **features}
     raise ValueError(f'no reviewed tensor recipe for {name}')
 
 
@@ -62,7 +90,16 @@ def make_inputs(entry, config, population='tiny', seed=17, batch=1, length=16, r
                 value = (value > -1).float()
             elif name == 'past_values':
                 value = value.abs() + 0.5
+            elif name == 'input_points':
+                value = value.sigmoid() * config.vision_config.image_size
             value = value.to(dtype=config.dtype or torch.float32)
+        elif dtype == 'bool':
+            value = torch.ones(shape, dtype=torch.bool)
+        elif name == 'bbox':
+            starts = torch.randint(0, 900, (*shape[:-1], 2), generator=generator)
+            value = torch.cat((starts, starts + 100), dim=-1)
+        elif name == 'input_labels':
+            value = torch.tensor([1, 0]).expand(shape).clone()
         elif name.endswith('attention_mask'):
             value = torch.ones(shape, dtype=torch.int64)
             value[:, -1] = 0
@@ -73,7 +110,7 @@ def make_inputs(entry, config, population='tiny', seed=17, batch=1, length=16, r
         else:
             vocab = config.text_config.vocab_size if hasattr(config, 'text_config') else config.vocab_size
             value = torch.randint(3, vocab, shape, generator=generator)
-            if entry['id'] == 'tinyclip':
+            if entry['id'] in ('tinyclip', 'owlv2-base'):
                 value[:, -2] = config.text_config.eos_token_id
         inputs[name] = value
     return inputs
@@ -88,7 +125,15 @@ class TensorOutputs(torch.nn.Module):
 
     def forward(self, **kwargs):
         output = self.model(**kwargs)
-        return tuple(getattr(output, field) for field in self.fields)
+        values = []
+        for field in self.fields:
+            if field == 'sentence_embedding':
+                mask = kwargs['attention_mask'].unsqueeze(-1).to(output.last_hidden_state.dtype)
+                pooled = (output.last_hidden_state * mask).sum(dim=1) / mask.sum(dim=1).clamp_min(1)
+                values.append(torch.nn.functional.normalize(pooled, dim=-1))
+            else:
+                values.append(getattr(output, field))
+        return tuple(values)
 
 
 class AutocastTensorOutputs(TensorOutputs):

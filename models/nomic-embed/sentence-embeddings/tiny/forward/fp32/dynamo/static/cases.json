@@ -1,0 +1,38 @@
+{
+  "artifact_id": "nomic-embed/sentence-embeddings/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "a6846d499cccd2ab5d447df7da71ce0a63111fdb6e4b75ffa789df4334d82f3f",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "7f32820d15b68e42e0009ed4c33bcddf8e79f5cee73cfde6d1de1631e0474fff"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "1124161b6a6fd9d6f56106a68ab4c8f146117f178774625cd15a17fe2897f0fb",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "b6f85bc3ea0d2ddab3d568ff55e7a164aeaed70cf24930f01f86328ea3380b14"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

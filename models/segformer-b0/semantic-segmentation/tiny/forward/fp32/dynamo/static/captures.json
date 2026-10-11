@@ -1,0 +1,2189 @@
+{
+  "artifact_id": "segformer-b0/semantic-segmentation/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        3,
+        7,
+        7
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d81919aa51ffa07512f27ba061d0f890ad5a357e563d86ddef8a96e0c50f2c55"
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.0.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.0.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.0.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.0.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5ac980d3ad4608e93a160328a531834ef4144f4a983f8de834ba3e925a7526cb"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "09b83f7f258c8efaedfc43cc342571e05fb1f1e48dc5eadf2832c88c21983814"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a220601838db008bb5447761ea2d8b10a34c5ce961861a6a1f1479419cd18c5"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9bb4bef74a306b2bf29594b56face1ee9839874935937eedd8d0539d399177cf"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5fbbffeccb3b855de66eea434ac68839f46e94e09489f7d387931cb3b5ce39d5"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.0.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.0.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "124f7e2d0ffcc7ebc24a98eb93fcbc33f67aa022ec085615c716a123b4f91a5e"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a8da7c8de457b8890618002a4bbc955d4719df4a5c38bc05af12cd8810a7c589"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c0d705229983f23be501956eaebbf4506a5140abfbc003995e5ccd48e46198ae"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.0.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_segformer_stages_0_layer_norm_weight",
+      "target": "model.segformer.stages.0.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_segformer_stages_0_layer_norm_bias",
+      "target": "model.segformer.stages.0.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        8,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "535df863f38bf61f9d274d25037da6754341c406afa75a319435f61642851e05"
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.1.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.1.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.1.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.1.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4740df25647318f0b15496ff935b1eebd414d2f8dd88cf50ed3bec9b4e78009b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9c368f67421d2354612c5e7a8fd2b908bdb88ecb38435cf515c74f843a8680e8"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b6c9b7d108bd24cd1cad7f52c11ac000d267db1c84a87293b0b73d82b40dbcdf"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_39",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_40",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "69f08b9e485f417eb4d8d5b1bfdfcb94ec925cd2acbb99d1ea28ac02c1c6d69c"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_41",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_42",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16,
+        4,
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e9253932d32d8fada53448aa637da4ab99dc0d1c002ed76e0ebbd8b38721ae83"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_43",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_44",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_45",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.1.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_46",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_47",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.1.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_48",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "eba7b87a8585243a4a71832a5b4b6476f4fe9a932cccba1754aafa6e73f3a3c4"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_49",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_50",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "55f33cb13bc99feccd181cda1696bc66f8f8f9b8049aee89b0c62f8873217d08"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_51",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_52",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ae4ad08fe2b46d8bd97ced0a393164a63162509d101287ade4eb29802a39b6cc"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_53",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.1.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_54",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_segformer_stages_1_layer_norm_weight",
+      "target": "model.segformer.stages.1.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_55",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_segformer_stages_1_layer_norm_bias",
+      "target": "model.segformer.stages.1.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_56",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c61f81d34a553cfd5a149022b23ff5eb79e9e1635a07a0c808f754c1de87b9a6"
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.2.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_57",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.2.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_58",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.2.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_59",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.2.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_60",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_61",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_62",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "c18985bf37e34df0d7a04bcbd154c147ad001b2be136e8f725d16334288e894e"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_63",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_64",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d8ac2999e0d5d0a1bdaebc531f095b1e1d14528cb0d3458d836f7b38b710c505"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_65",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_66",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d053a0549480e2a8d10c5b3f59b8b55e04c85af9ff60a5b7f064ceb121e04f54"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_67",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_68",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "eab3ab5367ddd15574e292e8d89f22a4d5edd826e3ae685b26c972194d45589a"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_69",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_70",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32,
+        2,
+        2
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2748ccbd92d68a8dd089f09aaf3cca3a41b7f5d2ffd4fb0ce5b54a2a8a08ae70"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_sequence_reduction_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_71",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_sequence_reduction_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.sequence_reduction.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_72",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_layer_norm_weight",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_73",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_attention_sequence_reduction_layer_norm_bias",
+      "target": "model.segformer.stages.2.blocks.0.attention.sequence_reduction.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_74",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_75",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.2.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_76",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4289d1f8d92373d53247ce5b8a36cb96675a37658296a14ba80d5f6a441275f9"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_77",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_78",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e5a4b9531d5b1a486bca7c4a3c7d84042b604c46489e8476b1be76a0c9be2993"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_79",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_80",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "68bd31e8ce28d54d57d90be92937714c94cb3cdf9dc3a12e318ff17e4af14123"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_81",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.2.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_82",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_segformer_stages_2_layer_norm_weight",
+      "target": "model.segformer.stages.2.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_83",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_segformer_stages_2_layer_norm_bias",
+      "target": "model.segformer.stages.2.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_84",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a0238e72e6e6306b5f545a2323a52ad3382395e9243f4fd4feca76120b44a874"
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_proj_weight",
+      "target": "model.segformer.stages.3.patch_embeddings.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_85",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_proj_bias",
+      "target": "model.segformer.stages.3.patch_embeddings.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_86",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_layer_norm_weight",
+      "target": "model.segformer.stages.3.patch_embeddings.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_87",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_patch_embeddings_layer_norm_bias",
+      "target": "model.segformer.stages.3.patch_embeddings.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_88",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_before_weight",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_before.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_89",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_before_bias",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_before.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_90",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "39513bdc3e7176e34c996137cb8352e3de3941bbfb0d42bf7b58cf305d34bed7"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_q_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_91",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_q_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_92",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "afe4a3443951689bdf7cf9c08da2203122e638249c6cc7365fb3236fcac3a4e0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_k_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_93",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_k_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_94",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8410c984ef9af0338dc47b9afa76277e7506aeb509e456a832fc2dd9bfb55380"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_v_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_95",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_v_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_96",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ab556fceafcb68408b5261aa750496eee64fc95665556b385e76b87a9f2143c9"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_o_proj_weight",
+      "target": "model.segformer.stages.3.blocks.0.attention.o_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_97",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_attention_o_proj_bias",
+      "target": "model.segformer.stages.3.blocks.0.attention.o_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_98",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_after_weight",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_99",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_layernorm_after_bias",
+      "target": "model.segformer.stages.3.blocks.0.layernorm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_100",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "87996b1194111337fff4d7d4a433cc70e37087f5ea7b49c4c389f45017c5f177"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc1_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_101",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc1_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_102",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        1,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ec6c6536e2264abcb12f96fef44acb7205d5f1aafe51ea8ea9e973004dcb5839"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_dwconv_dwconv_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.dwconv.dwconv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_103",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_dwconv_dwconv_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.dwconv.dwconv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_104",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        128
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "14bc80b41e4160ceda15298d8fbd552311f6c32520662771a34c0d2979758fc0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc2_weight",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_105",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_blocks_0_mlp_fc2_bias",
+      "target": "model.segformer.stages.3.blocks.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_106",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_segformer_stages_3_layer_norm_weight",
+      "target": "model.segformer.stages.3.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_107",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_segformer_stages_3_layer_norm_bias",
+      "target": "model.segformer.stages.3.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_108",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "934eff38e98399bfdf9fe49fc67f69a71818936adcd3e4e91759958e643848be"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_0_proj_weight",
+      "target": "model.decode_head.linear_projections.0.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_109",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_0_proj_bias",
+      "target": "model.decode_head.linear_projections.0.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_110",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bbdef356e289623d22dd90fec11aa348d8296af6eb9acde68b6edcfc460bd023"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_1_proj_weight",
+      "target": "model.decode_head.linear_projections.1.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_111",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_1_proj_bias",
+      "target": "model.decode_head.linear_projections.1.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_112",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ccc336ce242a587541288d53f6a842f2799a20a49f1d10b45553c5aaea15b1e2"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_2_proj_weight",
+      "target": "model.decode_head.linear_projections.2.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_113",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_2_proj_bias",
+      "target": "model.decode_head.linear_projections.2.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_114",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e8aff29d8cebf8dc0d519a2731b951aab9b8ef43267ef70cd6dcf84287bd6061"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_3_proj_weight",
+      "target": "model.decode_head.linear_projections.3.proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_115",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_decode_head_linear_projections_3_proj_bias",
+      "target": "model.decode_head.linear_projections.3.proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_116",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        128,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "37ee8ff532216ede2fe275400b2abf6a1fa4cff070bc8f8d042417ed142af5e0"
+      },
+      "ssa_name": "p_model_decode_head_linear_fuse_weight",
+      "target": "model.decode_head.linear_fuse.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_117",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_decode_head_batch_norm_weight",
+      "target": "model.decode_head.batch_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_118",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_decode_head_batch_norm_bias",
+      "target": "model.decode_head.batch_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_119",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        5,
+        32,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e8336c37f8ebcf1f93b8a643819668eaf03ac44938b046406c45f9c4cd6464ad"
+      },
+      "ssa_name": "p_model_decode_head_classifier_weight",
+      "target": "model.decode_head.classifier.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_120",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        5
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "de47c9b27eb8d300dbb5f2c353e632c393262cf06340c4fa7f1b40c4cbd36f90"
+      },
+      "ssa_name": "p_model_decode_head_classifier_bias",
+      "target": "model.decode_head.classifier.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_121",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_running_mean",
+      "target": "model.decode_head.batch_norm.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_122",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_running_var",
+      "target": "model.decode_head.batch_norm.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_123",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_decode_head_batch_norm_num_batches_tracked",
+      "target": "model.decode_head.batch_norm.num_batches_tracked"
+    }
+  ],
+  "counts": {
+    "BUFFER": 3,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 121
+  },
+  "graph_sha256": "c36736ed45fc6a9dde8827b8521a9bc5c66e32a8e4aa588f0cb723f9a9e92a71",
+  "module_prefixes": {},
+  "schema_version": 1
+}

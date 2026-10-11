@@ -1,0 +1,36 @@
+{
+  "artifact_id": "ast-audioset/audio-classification/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_values"
+      ],
+      "inputs_sha256": "48975181de9521877121521624577c00fe90e7acb40eb6b102075aba18bed027",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "ed86c0e3bbfcb951d16725be65e4d34e84adf0b11da02c20625eeb70906b325b"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_values"
+      ],
+      "inputs_sha256": "557efe242e1e343ab118cac72cb052adde7ef3e8e0c17aa45cc22e6ce49d1a94",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "91472536beb9368a10f041d918fd3c067f36741c8de5981066a1cb4aaa4f003c"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

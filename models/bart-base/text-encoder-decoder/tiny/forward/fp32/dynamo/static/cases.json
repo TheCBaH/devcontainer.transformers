@@ -1,0 +1,42 @@
+{
+  "artifact_id": "bart-base/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "decoder_input_ids",
+        "decoder_attention_mask"
+      ],
+      "inputs_sha256": "3f5410606caf294e59703c8061a0babc7c53ec5ba45e4eb08b4475ecc022cabf",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "2e2c1d11b745c87221698ce37a622c98f9bc08ae5670d42c057306bf16d39cee"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "decoder_input_ids",
+        "decoder_attention_mask"
+      ],
+      "inputs_sha256": "f7c62b1e2865e02a9cb48afe7320a540b75213343c745d16f1f27a5cd34a9285",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "f058a182fd10a4100840ea7220e22276cc7bf81d104716795a94dcd8499b9449"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

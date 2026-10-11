@@ -1,0 +1,51 @@
+{
+  "_name_or_path": "/tmp/Helsinki-NLP/opus-mt-fr-en",
+  "_num_labels": 3,
+  "activation_dropout": 0.0,
+  "activation_function": "swish",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "MarianMTModel"
+  ],
+  "attention_dropout": 0.0,
+  "bad_words_ids": [
+    [
+      59513
+    ]
+  ],
+  "bos_token_id": 1,
+  "classif_dropout": 0.0,
+  "classifier_dropout": 0.0,
+  "d_model": 32,
+  "decoder_attention_heads": 4,
+  "decoder_ffn_dim": 64,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 1,
+  "decoder_start_token_id": 0,
+  "decoder_vocab_size": 128,
+  "dropout": 0.1,
+  "encoder_attention_heads": 4,
+  "encoder_ffn_dim": 64,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 1,
+  "eos_token_id": 2,
+  "forced_eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "max_length": 512,
+  "max_position_embeddings": 64,
+  "model_type": "marian",
+  "normalize_before": false,
+  "normalize_embedding": false,
+  "num_beams": 4,
+  "num_hidden_layers": 6,
+  "pad_token_id": 0,
+  "scale_embedding": true,
+  "share_encoder_decoder_embeddings": true,
+  "static_position_embeddings": true,
+  "transformers_version": "4.22.0.dev0",
+  "use_cache": true,
+  "vocab_size": 128
+}

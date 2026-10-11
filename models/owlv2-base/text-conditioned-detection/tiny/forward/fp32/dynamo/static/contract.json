@@ -1,0 +1,122 @@
+{
+  "artifact_id": "owlv2-base/text-conditioned-detection/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "pixel_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "46fcdd722e18234ee227676b3fbf68a95926ca6b5a10a24387dc4329f92eed53",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "79575b180e496c61e99bc4b0c1f2ed312f831abc3f9f48ae5d30753b89e2f354",
+    "cases.json": "8f3a8f87d212dc3d666a6baa396dd967222cfb9a43dee513ba89ffb63439e57d",
+    "data/constants/model_constants_config.json": "9cdc0763881244b087d1dd999742974f30c3b17f68f9ec606600965a5a0f7027",
+    "data/weights/model_weights_config.json": "3f97628d0333a0b8c2ae3d8dd63984165457bc018351dc8da52d640a8b8e4000",
+    "models/model.json": "9d0dd60f25f7d25c80069af05d313884374ec9fb8d363315d9b63a9b9cb42d0f"
+  },
+  "graph_sha256": "9d0dd60f25f7d25c80069af05d313884374ec9fb8d363315d9b63a9b9cb42d0f",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "pixel_values",
+      "shape": [
+        1,
+        3,
+        64,
+        64
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "Owlv2ForObjectDetection",
+  "model_id": "owlv2-base",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "pred_boxes",
+      "shape": [
+        1,
+        16,
+        4
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "objectness_logits",
+      "shape": [
+        1,
+        16
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "36273a25fa84b515535c5ed175884aa1438e62ffa90f970fc0f5563f1b341d40",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

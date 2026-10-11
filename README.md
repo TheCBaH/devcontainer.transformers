@@ -3,9 +3,9 @@
 [![Transformers devcontainer](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/TheCBaH/devcontainer.transformers/actions/workflows/build.yml)
 
 Offline architecture research for [Transformers](https://github.com/huggingface/transformers),
-with reproducible CPU environments and verified functional PT2 graphs. Eight tiny
-random-weight probes cover BERT, Llama, T5, MobileViT, Whisper, CLIP, VideoMAE and
-time-series states. Original checkpoint configurations have separate identities;
+with reproducible CPU environments and verified functional PT2 graphs. Thirty-seven tiny
+random-weight probes cover text, image, audio, video and time-series architectures.
+Original checkpoint configurations have separate identities;
 these graphs do not contain pretrained checkpoint weights or establish accuracy.
 
 Pretrained components are published separately in the immutable
@@ -41,7 +41,7 @@ including inside a dependency group.
 | Command | Purpose |
 | --- | --- |
 | `make test` | Semantic, dynamic-shape, isolation, corruption and publication regressions |
-| `make report` | Run the eight tiny probes; render structured results and three operator matrices |
+| `make report` | Run the thirty-seven tiny probes; render structured results and three operator matrices |
 | `make report.symbolic` | Inspect saved graphs; report symbolic shapes/scalars and affected nodes across model artifacts |
 | `make models.select` | Select verified artifacts from existing results, with category representatives |
 | `make models` | Independently regenerate functional graph JSON, facts and contracts |
@@ -53,6 +53,7 @@ including inside a dependency group.
 | `make models.generation SUBSET=smollm2-135m` | Verify prefill/decode, tensor cache state, reset and capacity |
 | `make models.precision.fp16` / `make models.precision.bf16` | Separate cast/autocast probes for BERT, MobileViT and Llama |
 | `make catalogue` | Rewrite `catalogue.json`: graph-only index of every artifact with weight source and case digests |
+| `make catalogue.hub` | Scan all pinned Transformers architectures for published HF safetensors below 1 GB; write `hub-catalogue.{json,md}` |
 | `make bundles` / `make bundles.verify` | Pack each artifact with `model.pt2` and flat case tensors; replay with torch only |
 | `make clean` | Remove declared temporary outputs; keep committed graphs/configs |
 
@@ -62,6 +63,53 @@ roots, populations and experimental BERT/Llama dynamic shapes. Resume is opt-in
 and invalidates on configuration, recipe, dependency, code or policy changes.
 Random workers forbid network connections. `models.fetch` explicitly enables
 downloads for one immutable checkpoint; binding then uses the local cache only.
+
+The expanded cohort adds DistilBERT, RoBERTa, ALBERT, GPT-2, BART, ViT, Swin,
+DINOv2, ResNet and ConvNeXt V2. Every added checkpoint has **less than
+1,000,000,000 bytes of safetensors in total** at its pinned Hugging Face revision.
+The registry records every safetensors filename, byte size and SHA-256 from Hub
+metadata and checks the sum, including all shards. This limit describes the Hub
+files; FP32 random-weight models and export working memory can be larger.
+Configs are committed locally, so exporting these models downloads no weights.
+Use `make research.reference SUBSET=gpt2,bart-base` for original-size probes.
+DINOv2's reference tensor recipe uses 224 pixels (divisible by its patch size),
+with positional interpolation from the original config.
+
+The catalogue-guided expansion adds MiniLM, MPNet, Nomic embeddings, Qwen2.5,
+ModernBERT, Pythia, AST, LayoutLMv3, SAM, OWLv2, Marian, ESM2, Mamba and CLAP.
+Selection combines qualifying Hub download leaders with distinct tensor workflows.
+[`models.md`](models.md) records checkpoint pins, safetensors byte totals,
+download counts and selection reasons alongside verified graph results.
+Sentence embeddings include masked mean pooling and L2 normalization in the
+exported graph. Other new boundaries expose prepared spectrograms, document
+boxes and image patches, labeled point prompts, text-conditioned detections,
+protein tokens and full-sequence state-space recurrence. CLAP's reviewed tiny
+configuration uses a single spectrogram with audio fusion disabled. Tokenization,
+OCR, waveform features, mask/box decoding and sampling remain host operations.
+
+`scripts/catalogue_hub.py` uses `huggingface_hub.HfApi` and downloads only pinned
+config JSON and shard indices. It groups qualifying checkpoints by Hub task type
+and architecture, records exact file sizes/digests, and inventories every pinned
+AutoConfig architecture, including unresolved searches. It checks up to 100
+checkpoints per architecture in downloads order and selects the first eligible
+one. Architecture-tag searches can miss untagged repositories; a search limit
+is recorded explicitly. Discovery eligibility does not establish export support.
+Published tiny random test checkpoints and quantized checkpoints are included;
+missing Hub task metadata is recorded as `unspecified`.
+Use `--candidates`, `--subset`, `--workers` and `--refresh` to control or repeat
+the scan. API calls are paced at 90/minute by default (`--requests-per-minute`)
+and respect Hub reset times. Per-architecture results are cached for resuming;
+failed queries are retried rather than reused. The manual `research` workflow
+with `catalogue_only=true` runs it in the frozen environment.
+
+`make catalogue.popular` runs `scripts/rank_hub.py` in global Hub downloads
+order, retaining multiple checkpoints per architecture. It writes the top 100
+qualifying checkpoints to `hub-top100-eligible.md` and the overall supported
+ranking with weight eligibility to `hub-top100-overall.md`; `hub-top100.json`
+preserves all checked repositories and pinned metadata. Only public ungated
+repositories tagged with the Transformers library and a config `model_type`
+supported by the pinned version are considered. Counts are a Hub snapshot.
+The manual `research` workflow also exposes `popularity_only=true`.
 
 [`models.md`](models.md) and `ops-{aten,func,core-cpu}.{yaml,md}` are rendered
 from [`results/models.json`](results/models.json), which records each pipeline
@@ -164,7 +212,7 @@ for two input seeds and loaded/executed in a fresh process importing only torch.
 Output boundaries are ordered tensor tuples, with mixed input dtypes retained.
 
 Time-series graphs expose states, location and scale, not a full forecasting
-loop. The eight core graphs expose no-cache forward outputs. Separate generation
+loop. The thirty-seven core graphs expose no-cache forward outputs. Separate generation
 artifacts cover Llama, T5 and Whisper encoder/prefill/decode, and Idefics3
 vision/connector/language prefill/decode. Inputs and returned self/cross-attention
 K/V tensors are plain tensors. The host feeds state into successive calls and
@@ -174,13 +222,14 @@ beyond the declared bound. Every component loads with torch alone. Upstream
 `export_for_generation` capability results are recorded separately from these
 verified adapters.
 
-The extended pool covers detection, segmentation, depth, waveform CTC and
-processor-derived image/text generation. Four additional BERT task heads cover
+Detection, segmentation, depth, waveform CTC and processor-derived image/text
+generation now join the regular core corpus. Four additional BERT task heads cover
 sequence classification, QA, token classification and masked LM with random
 weights. Explicit `hf-pt2 research --subset ... --output .build/<experiment>`
-runs these independently. Default reports and selection remain the eight core
-tiny models. Original configs have distinct reference IDs; all thirteen were
-verified locally. Their default weight cap is 768 MiB; the full FP32 Idefics3
+runs these independently. Default reports and selection use the thirty-seven core
+tiny models. Original configs have distinct reference IDs; the earlier thirteen
+were verified locally and the ten added references in Actions. Their default
+weight cap is 768 MiB; the full FP32 Idefics3
 reference explicitly allows 1536 MiB. Its original-resolution fixture uses 512px
 images and 64 image tokens; the tiny fixture uses 32px and four image tokens.
 Both derive from hashed, pinned processor/tokenizer files and disable image

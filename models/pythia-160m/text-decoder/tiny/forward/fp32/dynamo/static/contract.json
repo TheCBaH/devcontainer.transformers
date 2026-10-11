@@ -1,0 +1,94 @@
+{
+  "artifact_id": "pythia-160m/text-decoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "5f1a074ca83cc3df7bd28713a7323c814c25b78dcf13ae0208df7fbba81b801e",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "2ddba223b5519ad5c2ccc85a61e4e9d56692e5686b0331c1c0d202b55d4ac005",
+    "cases.json": "88c7ee71080f5d0ba8da61b2fdd38e8b7e051349730c59f74d432fa70e9a9a65",
+    "data/constants/model_constants_config.json": "cd6eae341a15eae9d49b50090b573cd647ffe89f82d44abdab18108863b9abfc",
+    "data/weights/model_weights_config.json": "f7c0ca9f4cf50717dd0928884c42cbd5643446cbb4ee264f0763336430adaf87",
+    "models/model.json": "f11d0929ddf13fd708a59310dc40bb432d30d6348af83a1335a68c794a260c0b"
+  },
+  "graph_sha256": "f11d0929ddf13fd708a59310dc40bb432d30d6348af83a1335a68c794a260c0b",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "GPTNeoXForCausalLM",
+  "model_id": "pythia-160m",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        16,
+        128
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "984f17128a9188df717221259b8555427bf60805bc5f563722a3cd41f90596e1",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

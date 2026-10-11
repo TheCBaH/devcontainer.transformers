@@ -7,7 +7,7 @@ import yaml
 from .artifacts import write_json
 
 
-def render(root, document):
+def render(root, document, entries=()):
     root = Path(root)
     rows = document['models']
     policies = ', '.join(sorted({row['policy'] for row in rows.values()}))
@@ -29,6 +29,22 @@ def render(root, document):
     lines += ['', 'Original checkpoint pins remain in `model-candidates.yaml`; tiny probes use separately '
               'reviewed configs. Time-series outputs are model states, location and scale; forecasting '
               'requires its distribution head and host sampling loop.', '']
+    selected = [entry for entry in entries if entry['id'] in rows and entry.get('selection_basis')]
+    if selected:
+        lines += ['## Popular checkpoints and varied workflows', '',
+                  'Selection uses published full safetensors below 1,000,000,000 bytes in total. '
+                  'Download counts are the catalogue snapshot, where available. '
+                  'Exports use reviewed tiny configurations and random weights. Sentence pooling '
+                  'and normalization are included; tokenization, OCR, waveform feature extraction, '
+                  'sampling and mask/box decoding remain host operations.', '',
+                  '| Architecture | Model | HF checkpoint | Safetensors bytes | Hub downloads | Workflow |',
+                  '| --- | --- | --- | ---: | ---: | --- |']
+        for entry in sorted(selected, key=lambda entry: (entry['category'], entry['id'])):
+            ref, basis = entry['reference'], entry['selection_basis']
+            url = f"https://huggingface.co/{ref['repo']}/tree/{ref['revision']}"
+            lines.append(f"| {ref['model_type']} | {entry['id']} | [{ref['repo']}]({url}) | "
+                         f"{ref['safetensors_total_bytes']:,} | {basis.get('hub_downloads', '—')} | {entry['notes']} |")
+        lines.append('')
     (root / 'models.md').write_text('\n'.join(lines))
     for label, dialect in [('aten', catalog.ATEN), ('func', catalog.FUNC), ('core-cpu', catalog.core('cpu'))]:
         matrices = {name: row['ops'][label] for name, row in sorted(rows.items()) if label in row['ops']}

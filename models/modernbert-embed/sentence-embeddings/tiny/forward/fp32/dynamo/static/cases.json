@@ -1,0 +1,38 @@
+{
+  "artifact_id": "modernbert-embed/sentence-embeddings/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "a6846d499cccd2ab5d447df7da71ce0a63111fdb6e4b75ffa789df4334d82f3f",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "d7486c62f02b9ae5967c31982e0f5bd39a082105c494185289466c9e42524fc4"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "1124161b6a6fd9d6f56106a68ab4c8f146117f178774625cd15a17fe2897f0fb",
+      "outputs": [
+        "sentence_embedding"
+      ],
+      "outputs_sha256": "3abb842b39c80230430a93c59d31bebfdf6de059ef7c4cdffca7ffc3e5904995"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

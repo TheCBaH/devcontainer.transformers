@@ -1,0 +1,38 @@
+{
+  "artifact_id": "pythia-160m/text-decoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "a6846d499cccd2ab5d447df7da71ce0a63111fdb6e4b75ffa789df4334d82f3f",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "6f601850844f5d0ef8d909c0890d80186fdc3011a35172fc8b8d88b97e1f1961"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "1124161b6a6fd9d6f56106a68ab4c8f146117f178774625cd15a17fe2897f0fb",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "e0e63b2979393ee85f9ecef23a24cf88daf0eb979cd9f60c5d4c94b7861108c7"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

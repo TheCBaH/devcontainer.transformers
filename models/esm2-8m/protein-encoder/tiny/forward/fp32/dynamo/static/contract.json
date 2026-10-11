@@ -1,0 +1,102 @@
+{
+  "artifact_id": "esm2-8m/protein-encoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "388cfac2b5f9977df8088677780b82b5ecccdd76a3976bff1a25ecef8dae4ffc",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "fe0236e0e8a3b281b08ba081792f0b90ea46d9bc94da38e0ee021f5850c32f15",
+    "cases.json": "10516d68050ca377eb3d3ab114f8084c797282967186bef260d0b7ff9d228916",
+    "data/constants/model_constants_config.json": "5d813af6c7e83f21c39cb62a1e7473e86bb75828aa29094d5cb9175e93bfa2f6",
+    "data/weights/model_weights_config.json": "0f42af331ae0e6e11d408eccfcec07e15a797643990414c03bee86594438759a",
+    "models/model.json": "7b96096cb06d9d173daa8d4d3530d1aa22970e9fc1d71c0b5c86b88befc721ce"
+  },
+  "graph_sha256": "7b96096cb06d9d173daa8d4d3530d1aa22970e9fc1d71c0b5c86b88befc721ce",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "EsmModel",
+  "model_id": "esm2-8m",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "last_hidden_state",
+      "shape": [
+        1,
+        16,
+        32
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "pooler_output",
+      "shape": [
+        1,
+        32
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "ed6ab40cf6d90ada6ff65eafb9c49f9f3b68077247dcff78b0af50c6b16e798f",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

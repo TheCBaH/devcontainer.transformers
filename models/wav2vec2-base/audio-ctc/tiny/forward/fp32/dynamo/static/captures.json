@@ -1,0 +1,590 @@
+{
+  "artifact_id": "wav2vec2-base/audio-ctc/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        1,
+        10
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2462041055b4c3afe1c5432b3235ed51f39e1004cf43c8ce931ed5ccd9ba407c"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_extractor_conv_layers_0_conv_weight",
+      "target": "model.wav2vec2.feature_extractor.conv_layers.0.conv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_extractor_conv_layers_0_layer_norm_weight",
+      "target": "model.wav2vec2.feature_extractor.conv_layers.0.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_extractor_conv_layers_0_layer_norm_bias",
+      "target": "model.wav2vec2.feature_extractor.conv_layers.0.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e3417d8582da1bce59ccf2b28760e37f6eaff3cd19c4b3888c595a057ec0d083"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_extractor_conv_layers_1_conv_weight",
+      "target": "model.wav2vec2.feature_extractor.conv_layers.1.conv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "edb8e324c5acc97d27685d3e598663f0d71a65c76c6eb9772be9ad840a3c7ffd"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_extractor_conv_layers_2_conv_weight",
+      "target": "model.wav2vec2.feature_extractor.conv_layers.2.conv.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_projection_layer_norm_weight",
+      "target": "model.wav2vec2.feature_projection.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_projection_layer_norm_bias",
+      "target": "model.wav2vec2.feature_projection.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2fe90df3546db24fad0b7ccfa1f27eab2840516bf045bddf4917715a027f8679"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_projection_projection_weight",
+      "target": "model.wav2vec2.feature_projection.projection.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2d18c2ee8637ace3c6aed167ff425b6e4613b575b5342ed8406e0913fe189dae"
+      },
+      "ssa_name": "p_model_wav2vec2_feature_projection_projection_bias",
+      "target": "model.wav2vec2.feature_projection.projection.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_pos_conv_embed_conv_bias",
+      "target": "model.wav2vec2.encoder.pos_conv_embed.conv.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        1,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ee44b063dab53d03101eec400634053d1784e26704e67eb375a5a77f376c81fa"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_pos_conv_embed_conv_parametrizations_weight_original0",
+      "target": "model.wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9117b6e4253d96b858a655c8f0695816886f5eb82cfbf52a742266254d6e7b23"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_pos_conv_embed_conv_parametrizations_weight_original1",
+      "target": "model.wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layer_norm_weight",
+      "target": "model.wav2vec2.encoder.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layer_norm_bias",
+      "target": "model.wav2vec2.encoder.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "43926395f4ac75489222651c34f57bd950ff9c97e2cadaef263308e08335f8ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_k_proj_weight",
+      "target": "model.wav2vec2.encoder.layers.0.attention.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_k_proj_bias",
+      "target": "model.wav2vec2.encoder.layers.0.attention.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "91f63cc1235e3e2ad74bc320e74472e09534dc23c95b6f60f87ffc8424da3f52"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_v_proj_weight",
+      "target": "model.wav2vec2.encoder.layers.0.attention.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_v_proj_bias",
+      "target": "model.wav2vec2.encoder.layers.0.attention.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8de748a64d0a61c25cac4f66869799b90042c6986cc5189e83b728e7cc22a2fc"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_q_proj_weight",
+      "target": "model.wav2vec2.encoder.layers.0.attention.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_q_proj_bias",
+      "target": "model.wav2vec2.encoder.layers.0.attention.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "799e5383bf3c30efa472119b1e7911c2af0f431e082ea5988c9c77a11dab593c"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_out_proj_weight",
+      "target": "model.wav2vec2.encoder.layers.0.attention.out_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_attention_out_proj_bias",
+      "target": "model.wav2vec2.encoder.layers.0.attention.out_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_layer_norm_weight",
+      "target": "model.wav2vec2.encoder.layers.0.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_layer_norm_bias",
+      "target": "model.wav2vec2.encoder.layers.0.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "879c8c28fcf1602cc64919c50f199c0f47b4b56ff2897b5c49be08f97567d2c7"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_feed_forward_intermediate_dense_weight",
+      "target": "model.wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_feed_forward_intermediate_dense_bias",
+      "target": "model.wav2vec2.encoder.layers.0.feed_forward.intermediate_dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e07a0fd7558a8ae38741bbcd8b65e3331e1b8ac8a2c5a967d2454359a227a7c6"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_feed_forward_output_dense_weight",
+      "target": "model.wav2vec2.encoder.layers.0.feed_forward.output_dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_feed_forward_output_dense_bias",
+      "target": "model.wav2vec2.encoder.layers.0.feed_forward.output_dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_final_layer_norm_weight",
+      "target": "model.wav2vec2.encoder.layers.0.final_layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_wav2vec2_encoder_layers_0_final_layer_norm_bias",
+      "target": "model.wav2vec2.encoder.layers.0.final_layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f6557e50777cc5f6e3c6433d90c6aaef3aa6b64a12139c58752f66c4e49108c0"
+      },
+      "ssa_name": "p_model_lm_head_weight",
+      "target": "model.lm_head.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_lm_head_bias",
+      "target": "model.lm_head.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_wav2vec2_encoder_lifted_tensor_0",
+      "target": "model.wav2vec2.encoder.lifted_tensor_0"
+    }
+  ],
+  "counts": {
+    "BUFFER": 0,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 32
+  },
+  "graph_sha256": "fa5875e47c8369690f167c4a8d3c6d6e9431efa057486c8506a05298f6ca8303",
+  "module_prefixes": {},
+  "schema_version": 1
+}

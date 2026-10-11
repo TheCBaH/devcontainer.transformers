@@ -1,0 +1,96 @@
+{
+  "artifact_id": "yolos-tiny/object-detection/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "pixel_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "4190f45eaefa67fe779c950c280d7ac2087ea024209240586fce7276f64eac9d",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "ac053ca850f12497b8480cae554ae1bbe70efe7ba0e90f26e22dd76afbcf2ec5",
+    "cases.json": "19f9e534d8bb4eb36ef0e3765511b838855fea5051b89a8629a0f3e865a416d7",
+    "data/constants/model_constants_config.json": "65d03bbad65e3dea69e6ee49d647c46718ea0cae617aa3d65b257409c3365079",
+    "data/weights/model_weights_config.json": "3ccfc46d225ee0b2963fd3a717837272feeecd29ab58b65fb6666fbb91bc35e4",
+    "models/model.json": "15b4f4dd083f711680a4055d274a3b240dfc36049ada93daaa9c326d511b46f3"
+  },
+  "graph_sha256": "15b4f4dd083f711680a4055d274a3b240dfc36049ada93daaa9c326d511b46f3",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "pixel_values",
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "YolosForObjectDetection",
+  "model_id": "yolos-tiny",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        10,
+        6
+      ]
+    },
+    {
+      "dtype": "float32",
+      "name": "pred_boxes",
+      "shape": [
+        1,
+        10,
+        4
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "972ef2e8448f8696a32c81f7e0d98d2c7acf4e0f440e9e20cde55d71aa61f647",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

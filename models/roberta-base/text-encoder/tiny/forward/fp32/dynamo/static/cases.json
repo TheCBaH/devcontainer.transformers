@@ -1,0 +1,40 @@
+{
+  "artifact_id": "roberta-base/text-encoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "a6846d499cccd2ab5d447df7da71ce0a63111fdb6e4b75ffa789df4334d82f3f",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "3e7f2ad6e9e9cd0082cfaf6bc17a77a007bc71d2496ba411475e0c1aedc2d3ee"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "1124161b6a6fd9d6f56106a68ab4c8f146117f178774625cd15a17fe2897f0fb",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "6876dbaaf9fd0a0e81acfdfc96af5e4cea199546813a03db70ad9a1969d56df3"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

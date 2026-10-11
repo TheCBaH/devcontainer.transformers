@@ -1,0 +1,743 @@
+{
+  "artifact_id": "esm2-8m/protein-encoder/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        33,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "758783ef286e0787ed46fd00415f4157ca51e39133eed86e98aadeabc5bf182e"
+      },
+      "ssa_name": "p_model_embeddings_word_embeddings_weight",
+      "target": "model.embeddings.word_embeddings.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a67318e4e62ce17505d45132c78c4a8f06cc6764c3773a5c8743f724f1fc5f9a"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_query_weight",
+      "target": "model.encoder.layer.0.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_query_bias",
+      "target": "model.encoder.layer.0.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "11aeaa3fc83dc8d00e40ac2e0ddd67aff976044d79d1e19f9acb5806131a3882"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_key_weight",
+      "target": "model.encoder.layer.0.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_key_bias",
+      "target": "model.encoder.layer.0.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "08527b93a12335bce0cf5474d73666c5c1dda8de7571e1041d984aa7a00cd019"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_value_weight",
+      "target": "model.encoder.layer.0.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_self_value_bias",
+      "target": "model.encoder.layer.0.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "35f568c53cb538304a367bfa94c310bb9640eb8e3defa83a23bdeb4308f005e3"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_dense_weight",
+      "target": "model.encoder.layer.0.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_output_dense_bias",
+      "target": "model.encoder.layer.0.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_layernorm_weight",
+      "target": "model.encoder.layer.0.attention.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_attention_layernorm_bias",
+      "target": "model.encoder.layer.0.attention.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "94bb97b806cc7fc7a334c65f7d92f05cd0986bb6cbd38f647c53fe8924e50d98"
+      },
+      "ssa_name": "p_model_encoder_layer_0_intermediate_dense_weight",
+      "target": "model.encoder.layer.0.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_encoder_layer_0_intermediate_dense_bias",
+      "target": "model.encoder.layer.0.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1d9a696011ba6e0997562e01c604a64bcd258634ba6cb7aee2d6e5e0d856a57"
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_dense_weight",
+      "target": "model.encoder.layer.0.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_output_dense_bias",
+      "target": "model.encoder.layer.0.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_encoder_layer_0_layernorm_weight",
+      "target": "model.encoder.layer.0.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_0_layernorm_bias",
+      "target": "model.encoder.layer.0.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f087abd06b3b4e832b4d16a77d820d930da508a5c1e0037fa1aeac0fb5965816"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_query_weight",
+      "target": "model.encoder.layer.1.attention.self.query.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_query_bias",
+      "target": "model.encoder.layer.1.attention.self.query.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f71fa2bbd84f528f67ff7fe4cfe1e1660af65a8455dd9bc5a47569657311a336"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_key_weight",
+      "target": "model.encoder.layer.1.attention.self.key.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_key_bias",
+      "target": "model.encoder.layer.1.attention.self.key.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "30d6c09ee38467c21e283f3e9a2da928491b93ab4aaafa14741217ec931508ce"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_value_weight",
+      "target": "model.encoder.layer.1.attention.self.value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_self_value_bias",
+      "target": "model.encoder.layer.1.attention.self.value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "565bb2205e83c2081932caa6c9c64401cae1bb6080a28fc9fdf5940c25dee1e3"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_dense_weight",
+      "target": "model.encoder.layer.1.attention.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_output_dense_bias",
+      "target": "model.encoder.layer.1.attention.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_layernorm_weight",
+      "target": "model.encoder.layer.1.attention.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_attention_layernorm_bias",
+      "target": "model.encoder.layer.1.attention.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9219960fc05d71e1c9cfeeb20e01d5efd4bce3e5225c1ebb3459a77c467e43e2"
+      },
+      "ssa_name": "p_model_encoder_layer_1_intermediate_dense_weight",
+      "target": "model.encoder.layer.1.intermediate.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_encoder_layer_1_intermediate_dense_bias",
+      "target": "model.encoder.layer.1.intermediate.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8aee87240588e91899e8c7c80f60e8f5be6bff9c7a17df4800aea868933e7e24"
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_dense_weight",
+      "target": "model.encoder.layer.1.output.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_output_dense_bias",
+      "target": "model.encoder.layer.1.output.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_encoder_layer_1_layernorm_weight",
+      "target": "model.encoder.layer.1.LayerNorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_layer_1_layernorm_bias",
+      "target": "model.encoder.layer.1.LayerNorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_encoder_emb_layer_norm_after_weight",
+      "target": "model.encoder.emb_layer_norm_after.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_encoder_emb_layer_norm_after_bias",
+      "target": "model.encoder.emb_layer_norm_after.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ff941fafef40a80c8b958d45ae27d33c8bfbacba4b804a2d578a1a903428e796"
+      },
+      "ssa_name": "p_model_pooler_dense_weight",
+      "target": "model.pooler.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_pooler_dense_bias",
+      "target": "model.pooler.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": false,
+      "payload_name": "weight_37",
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        1,
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7e2c32117e637d9a5b8b260d52bc05c13822d5192f8444845ad9d40e9808f812"
+      },
+      "ssa_name": "p_model_contact_head_regression_weight",
+      "target": "model.contact_head.regression.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": false,
+      "payload_name": "weight_38",
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "p_model_contact_head_regression_bias",
+      "target": "model.contact_head.regression.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_lifted_tensor_0",
+      "target": "model.lifted_tensor_0"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "tensor_1",
+      "persistent": false,
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        1,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a4644928f3a08db905254fd7e5e53ef19a46d932a2ecd372b45462413a82619"
+      },
+      "ssa_name": "b_model_embeddings_position_ids",
+      "target": "model.embeddings.position_ids"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_39",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "47d9d469d9542448dfc243a68cae17ace015ae732f96bd482e886c1a969cf97c"
+      },
+      "ssa_name": "b_model_rotary_embeddings_inv_freq",
+      "target": "model.rotary_embeddings.inv_freq"
+    }
+  ],
+  "counts": {
+    "BUFFER": 2,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 39
+  },
+  "graph_sha256": "7b96096cb06d9d173daa8d4d3530d1aa22970e9fc1d71c0b5c86b88befc721ce",
+  "module_prefixes": {},
+  "schema_version": 1
+}

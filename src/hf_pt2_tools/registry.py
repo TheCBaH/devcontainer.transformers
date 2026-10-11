@@ -23,6 +23,29 @@ CONFIG_CLASSES = {
     'DepthAnythingForDepthEstimation': 'DepthAnythingConfig',
     'Wav2Vec2ForCTC': 'Wav2Vec2Config',
     'Idefics3ForConditionalGeneration': 'Idefics3Config',
+    'DistilBertModel': 'DistilBertConfig',
+    'RobertaModel': 'RobertaConfig',
+    'AlbertModel': 'AlbertConfig',
+    'GPT2LMHeadModel': 'GPT2Config',
+    'BartForConditionalGeneration': 'BartConfig',
+    'ViTForImageClassification': 'ViTConfig',
+    'SwinForImageClassification': 'SwinConfig',
+    'Dinov2Model': 'Dinov2Config',
+    'ResNetForImageClassification': 'ResNetConfig',
+    'ConvNextV2ForImageClassification': 'ConvNextV2Config',
+    'MPNetModel': 'MPNetConfig',
+    'NomicBertModel': 'NomicBertConfig',
+    'Qwen2ForCausalLM': 'Qwen2Config',
+    'ModernBertModel': 'ModernBertConfig',
+    'GPTNeoXForCausalLM': 'GPTNeoXConfig',
+    'ASTForAudioClassification': 'ASTConfig',
+    'LayoutLMv3Model': 'LayoutLMv3Config',
+    'SamModel': 'SamConfig',
+    'Owlv2ForObjectDetection': 'Owlv2Config',
+    'MarianMTModel': 'MarianConfig',
+    'EsmModel': 'EsmConfig',
+    'MambaForCausalLM': 'MambaConfig',
+    'ClapModel': 'ClapConfig',
 }
 
 
@@ -44,6 +67,8 @@ def read_manifest(root):
             raise ValueError('invalid model ID')
         if entry['model_class'] not in CONFIG_CLASSES:
             raise ValueError('unknown model/config pair')
+        if 'safetensors_total_bytes' in entry['reference']:
+            checkpoint_weight_bytes(entry['reference'])
         config_id = entry.get('config_model_id', entry['id'])
         if not config_id.replace('-', '').isalnum():
             raise ValueError('invalid configuration ID')
@@ -97,6 +122,23 @@ def weight_provenance(entry, snapshot=None, allow_unpinned=False):
                                            'source_sha256': reference['conversion']['source_sha256'],
                                            'tool': 'hf-pt2 convert: torch.load(weights_only) -> safetensors, tensor-for-tensor verified'}
     return document
+
+
+def checkpoint_weight_bytes(reference):
+    files = reference['safetensors_metadata']
+    if not files or set(files) != set(reference['safetensors_files']):
+        raise ValueError('safetensors size inventory differs from checkpoint files')
+    for name, metadata in files.items():
+        if not name.endswith('.safetensors') or type(metadata['size']) is not int or metadata['size'] <= 0:
+            raise ValueError('invalid safetensors file size')
+        if len(metadata['sha256']) != 64:
+            raise ValueError('invalid safetensors file digest')
+    total = sum(metadata['size'] for metadata in files.values())
+    if total != reference['safetensors_total_bytes']:
+        raise ValueError('safetensors total differs from file sizes')
+    if total >= 1_000_000_000:
+        raise ValueError('Hub safetensors must total less than 1 GB')
+    return total
 
 
 def build_model(root, entry, population='tiny', dtype='fp32', snapshot=None):

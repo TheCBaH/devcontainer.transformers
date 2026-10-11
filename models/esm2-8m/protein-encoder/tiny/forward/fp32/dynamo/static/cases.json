@@ -1,0 +1,40 @@
+{
+  "artifact_id": "esm2-8m/protein-encoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "f1427111821bfc3d996358aeaa2e63b682cd77dc980f65c43b167231d27ad1d4",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "0acfa7ccc857edb6fdb4e547378367372e6cbf4063cecef56322f76a8da812bc"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask"
+      ],
+      "inputs_sha256": "2235cc4401e9355cca34deccf40d92980cce06f2300e9b65e7864ef4e0b73bf8",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "b1eb29bb741cfa3b8aed685c900c7ae40ea3e8c7b1f119dc3a6ade118d2d9e87"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

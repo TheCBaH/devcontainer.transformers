@@ -1,0 +1,36 @@
+{
+  "artifact_id": "depth-anything-small/depth-estimation/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "b946c9e4f2dfa8e576abb5f8d507c71a5b495828dee69b9115221328edfd2a25",
+      "outputs": [
+        "predicted_depth"
+      ],
+      "outputs_sha256": "af0c72c1fad2d9aac6ed599d0a9a6e149311386ea749f92a0bf3e96faf16ac37"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "52b36ab7d6a22866462727c269c6461a2e62ef0cb2c81b8242b1a1eee5622253",
+      "outputs": [
+        "predicted_depth"
+      ],
+      "outputs_sha256": "bbae70f8e81db20223b7d232d4abc7275420602147b97a2395eedde603bb34a3"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

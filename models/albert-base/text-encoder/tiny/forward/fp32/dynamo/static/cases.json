@@ -1,0 +1,42 @@
+{
+  "artifact_id": "albert-base/text-encoder/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "0903772cd04c678c7cbe73515234f4a3f14505cc56e6743b47f8fe8fad516aec",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "f328d6ff9c566b0cbb119147d902272ce97eac510cca38c38d3a4a1c497afd01"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "token_type_ids"
+      ],
+      "inputs_sha256": "420707a1a207c48d0c4ac9655b1eb6f68f246452a8ccb377a368d70d3b711537",
+      "outputs": [
+        "last_hidden_state",
+        "pooler_output"
+      ],
+      "outputs_sha256": "3d5231543dda48ec4394d2ea11aacc1594836bb285debba0fa2c8d09acb8b790"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

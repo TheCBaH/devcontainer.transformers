@@ -1,0 +1,1320 @@
+{
+  "artifact_id": "resnet-18/image-classification/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        3,
+        7,
+        7
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3a8c15c536f531d7469afe9e6a67f1db2a001b19ac30e67bf76b92f1f7982924"
+      },
+      "ssa_name": "p_model_resnet_embedder_embedder_convolution_weight",
+      "target": "model.resnet.embedder.embedder.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_resnet_embedder_embedder_normalization_weight",
+      "target": "model.resnet.embedder.embedder.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_resnet_embedder_embedder_normalization_bias",
+      "target": "model.resnet.embedder.embedder.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5028f7c4ad9cbad09f79b64140fd4efed50d27d98354a5a468045ff0004e37aa"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_0_convolution_weight",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_0_normalization_weight",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_0_normalization_bias",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8,
+        8,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f81941a273ec9ca874e58e7a643e5e5935c4ec24e52a3abe85b52bc0740005a"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_1_convolution_weight",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_1_normalization_weight",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_0_layers_0_layer_1_normalization_bias",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        8,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6a452c1ae7d2a119fe7bd481ff3320882b260bea95573844c25f1c4938c84930"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_shortcut_convolution_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_shortcut_normalization_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_shortcut_normalization_bias",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        8,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a2cfbbb514299d80ab93bedf0647e7d2ef33074b84bee6cc31540aa9ebf859e3"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_0_convolution_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_0_normalization_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_0_normalization_bias",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        16,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6328a40ed146ed1e8c6af5e740bcd87a49accf13efc1122f544a210b3710018e"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_1_convolution_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_1_normalization_weight",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_1_layers_0_layer_1_normalization_bias",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5b00a7e0f134f17e25b3c493dc20dca067c08f62a87006c3bf873351d0d120c4"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_shortcut_convolution_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_shortcut_normalization_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_shortcut_normalization_bias",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        16,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b8ea04452451e889617e15bc50a70e3b90994f01f161d89f0d93ea63b5e54b2c"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_0_convolution_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_0_normalization_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_0_normalization_bias",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "262d8557a8ee36dab978deb1025c0478ac6bc570537a68284478d0fbb59cdde7"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_1_convolution_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_1_normalization_weight",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_2_layers_0_layer_1_normalization_bias",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32,
+        1,
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "edc8fd243e3e63413a19b7d30c1ffb2de5af273f49bf27cc8b977c13184d1d2f"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_shortcut_convolution_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_shortcut_normalization_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_shortcut_normalization_bias",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9b50506ea9d31899830e8f86b54ae5aa699341861f24da8662c2a945c357b578"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_0_convolution_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_0_normalization_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_0_normalization_bias",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "de56142d4d40b9844518526e75246a9f3edaf8fa91a63acf98aae4d838faa9b8"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_1_convolution_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.convolution.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_1_normalization_weight",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.normalization.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_resnet_encoder_stages_3_layers_0_layer_1_normalization_bias",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.normalization.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        3,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6d759e5e642590b3af7fc7854bba6c3965bef3fdc5af6bb78a1689fb471597f2"
+      },
+      "ssa_name": "p_model_classifier_1_weight",
+      "target": "model.classifier.1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        3
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8f6702845beb0c982a54461c4346af76fa7598b624563c3d80b17a10f01f4f43"
+      },
+      "ssa_name": "p_model_classifier_1_bias",
+      "target": "model.classifier.1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_38",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "b_model_resnet_embedder_embedder_normalization_running_mean",
+      "target": "model.resnet.embedder.embedder.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_39",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "b_model_resnet_embedder_embedder_normalization_running_var",
+      "target": "model.resnet.embedder.embedder.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_40",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_embedder_embedder_normalization_num_batches_tracked",
+      "target": "model.resnet.embedder.embedder.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_41",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_0_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_42",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_0_normalization_running_var",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_43",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_0_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.0.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_44",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_1_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_45",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        8
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f05df05f8da9356bd66425351f166a5f7305b7c805e6900d9ec0f50790c9886"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_1_normalization_running_var",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_46",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_0_layers_0_layer_1_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.0.layers.0.layer.1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_47",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_shortcut_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_48",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_shortcut_normalization_running_var",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_49",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_shortcut_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.1.layers.0.shortcut.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_50",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_0_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_51",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_0_normalization_running_var",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_52",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_0_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.0.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_53",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_1_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_54",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_1_normalization_running_var",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_55",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_1_layers_0_layer_1_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.1.layers.0.layer.1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_56",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_shortcut_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_57",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_shortcut_normalization_running_var",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_58",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_shortcut_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.2.layers.0.shortcut.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_59",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_0_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_60",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_0_normalization_running_var",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_61",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_0_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.0.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_62",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_1_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_63",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_1_normalization_running_var",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_64",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_2_layers_0_layer_1_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.2.layers.0.layer.1.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_65",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_shortcut_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_66",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_shortcut_normalization_running_var",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_67",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_shortcut_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.3.layers.0.shortcut.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_68",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_0_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_69",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_0_normalization_running_var",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_70",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_0_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.0.normalization.num_batches_tracked"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_71",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_1_normalization_running_mean",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.normalization.running_mean"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "weight_72",
+      "persistent": true,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "2f20cd03c9cd392a406c56232b0ff93a15f6d6d7da79086bfa14f55d4a4031b0"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_1_normalization_running_var",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.normalization.running_var"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "weight_73",
+      "persistent": true,
+      "referenced": false,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+      },
+      "ssa_name": "b_model_resnet_encoder_stages_3_layers_0_layer_1_normalization_num_batches_tracked",
+      "target": "model.resnet.encoder.stages.3.layers.0.layer.1.normalization.num_batches_tracked"
+    }
+  ],
+  "counts": {
+    "BUFFER": 36,
+    "CONSTANT_TENSOR": 0,
+    "PARAMETER": 38
+  },
+  "graph_sha256": "16f40a6d408d1f43a832c97855b613582d55ce655d68cbdc4849466a14a8be1a",
+  "module_prefixes": {},
+  "schema_version": 1
+}

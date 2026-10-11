@@ -1,0 +1,85 @@
+{
+  "artifact_id": "ast-audioset/audio-classification/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_values"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "0f5c653934c61f5d1075cdcd6e1ae680b03f440c664d3b731652e85752c99cc8",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "b5652e2b0b2e3da6d954727d3a652ae627e13cb501d6b7f1b3ddf827b1a0f889",
+    "cases.json": "1cbf2edeef2bd15dbb8960e1468914c0c593c44cd07d0b16e814e421ebfab03e",
+    "data/constants/model_constants_config.json": "818f6fccecfb9d42bec1adaf9d5d44cc844e3df801f63af4e19d5d1984dd0070",
+    "data/weights/model_weights_config.json": "5b5a3712f099106722c21fa5c6f6908f042f84acccfbaf753f57be4fd98fcc76",
+    "models/model.json": "a2d505756303486a931ac7b06427ad728f67901796b2e19476a2cc6a8155795b"
+  },
+  "graph_sha256": "a2d505756303486a931ac7b06427ad728f67901796b2e19476a2cc6a8155795b",
+  "inputs": [
+    {
+      "dtype": "float32",
+      "name": "input_values",
+      "shape": [
+        1,
+        64,
+        16
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "ASTForAudioClassification",
+  "model_id": "ast-audioset",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        5
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "44fd6bdd17abd8da67403e5513a14ddaf9d212ff801a7798962df4e1f231911e",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

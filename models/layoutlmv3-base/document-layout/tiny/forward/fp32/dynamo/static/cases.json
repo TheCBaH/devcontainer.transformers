@@ -1,0 +1,42 @@
+{
+  "artifact_id": "layoutlmv3-base/document-layout/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "bbox",
+        "pixel_values"
+      ],
+      "inputs_sha256": "3d1347b28261506f9a7e6c8483cb21fe19e8b38acfbbb24b649529ff4efd100e",
+      "outputs": [
+        "last_hidden_state"
+      ],
+      "outputs_sha256": "ee88be961bc42e63318956967e47fa2cc340b64699f8d01497707045db5d0004"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_ids",
+        "attention_mask",
+        "bbox",
+        "pixel_values"
+      ],
+      "inputs_sha256": "36eec5304656093b0840c8090ac2b8f51022e12221b5c277d0a99eb0f9a9adb4",
+      "outputs": [
+        "last_hidden_state"
+      ],
+      "outputs_sha256": "c6cab2c957e3dafc3ce7f341aba53d8354d21ed9469790f2e00c572956fed83c"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

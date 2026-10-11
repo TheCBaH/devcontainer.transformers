@@ -1,0 +1,112 @@
+{
+  "artifact_id": "marian-fr-en/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "decoder_input_ids",
+      "decoder_attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "df406fb2815b551ca70a922443f68012b5e6aad745070b137647836c49993fb0",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "8152a2553b0ef0eb2d7b231f607f2c6368607d1500112725c28e3f41acf11e56",
+    "cases.json": "33fb1354655daf72d41a753e64e83d9db222ddaf61067451a20c1c4ff399abce",
+    "data/constants/model_constants_config.json": "afd123716eef871bac5660361cf16d95d40781cbaee788d4cd67d6fcabb2be25",
+    "data/weights/model_weights_config.json": "078ff4c946220ba2529888339ec74c1817b2095fdc04fa237ebc1579d3a0c01a",
+    "models/model.json": "ec041ff0295f5056da057f802fb2c2075efc313ba3af888fab13bc066e3818dc"
+  },
+  "graph_sha256": "ec041ff0295f5056da057f802fb2c2075efc313ba3af888fab13bc066e3818dc",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_attention_mask",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "MarianMTModel",
+  "model_id": "marian-fr-en",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        4,
+        128
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "59c652d7ac5a6e45392efd800c3f4b7ef7cd89f5ef2e7d9b2a4b4fd8c935ba05",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

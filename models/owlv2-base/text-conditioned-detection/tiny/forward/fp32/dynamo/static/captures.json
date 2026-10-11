@@ -1,0 +1,1234 @@
+{
+  "artifact_id": "owlv2-base/text-conditioned-detection/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b9a76f463a0e845ade3f93a9fcce1bdd37709d55b5860ffdc7b5b047eeb7334c"
+      },
+      "ssa_name": "p_model_owlv2_logit_scale",
+      "target": "model.owlv2.logit_scale"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "e8c2e792e61b3b0d150d3fff9784185ce87667d3fe3209aa26cd64c8a9ed10af"
+      },
+      "ssa_name": "p_model_owlv2_text_model_embeddings_token_embedding_weight",
+      "target": "model.owlv2.text_model.embeddings.token_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cd7a8692c6d2fc60cca7b2c457a1d66a3a4b26766f2290a1f0a2162fd8602e84"
+      },
+      "ssa_name": "p_model_owlv2_text_model_embeddings_position_embedding_weight",
+      "target": "model.owlv2.text_model.embeddings.position_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ba90d2df78043c849a213d5ff7b48088cd60d7a97dc9eaa1032897cc3934fc88"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_k_proj_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_k_proj_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "054fdcc9ea900f8c19680066395f6e8a66c8a7537c2fec6426eb7db9d15d57d3"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_v_proj_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_v_proj_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "cdb7aeaf892c908b7bc4714e0afc4ff16d020761525082f18719ed5902d32518"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_q_proj_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_q_proj_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6376ff23468e987fbb8755c06d0020c81e8ba065e053b6b6aaa8dd1004aa0295"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_out_proj_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.out_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_self_attn_out_proj_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.self_attn.out_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_layer_norm1_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.layer_norm1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_layer_norm1_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.layer_norm1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "603d702daf18bf8fc05ede1dba3d670c6f9f31c75d5c78b1d87f29e97817b920"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_mlp_fc1_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_mlp_fc1_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b495730b36e3c3350aa50c9a81f4535a702ee227f92f7a384929f2569294495b"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_mlp_fc2_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_mlp_fc2_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_layer_norm2_weight",
+      "target": "model.owlv2.text_model.encoder.layers.0.layer_norm2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_encoder_layers_0_layer_norm2_bias",
+      "target": "model.owlv2.text_model.encoder.layers.0.layer_norm2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_text_model_final_layer_norm_weight",
+      "target": "model.owlv2.text_model.final_layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_text_model_final_layer_norm_bias",
+      "target": "model.owlv2.text_model.final_layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4f28fe630b821b1b6891dcbaf1f0d6d480c4171f913b92f1f403c44e40485a33"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_embeddings_class_embedding",
+      "target": "model.owlv2.vision_model.embeddings.class_embedding"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        3,
+        16,
+        16
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "abd4bf927fb1e57d32cb8e15582711f1ddc991ee6314b09a9962cba68163c080"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_embeddings_patch_embedding_weight",
+      "target": "model.owlv2.vision_model.embeddings.patch_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        17,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "be5bcc2eb7db069c39a812ac11a009364b3995c7bef623f7145cd2bfe473aca4"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_embeddings_position_embedding_weight",
+      "target": "model.owlv2.vision_model.embeddings.position_embedding.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_pre_layernorm_weight",
+      "target": "model.owlv2.vision_model.pre_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_pre_layernorm_bias",
+      "target": "model.owlv2.vision_model.pre_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "fc1cddf34ea8d90797b63c09040ee0ccdae63961c0947ca64caa734f102cd02b"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_k_proj_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.k_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_k_proj_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.k_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_28",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "669b20e1390f9820bca52471243f4087a0306e1108ad2d8412bd964c51051376"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_v_proj_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.v_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_29",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_v_proj_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.v_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_30",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "59ffb5cbbac06dec928d2f5551876a631693bedee74a0e4427f5a8366dbe61ea"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_q_proj_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.q_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_31",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_q_proj_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.q_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_32",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "d93f6bd342a3cc2994368fb3e7c3d235a597fe161b16617136bb804407cc66df"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_out_proj_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.out_proj.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_33",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_self_attn_out_proj_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.self_attn.out_proj.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_34",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_layer_norm1_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.layer_norm1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_35",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_layer_norm1_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.layer_norm1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_36",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3a2feb377d3db0f496439773cc8ee0cbe85799a6cd00175c4ec5e898f3cd3f9a"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_mlp_fc1_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.mlp.fc1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_37",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_mlp_fc1_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.mlp.fc1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_38",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "87b5bd6685ed5b6436435695d4015a97404a38c34027b15a2b3075fe9c227a06"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_mlp_fc2_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.mlp.fc2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_39",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_mlp_fc2_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.mlp.fc2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_40",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_layer_norm2_weight",
+      "target": "model.owlv2.vision_model.encoder.layers.0.layer_norm2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_41",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_encoder_layers_0_layer_norm2_bias",
+      "target": "model.owlv2.vision_model.encoder.layers.0.layer_norm2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_42",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_post_layernorm_weight",
+      "target": "model.owlv2.vision_model.post_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_43",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_owlv2_vision_model_post_layernorm_bias",
+      "target": "model.owlv2.vision_model.post_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": false,
+      "payload_name": "weight_44",
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5686eb0e7844906a2a0342cee48ddb1854b3d55a90a692016aed61410993ce2c"
+      },
+      "ssa_name": "p_model_owlv2_visual_projection_weight",
+      "target": "model.owlv2.visual_projection.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_45",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a0bb33b60a37197d401aa668c34a21094f205490b7e3106cadc445e5f2ffbf47"
+      },
+      "ssa_name": "p_model_owlv2_text_projection_weight",
+      "target": "model.owlv2.text_projection.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_46",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "dfa1a9067f3b1f424c61b067a399a349ffdebe8fade1c84560caa251a64256c1"
+      },
+      "ssa_name": "p_model_class_head_dense0_weight",
+      "target": "model.class_head.dense0.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_47",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_class_head_dense0_bias",
+      "target": "model.class_head.dense0.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_48",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bab76938cc8d769735736a347390402c5077b464aec1eff18b5f564751805ead"
+      },
+      "ssa_name": "p_model_class_head_logit_shift_weight",
+      "target": "model.class_head.logit_shift.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_49",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "p_model_class_head_logit_shift_bias",
+      "target": "model.class_head.logit_shift.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_50",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0f822f44e23b70423d5358dc8a08cf447874c1fdc1a20dd896c5f60b7b503764"
+      },
+      "ssa_name": "p_model_class_head_logit_scale_weight",
+      "target": "model.class_head.logit_scale.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_51",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "p_model_class_head_logit_scale_bias",
+      "target": "model.class_head.logit_scale.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_52",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a8a481034411b174de1713bfad11f5548019121b8f02971f9050a0bf3b97ce8"
+      },
+      "ssa_name": "p_model_box_head_dense0_weight",
+      "target": "model.box_head.dense0.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_53",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_box_head_dense0_bias",
+      "target": "model.box_head.dense0.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_54",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "6f31c10d8ffa23d6241d72564557ada905f2d30825a5d273a340b44670404d0f"
+      },
+      "ssa_name": "p_model_box_head_dense1_weight",
+      "target": "model.box_head.dense1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_55",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_box_head_dense1_bias",
+      "target": "model.box_head.dense1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_56",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        4,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df2ed9e83b8420271128762560e3aa780416b5ce7e4f46cd51f7e777f9f48dd5"
+      },
+      "ssa_name": "p_model_box_head_dense2_weight",
+      "target": "model.box_head.dense2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_57",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb"
+      },
+      "ssa_name": "p_model_box_head_dense2_bias",
+      "target": "model.box_head.dense2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_58",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a984284dd6361177fdc623ff355fcff9714f2f056fefa6c3c67f91eb3d30d581"
+      },
+      "ssa_name": "p_model_objectness_head_dense0_weight",
+      "target": "model.objectness_head.dense0.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_59",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_objectness_head_dense0_bias",
+      "target": "model.objectness_head.dense0.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_60",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "8549445f6c0fbd132e57bc271c91408d1e18cf88dc382cab831b23cb680a4350"
+      },
+      "ssa_name": "p_model_objectness_head_dense1_weight",
+      "target": "model.objectness_head.dense1.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_61",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_objectness_head_dense1_bias",
+      "target": "model.objectness_head.dense1.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_62",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "720bfe618d167231dc00459c65bab2c6033886aa5be42b09bb07bf1046937230"
+      },
+      "ssa_name": "p_model_objectness_head_dense2_weight",
+      "target": "model.objectness_head.dense2.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_63",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "p_model_objectness_head_dense2_bias",
+      "target": "model.objectness_head.dense2.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_64",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_layer_norm_weight",
+      "target": "model.layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_65",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_layer_norm_bias",
+      "target": "model.layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_1",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        16,
+        4
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "4bce068d0cd437e8f8014f75729183d74e1e8714b71cd6a73cf8bc0a6af3fddc"
+      },
+      "ssa_name": "b_model_box_bias",
+      "target": "model.box_bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_owlv2_text_model_lifted_tensor_0",
+      "target": "model.owlv2.text_model.lifted_tensor_0"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_2",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7a4644928f3a08db905254fd7e5e53ef19a46d932a2ecd372b45462413a82619"
+      },
+      "ssa_name": "b_model_owlv2_text_model_embeddings_position_ids",
+      "target": "model.owlv2.text_model.embeddings.position_ids"
+    },
+    {
+      "dtype": "int64",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_3",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        1,
+        17
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "bb25b5201ac6c37409bb181321e5f74ef84fc6dd59cc690d9298e927304684f8"
+      },
+      "ssa_name": "b_model_owlv2_vision_model_embeddings_position_ids",
+      "target": "model.owlv2.vision_model.embeddings.position_ids"
+    }
+  ],
+  "counts": {
+    "BUFFER": 3,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 66
+  },
+  "graph_sha256": "9d0dd60f25f7d25c80069af05d313884374ec9fb8d363315d9b63a9b9cb42d0f",
+  "module_prefixes": {},
+  "schema_version": 1
+}

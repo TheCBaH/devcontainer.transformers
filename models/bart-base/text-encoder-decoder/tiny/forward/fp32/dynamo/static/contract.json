@@ -1,0 +1,112 @@
+{
+  "artifact_id": "bart-base/text-encoder-decoder/tiny/forward/fp32/dynamo/static",
+  "call": {
+    "args": [],
+    "kwargs": [
+      "input_ids",
+      "attention_mask",
+      "decoder_input_ids",
+      "decoder_attention_mask"
+    ],
+    "outputs": "tensor_tuple"
+  },
+  "config_sha256": "6b95e62fb5e68695ba5be7fa4e7e1dd9e805467a3e14e6c23d38851de61de35c",
+  "dialect": "functional",
+  "dynamic_constraints": {},
+  "exporter": {
+    "attention": "eager",
+    "cache": false,
+    "name": "DynamoExporter",
+    "shape_policy": "static",
+    "strict": false
+  },
+  "files": {
+    "captures.json": "5f7c228687480fade64bca0cdc3fb989b6257bdebb2d4eace21feb5e79a6c367",
+    "cases.json": "0b0fce5699b56c4808d2c5b747249b99b5001370ca8070fd500620aa2220e7f3",
+    "data/constants/model_constants_config.json": "afd123716eef871bac5660361cf16d95d40781cbaee788d4cd67d6fcabb2be25",
+    "data/weights/model_weights_config.json": "8ca6bf153039bb0e8d6d34592b77e50c09837beb55cf392e1dbfef097a420828",
+    "models/model.json": "e1126907fc8317e8f0a6db15d954cf4000085ab7da6a103e6c847db7132ab0e9"
+  },
+  "graph_sha256": "e1126907fc8317e8f0a6db15d954cf4000085ab7da6a103e6c847db7132ab0e9",
+  "inputs": [
+    {
+      "dtype": "int64",
+      "name": "input_ids",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "attention_mask",
+      "shape": [
+        1,
+        16
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_input_ids",
+      "shape": [
+        1,
+        4
+      ]
+    },
+    {
+      "dtype": "int64",
+      "name": "decoder_attention_mask",
+      "shape": [
+        1,
+        4
+      ]
+    }
+  ],
+  "load_dependencies": [
+    "torch"
+  ],
+  "model_class": "BartForConditionalGeneration",
+  "model_id": "bart-base",
+  "mutations": [],
+  "outputs": [
+    {
+      "dtype": "float32",
+      "name": "logits",
+      "shape": [
+        1,
+        4,
+        128
+      ]
+    }
+  ],
+  "population": "tiny",
+  "producer": {
+    "architecture": "aarch64",
+    "core_override": false,
+    "core_revision": "ec594858e9ac79619a2a3e4ba2536945e6975c30",
+    "core_source_sha256": "ba920d4dc0ffce490cd1ac2391144907ff417bbc7abe75437515e0e4468b525d",
+    "device": "cpu",
+    "lock_sha256": "9aa194935d71c862f87b53010a57357fb088e780c879ef23d9aca129f4d11fab",
+    "python": "3.13.12",
+    "tools_sha256": "5fa008b8e1c6209ffd910248a6babd8348db0e16d4c1de28d64181732e2dee33",
+    "versions": {
+      "numpy": "2.5.3",
+      "pt2-export-core": "0.1.0",
+      "safetensors": "0.8.0",
+      "torch": "2.13.0+cpu",
+      "torchvision": "0.28.0+cpu",
+      "transformers": "5.18.0"
+    }
+  },
+  "recipe_sha256": "59c652d7ac5a6e45392efd800c3f4b7ef7cd89f5ef2e7d9b2a4b4fd8c935ba05",
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "verified_cases": 2,
+  "weights": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

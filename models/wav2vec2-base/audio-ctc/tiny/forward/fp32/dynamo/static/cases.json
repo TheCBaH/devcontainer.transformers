@@ -1,0 +1,36 @@
+{
+  "artifact_id": "wav2vec2-base/audio-ctc/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "input_values"
+      ],
+      "inputs_sha256": "cdd1c13cb17c450d9aecd9dcab424f685bece6612fceceafbeef4f0ebb0a4878",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "80d7957b14f8da2a014e5b480ba114bd3bdf71c47c526d7d312ac33be86f4f24"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "input_values"
+      ],
+      "inputs_sha256": "364b6c5db5bfbf0a3ee572a0a2e235bcf5d78c6c9e579022b3322bcf500de4cb",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "bb786141709c16189b214e3d5bf753df192c8d02a7411ac2b2a19881b3d49520"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}

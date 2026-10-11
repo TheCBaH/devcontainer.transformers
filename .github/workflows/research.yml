@@ -2,12 +2,24 @@ name: research
 on:
   workflow_dispatch:
     inputs:
+      popularity_only:
+        description: Rank the 100 most downloaded public Transformers checkpoints
+        type: boolean
+        default: false
       report_only:
         description: 'Regenerate symbolic-shapes.md from saved graphs without exporting models'
         type: boolean
         default: false
+      catalogue_only:
+        description: 'Scan pinned architectures for public HF safetensors below 1 GB'
+        type: boolean
+        default: false
+      candidates:
+        description: 'Maximum checkpoints examined per architecture in catalogue mode'
+        default: '100'
+        type: string
       subset:
-        description: 'Comma-separated reviewed model IDs; empty selects eight core references'
+        description: 'Model IDs for export, architecture IDs for catalogue; empty selects all defaults'
         default: ''
         type: string
       population:
@@ -22,7 +34,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   symbolic-report:
-    if: ${{ inputs.report_only }}
+    if: ${{ inputs.report_only && !inputs.catalogue_only && !inputs.popularity_only }}
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
@@ -35,7 +47,7 @@ jobs:
           name: symbolic-report
           path: symbolic-shapes.md
   research:
-    if: ${{ !inputs.report_only }}
+    if: ${{ !inputs.report_only && !inputs.catalogue_only && !inputs.popularity_only && !inputs.popularity_only }}
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 90
     env:
@@ -66,3 +78,52 @@ jobs:
             .build/research/models/
             .build/research/.build/**/*.log
           include-hidden-files: true
+  hub-catalogue:
+    if: ${{ inputs.catalogue_only && !inputs.popularity_only }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      SCAN_CANDIDATES: ${{ inputs.candidates }}
+      SCAN_SUBSET: ${{ inputs.subset }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+          enable-cache: true
+      - run: make setup
+      - name: Test catalogue criteria
+        run: uv run --frozen pytest -q tests/test_hub_catalogue.py
+      - name: Scan every pinned architecture
+        run: uv run --frozen python scripts/catalogue_hub.py --candidates "$SCAN_CANDIDATES" --subset "$SCAN_SUBSET"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: hub-catalogue
+          path: |
+            hub-catalogue.json
+            hub-catalogue.md
+            .build/hub-catalogue-cache/*/architectures/
+          include-hidden-files: true
+  popularity:
+    if: ${{ inputs.popularity_only }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: '0.12.23'
+          python-version: '3.13.12'
+      - name: Test ranking criteria
+        run: uv run --no-project --with huggingface-hub==1.33.0 --with pytest python -m pytest -q tests/test_hub_ranking.py
+      - name: Rank public checkpoints
+        run: uv run --no-project --with huggingface-hub==1.33.0 --with transformers==5.18.0 python scripts/rank_hub.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: hub-top100
+          path: hub-top100*

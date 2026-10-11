@@ -1,0 +1,550 @@
+{
+  "artifact_id": "pythia-160m/text-decoder/tiny/forward/fp32/dynamo/static",
+  "captures": [
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_0",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "632f73bd8897fe06bfbf867f487e1f8a6da5c760d07b796e4a6c289c069ce878"
+      },
+      "ssa_name": "p_model_gpt_neox_embed_in_weight",
+      "target": "model.gpt_neox.embed_in.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_1",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_input_layernorm_weight",
+      "target": "model.gpt_neox.layers.0.input_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_2",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_input_layernorm_bias",
+      "target": "model.gpt_neox.layers.0.input_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_3",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_post_attention_layernorm_weight",
+      "target": "model.gpt_neox.layers.0.post_attention_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_4",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_post_attention_layernorm_bias",
+      "target": "model.gpt_neox.layers.0.post_attention_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_5",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "87706504171f3821c68835d2f155352b6316a18d893a27c06605305c5d6f2526"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_attention_query_key_value_weight",
+      "target": "model.gpt_neox.layers.0.attention.query_key_value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_6",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_attention_query_key_value_bias",
+      "target": "model.gpt_neox.layers.0.attention.query_key_value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_7",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9fa58085dd2ac04cce4d7bc3e3859d8d4cac7da99aec176151b4b26b7a6cf3c0"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_attention_dense_weight",
+      "target": "model.gpt_neox.layers.0.attention.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_8",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_attention_dense_bias",
+      "target": "model.gpt_neox.layers.0.attention.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_9",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "3a3ffd8d90fd0fb472816537241b3605fe25fee0ef8477d5c462b6b4c8bd51e1"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_mlp_dense_h_to_4h_weight",
+      "target": "model.gpt_neox.layers.0.mlp.dense_h_to_4h.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_10",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_mlp_dense_h_to_4h_bias",
+      "target": "model.gpt_neox.layers.0.mlp.dense_h_to_4h.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_11",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "85a4fc221a94cae0a01c3031d0ca99b09ef4118bf55c8e671b525a9b0b3574a4"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_mlp_dense_4h_to_h_weight",
+      "target": "model.gpt_neox.layers.0.mlp.dense_4h_to_h.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_12",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_0_mlp_dense_4h_to_h_bias",
+      "target": "model.gpt_neox.layers.0.mlp.dense_4h_to_h.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_13",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_input_layernorm_weight",
+      "target": "model.gpt_neox.layers.1.input_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_14",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_input_layernorm_bias",
+      "target": "model.gpt_neox.layers.1.input_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_15",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_post_attention_layernorm_weight",
+      "target": "model.gpt_neox.layers.1.post_attention_layernorm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_16",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_post_attention_layernorm_bias",
+      "target": "model.gpt_neox.layers.1.post_attention_layernorm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_17",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "245903fa1db82ffee8104fc882ee5636b79efd1bdbbf5a13d0f8fe69f84efd61"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_attention_query_key_value_weight",
+      "target": "model.gpt_neox.layers.1.attention.query_key_value.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_18",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        96
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_attention_query_key_value_bias",
+      "target": "model.gpt_neox.layers.1.attention.query_key_value.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_19",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b8b41d3922460e10cc5bbb46eb48d93a59c4a077d48c5f84460db8b0b63f1d52"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_attention_dense_weight",
+      "target": "model.gpt_neox.layers.1.attention.dense.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_20",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_attention_dense_bias",
+      "target": "model.gpt_neox.layers.1.attention.dense.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_21",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "ad475470bc86a0c47007463cee1331702c901a86c60bd1da35dc9a289d10900a"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_mlp_dense_h_to_4h_weight",
+      "target": "model.gpt_neox.layers.1.mlp.dense_h_to_4h.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_22",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_mlp_dense_h_to_4h_bias",
+      "target": "model.gpt_neox.layers.1.mlp.dense_h_to_4h.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_23",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32,
+        64
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "7acc1b8be6588d6c540ec375787386ce2a324223e7580f3186edd7c3a9d411a4"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_mlp_dense_4h_to_h_weight",
+      "target": "model.gpt_neox.layers.1.mlp.dense_4h_to_h.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_24",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_layers_1_mlp_dense_4h_to_h_bias",
+      "target": "model.gpt_neox.layers.1.mlp.dense_4h_to_h.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_25",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "b638277a8690e175a9137feff1e43c067f9faf4e2f600caf468fb05b0403b717"
+      },
+      "ssa_name": "p_model_gpt_neox_final_layer_norm_weight",
+      "target": "model.gpt_neox.final_layer_norm.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_26",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+      },
+      "ssa_name": "p_model_gpt_neox_final_layer_norm_bias",
+      "target": "model.gpt_neox.final_layer_norm.bias"
+    },
+    {
+      "dtype": "float32",
+      "kind": "PARAMETER",
+      "live": true,
+      "payload_name": "weight_27",
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        128,
+        32
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "0023c8effd875ed0f9c5f63e9e9ac5db23052e9e1fa562a636f1c47dd61f70e4"
+      },
+      "ssa_name": "p_model_lm_head_weight",
+      "target": "model.lm_head.weight"
+    },
+    {
+      "dtype": "float32",
+      "kind": "CONSTANT_TENSOR",
+      "live": true,
+      "payload_name": "tensor_0",
+      "referenced": true,
+      "scalar": true,
+      "shape": [],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+      },
+      "ssa_name": "c_model_gpt_neox_lifted_tensor_0",
+      "target": "model.gpt_neox.lifted_tensor_0"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": true,
+      "payload_name": "tensor_1",
+      "persistent": false,
+      "referenced": true,
+      "scalar": false,
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9d877756a0997bd64e5c564ef48548b144e1fc500cee3eda442fbe375355f683"
+      },
+      "ssa_name": "b_model_gpt_neox_rotary_emb_inv_freq",
+      "target": "model.gpt_neox.rotary_emb.inv_freq"
+    },
+    {
+      "dtype": "float32",
+      "kind": "BUFFER",
+      "live": false,
+      "payload_name": "tensor_2",
+      "persistent": false,
+      "referenced": false,
+      "scalar": false,
+      "shape": [
+        2
+      ],
+      "source": {
+        "kind": "payload",
+        "value_sha256": "9d877756a0997bd64e5c564ef48548b144e1fc500cee3eda442fbe375355f683"
+      },
+      "ssa_name": "b_model_gpt_neox_rotary_emb_original_inv_freq",
+      "target": "model.gpt_neox.rotary_emb.original_inv_freq"
+    }
+  ],
+  "counts": {
+    "BUFFER": 2,
+    "CONSTANT_TENSOR": 1,
+    "PARAMETER": 28
+  },
+  "graph_sha256": "f11d0929ddf13fd708a59310dc40bb432d30d6348af83a1335a68c794a260c0b",
+  "module_prefixes": {},
+  "schema_version": 1
+}

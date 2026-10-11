@@ -1,0 +1,36 @@
+{
+  "artifact_id": "segformer-b0/semantic-segmentation/tiny/forward/fp32/dynamo/static",
+  "cases": [
+    {
+      "id": "case-00",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "b946c9e4f2dfa8e576abb5f8d507c71a5b495828dee69b9115221328edfd2a25",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "3dac9ef93cdb9c1320a705583b3f750a368f0490f1b4cc6625dcca41f440baa6"
+    },
+    {
+      "id": "case-01",
+      "inputs": [
+        "pixel_values"
+      ],
+      "inputs_sha256": "52b36ab7d6a22866462727c269c6461a2e62ef0cb2c81b8242b1a1eee5622253",
+      "outputs": [
+        "logits"
+      ],
+      "outputs_sha256": "ee89d726ea7b2b49fdc2d5205a2652734e3673d902d575762580a963b8b19767"
+    }
+  ],
+  "schema_version": 1,
+  "tolerances": {
+    "atol": 1e-05,
+    "rtol": 0.0001
+  },
+  "weight_source": {
+    "kind": "random",
+    "model_seed": 0
+  }
+}
