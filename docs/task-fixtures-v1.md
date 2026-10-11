@@ -1,12 +1,12 @@
 # Task fixtures v1
 
 Verified publication:
-[task-fixtures-b6daf1af4152-c564bb4b0d83](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-b6daf1af4152-c564bb4b0d83)
-has nine bundles and 41 cases (568,358,848 bytes of archives/manifests).
+[task-fixtures-93c5e3aee057-b186b093955f](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-93c5e3aee057-b186b093955f)
+has nine bundles and 41 cases (568,385,745 bytes of archives/manifests).
 [`task-fixtures.pin.json`](../task-fixtures.pin.json) pins its 15,262-byte index:
-SHA-256 `19649ac9b543aa506302ea6b297f39976d489090f2d9dc9135e56d05bc02ac7a`.
-The generator is `b6daf1af4152d7d14f0764de1d580dc26aa73d98`; the checkpoint
-release producer remains `003207ae59ed0555599da190d70cc3d2f15ad705`.
+SHA-256 `983d11d1f3a1323bcae80290c80b2c6d9433c4249f6ff4b8120a1ebae9e537cd`.
+The generator is `93c5e3aee057898e8ebb84e2d520ede9dfe00a3d`; the checkpoint
+release producer is `16648cd3b2f5bade6bdf77c17fddbb249273130c`.
 
 | Recipe | Kind | Cases |
 | --- | --- | ---: |

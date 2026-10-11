@@ -9,11 +9,11 @@ time-series states. Original checkpoint configurations have separate identities;
 these graphs do not contain pretrained checkpoint weights or establish accuracy.
 
 Pretrained components are published separately in the immutable
-[checkpoint-003207ae59ed release](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/checkpoint-003207ae59ed):
+[checkpoint-16648cd3b2f5 release](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/checkpoint-16648cd3b2f5):
 35 checkpoint-backed graphs with slim bundles, v2 maps, replay cases and a
-[pinned publication index](https://github.com/TheCBaH/devcontainer.transformers/releases/download/checkpoint-003207ae59ed/publication.json).
+[pinned publication index](https://github.com/TheCBaH/devcontainer.transformers/releases/download/checkpoint-16648cd3b2f5/publication.json).
 Raw-input task references are published in
-[task-fixtures-b6daf1af4152-c564bb4b0d83](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-b6daf1af4152-c564bb4b0d83):
+[task-fixtures-93c5e3aee057-b186b093955f](https://github.com/TheCBaH/devcontainer.transformers/releases/tag/task-fixtures-93c5e3aee057-b186b093955f):
 nine bundles, 41 cases, about 542 MiB. The source
 [`task-fixtures.pin.json`](task-fixtures.pin.json) pins its immutable index;
 [`task-fixtures.json` contract](docs/task-fixtures-v1.md) documents consumption. They let OCaml consumers
