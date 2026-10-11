@@ -54,6 +54,26 @@ def test_sentence_pooling_masks_padding_and_normalizes():
     assert torch.equal(empty, torch.zeros_like(empty))
 
 
+def test_modernbert_graph_is_stable_across_caller_hash_seeds(tmp_path):
+    import json
+    import os
+    import subprocess
+    import sys
+
+    graphs = []
+    for seed in ('0', '1'):
+        output = tmp_path / seed
+        process = subprocess.run(
+            [sys.executable, str(ROOT / 'scripts/worker.py'), 'worker', '--root', str(ROOT),
+             '--output', str(output), '--subset', 'modernbert-embed'],
+            env={**os.environ, 'PYTHONHASHSEED': seed, 'HF_HUB_OFFLINE': '1'},
+            capture_output=True, text=True, timeout=180, check=True)
+        result = json.loads(process.stdout.strip().splitlines()[-1])
+        assert result['status'] == 'ok', result
+        graphs.append((output / 'models' / result['artifact_id'] / 'models/model.json').read_bytes())
+    assert graphs[0] == graphs[1]
+
+
 @pytest.mark.parametrize('total,accepted', [(999_999_999, True), (1_000_000_000, False), (1_000_000_001, False)])
 def test_budget_sums_shards_and_refuses_equality(total, accepted):
     sizes = [total // 2, total - total // 2]

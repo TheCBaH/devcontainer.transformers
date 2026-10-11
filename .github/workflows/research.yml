@@ -68,6 +68,9 @@ jobs:
           python-version: '3.13.12'
           enable-cache: true
       - run: make setup
+      - name: Test ModernBERT reproducibility
+        if: ${{ inputs.population == 'tiny' && inputs.subset == 'modernbert-embed' }}
+        run: uv run --frozen pytest -q tests/test_coverage.py -k modernbert
       - run: uv run --frozen hf-pt2 research --population "$PROBE_POPULATION" --subset "$PROBE_SUBSET" --workers 1 --timeout 900 --output .build/research
       - uses: actions/upload-artifact@v7
         if: always()
