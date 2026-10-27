@@ -62,7 +62,7 @@ jobs:
           path: .hf-cache
           key: hf-${{ runner.arch }}-${{ hashFiles('checkpoint-maps/*.json') }}
           restore-keys: hf-${{ runner.arch }}-
-      - uses: astral-sh/setup-uv@v10.3.0
+      - uses: astral-sh/setup-uv@v10.3.2
         with:
           version: '0.12.23'
           python-version: '3.13.12'
@@ -92,7 +92,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           submodules: true
-      - uses: astral-sh/setup-uv@v10.3.0
+      - uses: astral-sh/setup-uv@v10.3.2
         with:
           version: '0.12.23'
           python-version: '3.13.12'
@@ -117,7 +117,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
-      - uses: astral-sh/setup-uv@v10.3.0
+      - uses: astral-sh/setup-uv@v10.3.2
         with:
           version: '0.12.23'
           python-version: '3.13.12'
